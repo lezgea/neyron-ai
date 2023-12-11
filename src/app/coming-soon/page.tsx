@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
-import RightCircles from "../../components/RightCircles";
-import Logo from "../../assets/images/logo.svg";
+import RightCircles from "src/components/RightCircles";
+import Logo from "src/assets/images/logo.svg";
 import Image from "next/image";
 
 const ComingSoon = () => {
