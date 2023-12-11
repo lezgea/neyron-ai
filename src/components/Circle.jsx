@@ -1,5 +1,20 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import Confetti from "react-dom-confetti";
+
+const config = {
+  angle: "252",
+  spread: 360,
+  startVelocity: "28",
+  elementCount: "10",
+  dragFriction: "0.23",
+  duration: "10000",
+  stagger: "0",
+  width: "8px",
+  height: "8px",
+  perspective: "1000px",
+  colors: ["#FF806E", "#5EB1AB", "#8D83FF", "#FFDE8A"],
+};
 
 const Circle = () => {
   const circleRef = useRef(null);
@@ -51,9 +66,12 @@ const Circle = () => {
   } circle`;
 
   return (
-    <div ref={circleRef} className={className} onClick={() => setClickEffect(true)}>
-      <div className="little-circle"></div>
-    </div>
+    <>
+      <div ref={circleRef} className={className} onClick={() => setClickEffect(true)}>
+        <div className="little-circle"></div>
+      </div>
+      <Confetti active={clickEffect} config={config} />
+    </>
   );
 };
 
