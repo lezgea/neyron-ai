@@ -1,0 +1,63 @@
+@mixin breakpoint($point) {
+  @if $point == laptop {
+    @media only screen and (max-width: 1024px) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  } @else if $point == phablet {
+    @media (max-width: 576px) {
+      @content;
+    }
+  } @else if $point == mobile {
+    @media (max-width: 480px) {
+      @content;
+    }
+  }
+}
+
+@mixin fontface($name, $file, $weight, $style: normal) {
+  @font-face {
+    font-family: "#{$name}";
+    src: url("../../assets/fonts/Aloevera-#{$file}.otf");
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@mixin fontSize($fontSize, $fontWeight, $lineHeight, $color) {
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+  color: $color;
+}
+
+@mixin flexBox($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin box($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin defaultSize($color) {
+  @include fontSize(12px, 500, 18px, $color);
+}
+
+@mixin imgBox($width, $height, $objectFit) {
+  width: $width;
+  height: $height;
+  object-fit: $objectFit;
+}
+
+@mixin positionCenter() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
