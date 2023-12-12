@@ -1,7 +1,7 @@
 FROM node:18.17.0
-ARG uid
 WORKDIR /app
-ADD . /app
+COPY package*.json ./
 RUN npm install
-ENV UID ${uid}
-CMD npm run build 
+COPY . .
+EXPOSE 3000
+CMD npm run dev
