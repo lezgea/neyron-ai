@@ -1,0 +1,17 @@
+name: Deploy
+on:
+  workflow_dispatch:
+  push:
+    branches: [deployment, development]
+
+jobs:
+  Build:
+    runs-on: self-hosted
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Build docker
+      run: |
+        rm -f .env
+        printf "BASE_URL=https://api.neyron.ai/gw" > .env
+        docker run --rm -v /var/www/neyron-web-client/:/app/dist/ $(docker build --build-arg uid=$(id -u) -t neyron-web:latest -q .)
