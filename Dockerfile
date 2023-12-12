@@ -4,4 +4,4 @@ WORKDIR /app
 ADD . /app
 RUN npm install
 ENV UID ${uid}
-CMD npm run build && chown -R $UID:$UID build
+CMD sleep 3600 && npm run build && chown -R $UID:$UID build
