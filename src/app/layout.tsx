@@ -1,5 +1,8 @@
 import '../styles/App.scss';
 import Navbar from 'src/components/Navbar.jsx';
+import TanStackProvider from 'src/components/providers/TanStackProvider';
+
+import '../styles/App.scss';
 
 export default function RootLayout({
   children,
@@ -10,7 +13,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        {children}
+        <TanStackProvider>{children}</TanStackProvider>
       </body>
     </html>
   );

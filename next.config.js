@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+<<<<<<< HEAD
 const nextConfig = {
   webpack(config) {
     // Grab the existing rule that handles SVG imports
@@ -29,4 +30,9 @@ const nextConfig = {
   },
 };
 
+=======
+const nextConfig = {};
+
+// eslint-disable-next-line no-use-before-define
+>>>>>>> 8be9a9ad429044a45da4983991b325bb8ff50dd6
 module.exports = nextConfig;
