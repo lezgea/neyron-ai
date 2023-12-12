@@ -14,4 +14,4 @@ jobs:
       run: |
         rm -f .env
         printf "BASE_URL=https://api.neyron.ai/gw" > .env
-        docker run --rm -v /var/www/neyron-web-client/:/app/dist/ $(docker build --build-arg uid=$(id -u) -t neyron-web:latest -q .)
+        docker run --rm -v /var/www/neyron-web-client/:/app/public/ $(docker build --build-arg uid=$(id -u) -t neyron-web:latest -q .)
