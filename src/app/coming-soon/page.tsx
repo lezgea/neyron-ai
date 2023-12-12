@@ -1,8 +1,10 @@
-import Link from "next/link";
-import React from "react";
-import RightCircles from "src/components/RightCircles";
-import Logo from "src/assets/images/logo.svg";
-import Image from "next/image";
+import Link from 'next/link';
+import React, { useState } from 'react';
+import RightCircles from 'src/components/RightCircles';
+import Logo from 'src/assets/images/logo.svg';
+import Image from 'next/image';
+import Icon from 'src/assets/images/comingSoonIcon.svg';
+import SubscribeForm from './subscribeForm';
 
 const ComingSoon = () => {
   return (
@@ -12,18 +14,16 @@ const ComingSoon = () => {
           <Link href="/">
             <Image src={Logo} alt="logo" />
           </Link>
-          <h2>Lorem ipsum doloramet, conse adipiscing elit</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua.
-          </p>
-          <form>
-            <div className="form-group">
-              <label id="email">Lorem ipsum</label>
-              <input type="email" id="email" placeholder="email@mail.com" />
-            </div>
-            <button type="submit">Submit</button>
-          </form>
+          <h2>Get ready</h2>
+          <p>for an inclusive AI learning experience - designed for everyone!</p>
+          <div className="icon-text">
+            <Image src={Icon} alt="icon" />
+            <p>
+              On this beginner-friendly platform, explore interactive challenges, unlock achievements, and
+              enhance your AI skills in a gamified way.
+            </p>
+          </div>
+          <SubscribeForm />
         </div>
       </div>
       <div className="right">

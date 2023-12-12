@@ -1,9 +1,12 @@
-import "../styles/App.scss";
+import TanStackProvider from 'src/components/providers/TanStackProvider';
+import '../styles/App.scss';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <TanStackProvider>{children}</TanStackProvider>
+      </body>
     </html>
   );
 }
