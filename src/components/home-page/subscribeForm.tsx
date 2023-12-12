@@ -3,8 +3,8 @@ import React, { FormEvent, useState } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 
-import SuccessFormIcon from 'src/assets/images/successForm.svg';
 import ErrorIcon from 'src/assets/images/errorIcon.svg';
+import SuccessFormIcon from 'src/assets/images/successForm.svg';
 import Loading from 'src/components/loading';
 
 const SubscribeForm = () => {

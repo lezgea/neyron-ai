@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 import Icon from 'src/assets/images/comingSoonIcon.svg';
 import Logo from 'src/assets/images/logo.svg';
-import RightCircles from 'src/components/RightCircles';
 import SubscribeForm from 'src/components/home-page/subscribeForm';
+import RightCircles from 'src/components/RightCircles';
 
 const App = () => {
   return (
