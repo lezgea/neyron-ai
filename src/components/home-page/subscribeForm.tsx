@@ -34,7 +34,7 @@ const SubscribeForm = () => {
       {!isSuccess ? (
         <>
           <div className="form-group">
-            <label id="email">Stay tuned for an awesome experience!</label>
+            <label id="email">Enter your email</label>
             <input
               type="email"
               id="email"
