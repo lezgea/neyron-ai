@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Aloevera", sans-serif;
+  font-family: 'Aloevera', sans-serif;
 }
 
 html {
@@ -52,4 +52,8 @@ button {
   border: none;
   outline: none;
   background: none;
+}
+
+button {
+  cursor: pointer;
 }
