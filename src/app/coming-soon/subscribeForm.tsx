@@ -1,10 +1,10 @@
 'use client';
-import React, { useState } from 'react';
-import { FormEvent } from 'react';
-import axios from 'axios';
+import React from 'react';
+// import { FormEvent } from 'react';
+// import axios from 'axios';
 
 const SubscribeForm = () => {
-  const [email, setEmail] = useState('');
+  // const [email, setEmail] = useState('');
 
   return (
     <form>
@@ -13,7 +13,7 @@ const SubscribeForm = () => {
         <input
           type="email"
           id="email"
-          onChange={(e) => setEmail(e.target.value)}
+          // onChange={(e) => setEmail(e.target.value)}
           placeholder="email@mail.com"
         />
       </div>

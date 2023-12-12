@@ -1,9 +1,11 @@
-import Link from 'next/link';
-import React, { useState } from 'react';
-import RightCircles from 'src/components/RightCircles';
-import Logo from 'src/assets/images/logo.svg';
+import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+
 import Icon from 'src/assets/images/comingSoonIcon.svg';
+import Logo from 'src/assets/images/logo.svg';
+import RightCircles from 'src/components/RightCircles';
+
 import SubscribeForm from './subscribeForm';
 
 const ComingSoon = () => {
