@@ -1,9 +1,17 @@
-import "../styles/App.scss";
+import '../styles/App.scss';
+import Navbar from 'src/components/Navbar.jsx';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

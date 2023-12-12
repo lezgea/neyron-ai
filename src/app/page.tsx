@@ -1,7 +1,14 @@
-import React from "react";
+'use client';
+
+import React from 'react';
+import Figures from 'src/components/figures/Figures';
 
 const App = () => {
-  return <div>App</div>;
+  return (
+    <div>
+      <Figures />
+    </div>
+  );
 };
 
 export default App;
