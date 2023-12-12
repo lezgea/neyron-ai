@@ -3,13 +3,13 @@ import React, { useEffect, useRef, useState } from "react";
 import Confetti from "react-dom-confetti";
 
 const config = {
-  angle: "252",
+  angle: 252,
   spread: 360,
-  startVelocity: "28",
-  elementCount: "10",
-  dragFriction: "0.23",
-  duration: "10000",
-  stagger: "0",
+  startVelocity: 28,
+  elementCount: 10,
+  dragFriction: 0.23,
+  duration: 10000,
+  stagger: 0,
   width: "8px",
   height: "8px",
   perspective: "1000px",
@@ -17,9 +17,9 @@ const config = {
 };
 
 const Circle = () => {
-  const circleRef = useRef(null);
+  const circleRef = useRef<HTMLDivElement>(null);
   const [hoverEffect, setHoverEffect] = useState(false);
-  const [clickEffect, setClickEffect] = useState(false);
+  const [clickEffect, setClickEffect] = useState<boolean | "transition">(false);
 
   useEffect(() => {
     const handleMouseEnter = () => {
@@ -47,7 +47,7 @@ const Circle = () => {
   }, []);
 
   useEffect(() => {
-    let time;
+    let time: NodeJS.Timeout;
     if (clickEffect) {
       time = setTimeout(() => setClickEffect("transition"), 2000);
     }
@@ -70,7 +70,7 @@ const Circle = () => {
       <div ref={circleRef} className={className} onClick={() => setClickEffect(true)}>
         <div className="little-circle"></div>
       </div>
-      <Confetti active={clickEffect} config={config} />
+      <Confetti active={clickEffect === true} config={config} />
     </>
   );
 };

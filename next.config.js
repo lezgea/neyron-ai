@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {};
 
-module.exports = nextConfig
+// eslint-disable-next-line no-use-before-define
+module.exports = nextConfig;
