@@ -9,7 +9,11 @@
     height: 100%;
     padding-top: 2.25rem;
     padding-left: 3.63rem;
-
+    @include breakpoint(laptop) {
+      width: 100vw;
+      padding-left: 22%;
+      padding-right: 22%;
+    }
     &-content {
       @include flexBox(space-evenly, flex-start);
       flex-direction: column;
@@ -17,6 +21,10 @@
       span {
         @include fontSize(1.25rem, 600, 1.25rem, #414141);
         letter-spacing: 0.05rem;
+        @include breakpoint(laptop) {
+          text-align: center;
+          display: block;
+        }
       }
       h2 {
         @include fontSize(2.75rem, 600, 2.75rem, inherit);
@@ -55,13 +63,14 @@
         }
       }
       form {
+        width: 100%;
         .form-group {
           position: relative;
         }
         label {
-          @include fontSize(0.75rem, 400, 0.8625rem, #6e6e77);
+          @include fontSize(0.8rem, 400, 0.92rem, #6e6e77);
           @include breakpoint(laptop) {
-            @include fontSize(1.7rem, 400, 2rem, #6e6e77);
+            @include fontSize(1.1rem, 400, 1.26rem, #6e6e77);
           }
         }
         input {
@@ -71,9 +80,10 @@
           border-radius: 0.5625rem;
           background: #f4f5f9;
           @include breakpoint(laptop) {
-            @include fontSize(1.7rem, 400, 2rem, #6e6e77);
-            margin: 1.1rem 0;
-            padding: 2.7rem 2.9rem;
+            @include fontSize(1.27rem, 400, 1.5rem, #6e6e77);
+            margin: 0.7rem 0;
+            padding: 1.5rem 1.8rem;
+            height: 4.5rem;
           }
         }
         .input-loading {
@@ -111,8 +121,8 @@
           @include fontSize(0.875rem, 200, 1.00625rem, #6e6e77);
           letter-spacing: 0.0175rem;
           @include breakpoint(laptop) {
-            @include fontSize(2rem, 200, 2.4rem, #6e6e77);
-            letter-spacing: 0.04106rem;
+            @include fontSize(1.27rem, 200, 1.47rem, #6e6e77);
+            letter-spacing: 0.02556rem;
           }
         }
         button[type='submit'] {
@@ -124,10 +134,10 @@
           @include fontSize(0.875rem, 600, 1.00625rem, white);
           letter-spacing: 0.0175rem;
           @include breakpoint(laptop) {
-            @include fontSize(2rem, 600, 2.4rem, white);
-            letter-spacing: 0.04106rem;
-            border-radius: 1.32075rem;
-            padding: 2rem;
+            @include fontSize(1.27rem, 600, 1.48rem, white);
+            letter-spacing: 0.02556rem;
+            border-radius: 0.82256rem;
+            padding: 1.55rem 3.33rem;
           }
         }
       }
