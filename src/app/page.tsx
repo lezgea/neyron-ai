@@ -15,6 +15,7 @@ const App = () => {
           <Link href="/">
             <Image src={Logo} alt="logo" />
           </Link>
+          <div className='coming-soon-mobile-text'>Coming soon...</div>
           <h2>Join us for fun AI learning!</h2>
           <p>
             Our interactive, gamified platform is designed for everyone. Stay tuned for an awesome experience!
