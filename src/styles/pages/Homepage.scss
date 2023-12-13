@@ -1,67 +1,37 @@
-body {
-  overflow: hidden;
-}
-
 .home-page {
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 81px - 75px);
   @include flexBox(space-between, center);
   overflow: hidden;
+
   .left {
-    @include flexBox(center, flex-start);
     width: 42vw;
     height: 100%;
-    padding-top: 3.44rem;
-    padding-left: 5.13rem;
-    overflow: hidden;
-    @include breakpoint(laptop) {
-      width: 100vw;
-      padding-left: 9rem;
-      padding-right: 9rem;
-      padding-bottom: 6.17rem;
-      align-items: center;
-    }
-    @include breakpoint(tablet) {
-      padding-left: 6cqh;
-      padding-right: 6rem;
-    }
+    padding-top: 2.25rem;
+    padding-left: 3.63rem;
+
     &-content {
-      @include breakpoint(laptop) {
-        height: 100%;
-      }
-      .coming-soon-mobile-text {
-        display: none;
-        @include breakpoint(laptop) {
-          @include fontSize(5.27rem, 900, 5.27rem, inherit);
-          display: block;
-          background: linear-gradient(80deg, #ffcdff 0, #a967ff 147.03%, #7f00c5 790.01%);
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          letter-spacing: 0.21094rem;
-          text-transform: uppercase;
-          text-align: center;
-          margin-bottom: 2.5rem;
-        }
-      }
-      a {
-        margin-bottom: 6.14rem;
-        @include breakpoint(laptop) {
-          margin-bottom: 4rem;
-          @include flexBox(center, center);
-        }
+      @include flexBox(space-evenly, flex-start);
+      flex-direction: column;
+      height: 100%;
+      span {
+        @include fontSize(1.25rem, 600, 1.25rem, #414141);
+        letter-spacing: 0.05rem;
       }
       h2 {
-        @include fontSize(4rem, 700, 4.4rem, black);
-        text-transform: uppercase;
-        letter-spacing: 0.16rem;
+        @include fontSize(2.75rem, 600, 2.75rem, inherit);
+        background: linear-gradient(96deg, #ffcdff -35.89%, #a967ff 52.69%, #0400c5 157.1%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 0.11rem;
+        margin-top: 1.34rem;
+        margin-bottom: 1.7rem;
         @include breakpoint(laptop) {
           text-align: center;
         }
       }
       p {
-        margin-top: 0.25rem;
-        margin-bottom: 3.44rem;
         @include fontSize(1.25rem, 400, 1.4375rem, #262626);
         letter-spacing: 0.025rem;
         @include breakpoint(laptop) {
