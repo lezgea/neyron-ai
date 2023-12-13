@@ -4,10 +4,10 @@
   @include flexBox(space-between, center);
   overflow: hidden;
   @include breakpoint(laptop) {
-    height: calc(100vh - 109px - 75px);
+    height: calc(100dvh - 109px - 75px);
   }
   @include breakpoint(phablet) {
-    height: calc(100vh - 70px - 75px);
+    height: calc(100dvh - 70px - 75px);
   }
 
   .left {
@@ -41,7 +41,7 @@
         }
       }
       h2 {
-        @include fontSize(2.75rem, 600, 2.75rem, inherit);
+        @include fontSize(2.75rem, 600, 3.2rem, inherit);
         background: linear-gradient(96deg, #ffcdff -35.89%, #a967ff 52.69%, #0400c5 157.1%);
         background-clip: text;
         -webkit-background-clip: text;
