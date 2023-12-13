@@ -1,24 +1,33 @@
 'use client';
 import React, { FormEvent, useState } from 'react';
-import axios from 'axios';
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 
+import { axiosOpen } from 'src/api/axiosInstance';
 import ErrorIcon from 'src/assets/images/errorIcon.svg';
 import SuccessFormIcon from 'src/assets/images/successForm.svg';
 import Loading from 'src/components/loading';
 
 const SubscribeForm = () => {
+  const searchParams = useSearchParams();
+
   const [email, setEmail] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
 
+  const source = searchParams.get('s');
+  const campaignId = searchParams.get('c');
+
   const _onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      // Make a POST request to the API endpoint
-      const resp = await axios.post('https://api.neyron.ai/v1/email-subscriptions', { email });
+      const resp = await axiosOpen.post('/email-subscriptions', {
+        email,
+        ...(source && { source }),
+        ...(campaignId && { campaignId }),
+      });
       if (resp.data.status === 200) {
         setIsLoading(false);
         setIsSuccess(true);
