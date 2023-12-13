@@ -25,6 +25,7 @@
       padding-left: 13%;
       padding-right: 13%;
     }
+
     &-content {
       @include flexBox(space-evenly, flex-start);
       flex-direction: column;
@@ -187,6 +188,36 @@
             @include fontSize(0.91rem, 600, 1.05rem, white);
             letter-spacing: 0.01819rem;
             padding: 1.1rem 2.36rem;
+          }
+        }
+      }
+    }
+    .monster-div {
+      display: none;
+      @include breakpoint(laptop) {
+        display: block;
+        position: absolute;
+        right: -1px;
+        .monster-img {
+          position: relative;
+          top: -45px;
+        }
+      }
+      @include breakpoint(phablet) {
+        right: -20px;
+
+        .cloud-img {
+          @include box(4.8rem, 2.85rem);
+
+          img {
+            @include imgBox(100%, 100%, contain);
+          }
+        }
+        .monster-img {
+          @include box(6rem, 9rem);
+          top: -20px;
+          img {
+            @include imgBox(100%, 100%, inherit);
           }
         }
       }

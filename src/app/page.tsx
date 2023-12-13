@@ -1,6 +1,8 @@
 import React from 'react';
+import Image from 'next/image';
 
-// import Icon from 'src/assets/images/comingSoonIcon.svg';
+import CloudIcon from 'src/assets/images/cloud-coming-soon.svg';
+import MonsterIcon from 'src/assets/images/monster.svg';
 import SubscribeForm from 'src/components/home-page/subscribeForm';
 import RightCircles from 'src/components/RightCircles';
 
@@ -8,6 +10,14 @@ const App = () => {
   return (
     <section className="home-page">
       <div className="left">
+        <div className="monster-div">
+          <div className="cloud-img">
+            <Image src={CloudIcon} alt="cloud" />
+          </div>
+          <div className="monster-img">
+            <Image src={MonsterIcon} alt="monster" />
+          </div>
+        </div>
         <div className="left-content">
           <div className="left-texts">
             <span>JOIN US</span>
