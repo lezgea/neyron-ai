@@ -1,4 +1,7 @@
 header {
   padding-top: 2.25rem;
   padding-left: 3.63rem;
+  @include breakpoint(laptop) {
+    @include flexBox(center, center);
+  }
 }
