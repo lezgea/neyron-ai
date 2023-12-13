@@ -3,6 +3,12 @@
   height: calc(100vh - 81px - 75px);
   @include flexBox(space-between, center);
   overflow: hidden;
+  @include breakpoint(laptop) {
+    height: calc(100vh - 109px - 75px);
+  }
+  @include breakpoint(phablet) {
+    height: calc(100vh - 70px - 75px);
+  }
 
   .left {
     width: 42vw;
@@ -14,6 +20,11 @@
       padding-left: 22%;
       padding-right: 22%;
     }
+    @include breakpoint(phablet) {
+      width: 100vw;
+      padding-left: 13%;
+      padding-right: 13%;
+    }
     &-content {
       @include flexBox(space-evenly, flex-start);
       flex-direction: column;
@@ -24,6 +35,9 @@
         @include breakpoint(laptop) {
           text-align: center;
           display: block;
+        }
+        @include breakpoint(phablet) {
+          @include fontSize(0.89rem, 600, 0.89rem, #414141);
         }
       }
       h2 {
@@ -38,15 +52,24 @@
         @include breakpoint(laptop) {
           text-align: center;
         }
+        @include breakpoint(phablet) {
+          margin-top: 0.94rem;
+          margin-bottom: 1.12rem;
+          @include fontSize(1.5rem, 600, 1.5rem, #414141);
+          letter-spacing: 0.06rem;
+        }
       }
       p {
         @include fontSize(1.25rem, 400, 1.4375rem, #262626);
         letter-spacing: 0.025rem;
         @include breakpoint(laptop) {
           margin-top: 1rem;
-          margin-top: 5.5rem;
           text-align: center;
           @include fontSize(2rem, 400, 2.3rem, #262626);
+        }
+        @include breakpoint(phablet) {
+          @include fontSize(0.89rem, 400, 1.03rem, #262626);
+          letter-spacing: 0.01775rem;
         }
       }
       .icon-text {
@@ -72,6 +95,10 @@
           @include breakpoint(laptop) {
             @include fontSize(1.1rem, 400, 1.26rem, #6e6e77);
           }
+          @include breakpoint(phablet) {
+            @include fontSize(0.78rem, 400, 0.9rem, #6e6e77);
+            letter-spacing: 0.01556rem;
+          }
         }
         input {
           margin: 0.49rem 0;
@@ -85,6 +112,12 @@
             padding: 1.5rem 1.8rem;
             height: 4.5rem;
           }
+          @include breakpoint(laptop) {
+            margin: 0.5rem 0;
+            padding: 1rem 1.3rem;
+            @include fontSize(0.9rem, 200, 1.05rem, #6e6e77);
+            height: 3rem;
+          }
         }
         .input-loading {
           width: 40px;
@@ -93,11 +126,19 @@
           right: 10px;
           top: 55%;
           transform: translateY(-50%);
+          @include breakpoint(phablet) {
+            @include box(20px, 20px);
+          }
           div {
             width: 32px;
             height: 32px;
             border: 4px solid #a967ff;
             border-color: #a967ff transparent transparent transparent;
+            @include breakpoint(phablet) {
+              @include box(16px, 16px);
+              border: 2px solid #a967ff;
+              border-color: #a967ff transparent transparent transparent;
+            }
           }
         }
         .success-message {
@@ -124,6 +165,9 @@
             @include fontSize(1.27rem, 200, 1.47rem, #6e6e77);
             letter-spacing: 0.02556rem;
           }
+          @include breakpoint(phablet) {
+            @include fontSize(0.9rem, 200, 1.05rem, #6e6e77);
+          }
         }
         button[type='submit'] {
           width: 100%;
@@ -138,6 +182,11 @@
             letter-spacing: 0.02556rem;
             border-radius: 0.82256rem;
             padding: 1.55rem 3.33rem;
+          }
+          @include breakpoint(phablet) {
+            @include fontSize(0.91rem, 600, 1.05rem, white);
+            letter-spacing: 0.01819rem;
+            padding: 1.1rem 2.36rem;
           }
         }
       }

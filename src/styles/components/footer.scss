@@ -3,6 +3,7 @@ footer {
 
   & > div {
     @include flexBox(flex-end, center);
+    @include flexBox(center, center);
     span {
       @include fontSize(0.875rem, 300, 0.875rem, #181818);
     }
