@@ -11,7 +11,7 @@
   }
 
   .left {
-    width: 42vw;
+    width: 33rem;
     height: 100%;
     padding-top: 2.25rem;
     padding-left: 3.63rem;
@@ -21,7 +21,6 @@
       padding-right: 22%;
     }
     @include breakpoint(phablet) {
-      width: 100vw;
       padding-left: 13%;
       padding-right: 13%;
     }
