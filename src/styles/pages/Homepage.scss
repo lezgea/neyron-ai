@@ -4,14 +4,14 @@
   @include flexBox(space-between, center);
   .left {
     @include flexBox(center, flex-start);
-    width: 30vw;
+    width: 42vw;
     height: 100%;
     padding-top: 3.44rem;
     padding-left: 5.13rem;
     @include breakpoint(laptop) {
       width: 100vw;
-      padding-left: 11rem;
-      padding-right: 11rem;
+      padding-left: 9rem;
+      padding-right: 9rem;
       padding-top: 5.44rem;
       padding-bottom: 6.17rem;
       align-items: center;
