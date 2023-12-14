@@ -2,14 +2,44 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import Logo from 'src/assets/images/logo.svg';
+import HeaderSwitch from './headerSwitch';
+
+import Logo from '/public/logo.svg';
 
 const Header = () => {
   return (
     <header>
-      <Link href="/">
-        <Image src={Logo} alt="logo" />
-      </Link>
+      <div className="container header-container">
+        <Link href="/" className="logo">
+          <Image src={Logo} alt="logo" />
+        </Link>
+        <nav>
+          <ul className="list-item">
+            <li>
+              <Link href="/">About us</Link>
+            </li>
+            <li>
+              <Link href="/">Courses</Link>
+            </li>
+            <li>
+              {' '}
+              <Link href="/">Community</Link>
+            </li>
+            <li>
+              <Link href="/">FAQ</Link>
+            </li>
+            <li>
+              <Link href="/contact">Contact us</Link>
+            </li>
+            <li>
+              <HeaderSwitch />
+            </li>
+            <li>
+              <button type="button">Log in</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 };
