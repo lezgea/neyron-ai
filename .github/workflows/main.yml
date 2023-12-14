@@ -14,7 +14,7 @@ jobs:
       run: |
         rm -f .env
         printf "BASE_URL=https://api.neyron.ai/" > .env
-        docker build -t neyron-web .
-        docker stop neyron-web  || true
-        docker rm neyron-web || true
-        docker run -p 3000:3000 -d --name=neyron-web neyron-web  
+        docker build -t neyron-web-demo .
+        docker stop neyron-web-demo  || true
+        docker rm neyron-web-demo || true
+        docker run -p 3001:3000 -d --name=neyron-web-demo neyron-web-demo
