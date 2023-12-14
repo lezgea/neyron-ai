@@ -1,0 +1,42 @@
+.explore-landing {
+  height: calc(100vh - 90px);
+  .explore-left {
+    padding-left: 6rem;
+    padding-top: 6rem;
+    h1 {
+      // width: 42rem;
+      letter-spacing: 0.175rem;
+      @include fontSize(4.375rem, 800, normal, #36373a);
+    }
+    p {
+      // width: 35rem;
+      margin-top: 1.8rem;
+      letter-spacing: 0.0375rem;
+      @include fontSize(1.875rem, 300, 130%, #36373a);
+    }
+    .language {
+      margin-top: 2rem;
+      span {
+        letter-spacing: 0.03088rem;
+        @include fontSize(0.77256rem, 500, 100%, #000);
+        margin-right: 0.5rem;
+      }
+      #lang-select {
+        padding: 0.76rem 0.81rem;
+        border-radius: 0.5625rem;
+        background: #f4f5fb;
+        text-transform: uppercase;
+      }
+    }
+    .start-btn {
+      margin-top: 1.36rem;
+      button {
+        @include fontSize(1rem, 700, normal, #262626);
+        border-radius: 1.1875rem;
+        border: 2px solid #ffcdff;
+        padding: 0.96rem 2.85rem;
+        cursor: pointer;
+      }
+    }
+  }
+}

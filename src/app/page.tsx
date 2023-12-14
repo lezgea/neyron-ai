@@ -1,12 +1,10 @@
-'use client';
-
 import React from 'react';
-import Figures from 'src/components/figures/Figures';
+import Explore from 'src/components/explore/Explore';
 
 const App = () => {
   return (
     <div>
-      <Figures />
+      <Explore />
     </div>
   );
 };

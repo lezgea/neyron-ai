@@ -3,13 +3,14 @@ import { Switch } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
 import Logo from '../../public/logo.svg';
+import Image from 'next/image';
 
 const Navbar = () => {
   return (
     <header>
       <nav className="container">
         <div className="logo">
-          <Logo />
+          <Image src={Logo} alt="logo" />
         </div>
         <ul className="list-item">
           <li>
