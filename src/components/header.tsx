@@ -9,35 +9,37 @@ import Logo from '/public/logo.svg';
 const Header = () => {
   return (
     <header>
-      <nav className="container">
-        <div className="logo">
+      <div className="container header-container">
+        <Link href="/" className="logo">
           <Image src={Logo} alt="logo" />
-        </div>
-        <ul className="list-item">
-          <li>
-            <Link href="/">About us</Link>
-          </li>
-          <li>
-            <Link href="/">Courses</Link>
-          </li>
-          <li>
-            {' '}
-            <Link href="/">Community</Link>
-          </li>
-          <li>
-            <Link href="/">FAQ</Link>
-          </li>
-          <li>
-            <Link href="/">Contact us</Link>
-          </li>
-          <li>
-            <HeaderSwitch />
-          </li>
-          <li>
-            <button type="button">Log in</button>
-          </li>
-        </ul>
-      </nav>
+        </Link>
+        <nav>
+          <ul className="list-item">
+            <li>
+              <Link href="/">About us</Link>
+            </li>
+            <li>
+              <Link href="/">Courses</Link>
+            </li>
+            <li>
+              {' '}
+              <Link href="/">Community</Link>
+            </li>
+            <li>
+              <Link href="/">FAQ</Link>
+            </li>
+            <li>
+              <Link href="/contact">Contact us</Link>
+            </li>
+            <li>
+              <HeaderSwitch />
+            </li>
+            <li>
+              <button type="button">Log in</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 };

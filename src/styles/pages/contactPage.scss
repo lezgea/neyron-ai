@@ -1,0 +1,75 @@
+.contact-page {
+  .contact-container {
+    @include flexBox(center, center);
+    flex-direction: column;
+    form {
+      width: 300px;
+      legend {
+        @include fontSize(20px, 300, 24px, #36373a);
+        text-align: center;
+        margin-bottom: 22px;
+      }
+      .form-group {
+        label {
+          @include fontSize(13px, 400, 14px, #6e6e77);
+          letter-spacing: 0.24px;
+          margin-bottom: 8px;
+        }
+        input,
+        textarea {
+          padding: 15px 20px;
+          border-radius: 9px;
+          background: #f4f5f9;
+          width: 100%;
+          margin-bottom: 10px;
+        }
+        textarea {
+          height: 150px;
+        }
+        ::placeholder {
+          @include fontSize(14px, 200, 16px, #6e6e77);
+          letter-spacing: 0.28px;
+        }
+      }
+      button {
+        @include fontSize(14px, 600, 16px, white);
+        width: 100%;
+        padding: 17px 0;
+        border-radius: 9px;
+        background: linear-gradient(96deg, #ffcdff -65.1%, #a967ff 100.31%, #0400c5 295.29%);
+      }
+    }
+    .contact-email-phone {
+      @include flexBox(space-between, center);
+      flex-direction: column;
+      margin-top: 45px;
+      .email,
+      .phone {
+        a {
+          @include fontSize(18px, 300, 24px, #36373a);
+          letter-spacing: 0.36px;
+        }
+      }
+      .email {
+        margin-bottom: 6px;
+      }
+      .phone {
+        margin-bottom: 27px;
+      }
+    }
+    .social-networks {
+      @include flexBox(center, center);
+      a {
+        &:not(:last-child) {
+          margin-right: 16px;
+        }
+      }
+    }
+    .contact-success {
+      @include flexBox(center, center);
+      img {
+        margin-right: 10px;
+      }
+    }
+  }
+}
