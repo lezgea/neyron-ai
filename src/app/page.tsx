@@ -1,7 +1,13 @@
-import React from "react";
+import React from 'react';
+
+import Explore from 'src/components/explore/Explore';
 
 const App = () => {
-  return <div>App</div>;
+  return (
+    <div>
+      <Explore />
+    </div>
+  );
 };
 
 export default App;

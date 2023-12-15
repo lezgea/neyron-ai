@@ -1,0 +1,13 @@
+footer {
+  padding: 1.62rem 3rem;
+
+  & > div {
+    @include flexBox(flex-end, center);
+    @include breakpoint(laptop) {
+      @include flexBox(center, center);
+    }
+    span {
+      @include fontSize(0.875rem, 300, 0.875rem, #181818);
+    }
+  }
+}
