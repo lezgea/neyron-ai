@@ -1,0 +1,32 @@
+.faq-container {
+  margin-top: 4.23rem;
+  min-height: 100vh;
+  @include flexBox(center, center);
+  flex-direction: column;
+  .page-head {
+    font-size: 3rem;
+  }
+  .accordion-component {
+    margin-top: 4.25rem;
+    .MuiAccordion-root {
+      padding: 1.5rem;
+      border-radius: 1.3125rem;
+      background: #f5f6f9;
+      width: 52rem;
+      margin-bottom: 0.56rem;
+      box-shadow: none !important;
+      &::before {
+        background: none;
+        width: 0px;
+      }
+      .MuiAccordionSummary-content {
+        @include fontSize(1.375rem, 500, 115%, #262626);
+      }
+      .MuiAccordionDetails-root {
+        letter-spacing: 0.0225rem;
+        @include fontSize(1.125rem, 400, 130%, #262626);
+        margin-top: 2.56rem;
+      }
+    }
+  }
+}

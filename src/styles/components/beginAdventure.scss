@@ -1,0 +1,24 @@
+#begin-adventure {
+  min-height: 100vh;
+  .page-head {
+    font-size: 3rem;
+  }
+  .cards-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    .card {
+      object-fit: cover;
+    }
+    .card-2 {
+      position: absolute;
+      top: 2rem;
+      left: 3.6rem;
+    }
+    .card-3 {
+      position: absolute;
+      top: 5rem;
+      left: 7.25rem;
+    }
+  }
+}

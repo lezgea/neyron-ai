@@ -1,0 +1,23 @@
+#why-us {
+  height: 100vh;
+  .boxes {
+    margin-top: 3.56rem;
+    .box {
+      display: flex;
+      &:not(:last-child) {
+        margin-bottom: 3.71rem;
+      }
+      .box-text {
+        margin-left: 0.56rem;
+        .box-head {
+          letter-spacing: 0.02681rem;
+          @include fontSize(1.34rem, 600, 130%, #363739);
+        }
+        .box-info {
+          letter-spacing: 0.01813rem;
+          @include fontSize(0.9rem, 500, 130%, #808080);
+        }
+      }
+    }
+  }
+}
