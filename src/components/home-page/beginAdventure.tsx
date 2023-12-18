@@ -3,8 +3,9 @@ import Image from 'next/image';
 
 import { Grid } from '@mui/material';
 
+import ArrowIcon from '../../../public/arrow.svg';
 import Card1 from '../../../public/backCard.svg';
-import Card2 from '../../../public/frontCard.png';
+import Card2 from '../../../public/frontCard.svg';
 
 const BeginAdventure = () => {
   return (
@@ -30,7 +31,10 @@ const BeginAdventure = () => {
             ignite your AI passion.
           </p>
           <div className="gradient-btn">
-            <button type="button">Let’s start</button>
+            <button type="button">
+              Let’s start
+              <Image src={ArrowIcon} alt="arrow-icon" />
+            </button>
           </div>
         </Grid>
       </Grid>

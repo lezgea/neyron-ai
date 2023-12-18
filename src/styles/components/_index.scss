@@ -1,8 +1,10 @@
 @import 'loading';
 @import 'header';
-@import './Figures';
-@import './Explore';
-@import './whyUs';
-@import './beginAdventure';
-@import './faq';
-@import './aboutUsPage';
+@import 'footer';
+@import 'homePage/Explore';
+@import 'homePage/whyUs';
+@import 'homePage/beginAdventure';
+@import 'homePage/faq';
+@import 'homePage/aboutUsPage';
+@import 'homePage/community';
+@import 'homePage/feedbacks';

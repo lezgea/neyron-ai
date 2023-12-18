@@ -1,9 +1,11 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
 
-// import PlusIcon from '../../../public/plusIcon.svg';
+import MinusIcon from '../../../public/minusIcon.svg';
+import PlusIcon from '../../../public/plusIcon.svg';
 
 interface Props {
   summary: string;
@@ -19,7 +21,15 @@ const AccordionComponent = ({ summary, details }: Props) => {
 
   return (
     <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-      <AccordionSummary expandIcon={''} aria-controls="panel1bh-content" id="panel1bh-header">
+      <AccordionSummary
+        aria-controls="panel1bh-content"
+        id="panel1bh-header"
+        expandIcon={
+          <div className="expand-image">
+            <Image src={expanded ? MinusIcon : PlusIcon} alt="plusIcon" />
+          </div>
+        }
+      >
         {summary}
       </AccordionSummary>
       <AccordionDetails>{details}</AccordionDetails>

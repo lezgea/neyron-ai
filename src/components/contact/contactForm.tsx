@@ -5,7 +5,7 @@ import { axiosOpen } from 'src/api/axiosInstance';
 import { ContactFormState } from 'src/types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { contactFormSchema } from 'src/constant/formValidations';
-import Loading from '../loading';
+import Loading from '../ui/loading';
 import Image from 'next/image';
 import SuccessFormIcon from 'src/assets/images/successForm.svg';
 import InputComponent from '../form/Input';

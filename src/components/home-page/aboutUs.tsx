@@ -1,6 +1,9 @@
 import React from 'react';
+import Image from 'next/image';
 
 import { Grid } from '@mui/material';
+
+import ArrowIcon from '../../../public/arrow.svg';
 
 const AboutUs = () => {
   return (
@@ -20,7 +23,9 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="gradient-btn">
-            <button>Join Now</button>
+            <button>
+              Join Now <Image src={ArrowIcon} alt="arrow-icon" />
+            </button>
           </div>
         </Grid>
       </Grid>

@@ -1,0 +1,68 @@
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+import { Grid } from '@mui/material';
+
+import AilabLogo from 'src/assets/images/ailabLogo.svg';
+
+import FacebookIcon from '../../../public/facebook.svg';
+import InstagramIcon from '../../../public/instagram.svg';
+import LinkedinIcon from '../../../public/linkedin.svg';
+import TiktokIcon from '../../../public/tiktok.svg';
+import WhiteLogo from '../../../public/whiteLogo.svg';
+import YouTubeIcon from '../../../public/youtube.svg';
+
+const Footer = () => {
+  return (
+    <footer>
+      <Grid item xs={12} className="logo-container">
+        <Image src={WhiteLogo} alt="logo" />
+      </Grid>
+      <Grid item xs={12}>
+        <ul className="nav-list">
+          <li>
+            <Link href="/">About us</Link>
+          </li>
+          <li>
+            <Link href="/">Courses</Link>
+          </li>
+          <li>
+            <Link href="/">Community</Link>
+          </li>
+          <li>
+            <Link href="/">FAQ</Link>
+          </li>
+          <li>
+            <Link href="/blog">Blog</Link>
+          </li>
+          <li>
+            <Link href="/">Contact us</Link>
+          </li>
+          <li>
+            <Link href="/">Terms and conditions</Link>
+          </li>
+          <li>
+            <Link href="/">Privacy Policy</Link>
+          </li>
+        </ul>
+      </Grid>
+      <Grid item xs={12} className="bottom-line">
+        <div className="social-media-icons">
+          <Image src={TiktokIcon} alt="tik-tok" />
+          <Image src={FacebookIcon} alt="facebook" />
+          <Image src={InstagramIcon} alt="instagram" />
+          <Image src={LinkedinIcon} alt="linkedin" />
+          <Image src={YouTubeIcon} alt="youtube" />
+        </div>
+        <div className="rights-container">2023 | Neyron.ai | All rights reserved</div>
+        <div className="produced-by">
+          <span>Product of</span>
+          <Image src={AilabLogo} alt="logo" />
+        </div>
+      </Grid>
+    </footer>
+  );
+};
+
+export default Footer;
