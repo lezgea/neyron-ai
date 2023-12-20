@@ -88,6 +88,33 @@ textarea {
   }
 }
 
+.filled-gradient-btn {
+  @include fontSize(14px, 600, 16px, white);
+  width: 100%;
+  padding: 17px 0;
+  border-radius: 9px;
+  background: linear-gradient(96deg, #ffcdff -65.1%, #a967ff 100.31%, #0400c5 295.29%);
+}
+
+.black-btn {
+  @include flexBox(center, center);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5625rem;
+  background: #333;
+  letter-spacing: 0.01875rem;
+  width: 100%;
+  @include fontSize(0.75rem, 500, 1.25rem, #fff);
+  img {
+    margin-right: 0.5rem;
+  }
+}
+
+.line {
+  height: 1px;
+  background-color: #e5e5e5;
+  width: 100%;
+}
+
 .text {
   p {
     @include fontSize(1.125rem, 300, 130%, #36373a);

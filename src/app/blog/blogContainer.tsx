@@ -1,37 +1,36 @@
 'use client';
-import React from 'react';
-import Image from 'next/image';
+import React, { useState } from 'react';
 
 import { Grid } from '@mui/material';
 
-import BlogImg from '../../../public/blogImg.svg';
+import { useGetBlogs } from 'src/api/blog/queries';
+import Paginate from 'src/components/ui/paginate';
 
-const arr = [
-  {
-    id: 1,
-    img: BlogImg,
-    cardHead: 'Confusing material?',
-    cardText:
-      'Dive into the essentials of AI and see how it shapes our world with beginner-friendly course to ignite your ',
-  },
-];
+import OneBlog from './oneBlog';
+
 const BlogContainer = () => {
-  arr?.map((elem) => (
-    <Grid item xs={4}>
-      {' '}
-      <div className="card" key={elem?.id}>
-        <Image src={elem?.img} alt="blog_img" />
-        <div className="card-details">
-          <div className="card-head">
-            <p>{elem?.cardHead}</p>
-          </div>
-          <div className="card-text">
-            <p>{elem?.cardText}</p>
-          </div>
-        </div>
-      </div>
+  const [page, setPage] = useState<number>(0);
+
+  const { data, isPreviousData } = useGetBlogs({ page });
+  console.log(data);
+  return (
+    <Grid container spacing={2} sx={{ mt: 4, mb: 5 }}>
+      {data?.data?.content?.map((elem) => (
+        <Grid item xs={4} key={elem?.content?.id as number}>
+          <OneBlog elem={elem} />
+        </Grid>
+      ))}
+      <Paginate
+        isPreviousData={isPreviousData}
+        count={data?.totalElements}
+        recordSize={data?.size}
+        currentPage={page}
+        onChange={(event, value) => {
+          setPage(value);
+        }}
+      />
     </Grid>
-  ));
+  );
 };
 
 export default BlogContainer;

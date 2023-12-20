@@ -31,13 +31,7 @@
           letter-spacing: 0.28px;
         }
       }
-      button {
-        @include fontSize(14px, 600, 16px, white);
-        width: 100%;
-        padding: 17px 0;
-        border-radius: 9px;
-        background: linear-gradient(96deg, #ffcdff -65.1%, #a967ff 100.31%, #0400c5 295.29%);
-      }
+
     }
     .contact-email-phone {
       @include flexBox(space-between, center);

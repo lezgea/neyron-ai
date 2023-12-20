@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import BeginAdventure from 'src/components/home-page/beginAdventure';
@@ -11,7 +12,7 @@ import AboutUs from '../components/home-page/aboutUs';
 
 const App = () => {
   return (
-    <div>
+    <>
       <Explore />
       <AboutUs />
       <WhyUs />
@@ -19,7 +20,7 @@ const App = () => {
       <Community />
       <Feedbacks />
       <Faq />
-    </div>
+    </>
   );
 };
 

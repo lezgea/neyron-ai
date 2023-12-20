@@ -35,7 +35,10 @@ const Header = () => {
               <HeaderSwitch />
             </li>
             <li>
-              <button type="button">Log in</button>
+              <Link href="/login">
+                {' '}
+                <button type="button">Log in</button>
+              </Link>
             </li>
           </ul>
         </nav>
