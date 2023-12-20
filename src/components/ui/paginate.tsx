@@ -3,10 +3,11 @@ import React from 'react';
 import { Pagination } from '@mui/material';
 
 interface PropsTypes {
-  count: number;
-  recordSize: number;
-  onChange: (value: number) => void; // Adjust the type of onChange to accept a number
+  count: number | undefined;
+  recordSize: number | undefined;
+  onChange: (value: number) => void;
   currentPage: number;
+  isPreviousData: boolean;
 }
 
 const Paginate = (props: PropsTypes) => {
@@ -15,8 +16,6 @@ const Paginate = (props: PropsTypes) => {
     <div>
       <Pagination
         count={amountPages}
-        onChange={(event, value) => props.onChange(value)}
-        page={props.currentPage}
       />
     </div>
   ) : (

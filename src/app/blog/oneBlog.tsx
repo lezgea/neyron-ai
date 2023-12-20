@@ -19,7 +19,7 @@ interface Content {
   filePath: string;
 }
 
-const OneBlog = ({ elem }: { elem: DataType }) => {
+const OneBlog = ({ elem, isLoading }: { elem: DataType; isLoading: boolean }) => {
   const [imageSrc, setImageSrc] = useState<string | undefined>(undefined);
   const { data: file, isLoading: fileLoading } = useGetFile({ path: elem?.cover?.filePath });
 
@@ -32,18 +32,14 @@ const OneBlog = ({ elem }: { elem: DataType }) => {
 
   return (
     <div className="card">
-      {true ? (
-        <Skeleton sx={{width}} />
+      {fileLoading ? (
+        <Skeleton width={350} height={350} />
       ) : (
         <Image src={imageSrc} alt="blog_img" width={350} height={350} className="blog-img" />
       )}
       <div className="card-details">
-        <div className="card-head">
-          <p>{elem?.title}</p>
-        </div>
-        <div className="card-text">
-          <p>{elem?.description}</p>
-        </div>
+        <div className="card-head">{isLoading ? <Skeleton /> : <p>{elem?.title}</p>}</div>
+        <div className="card-text">{isLoading ? <Skeleton /> : <p>{elem?.description}</p>}</div>
       </div>
     </div>
   );
