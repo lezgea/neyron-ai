@@ -104,6 +104,7 @@ textarea {
   letter-spacing: 0.01875rem;
   width: 100%;
   @include fontSize(0.75rem, 500, 1.25rem, #fff);
+  margin-top: 2rem;
   img {
     margin-right: 0.5rem;
   }
@@ -135,4 +136,10 @@ textarea {
   margin-top: 1.8rem;
   letter-spacing: 0.0375rem;
   @include fontSize(1.875rem, 300, 130%, #36373a);
+}
+
+.link-text {
+  letter-spacing: 0.01875rem;
+  @include fontSize(0.75rem, 500, 1.25rem, #007aff);
+  margin-left: 5px;
 }

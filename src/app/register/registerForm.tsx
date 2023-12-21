@@ -6,27 +6,28 @@ import { useGoogleLogin } from '@react-oauth/google';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { FormControlLabel, Switch } from '@mui/material';
+import { Checkbox } from '@mui/material';
 
 import { useLogin } from 'src/api/login/mutation';
-import { loginFormSchema } from 'src/constant/formValidations';
+import { RegisterFormSchema } from 'src/constant/formValidations';
 
+import CheckBoxIcon from '../../../public/checkBox.svg';
 import EyeIcon from '../../../public/eyeIcon.svg';
 import GoogleIcon from '../../../public/googleIcon.svg';
-interface LoginForm {
+interface RegisterForm {
   email: string;
   password: string;
 }
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const [inputType, setInputType] = useState(true);
 
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<LoginForm>({
-    resolver: yupResolver(loginFormSchema),
+  } = useForm<RegisterForm>({
+    resolver: yupResolver(RegisterFormSchema),
   });
 
   const login = useGoogleLogin({
@@ -36,7 +37,7 @@ const LoginForm = () => {
 
   const { mutate } = useLogin();
 
-  const onSubmit = (values: LoginForm) => {
+  const onSubmit = (values: RegisterForm) => {
     mutate(
       {
         email: values?.email,
@@ -60,7 +61,7 @@ const LoginForm = () => {
         <input type="email" {...register('email')} id="email" placeholder="Email" />
       </div>
       <div className="form-group">
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Create password</label>
         <div className="password-input">
           <input
             {...register('password')}
@@ -72,39 +73,44 @@ const LoginForm = () => {
         </div>
       </div>
       <div className="form-details">
-        <FormControlLabel
-          value="remember"
-          control={
-            <Switch
-              defaultChecked={true}
-              className="remember-switch"
-              onChange={() => {}}
-              inputProps={{ 'aria-label': 'controlled' }}
-            />
-          }
-          label="Remember me"
-          labelPlacement="end"
+        <Checkbox
+          {...{ inputProps: { 'aria-label': 'Checkbox demo' } }}
+          defaultChecked
+          checkedIcon={<Image src={CheckBoxIcon} alt="checkBox" />}
+          icon={<Image src={CheckBoxIcon} alt="checkBox" />}
+          sx={{
+            color: '#B4B4B4',
+            borderRadius: 50,
+            '&.Mui-checked': {
+              color: '#4285F4',
+            },
+          }}
         />
-        <p className="link-text">Forgot password?</p>
+        <p style={{ display: 'flex', alignItems: 'center' }}>
+          I agree with
+          <Link className="link-text" href="/register">
+            user terms and conditiouns & privacy policy
+          </Link>
+        </p>
       </div>
       <button type="submit" className="filled-gradient-btn">
-        Login
+        Sign up
       </button>
 
       <div className="line"></div>
 
       <button type="submit" className="black-btn" onClick={() => login()}>
         <Image src={GoogleIcon} alt="sign in with Google" />
-        Or sign in with Google
+        Or sign up with Google
       </button>
       <p className="sign-up">
-        Dont have an account?{' '}
-        <Link href="/register" className="link-text">
-           Sign up now
+        Have an account?
+        <Link href="/login" className="link-text">
+          Login
         </Link>
       </p>
     </form>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
