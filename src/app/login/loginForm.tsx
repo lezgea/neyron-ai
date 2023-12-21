@@ -1,28 +1,36 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Switch } from '@nextui-org/react';
-import { NextUIProvider } from '@nextui-org/react';
+import { useGoogleLogin } from '@react-oauth/google';
 import Image from 'next/image';
+
+import { FormControlLabel, Switch } from '@mui/material';
 
 import { useLogin } from 'src/api/login/mutation';
 import { loginFormSchema } from 'src/constant/formValidations';
 
+import EyeIcon from '../../../public/eyeIcon.svg';
 import GoogleIcon from '../../../public/googleIcon.svg';
-
 interface LoginForm {
   email: string;
   password: string;
 }
 
 const LoginForm = () => {
+  const [inputType, setInputType] = useState(true);
+  
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm<LoginForm>({
     resolver: yupResolver(loginFormSchema),
+  });
+
+  const login = useGoogleLogin({
+    onSuccess: (tokenResponse) => console.log(tokenResponse),
+    onError: (error) => console.log(error),
   });
 
   const { mutate } = useLogin();
@@ -34,43 +42,64 @@ const LoginForm = () => {
         password: values?.password,
       },
       {
-        onSuccess: () => {},
-        onError: () => {},
+        onSuccess: () => {
+          alert('onSuccess');
+        },
+        onError: () => {
+          alert('error');
+        },
       }
     );
   };
 
   return (
-    <NextUIProvider>
-      {' '}
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input type="email" {...register('email')} id="email" placeholder="Email" />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="form-group">
+        <label htmlFor="email">Email</label>
+        <input type="email" {...register('email')} id="email" placeholder="Email" />
+      </div>
+      <div className="form-group">
+        <label htmlFor="password">Password</label>
+        <div className="password-input">
+          <input
+            {...register('password')}
+            id="password"
+            placeholder="Enter password"
+            type={inputType ? 'text' : 'password'}
+          />
+          <Image src={EyeIcon} alt="eye icon" onClick={() => setInputType(!inputType)} />
         </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input type="password" {...register('password')} id="password" placeholder="Enter password" />
-        </div>
-        <div className="form-details">
-          {' '}
-          <Switch>Remember me</Switch>
-        </div>
-        <button type="submit" className="filled-gradient-btn">
-          Login
-        </button>
+      </div>
+      <div className="form-details">
+        <FormControlLabel
+          value="remember"
+          control={
+            <Switch
+              defaultChecked={true}
+              className="remember-switch"
+              onChange={() => {}}
+              inputProps={{ 'aria-label': 'controlled' }}
+            />
+          }
+          label="Remember me"
+          labelPlacement="end"
+        />
+        <p className="link-text">Forgot password?</p>
+      </div>
+      <button type="submit" className="filled-gradient-btn">
+        Login
+      </button>
 
-        <div className="line"></div>
+      <div className="line"></div>
 
-        <button type="submit" className="black-btn">
-          <Image src={GoogleIcon} alt="sign in with Google" />
-          Or sign in with Google
-        </button>
-        <p>
-          Dont have an account? <span>Sign up now</span>
-        </p>
-      </form>
-    </NextUIProvider>
+      <button type="submit" className="black-btn" onClick={() => login()}>
+        <Image src={GoogleIcon} alt="sign in with Google" />
+        Or sign in with Google
+      </button>
+      <p className="sign-up">
+        Dont have an account? <span className="link-text">Sign up now</span>
+      </p>
+    </form>
   );
 };
 

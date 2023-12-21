@@ -5,7 +5,7 @@ import { QUERY_KEYS } from '../query_keys';
 
 export const useLogin = (): unknown => {
   const queryClient = useQueryClient();
-  return useMutation((data) => axiosOpen.post('/v1/users/login', data), {
+  return useMutation((data) => axiosOpen.post('users/login', data), {
     onSuccess: () => {
       queryClient.invalidateQueries([QUERY_KEYS.login]);
     },
