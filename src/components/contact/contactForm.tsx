@@ -1,14 +1,16 @@
 'use client';
 import React, { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { axiosOpen } from 'src/api/axiosInstance';
-import { ContactFormState } from 'src/types';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { contactFormSchema } from 'src/constant/formValidations';
-import Loading from '../loading';
 import Image from 'next/image';
+
+import { axiosOpen } from 'src/api/axiosInstance';
 import SuccessFormIcon from 'src/assets/images/successForm.svg';
+import { contactFormSchema } from 'src/constant/formValidations';
+import { ContactFormState } from 'src/types';
+
 import InputComponent from '../form/Input';
+import Loading from '../ui/loading';
 
 const ContactForm = () => {
   const {
@@ -69,7 +71,7 @@ const ContactForm = () => {
               <label htmlFor="message">Message</label>
               <textarea id="message" {...register('message')} placeholder="Text here" />
             </div>
-            <button type="submit">Send</button>
+            <button type="submit" className='filled-gradient-btn'>Send</button>
           </>
         )}
       </fieldset>

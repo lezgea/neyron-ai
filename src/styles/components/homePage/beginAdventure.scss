@@ -1,0 +1,60 @@
+#begin-adventure {
+  min-height: 100vh;
+  .page-head {
+    font-size: 3rem;
+  }
+  .cards-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    .card {
+      cursor: pointer;
+      object-fit: initial;
+      width: 19rem;
+    }
+    .card-1 {
+      //   background-color: green;
+    }
+    .card-2 {
+      //   background-color: red;
+      position: absolute;
+      top: 2rem;
+      left: 3.6rem;
+      transition: left 1s ease-in-out;
+      //   transition: transform 1s ease-in-out;
+    //   &:hover {
+    //     top: -4rem;
+    //   }
+    //   &:hover ~ .card-1 {
+    //     position: absolute;
+    //     z-index: -1;
+    //     transform: rotate(-20deg);
+    //     left: -5rem;
+    //   }
+    //   &:hover ~ .card-1 {
+    //     position: absolute;
+    //     z-index: 6;
+    //     transform: rotate(20deg);
+    //     right: -5rem;
+    //   }
+    }
+    .card-3 {
+      //   background-color: blue;
+      position: absolute;
+      top: 5rem;
+      left: 7.25rem;
+      transition: left 1s ease-in-out;
+      transition: transform 1s ease-in-out;
+      &:hover {
+        position: absolute;
+        left: -10px;
+        top: 0px;
+        img {
+          width: 35rem;
+          object-fit: cover;
+          transform: rotate(3deg);
+        }
+      }
+    }
+  }
+}
