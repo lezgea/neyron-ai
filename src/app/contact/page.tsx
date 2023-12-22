@@ -1,13 +1,13 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 
-import ContactForm from 'src/components/contact/contactForm';
 import FbIcon from 'src/assets/images/fb-icon.svg';
 import InstaIcon from 'src/assets/images/insta-icon.svg';
 import LinkedinIcon from 'src/assets/images/linkedin-icon.svg';
 import TiktokIcon from 'src/assets/images/tiktok-icon.svg';
 import YoutubeIcon from 'src/assets/images/youtube-icon.svg';
-import Image from 'next/image';
+import ContactForm from 'src/components/contact/contactForm';
 
 const Contact = () => {
   return (

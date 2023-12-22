@@ -1,20 +1,22 @@
 'use client';
 import React, { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { axiosOpen } from 'src/api/axiosInstance';
-import { ContactFormState } from 'src/types';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { contactFormSchema } from 'src/constant/formValidations';
-import Loading from '../loading';
 import Image from 'next/image';
+
+import { axiosOpen } from 'src/api/axiosInstance';
 import SuccessFormIcon from 'src/assets/images/successForm.svg';
-import InputComponent from '../form/Input';
+import { contactFormSchema } from 'src/constant/formValidations';
+import { ContactFormState } from 'src/types';
+
+// import InputComponent from '../form/Input';
+import Loading from '../loading';
 
 const ContactForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    // formState: { errors },
   } = useForm<ContactFormState>({
     resolver: yupResolver(contactFormSchema),
   });
