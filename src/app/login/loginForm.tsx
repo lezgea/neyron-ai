@@ -13,6 +13,7 @@ import { loginFormSchema } from 'src/constant/formValidations';
 
 import EyeIcon from '../../../public/eyeIcon.svg';
 import GoogleIcon from '../../../public/googleIcon.svg';
+
 interface LoginForm {
   email: string;
   password: string;
@@ -85,7 +86,9 @@ const LoginForm = () => {
           label="Remember me"
           labelPlacement="end"
         />
-        <p className="link-text">Forgot password?</p>
+        <Link href="/forgotPassword" className="link-text">
+          Forgot password?
+        </Link>
       </div>
       <button type="submit" className="filled-gradient-btn">
         Login
@@ -100,7 +103,7 @@ const LoginForm = () => {
       <p className="sign-up">
         Dont have an account?{' '}
         <Link href="/register" className="link-text">
-           Sign up now
+          Sign up now
         </Link>
       </p>
     </form>

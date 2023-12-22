@@ -12,7 +12,7 @@ const Explore = () => {
     {
       src: LandingAnimation1,
       autoplay: true,
-      animations: 'figures',
+      animations: 'State Machine 1',
       layout: new Layout({
         fit: Fit.Cover,
         alignment: Alignment.Center,
@@ -23,33 +23,15 @@ const Explore = () => {
     }
   );
 
-  const [maxWidth, setMaxWidth] = useState();
-  const [maxHeight, setMaxHeight] = useState();
-
-  const xAxisInput = useStateMachineInput(rive, 'HitBox listener', 'xAxis', 0);
-  const yAxisInput = useStateMachineInput(rive, 'HitBox listener', 'yAxis', 0);
-
   useEffect(() => {
-    const body = document.querySelector('body');
-    if (body) {
-      const bodyRect = body.getBoundingClientRect();
-      setMaxWidth(bodyRect.right);
-      setMaxHeight(bodyRect.bottom);
+    if (rive) {
+      rive?.play('figures');
+      const eyeAnimation = () => {
+        rive?.play('eyes animation');
+      };
+      setTimeout(eyeAnimation, 3000);
     }
-  }, []);
-
-  useEffect(() => {
-    const update = (e) => {
-      if (maxWidth && maxHeight && yAxisInput && xAxisInput) {
-        xAxisInput.value = (e.x / maxWidth) * 100;
-        yAxisInput.value = 100 - (e.y / maxHeight) * 100;
-      }
-    };
-    window.addEventListener('mousemove', update);
-    return () => {
-      window.removeEventListener('mousemove', update);
-    };
-  }, [xAxisInput, yAxisInput, maxHeight, maxWidth]);
+  }, [rive]);
 
   return (
     <section id="explore-landing" className="container">

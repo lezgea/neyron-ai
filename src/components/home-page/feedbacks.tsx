@@ -5,12 +5,14 @@ import { Grid } from '@mui/material';
 
 import Person2 from '../../../public/anne.svg';
 import Person4 from '../../../public/khayal.svg';
+import MonsterWithThanks from '../../../public/monsterWithThanks.svg';
 import Person1 from '../../../public/roger.svg';
 import Person3 from '../../../public/samantha.svg';
 
 const Feedbacks = () => {
   return (
     <section id="feedbacks" className="container">
+      <Image src={MonsterWithThanks} alt="monster" className="feedback-image" />
       <Grid container className="feedback-container">
         <Grid item xs={12} className="feedback-head-container">
           <h1 className="page-head">Feedbacks</h1>
