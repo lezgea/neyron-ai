@@ -79,7 +79,9 @@ const LoginForm = () => {
             <Switch
               defaultChecked={true}
               className="remember-switch"
-              onChange={() => {}}
+              onChange={(newValue) => {
+                setChecked(newValue);
+              }}
               inputProps={{ 'aria-label': 'controlled' }}
             />
           }

@@ -9,9 +9,10 @@ import Link from 'next/link';
 import { Checkbox } from '@mui/material';
 
 import { useLogin } from 'src/api/login/mutation';
-import { RegisterFormSchema } from 'src/constant/formValidations';
+import { loginFormSchema } from 'src/constant/formValidations';
 
 import CheckBoxIcon from '../../../public/checkBox.svg';
+import CheckedIcon from '../../../public/checkedIcon.svg';
 import EyeIcon from '../../../public/eyeIcon.svg';
 import GoogleIcon from '../../../public/googleIcon.svg';
 interface RegisterForm {
@@ -27,7 +28,7 @@ const RegisterForm = () => {
     formState: { errors },
     handleSubmit,
   } = useForm<RegisterForm>({
-    resolver: yupResolver(RegisterFormSchema),
+    resolver: yupResolver(loginFormSchema),
   });
 
   const login = useGoogleLogin({
@@ -77,7 +78,7 @@ const RegisterForm = () => {
           {...{ inputProps: { 'aria-label': 'Checkbox demo' } }}
           defaultChecked
           checkedIcon={<Image src={CheckBoxIcon} alt="checkBox" />}
-          icon={<Image src={CheckBoxIcon} alt="checkBox" />}
+          icon={<Image src={CheckedIcon} alt="checkBox" />}
           sx={{
             color: '#B4B4B4',
             borderRadius: 50,

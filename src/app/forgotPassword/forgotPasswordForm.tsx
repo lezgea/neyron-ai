@@ -20,6 +20,7 @@ const ForgotPassword = () => {
     register,
     formState: { errors },
     handleSubmit,
+    watch,
   } = useForm<ForgotPassword>({
     resolver: yupResolver(forgotPasswordSchema),
   });
@@ -36,7 +37,7 @@ const ForgotPassword = () => {
           <div className="modal-head">
             {' '}
             <h1>Check your email</h1>
-            <p>We've sent a message to rahilali97@gmail.com with a link to activate your account.</p>
+            <p>We've sent a message to {watch('email')} with a link to activate your account.</p>
           </div>
           <div className="medias">
             <Link href="https://mail.google.com/mail" target="_blank">
