@@ -21,7 +21,7 @@ interface LoginForm {
 
 const LoginForm = () => {
   const [inputType, setInputType] = useState(true);
-
+  const [checked, setChecked] = useState(false);
   const {
     register,
     formState: { errors },
