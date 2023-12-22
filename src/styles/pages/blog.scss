@@ -1,0 +1,25 @@
+#blog {
+  //   min-height: 100vh;
+  padding-top: 2.5rem;
+  .page-head {
+    font-size: 1.625rem;
+  }
+  .card {
+    cursor: pointer;
+    .card-head {
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.0225rem;
+      margin-top: 1rem;
+      @include fontSize(1.125rem, 600, 130%, #36373a);
+    }
+    .card-text {
+      letter-spacing: 0.02rem;
+      @include fontSize(1rem, 400, 122%, #5f6166);
+    }
+    .blog-img {
+      width: 24rem;
+      height: 18rem;
+      border-radius: 17px;
+    }
+  }
+}
