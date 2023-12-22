@@ -11,8 +11,8 @@ export interface Pageable {
   unpaged: boolean;
 }
 
-export interface Data {
-  content: []; // Define the type of content if known, otherwise use 'any'
+export interface Data<T> {
+  content: T[]; // Define the type of content if known, otherwise use 'any'
   pageable: Pageable;
   last: boolean;
   totalElements: number;
@@ -29,8 +29,8 @@ export interface Data {
   empty: boolean;
 }
 
-export interface BackendResponse {
+export interface BackendResponse<T> {
   status: number;
   key: string;
-  data: Data;
+  data: Data<T>;
 }

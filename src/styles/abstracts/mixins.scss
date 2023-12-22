@@ -20,8 +20,8 @@
 
 @mixin fontface($name, $file, $weight, $style: normal) {
   @font-face {
-    font-family: "#{$name}";
-    src: url("../../assets/fonts/Aloevera-#{$file}.otf");
+    font-family: '#{$name}';
+    src: url('../../assets/fonts/Aloevera-#{$file}.otf');
     font-weight: $weight;
     font-style: $style;
   }

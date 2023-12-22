@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import Circle from "./Circle";
+import Circle from './Circle';
 
 const RightCircles = () => {
   const divArray = new Array(1000).fill(null);
