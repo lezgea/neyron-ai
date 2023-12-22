@@ -9,14 +9,14 @@ import SuccessFormIcon from 'src/assets/images/successForm.svg';
 import { contactFormSchema } from 'src/constant/formValidations';
 import { ContactFormState } from 'src/types';
 
-import InputComponent from '../form/Input';
+// import InputComponent from '../form/Input';
 import Loading from '../ui/loading';
 
 const ContactForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    // formState: { errors },
   } = useForm<ContactFormState>({
     resolver: yupResolver(contactFormSchema),
   });
@@ -71,7 +71,9 @@ const ContactForm = () => {
               <label htmlFor="message">Message</label>
               <textarea id="message" {...register('message')} placeholder="Text here" />
             </div>
-            <button type="submit" className='filled-gradient-btn'>Send</button>
+            <button type="submit" className="filled-gradient-btn">
+              Send
+            </button>
           </>
         )}
       </fieldset>

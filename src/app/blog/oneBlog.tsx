@@ -6,20 +6,7 @@ import Link from 'next/link';
 import { Skeleton } from '@mui/material';
 
 import { useGetFile } from 'src/api/file/queries';
-
-interface DataType {
-  title: string;
-  description: string;
-  cover: Content;
-  content: Content;
-  publishDate: Date;
-  id: number;
-}
-
-interface Content {
-  id: number;
-  filePath: string;
-}
+import { DataType } from 'src/types';
 
 const OneBlog = ({ elem, isLoading }: { elem: DataType; isLoading: boolean }) => {
   const [imageSrc, setImageSrc] = useState<string | undefined>(undefined);
@@ -39,7 +26,7 @@ const OneBlog = ({ elem, isLoading }: { elem: DataType; isLoading: boolean }) =>
         {fileLoading ? (
           <Skeleton width={350} height={350} />
         ) : (
-          <Image src={imageSrc} alt="blog_img" width={350} height={350} className="blog-img" />
+          <Image src={imageSrc as string} alt="blog_img" width={350} height={350} className="blog-img" />
         )}
         <div className="card-details">
           <div className="card-head">{isLoading ? <Skeleton /> : <p>{elem?.title}</p>}</div>

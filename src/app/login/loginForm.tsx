@@ -2,13 +2,13 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useGoogleLogin } from '@react-oauth/google';
+// import { useGoogleLogin } from '@react-oauth/google';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { FormControlLabel, Switch } from '@mui/material';
 
-import { useLogin } from 'src/api/login/mutation';
+// import { useLogin } from 'src/api/login/mutation';
 import { loginFormSchema } from 'src/constant/formValidations';
 
 import EyeIcon from '../../../public/eyeIcon.svg';
@@ -24,34 +24,35 @@ const LoginForm = () => {
   const [checked, setChecked] = useState(false);
   const {
     register,
-    formState: { errors },
+    // formState: { errors },
     handleSubmit,
   } = useForm<LoginForm>({
     resolver: yupResolver(loginFormSchema),
   });
 
-  const login = useGoogleLogin({
-    onSuccess: (tokenResponse) => console.log(tokenResponse),
-    onError: (error) => console.log(error),
-  });
+  // const login = useGoogleLogin({
+  //   onSuccess: (tokenResponse) => console.log(tokenResponse),
+  //   onError: (error) => console.log(error),
+  // });
 
-  const { mutate } = useLogin();
+  // const { mutate } = useLogin();
 
   const onSubmit = (values: LoginForm) => {
-    mutate(
-      {
-        email: values?.email,
-        password: values?.password,
-      },
-      {
-        onSuccess: () => {
-          alert('onSuccess');
-        },
-        onError: () => {
-          alert('error');
-        },
-      }
-    );
+    alert(values);
+    // mutate(
+    //   {
+    //     email: values?.email,
+    //     password: values?.password,
+    //   },
+    //   {
+    //     onSuccess: () => {
+    //       alert('onSuccess');
+    //     },
+    //     onError: () => {
+    //       alert('error');
+    //     },
+    //   },
+    // );
   };
 
   return (
@@ -98,7 +99,11 @@ const LoginForm = () => {
 
       <div className="line"></div>
 
-      <button type="submit" className="black-btn" onClick={() => login()}>
+      <button
+        type="submit"
+        className="black-btn"
+        // onClick={() => login()}
+      >
         <Image src={GoogleIcon} alt="sign in with Google" />
         Or sign in with Google
       </button>

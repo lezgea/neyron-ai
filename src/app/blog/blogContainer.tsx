@@ -18,7 +18,7 @@ const BlogContainer = () => {
       {' '}
       <Grid container spacing={2} sx={{ mt: 4, mb: 5 }}>
         {data?.data?.content?.map((elem) => (
-          <Grid item xs={4} key={elem?.content?.id as number}>
+          <Grid item xs={4} key={elem?.id}>
             <OneBlog elem={elem} isLoading={isLoading} />
           </Grid>
         ))}

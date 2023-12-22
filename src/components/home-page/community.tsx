@@ -1,9 +1,9 @@
 import React from 'react';
+import Image from 'next/image';
 
 import { Grid } from '@mui/material';
 
 import ArrowIcon from '../../../public/arrow.svg';
-import Image from 'next/image';
 
 const Community = () => {
   return (

@@ -1,0 +1,44 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo 'HUSKY xodlandı. ✍️ ✍️   Git commit prosesi başlayır. ⌛⌛⌛⌛⌛'
+
+# Check Prettier standards
+npm run check-format ||
+(
+    echo 'PRETTIER FAILED ❌✋❌✋❌✋❌✋❌✋❌✋❌✋❌✋❌
+    ƏZİZ DEVELOPERİM, Prettier-də xəta var. NPM RUN FORMAT command`ını işə sal sonra git commit et!';
+    false;
+)
+
+# Check ESLint Standards
+npm run check-lint ||
+(
+        echo 'ESLINT FAILED ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
+        ƏZİZ DEVELOPERİM, ESLint-də xəta var. Göstərilən faylda düzəlişi et, sonra git commit et!'
+        false; 
+)
+
+# Check tsconfig standards
+npm run check-types ||
+(
+    echo 'TYPESCIRPT FAILED. ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
+            ƏZİZ DEVELOPERİM, Typescript xətası alıram. Göstərilən fayldakı xətanı düzəlt. ÇAŞIB ANY YAZMA, BU DƏFƏ ESLİNTDƏN KEÇMƏYƏCƏK. 
+            simple-import-sort xətası gəlirsə NPM RUN LINT_FIX commandını işə sal
+            Daha sonra git commit et!'
+    false;
+)
+
+# If everything passes... Now we can commit
+echo '✌️✌️ OBAAAAAAA ESLint Prettier və TypeScriptdən kodların keçdi. Görək build prosesindən keçəçəkmi? ✨✨✨✨'
+
+npm run build ||
+(
+    echo 'BUILD prosesində xəta var ❌✋❌✋❌✋❌✋❌✋❌✋❌✋❌✋❌
+    ƏZİZ DEVELOPERİM, Next build prosesində xəta baş verib. Bax gör nədir məsələ. Həll etdikdən sonra git commit et! 
+    '
+    false;
+)
+
+# If everything passes... Now we can commit
+echo '❤️❤️❤️❤️  SƏN MUJİKSƏN... HUSKY prosesi uğurla başa çatdı . ✅✅✅✅'

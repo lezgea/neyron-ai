@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Grid } from '@mui/material';
 
-
 import FaqContainer from './faqContainer';
 
 const Faq = () => {

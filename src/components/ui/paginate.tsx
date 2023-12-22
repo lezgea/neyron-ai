@@ -11,12 +11,10 @@ interface PropsTypes {
 }
 
 const Paginate = (props: PropsTypes) => {
-  const amountPages = Math.ceil(props.count / props.recordSize);
+  const amountPages = Math.ceil((props.count || 0) / (props.recordSize || 0));
   return amountPages >= 1 ? (
     <div>
-      <Pagination
-        count={amountPages}
-      />
+      <Pagination count={amountPages} />
     </div>
   ) : (
     ''
