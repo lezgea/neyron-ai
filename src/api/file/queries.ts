@@ -18,6 +18,6 @@ export const useGetFile = ({ path }: { path: string }) => {
     },
     {
       enabled: Boolean(path),
-    }
+    },
   );
 };

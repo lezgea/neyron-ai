@@ -1,17 +1,19 @@
 import { useQuery } from 'react-query';
 
+import { DataType } from 'src/types';
+
 import { axiosOpen } from '../axiosInstance';
 import { blogs } from '../endpoints';
 import { QUERY_KEYS } from '../query_keys';
 
 import { BackendResponse } from './blogResponseType';
 
-interface GetBlogsParams {
+interface Props {
   page: number;
 }
 
-export function useGetBlogs({ page }: GetBlogsParams) {
-  return useQuery<BackendResponse>(
+export function useGetBlogs({ page }: Props) {
+  return useQuery<BackendResponse<DataType>>(
     [QUERY_KEYS.blogAll, page],
     async () => {
       const { data } = await axiosOpen.get(blogs, {
@@ -24,6 +26,6 @@ export function useGetBlogs({ page }: GetBlogsParams) {
     },
     {
       keepPreviousData: true,
-    }
+    },
   );
 }
