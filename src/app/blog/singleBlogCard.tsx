@@ -8,7 +8,7 @@ import { Skeleton } from '@mui/material';
 import { useGetFile } from 'src/api/file/queries';
 import { DataType } from 'src/types';
 
-const OneBlog = ({ elem, isLoading }: { elem: DataType; isLoading: boolean }) => {
+const SingleBlogCard = ({ elem, isLoading }: { elem: DataType; isLoading: boolean }) => {
   const [imageSrc, setImageSrc] = useState<string | undefined>(undefined);
   const { data: file, isLoading: fileLoading } = useGetFile({ path: elem?.cover?.filePath });
 
@@ -37,4 +37,4 @@ const OneBlog = ({ elem, isLoading }: { elem: DataType; isLoading: boolean }) =>
   );
 };
 
-export default OneBlog;
+export default SingleBlogCard;

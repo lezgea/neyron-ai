@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Alignment, Fit, Layout, useRive, useStateMachineInput } from '@rive-app/react-canvas';
+import React, { useEffect } from 'react';
+import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
 import Image from 'next/image';
 
 import { Grid } from '@mui/material';
 
 import ArrowIcon from '../../../public/arrow.svg';
 import LandingAnimation1 from '../../../public/landingAnimation1.riv';
+import SelectLanguage from '../selecLanguage/selectLanguage';
 
 const Explore = () => {
   const { rive, RiveComponent } = useRive(
@@ -17,6 +18,7 @@ const Explore = () => {
         fit: Fit.Cover,
         alignment: Alignment.Center,
       }),
+      shouldDisableRiveListeners: false,
     },
     {
       fitCanvasToArtboardHeight: true,
@@ -42,11 +44,7 @@ const Explore = () => {
           <p className="biggerSize-text">Begin your AI Adventure with our Interactive Learning Platform!</p>
           <div className="language">
             <span>Language</span>
-            <select name="language-select" id="lang-select">
-              <option value="ENG" defaultValue={'ENG'}>
-                Eng
-              </option>
-            </select>
+            <SelectLanguage />
           </div>
           <div className="gradient-btn">
             <button type="button">

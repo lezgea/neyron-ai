@@ -1,14 +1,14 @@
 'use client';
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-// import { useGoogleLogin } from '@react-oauth/google';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { FormControlLabel, Switch } from '@mui/material';
 
-// import { useLogin } from 'src/api/login/mutation';
+import { useLogin } from 'src/api/login/mutation';
 import { loginFormSchema } from 'src/constant/formValidations';
 
 import EyeIcon from '../../../public/eyeIcon.svg';
@@ -20,8 +20,11 @@ interface LoginForm {
 }
 
 const LoginForm = () => {
+  const router = useRouter();
+
   const [inputType, setInputType] = useState(true);
   const [checked, setChecked] = useState(false);
+  
   const {
     register,
     // formState: { errors },
@@ -30,36 +33,44 @@ const LoginForm = () => {
     resolver: yupResolver(loginFormSchema),
   });
 
-  // const login = useGoogleLogin({
-  //   onSuccess: (tokenResponse) => console.log(tokenResponse),
-  //   onError: (error) => console.log(error),
-  // });
-
-  // const { mutate } = useLogin();
+  const { mutate } = useLogin();
 
   const onSubmit = (values: LoginForm) => {
-    alert(values);
-    // mutate(
-    //   {
-    //     email: values?.email,
-    //     password: values?.password,
-    //   },
-    //   {
-    //     onSuccess: () => {
-    //       alert('onSuccess');
-    //     },
-    //     onError: () => {
-    //       alert('error');
-    //     },
-    //   },
-    // );
+    mutate(
+      {
+        email: values?.email,
+        password: values?.password,
+      },
+      {
+        onSuccess: () => {
+          alert('onSuccess');
+        },
+        onError: () => {
+          alert('error');
+        },
+      }
+    );
+  };
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const newValue: boolean = event.target.checked;
+    setChecked(newValue);
+  };
+
+  const login = () => {
+    router.push('https://api.neyron.ai/oauth2/authorization/google');
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="form-group">
         <label htmlFor="email">Email</label>
-        <input type="email" {...register('email')} id="email" placeholder="Email" />
+        <input
+          type="email"
+          {...register('email')}
+          id="email"
+          placeholder="Email"
+        />
       </div>
       <div className="form-group">
         <label htmlFor="password">Password</label>
@@ -80,9 +91,7 @@ const LoginForm = () => {
             <Switch
               defaultChecked={true}
               className="remember-switch"
-              onChange={(newValue) => {
-                setChecked(newValue);
-              }}
+              onChange={handleChange}
               inputProps={{ 'aria-label': 'controlled' }}
             />
           }
@@ -99,11 +108,7 @@ const LoginForm = () => {
 
       <div className="line"></div>
 
-      <button
-        type="submit"
-        className="black-btn"
-        // onClick={() => login()}
-      >
+      <button type="button" className="black-btn" onClick={login}>
         <Image src={GoogleIcon} alt="sign in with Google" />
         Or sign in with Google
       </button>

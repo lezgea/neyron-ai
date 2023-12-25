@@ -34,3 +34,11 @@ export interface BackendResponse<T> {
   key: string;
   data: Data<T>;
 }
+export interface BlogDetailResponse {
+  title: string;
+  description: string;
+  coverId: number;
+  contentId: number;
+  sequence: number;
+  publishDate: string;
+}
