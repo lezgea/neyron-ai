@@ -2,54 +2,49 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useGoogleLogin } from '@react-oauth/google';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { Checkbox } from '@mui/material';
 
-import { useLogin } from 'src/api/login/mutation';
+import { useRegister } from 'src/api/login/mutation';
+import ActivateAccountModal from 'src/components/modal/activateAccountModal';
 import { loginFormSchema } from 'src/constant/formValidations';
+import { useNotification } from 'src/hooks/showNotification';
 
 import CheckBoxIcon from '../../../public/checkBox.svg';
 import CheckedIcon from '../../../public/checkedIcon.svg';
 import EyeIcon from '../../../public/eyeIcon.svg';
 import GoogleIcon from '../../../public/googleIcon.svg';
+
 interface RegisterForm {
   email: string;
   password: string;
+  languageId: number;
 }
 
 const RegisterForm = () => {
   const [inputType, setInputType] = useState(true);
-
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm<RegisterForm>({
+  const [visible, setVisible] = useState(false);
+  const { register, handleSubmit, watch } = useForm<RegisterForm>({
     resolver: yupResolver(loginFormSchema),
   });
 
-  const login = useGoogleLogin({
-    onSuccess: (tokenResponse) => console.log(tokenResponse),
-    onError: (error) => console.log(error),
-  });
-
-  const { mutate } = useLogin();
+  const { mutate } = useRegister();
 
   const onSubmit = (values: RegisterForm) => {
     mutate(
       {
         email: values?.email,
         password: values?.password,
+        languageId: 1,
       },
       {
         onSuccess: () => {
-          alert('onSuccess');
+          setVisible(true);
         },
         onError: () => {
-          alert('error');
+          useNotification({ text: 'Error', type: 'error' });
         },
       }
     );
@@ -57,6 +52,12 @@ const RegisterForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <ActivateAccountModal
+        visible={visible}
+        setVisible={setVisible}
+        textForLink="Re-enter your email, password and try again."
+        emailValue={watch('email')}
+      />
       <div className="form-group">
         <label htmlFor="email">Email</label>
         <input type="email" {...register('email')} id="email" placeholder="Email" />
@@ -100,10 +101,13 @@ const RegisterForm = () => {
 
       <div className="line"></div>
 
-      <button type="submit" className="black-btn" onClick={() => login()}>
-        <Image src={GoogleIcon} alt="sign in with Google" />
-        Or sign up with Google
-      </button>
+      <Link href="https://api.neyron.ai/oauth2/authorization/google">
+        <button type="submit" className="black-btn">
+          <Image src={GoogleIcon} alt="sign in with Google" />
+          Or sign up with Google
+        </button>
+      </Link>
+
       <p className="sign-up">
         Have an account?
         <Link href="/login" className="link-text">

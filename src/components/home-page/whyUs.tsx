@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
 import Image from 'next/image';
 
@@ -14,7 +14,7 @@ const WhyUs = () => {
     {
       src: LandingAnimation1,
       autoplay: true,
-      animations: 'figures',
+      stateMachines: 'State Machine 1',
       layout: new Layout({
         fit: Fit.Cover,
         alignment: Alignment.Center,
@@ -24,6 +24,15 @@ const WhyUs = () => {
       fitCanvasToArtboardHeight: true,
     }
   );
+  useEffect(() => {
+    if (rive) {
+      rive?.play('figures');
+      const eyeAnimation = () => {
+        rive?.play('eyes animation');
+      };
+      setTimeout(eyeAnimation, 3000);
+    }
+  }, [rive]);
   return (
     <section id="why-us" className="container">
       <Grid container>

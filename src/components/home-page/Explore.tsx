@@ -13,7 +13,7 @@ const Explore = () => {
     {
       src: LandingAnimation1,
       autoplay: true,
-      animations: 'State Machine 1',
+      stateMachines: 'State Machine 1',
       layout: new Layout({
         fit: Fit.Cover,
         alignment: Alignment.Center,

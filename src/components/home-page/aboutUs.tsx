@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
 import Image from 'next/image';
 
@@ -12,7 +12,7 @@ const AboutUs = () => {
     {
       src: LandingAnimation1,
       autoplay: true,
-      animations: 'figures',
+      stateMachines: 'State Machine 1',
       layout: new Layout({
         fit: Fit.Cover,
         alignment: Alignment.Center,
@@ -22,6 +22,15 @@ const AboutUs = () => {
       fitCanvasToArtboardHeight: true,
     }
   );
+  useEffect(() => {
+    if (rive) {
+      rive?.play('figures');
+      const eyeAnimation = () => {
+        rive?.play('eyes animation');
+      };
+      setTimeout(eyeAnimation, 3000);
+    }
+  }, [rive]);
   return (
     <section id="about-us" className="container">
       <Grid container sx={{ height: '100%', paddingLeft: '1.87rem' }}>

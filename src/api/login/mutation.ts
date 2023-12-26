@@ -11,3 +11,12 @@ export const useLogin = (): unknown => {
     },
   });
 };
+
+export const useRegister = () => {
+  const queryClient = useQueryClient();
+  return useMutation((data) => axiosOpen.post('users/register', data), {
+    onSuccess: () => {
+      queryClient.invalidateQueries([QUERY_KEYS.register]);
+    },
+  });
+};

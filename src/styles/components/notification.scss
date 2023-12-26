@@ -1,0 +1,16 @@
+.notification {
+  width: 100%;
+  padding: 0.3125rem 0rem;
+  border-radius: 0rem 0rem 0.875rem 0.875rem;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  background-color: red;
+  &-success {
+    background: #74e290;
+  }
+  &-error {
+    background: #ffb7ac;
+  }
+}

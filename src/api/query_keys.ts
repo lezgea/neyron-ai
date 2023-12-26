@@ -5,4 +5,5 @@ export const QUERY_KEYS = {
   files: 'files',
   blogDetail: 'blogDetail',
   languages: 'languages',
+  register: 'register',
 };

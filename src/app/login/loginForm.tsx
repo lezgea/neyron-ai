@@ -1,15 +1,16 @@
 'use client';
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { FormControlLabel, Switch } from '@mui/material';
 
 import { useLogin } from 'src/api/login/mutation';
 import { loginFormSchema } from 'src/constant/formValidations';
+import { setAuthCookies } from 'src/utils/cookie';
 
 import EyeIcon from '../../../public/eyeIcon.svg';
 import GoogleIcon from '../../../public/googleIcon.svg';
@@ -20,11 +21,11 @@ interface LoginForm {
 }
 
 const LoginForm = () => {
-  const router = useRouter();
-
   const [inputType, setInputType] = useState(true);
   const [checked, setChecked] = useState(false);
-  
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const {
     register,
     // formState: { errors },
@@ -57,20 +58,22 @@ const LoginForm = () => {
     setChecked(newValue);
   };
 
-  const login = () => {
-    router.push('https://api.neyron.ai/oauth2/authorization/google');
-  };
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (pathname.startsWith('login/google/success')) {
+      setAuthCookies(searchParams.get('token'));
+      router.push('/');
+    } else {
+      router.push('/login');
+    }
+  }, [pathname]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="form-group">
         <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          {...register('email')}
-          id="email"
-          placeholder="Email"
-        />
+        <input type="email" {...register('email')} id="email" placeholder="Email" />
       </div>
       <div className="form-group">
         <label htmlFor="password">Password</label>
@@ -108,10 +111,13 @@ const LoginForm = () => {
 
       <div className="line"></div>
 
-      <button type="button" className="black-btn" onClick={login}>
-        <Image src={GoogleIcon} alt="sign in with Google" />
-        Or sign in with Google
-      </button>
+      <Link href="https://api.neyron.ai/oauth2/authorization/google">
+        {' '}
+        <button type="button" className="black-btn">
+          <Image src={GoogleIcon} alt="sign in with Google" />
+          Or sign in with Google
+        </button>
+      </Link>
       <p className="sign-up">
         Dont have an account?{' '}
         <Link href="/register" className="link-text">
