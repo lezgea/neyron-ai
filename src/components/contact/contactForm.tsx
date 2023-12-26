@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { axiosOpen } from 'src/api/axiosInstance';
 import SuccessFormIcon from 'src/assets/images/successForm.svg';
 import { contactFormSchema } from 'src/constant/formValidations';
-import { ContactFormState } from 'src/types';
+import { IContactFormState } from 'src/types';
 
 // import InputComponent from '../form/Input';
 import Loading from '../ui/loading';
@@ -17,14 +17,14 @@ const ContactForm = () => {
     register,
     handleSubmit,
     // formState: { errors },
-  } = useForm<ContactFormState>({
+  } = useForm<IContactFormState>({
     resolver: yupResolver(contactFormSchema),
   });
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
-  const _onSubmit: SubmitHandler<ContactFormState> = async (data) => {
+  const _onSubmit: SubmitHandler<IContactFormState> = async (data) => {
     setIsLoading(true);
     try {
       const resp = await axiosOpen.post('/contact-us-requests', data);

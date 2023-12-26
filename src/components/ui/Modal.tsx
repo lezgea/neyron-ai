@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
 interface ModalProps {
-  children: any;
+  children: React.ReactNode;
   visible: boolean;
   setVisible: (newValue: boolean) => void;
   width: string;

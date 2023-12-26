@@ -6,11 +6,14 @@ import Link from 'next/link';
 import { Skeleton } from '@mui/material';
 
 import { useGetFile } from 'src/api/file/queries';
-import { DataType } from 'src/types';
+import { IDataType } from 'src/types';
 
-const SingleBlogCard = ({ elem, isLoading }: { elem: DataType; isLoading: boolean }) => {
+const SingleBlogCard = ({ elem, isLoading }: { elem: IDataType; isLoading: boolean }) => {
   const [imageSrc, setImageSrc] = useState<string | undefined>(undefined);
-  const { data: file, isLoading: fileLoading } = useGetFile({ path: elem?.cover?.filePath });
+  const { data: file, isLoading: fileLoading } = useGetFile({
+    path: elem?.cover?.filePath,
+    responseType: 'blob',
+  });
 
   useEffect(() => {
     if (file) {
