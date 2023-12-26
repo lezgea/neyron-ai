@@ -1,19 +1,25 @@
-export interface ContactFormState {
+export interface IContactFormState {
   name: string;
   email: string;
   message: string;
 }
 
-interface Content {
+interface IContent {
   id: number;
   filePath: string;
 }
 
-export interface DataType {
+export interface IDataType {
   title: string;
   description: string;
-  cover: Content;
-  content: Content;
+  cover: IContent;
+  content: IContent;
   publishDate: Date;
   id: number;
 }
+export interface IDataTypeLanguage {
+  id: number;
+  name: string;
+  abbreviation: string;
+}
+export type ChangeHandler = (newValue: boolean) => void;

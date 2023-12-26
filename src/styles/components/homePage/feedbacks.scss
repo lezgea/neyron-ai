@@ -1,5 +1,10 @@
 #feedbacks {
   min-height: 100vh;
+  .feedback-image {
+    position: absolute;
+    right: -150px;
+    top: 20px;
+  }
   .feedback-container {
     .feedback-head-container {
       @include flexBox(center, center);

@@ -3,4 +3,7 @@ export const QUERY_KEYS = {
   blogAll: 'blogAll',
   login: 'login',
   files: 'files',
+  blogDetail: 'blogDetail',
+  languages: 'languages',
+  register: 'register',
 };

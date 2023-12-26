@@ -1,6 +1,5 @@
 'use client';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 
 import Footer from 'src/components/footer/footer';
 import Header from 'src/components/header/header';
@@ -18,16 +17,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       },
     },
   });
+
   return (
     <html lang="en">
       <body>
-        <Header />
-        <GoogleOAuthProvider clientId="310219062902-jpclqgi5765v2dntg8soo74r1acunqmp.apps.googleusercontent.com">
-          {' '}
-          <QueryClientProvider client={queryClient}>
-            <main>{children}</main>
-          </QueryClientProvider>
-        </GoogleOAuthProvider>
+        <Header />{' '}
+        <QueryClientProvider client={queryClient}>
+          <main>{children}</main>
+        </QueryClientProvider>
         <Footer />
       </body>
     </html>

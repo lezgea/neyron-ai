@@ -4,3 +4,4 @@ export const users = '/users';
 export const login = '/login';
 export const files = '/files';
 export const download = '/download';
+export const languages = '/languages';

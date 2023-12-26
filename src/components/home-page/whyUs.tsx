@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
 import Image from 'next/image';
 
 import { Grid } from '@mui/material';
@@ -6,8 +7,32 @@ import { Grid } from '@mui/material';
 import BeginnerFriendly from '../../../public/beginnerFriendly.svg';
 import CommunityDriven from '../../../public/communityDriven.svg';
 import Interactive from '../../../public/interactive.svg';
+import LandingAnimation1 from '../../../public/landingAnimation2.riv';
 
 const WhyUs = () => {
+  const { rive, RiveComponent } = useRive(
+    {
+      src: LandingAnimation1,
+      autoplay: true,
+      stateMachines: 'State Machine 1',
+      layout: new Layout({
+        fit: Fit.Cover,
+        alignment: Alignment.Center,
+      }),
+    },
+    {
+      fitCanvasToArtboardHeight: true,
+    }
+  );
+  useEffect(() => {
+    if (rive) {
+      rive?.play('figures');
+      const eyeAnimation = () => {
+        rive?.play('eyes animation');
+      };
+      setTimeout(eyeAnimation, 3000);
+    }
+  }, [rive]);
   return (
     <section id="why-us" className="container">
       <Grid container>
@@ -44,6 +69,7 @@ const WhyUs = () => {
           </div>
         </Grid>
       </Grid>
+      {RiveComponent && <RiveComponent className="rive-1" />}
     </section>
   );
 };

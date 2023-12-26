@@ -1,17 +1,20 @@
 'use client';
-import React, { useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-// import { useGoogleLogin } from '@react-oauth/google';
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { FormControlLabel, Switch } from '@mui/material';
 
-// import { useLogin } from 'src/api/login/mutation';
+import { useLogin } from 'src/api/login/mutation';
 import { loginFormSchema } from 'src/constant/formValidations';
+import { setAuthCookies } from 'src/utils/cookie';
 
 import EyeIcon from '../../../public/eyeIcon.svg';
 import GoogleIcon from '../../../public/googleIcon.svg';
+
 interface LoginForm {
   email: string;
   password: string;
@@ -19,6 +22,9 @@ interface LoginForm {
 
 const LoginForm = () => {
   const [inputType, setInputType] = useState(true);
+  const [checked, setChecked] = useState(false);
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
   const {
     register,
@@ -28,30 +34,40 @@ const LoginForm = () => {
     resolver: yupResolver(loginFormSchema),
   });
 
-  // const login = useGoogleLogin({
-  //   onSuccess: (tokenResponse) => console.log(tokenResponse),
-  //   onError: (error) => console.log(error),
-  // });
-
-  // const { mutate } = useLogin();
+  const { mutate } = useLogin();
 
   const onSubmit = (values: LoginForm) => {
-    alert(values);
-    // mutate(
-    //   {
-    //     email: values?.email,
-    //     password: values?.password,
-    //   },
-    //   {
-    //     onSuccess: () => {
-    //       alert('onSuccess');
-    //     },
-    //     onError: () => {
-    //       alert('error');
-    //     },
-    //   },
-    // );
+    mutate(
+      {
+        email: values?.email,
+        password: values?.password,
+      },
+      {
+        onSuccess: () => {
+          alert('onSuccess');
+        },
+        onError: () => {
+          alert('error');
+        },
+      }
+    );
   };
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const newValue: boolean = event.target.checked;
+    setChecked(newValue);
+  };
+
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (pathname.startsWith('login/google/success')) {
+      setAuthCookies(searchParams.get('token'));
+      router.push('/');
+    } else {
+      router.push('/login');
+    }
+  }, [pathname]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -78,14 +94,16 @@ const LoginForm = () => {
             <Switch
               defaultChecked={true}
               className="remember-switch"
-              onChange={() => {}}
+              onChange={handleChange}
               inputProps={{ 'aria-label': 'controlled' }}
             />
           }
           label="Remember me"
           labelPlacement="end"
         />
-        <p className="link-text">Forgot password?</p>
+        <Link href="/forgotPassword" className="link-text">
+          Forgot password?
+        </Link>
       </div>
       <button type="submit" className="filled-gradient-btn">
         Login
@@ -93,16 +111,18 @@ const LoginForm = () => {
 
       <div className="line"></div>
 
-      <button
-        type="submit"
-        className="black-btn"
-        // onClick={() => login()}
-      >
-        <Image src={GoogleIcon} alt="sign in with Google" />
-        Or sign in with Google
-      </button>
+      <Link href="https://api.neyron.ai/oauth2/authorization/google">
+        {' '}
+        <button type="button" className="black-btn">
+          <Image src={GoogleIcon} alt="sign in with Google" />
+          Or sign in with Google
+        </button>
+      </Link>
       <p className="sign-up">
-        Dont have an account? <span className="link-text">Sign up now</span>
+        Dont have an account?{' '}
+        <Link href="/register" className="link-text">
+          Sign up now
+        </Link>
       </p>
     </form>
   );

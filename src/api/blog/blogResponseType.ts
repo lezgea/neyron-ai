@@ -1,4 +1,4 @@
-export interface Pageable {
+export interface IPageable {
   sort: {
     empty: boolean;
     sorted: boolean;
@@ -11,9 +11,9 @@ export interface Pageable {
   unpaged: boolean;
 }
 
-export interface Data<T> {
+export interface IData<T> {
   content: T[]; // Define the type of content if known, otherwise use 'any'
-  pageable: Pageable;
+  pageable: IPageable;
   last: boolean;
   totalElements: number;
   totalPages: number;
@@ -29,8 +29,16 @@ export interface Data<T> {
   empty: boolean;
 }
 
-export interface BackendResponse<T> {
+export interface IBackendResponse<T> {
   status: number;
   key: string;
-  data: Data<T>;
+  data: IData<T>;
+}
+export interface IBlogDetailResponse {
+  title: string;
+  description: string;
+  coverId: number;
+  contentId: number;
+  sequence: number;
+  publishDate: string;
 }
