@@ -69,6 +69,7 @@ const LoginForm = () => {
     }
   }, [pathname]);
 
+  //   href={`${process.env.LOGIN_GOOGLE_URL as string}`}
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="form-group">
@@ -111,7 +112,7 @@ const LoginForm = () => {
 
       <div className="line"></div>
 
-      <Link href={`${process.env.LOGIN_GOOGLE_URL as string}`}>
+      <Link href="https://api.neyron.ai/oauth2/authorization/google">
         {' '}
         <button type="button" className="black-btn">
           <Image src={GoogleIcon} alt="sign in with Google" />
