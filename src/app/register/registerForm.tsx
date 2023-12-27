@@ -100,7 +100,7 @@ const RegisterForm = () => {
 
       <div className="line"></div>
 
-      <Link href={process.env.LOGIN_GOOGLE_URL as string}>
+      <Link href={`${process.env.LOGIN_GOOGLE_URL as string}`}>
         <button type="submit" className="black-btn">
           <Image src={GoogleIcon} alt="sign in with Google" />
           Or sign up with Google
