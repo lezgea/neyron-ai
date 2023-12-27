@@ -3,8 +3,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import GmailIcon from '../../../public/gmailIcon.svg';
-import OutlookIcon from '../../../public/outlookIcon.svg';
+import GmailIcon from 'src/assets/images/gmailIcon.svg';
+import OutlookIcon from 'src/assets/images/outlookIcon.svg';
+
 import Modal from '../ui/Modal';
 
 const ActivateAccountModal = ({

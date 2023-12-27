@@ -17,9 +17,11 @@ export interface IDataType {
   publishDate: Date;
   id: number;
 }
+
 export interface IDataTypeLanguage {
   id: number;
   name: string;
   abbreviation: string;
 }
+
 export type ChangeHandler = (newValue: boolean) => void;

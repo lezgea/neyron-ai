@@ -4,13 +4,14 @@ import Image from 'next/image';
 
 import { Grid } from '@mui/material';
 
-import ArrowIcon from '../../../public/arrow.svg';
-import LandingAnimation1 from '../../../public/landingAnimation2.riv';
+import ArrowIcon from 'src/assets/images/arrow.svg';
+
+import LandingAnimation2 from '../../../public/landingAnimation2.riv';
 
 const AboutUs = () => {
   const { rive, RiveComponent } = useRive(
     {
-      src: LandingAnimation1,
+      src: LandingAnimation2,
       autoplay: true,
       stateMachines: 'State Machine 1',
       layout: new Layout({
@@ -20,7 +21,7 @@ const AboutUs = () => {
     },
     {
       fitCanvasToArtboardHeight: true,
-    }
+    },
   );
   useEffect(() => {
     if (rive) {

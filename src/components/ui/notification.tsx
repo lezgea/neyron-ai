@@ -2,11 +2,10 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-import ErrorNotification from '../../../public/errorNotification.svg';
-import SuccessNotification from '../../../public/successNotification.svg';
+import ErrorNotification from 'src/assets/images/errorNotification.svg';
+import SuccessNotification from 'src/assets/images/successNotification.svg';
 
 const Notification = ({ text, type }: { text: string; type: string }) => {
-  console.log(dhf);
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
@@ -18,8 +17,6 @@ const Notification = ({ text, type }: { text: string; type: string }) => {
       clearTimeout(notificationTimer);
     };
   }, []);
-
-  console.log(isVisible && 'skjdfh');
 
   return (
     <>

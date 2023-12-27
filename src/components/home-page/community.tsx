@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import { Grid } from '@mui/material';
 
-import ArrowIcon from '../../../public/arrow.svg';
+import ArrowIcon from 'src/assets/images/arrow.svg';
 
 const Community = () => {
   return (

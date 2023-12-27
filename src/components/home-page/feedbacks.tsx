@@ -3,11 +3,11 @@ import Image from 'next/image';
 
 import { Grid } from '@mui/material';
 
-import Person2 from '../../../public/anne.svg';
-import Person4 from '../../../public/khayal.svg';
-import MonsterWithThanks from '../../../public/monsterWithThanks.svg';
-import Person1 from '../../../public/roger.svg';
-import Person3 from '../../../public/samantha.svg';
+import Person2 from 'src/assets/images/anne.svg';
+import Person4 from 'src/assets/images/khayal.svg';
+import MonsterWithThanks from 'src/assets/images/monsterWithThanks.svg';
+import Person1 from 'src/assets/images/roger.svg';
+import Person3 from 'src/assets/images/samantha.svg';
 
 const Feedbacks = () => {
   return (
