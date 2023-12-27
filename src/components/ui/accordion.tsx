@@ -4,8 +4,8 @@ import Image from 'next/image';
 
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
 
-import MinusIcon from '../../../public/minusIcon.svg';
-import PlusIcon from '../../../public/plusIcon.svg';
+import MinusIcon from 'src/assets/images/minusIcon.svg';
+import PlusIcon from 'src/assets/images/plusIcon.svg';
 
 interface Props {
   summary: string;

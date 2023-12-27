@@ -5,13 +5,12 @@ import Link from 'next/link';
 import { Grid } from '@mui/material';
 
 import AilabLogo from 'src/assets/images/ailabLogo.svg';
-
-import FacebookIcon from '../../../public/facebook.svg';
-import InstagramIcon from '../../../public/instagram.svg';
-import LinkedinIcon from '../../../public/linkedin.svg';
-import TiktokIcon from '../../../public/tiktok.svg';
-import WhiteLogo from '../../../public/whiteLogo.svg';
-import YouTubeIcon from '../../../public/youtube.svg';
+import FacebookIcon from 'src/assets/images/facebook.svg';
+import InstagramIcon from 'src/assets/images/instagram.svg';
+import LinkedinIcon from 'src/assets/images/linkedin.svg';
+import TiktokIcon from 'src/assets/images/tiktok.svg';
+import WhiteLogo from 'src/assets/images/whiteLogo.svg';
+import YouTubeIcon from 'src/assets/images/youtube.svg';
 
 const Footer = () => {
   return (

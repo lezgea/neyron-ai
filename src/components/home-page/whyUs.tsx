@@ -4,15 +4,16 @@ import Image from 'next/image';
 
 import { Grid } from '@mui/material';
 
-import BeginnerFriendly from '../../../public/beginnerFriendly.svg';
-import CommunityDriven from '../../../public/communityDriven.svg';
-import Interactive from '../../../public/interactive.svg';
-import LandingAnimation1 from '../../../public/landingAnimation2.riv';
+import BeginnerFriendly from 'src/assets/images/beginnerFriendly.svg';
+import CommunityDriven from 'src/assets/images/communityDriven.svg';
+import Interactive from 'src/assets/images/interactive.svg';
+
+import LandingAnimation2 from '../../../public/landingAnimation2.riv';
 
 const WhyUs = () => {
   const { rive, RiveComponent } = useRive(
     {
-      src: LandingAnimation1,
+      src: LandingAnimation2,
       autoplay: true,
       stateMachines: 'State Machine 1',
       layout: new Layout({
@@ -22,7 +23,7 @@ const WhyUs = () => {
     },
     {
       fitCanvasToArtboardHeight: true,
-    }
+    },
   );
   useEffect(() => {
     if (rive) {

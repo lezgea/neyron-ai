@@ -9,11 +9,10 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { FormControlLabel, Switch } from '@mui/material';
 
 import { useLogin } from 'src/api/login/mutation';
+import EyeIcon from 'src/assets/images/eyeIcon.svg';
+import GoogleIcon from 'src/assets/images/googleIcon.svg';
 import { loginFormSchema } from 'src/constant/formValidations';
 import { setAuthCookies } from 'src/utils/cookie';
-
-import EyeIcon from '../../../public/eyeIcon.svg';
-import GoogleIcon from '../../../public/googleIcon.svg';
 
 interface LoginForm {
   email: string;
@@ -49,8 +48,9 @@ const LoginForm = () => {
         onError: () => {
           alert('error');
         },
-      }
+      },
     );
+    return checked;
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -62,7 +62,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (pathname.startsWith('login/google/success')) {
-      setAuthCookies(searchParams.get('token'));
+      setAuthCookies(searchParams.get('token') as string);
       router.push('/');
     } else {
       router.push('/login');
@@ -111,7 +111,7 @@ const LoginForm = () => {
 
       <div className="line"></div>
 
-      <Link href="https://api.neyron.ai/oauth2/authorization/google">
+      <Link href={process.env.LOGIN_GOOGLE_URL as string}>
         {' '}
         <button type="button" className="black-btn">
           <Image src={GoogleIcon} alt="sign in with Google" />

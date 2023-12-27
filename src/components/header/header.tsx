@@ -2,9 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import HeaderSwitch from './headerSwitch';
+import Logo from 'src/assets/images/logo.svg';
 
-import Logo from '/public/logo.svg';
+import HeaderSwitch from './headerSwitch';
 
 const Header = () => {
   return (

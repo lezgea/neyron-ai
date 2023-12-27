@@ -4,8 +4,9 @@ import Image from 'next/image';
 
 import { Grid } from '@mui/material';
 
-import ArrowIcon from '../../../public/arrow.svg';
-import LandingAnimation1 from '../../../public/landingAnimation1.riv';
+import ArrowIcon from 'src/assets/images/arrow.svg';
+
+import LandingAnimation1 from '../../../public/LandingAnimation1.riv';
 import SelectLanguage from '../selecLanguage/selectLanguage';
 
 const Explore = () => {
@@ -22,7 +23,7 @@ const Explore = () => {
     },
     {
       fitCanvasToArtboardHeight: true,
-    }
+    },
   );
 
   useEffect(() => {

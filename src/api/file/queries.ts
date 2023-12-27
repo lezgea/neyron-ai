@@ -19,6 +19,6 @@ export const useGetFile = ({ path, responseType = 'blob' }: { path: string; resp
     },
     {
       enabled: Boolean(path),
-    }
+    },
   );
 };

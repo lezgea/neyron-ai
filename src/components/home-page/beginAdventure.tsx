@@ -3,9 +3,9 @@ import Image from 'next/image';
 
 import { Grid } from '@mui/material';
 
-import ArrowIcon from '../../../public/arrow.svg';
-import Card1 from '../../../public/backCard.svg';
-import Card2 from '../../../public/frontCard.svg';
+import ArrowIcon from 'src/assets/images/arrow.svg';
+import Card1 from 'src/assets/images/backCard.svg';
+import Card2 from 'src/assets/images/frontCard.svg';
 
 const BeginAdventure = () => {
   return (

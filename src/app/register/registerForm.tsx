@@ -8,19 +8,18 @@ import Link from 'next/link';
 import { Checkbox } from '@mui/material';
 
 import { useRegister } from 'src/api/login/mutation';
+import CheckBoxIcon from 'src/assets/images/checkBox.svg';
+import CheckedIcon from 'src/assets/images/checkedIcon.svg';
+import EyeIcon from 'src/assets/images/eyeIcon.svg';
+import GoogleIcon from 'src/assets/images/googleIcon.svg';
 import ActivateAccountModal from 'src/components/modal/activateAccountModal';
 import { loginFormSchema } from 'src/constant/formValidations';
 import { useNotification } from 'src/hooks/showNotification';
 
-import CheckBoxIcon from '../../../public/checkBox.svg';
-import CheckedIcon from '../../../public/checkedIcon.svg';
-import EyeIcon from '../../../public/eyeIcon.svg';
-import GoogleIcon from '../../../public/googleIcon.svg';
-
 interface RegisterForm {
   email: string;
   password: string;
-  languageId: number;
+  languageId?: number;
 }
 
 const RegisterForm = () => {
@@ -46,7 +45,7 @@ const RegisterForm = () => {
         onError: () => {
           useNotification({ text: 'Error', type: 'error' });
         },
-      }
+      },
     );
   };
 
@@ -101,7 +100,7 @@ const RegisterForm = () => {
 
       <div className="line"></div>
 
-      <Link href="https://api.neyron.ai/oauth2/authorization/google">
+      <Link href={process.env.LOGIN_GOOGLE_URL as string}>
         <button type="submit" className="black-btn">
           <Image src={GoogleIcon} alt="sign in with Google" />
           Or sign up with Google

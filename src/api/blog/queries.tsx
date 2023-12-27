@@ -6,7 +6,7 @@ import { axiosOpen } from '../axiosInstance';
 import { blogs } from '../endpoints';
 import { QUERY_KEYS } from '../query_keys';
 
-import { IBackendResponse } from './blogResponseType';
+import { IBackendResponse, IBlogDetail } from './blogResponseType';
 
 interface Props {
   page: number;
@@ -26,12 +26,12 @@ export function useGetBlogs({ page }: Props) {
     },
     {
       keepPreviousData: true,
-    }
+    },
   );
 }
 
 export function useGetBlogDetail({ id }: { id: number }) {
-  return useQuery<IBackendResponse<IDataType>>([QUERY_KEYS.blogDetail], async () => {
+  return useQuery<IBlogDetail>([QUERY_KEYS.blogDetail], async () => {
     const { data } = await axiosOpen.get(blogs + `/${id}`, {
       params: {
         id,

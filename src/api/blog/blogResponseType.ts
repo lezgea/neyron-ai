@@ -1,3 +1,21 @@
+export interface Cover {
+  id: number;
+  filePath: string;
+}
+
+export interface Content {
+  id: number;
+  filePath: string;
+}
+
+export interface ILanguageResponse<T> {
+  timestamp: string;
+  status: number;
+  key: string;
+  message: string;
+  data: T[];
+  errors: Error[];
+}
 export interface IPageable {
   sort: {
     empty: boolean;
@@ -12,7 +30,7 @@ export interface IPageable {
 }
 
 export interface IData<T> {
-  content: T[]; // Define the type of content if known, otherwise use 'any'
+  content: T[];
   pageable: IPageable;
   last: boolean;
   totalElements: number;
@@ -34,11 +52,27 @@ export interface IBackendResponse<T> {
   key: string;
   data: IData<T>;
 }
+
+// blog detail
+export interface Error {
+  field: string;
+  message: string;
+}
+
+export interface IBlogDetail {
+  timestamp: string;
+  status: number;
+  key: string;
+  message: string;
+  data: IBlogDetailResponse;
+  errors: Error[];
+}
+
 export interface IBlogDetailResponse {
+  id: number;
   title: string;
   description: string;
-  coverId: number;
-  contentId: number;
-  sequence: number;
+  cover: Cover;
+  content: Content;
   publishDate: string;
 }
