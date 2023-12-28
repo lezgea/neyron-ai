@@ -12,7 +12,7 @@ export const useForgotPassword = () => {
       onSuccess: () => {
         queryClient.invalidateQueries([QUERY_KEYS.forgotPassword]);
       },
-    },
+    }
   );
 };
 export const useResetPassword = () => {
@@ -20,13 +20,13 @@ export const useResetPassword = () => {
   return useMutation(
     ({ password, confirmPassword, token }: { password: string; confirmPassword: string; token: string }) =>
       axiosOpen.post(users + resetPassword + `?token=${token}`, {
-        password,
-        confirmPassword,
+        resetPassword: password,
+        confirmResetPassword: confirmPassword,
       }),
     {
       onSuccess: () => {
         queryClient.invalidateQueries([QUERY_KEYS.resetPassword]);
       },
-    },
+    }
   );
 };
