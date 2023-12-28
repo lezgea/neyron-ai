@@ -43,6 +43,8 @@ const ForgotPassword = () => {
         emailValue={watch('email')}
         textForLink="A type literal property cannot have an initializer."
       />
+      <h1>Enter your email adress</h1>
+
       <div className="form-group">
         <label htmlFor="email">Email</label>
         <input type="email" {...register('email')} id="email" placeholder="Email" />
