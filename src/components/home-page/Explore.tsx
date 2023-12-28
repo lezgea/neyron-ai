@@ -37,24 +37,26 @@ const Explore = () => {
   }, [rive]);
 
   return (
-    <section id="explore-landing" className="container">
-      {' '}
-      <Grid container sx={{ display: 'flex', justifyContent: 'space-between' }} className="explore-landing">
-        <Grid item xs={8} className="explore-left">
-          <h1 className="page-head">Explore AI and get addicted to fun</h1>
-          <p className="biggerSize-text">Begin your AI Adventure with our Interactive Learning Platform!</p>
-          <div className="language">
-            <span>Language</span>
-            <SelectLanguage />
-          </div>
-          <div className="gradient-btn">
-            <button type="button">
-              Let’s start <Image src={ArrowIcon} alt="arrow-icon" />
-            </button>
-          </div>
+    <section id="explore-landing">
+      <div className="container">
+        {' '}
+        <Grid container sx={{ display: 'flex', justifyContent: 'space-between' }} className="explore-landing">
+          <Grid item xs={8} className="explore-left">
+            <h1 className="page-head">Explore AI and get addicted to fun</h1>
+            <p className="biggerSize-text">Begin your AI Adventure with our Interactive Learning Platform!</p>
+            <div className="language">
+              <span>Language</span>
+              <SelectLanguage />
+            </div>
+            <div className="gradient-btn">
+              <button type="button">
+                Let’s start <Image src={ArrowIcon} alt="arrow-icon" />
+              </button>
+            </div>
+          </Grid>
         </Grid>
-      </Grid>
-      {RiveComponent && <RiveComponent className="rive-1" />}
+        {RiveComponent && <RiveComponent className="rive-1" />}
+      </div>
     </section>
   );
 };

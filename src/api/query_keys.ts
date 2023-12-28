@@ -6,4 +6,7 @@ export const QUERY_KEYS = {
   blogDetail: 'blogDetail',
   languages: 'languages',
   register: 'register',
+  faq: 'faq',
+  forgotPassword: 'forgotPassword',
+  resetPassword: 'resetPassword',
 };

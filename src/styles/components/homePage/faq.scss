@@ -1,8 +1,8 @@
 .faq-container {
-  margin-top: 4.23rem;
-  min-height: 140vh;
-  @include flexBox(center, center);
+  display: flex;
+  align-items: center;
   flex-direction: column;
+  padding-top: 4rem;
   .page-head {
     font-size: 3rem;
   }

@@ -1,32 +1,24 @@
 'use client';
 import React from 'react';
 
-import AccordionComponent from '../ui/accordion';
+import { useGetFaq } from 'src/api/faq/queries';
 
-const FaqContainer = () => {
+import AccordionComponent from '../ui/accordion';
+import Loading from '../ui/loading';
+
+interface IElement {
+  id: number;
+  question: string;
+  answer: string;
+}
+const FaqContainer = ({ mainPage }: { mainPage: boolean }) => {
+  const { data, isLoading } = useGetFaq({ isOnMainPage: mainPage, languageId: 1 });
+  if (isLoading) <Loading />;
   return (
     <div>
-      {' '}
-      <AccordionComponent
-        summary="Our engaging, gamified approach keeps you coming back for?"
-        details="”Our platform connects you with a vibrant community of AI learners and experts. Share insights, ask questions, and find inspiration.”"
-      />
-      <AccordionComponent
-        summary="Our engaging, gamified approach keeps you coming back for?"
-        details="”Our platform connects you with a vibrant community of AI learners and experts. Share insights, ask questions, and find inspiration.”"
-      />
-      <AccordionComponent
-        summary="Our engaging, gamified approach keeps you coming back for?"
-        details="”Our platform connects you with a vibrant community of AI learners and experts. Share insights, ask questions, and find inspiration.”"
-      />
-      <AccordionComponent
-        summary="Our engaging, gamified approach keeps you coming back for?"
-        details="”Our platform connects you with a vibrant community of AI learners and experts. Share insights, ask questions, and find inspiration.”"
-      />
-      <AccordionComponent
-        summary="Our engaging, gamified approach keeps you coming back for?"
-        details="”Our platform connects you with a vibrant community of AI learners and experts. Share insights, ask questions, and find inspiration.”"
-      />
+      {data?.data?.map((elem: IElement) => (
+        <AccordionComponent key={elem?.id} summary={elem?.question} details={elem?.answer} />
+      ))}
     </div>
   );
 };

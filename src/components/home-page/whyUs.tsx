@@ -35,42 +35,47 @@ const WhyUs = () => {
     }
   }, [rive]);
   return (
-    <section id="why-us" className="container">
-      <Grid container>
-        <Grid item xs={4}>
-          <h1 className="page-head">Why us?</h1>
-          <div className="boxes">
-            <div className="box">
-              <div className="image">
-                <Image src={BeginnerFriendly} alt="beginner-friendly" />
+    <section id="why-us">
+      <div className="container">
+        {' '}
+        <Grid container>
+          <Grid item xs={4}>
+            <h1 className="page-head">Why us?</h1>
+            <div className="boxes">
+              <div className="box">
+                <div className="image">
+                  <Image src={BeginnerFriendly} alt="beginner-friendly" />
+                </div>
+                <div className="box-text">
+                  <div className="box-head">Beginner-Friendly</div>
+                  <div className="box-info">
+                    Start with 'Introduction to AI' - No Prior Experience Needed!
+                  </div>
+                </div>
               </div>
-              <div className="box-text">
-                <div className="box-head">Beginner-Friendly</div>
-                <div className="box-info">Start with 'Introduction to AI' - No Prior Experience Needed!</div>
+              <div className="box">
+                <div className="image">
+                  <Image src={Interactive} alt="beginner-friendly" />
+                </div>
+                <div className="box-text">
+                  <div className="box-head">Interactive & Addictive</div>
+                  <div className="box-info">Experience Gamified Learning - Engage with Every Lesson!</div>
+                </div>
+              </div>
+              <div className="box">
+                <div className="image">
+                  <Image src={CommunityDriven} alt="beginner-friendly" />
+                </div>
+                <div className="box-text">
+                  <div className="box-head">Community-Driven</div>
+                  <div className="box-info">Join Learners from all countries - Collaborate and Grow!</div>
+                </div>
               </div>
             </div>
-            <div className="box">
-              <div className="image">
-                <Image src={Interactive} alt="beginner-friendly" />
-              </div>
-              <div className="box-text">
-                <div className="box-head">Interactive & Addictive</div>
-                <div className="box-info">Experience Gamified Learning - Engage with Every Lesson!</div>
-              </div>
-            </div>
-            <div className="box">
-              <div className="image">
-                <Image src={CommunityDriven} alt="beginner-friendly" />
-              </div>
-              <div className="box-text">
-                <div className="box-head">Community-Driven</div>
-                <div className="box-info">Join Learners from all countries - Collaborate and Grow!</div>
-              </div>
-            </div>
-          </div>
+          </Grid>
         </Grid>
-      </Grid>
-      {RiveComponent && <RiveComponent className="rive-1" />}
+        {RiveComponent && <RiveComponent className="rive-1" />}
+      </div>
     </section>
   );
 };

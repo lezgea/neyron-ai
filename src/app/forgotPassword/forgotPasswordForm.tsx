@@ -4,21 +4,35 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Link from 'next/link';
 
+import { useForgotPassword } from 'src/api/forgotPassword/mutation';
 import ActivateAccountModal from 'src/components/modal/activateAccountModal';
 import { forgotPasswordSchema } from 'src/constant/formValidations';
 
-interface ForgotPassword {
+interface IForgotPassword {
   email: string;
 }
 
 const ForgotPassword = () => {
   const [visible, setVisible] = useState(false);
-  const { register, handleSubmit, watch } = useForm<ForgotPassword>({
+  const { register, handleSubmit, watch } = useForm<IForgotPassword>({
     resolver: yupResolver(forgotPasswordSchema),
   });
-
-  const onSubmit = () => {
+  const { mutate } = useForgotPassword();
+  const onSubmit = (values: IForgotPassword) => {
     setVisible(true);
+    mutate(
+      {
+        email: values?.email,
+      },
+      {
+        onSuccess: () => {
+          setVisible(true);
+        },
+        onError: () => {
+          alert('error');
+        },
+      },
+    );
   };
 
   return (

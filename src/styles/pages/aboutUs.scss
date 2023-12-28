@@ -1,0 +1,22 @@
+#about-us-page {
+  padding-top: 5rem;
+  padding-bottom: 6rem;
+  .text {
+    max-width: 47rem;
+    margin: 0 auto;
+    text-align: center;
+    h1 {
+      @include fontSize(2rem, 600, 130%, #36373a);
+      letter-spacing: 0.04rem;
+      margin-bottom: 1.5rem;
+      span {
+        font-size: 2rem !important;
+      }
+    }
+    h4 {
+      margin-top: 1.5rem;
+      @include fontSize(1.125rem, 600, 130%, #36373a);
+      letter-spacing: 0.0225rem;
+    }
+  }
+}
