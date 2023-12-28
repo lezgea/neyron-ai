@@ -16,7 +16,7 @@ const Header = () => {
         <nav>
           <ul className="list-item">
             <li>
-              <Link href="/">About us</Link>
+              <Link href="/aboutUs">About us</Link>
             </li>
             <li>
               <Link href="/">Courses</Link>
@@ -26,7 +26,7 @@ const Header = () => {
               <Link href="/">Community</Link>
             </li>
             <li>
-              <Link href="/">FAQ</Link>
+              <Link href="/faq">FAQ</Link>
             </li>
             <li>
               <Link href="/contact">Contact us</Link>

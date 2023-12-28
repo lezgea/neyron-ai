@@ -1,5 +1,7 @@
 #begin-adventure {
   min-height: 100vh;
+  @include flexBox(center, center);
+  flex-direction: column;
   .page-head {
     font-size: 3rem;
   }

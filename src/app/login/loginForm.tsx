@@ -1,10 +1,9 @@
 'use client';
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { FormControlLabel, Switch } from '@mui/material';
 
@@ -12,7 +11,6 @@ import { useLogin } from 'src/api/login/mutation';
 import EyeIcon from 'src/assets/images/eyeIcon.svg';
 import GoogleIcon from 'src/assets/images/googleIcon.svg';
 import { loginFormSchema } from 'src/constant/formValidations';
-import { setAuthCookies } from 'src/utils/cookie';
 
 interface LoginForm {
   email: string;
@@ -22,8 +20,6 @@ interface LoginForm {
 const LoginForm = () => {
   const [inputType, setInputType] = useState(true);
   const [checked, setChecked] = useState(false);
-  const router = useRouter();
-  const searchParams = useSearchParams();
 
   const {
     register,
@@ -43,7 +39,7 @@ const LoginForm = () => {
       },
       {
         onSuccess: () => {
-          alert('onSuccess');
+          alert('success');
         },
         onError: () => {
           alert('error');
@@ -57,17 +53,6 @@ const LoginForm = () => {
     const newValue: boolean = event.target.checked;
     setChecked(newValue);
   };
-
-  const pathname = usePathname();
-
-  useEffect(() => {
-    if (pathname.startsWith('login/google/success')) {
-      setAuthCookies(searchParams.get('token') as string);
-      router.push('/');
-    } else {
-      router.push('/login');
-    }
-  }, [pathname]);
 
   //   href={`${process.env.LOGIN_GOOGLE_URL as string}`}
   return (

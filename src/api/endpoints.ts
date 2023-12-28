@@ -5,3 +5,6 @@ export const login = '/login';
 export const files = '/files';
 export const download = '/download';
 export const languages = '/languages';
+export const faqs = '/faqs';
+export const forgotPassword = '/forgot-password';
+export const resetPassword = '/reset-password';

@@ -9,35 +9,38 @@ import Card2 from 'src/assets/images/frontCard.svg';
 
 const BeginAdventure = () => {
   return (
-    <section id="begin-adventure" className="container">
-      <Grid container spacing={2}>
-        <Grid item xs={6}>
-          <div className="cards-container">
-            <div className="card-1">
-              <Image src={Card1} alt="card-1" className="card" />
+    <section id="begin-adventure">
+      <div className="container">
+        {' '}
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <div className="cards-container">
+              <div className="card-1">
+                <Image src={Card1} alt="card-1" className="card" />
+              </div>
+              <div className="card-2">
+                <Image src={Card1} alt="card-2" className="card" />
+              </div>
+              <div className="card-3">
+                <Image src={Card2} alt="card-3" className="card" />
+              </div>
             </div>
-            <div className="card-2">
-              <Image src={Card1} alt="card-2" className="card" />
+          </Grid>
+          <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
+            <h1 className="page-head">Begin Your AI Adventure</h1>
+            <p className="biggerSize-text">
+              Dive into the essentials of AI and see how it shapes our world with beginner-friendly course to
+              ignite your AI passion.
+            </p>
+            <div className="gradient-btn">
+              <button type="button">
+                Let’s start
+                <Image src={ArrowIcon} alt="arrow-icon" />
+              </button>
             </div>
-            <div className="card-3">
-              <Image src={Card2} alt="card-3" className="card" />
-            </div>
-          </div>
+          </Grid>
         </Grid>
-        <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
-          <h1 className="page-head">Begin Your AI Adventure</h1>
-          <p className="biggerSize-text">
-            Dive into the essentials of AI and see how it shapes our world with beginner-friendly course to
-            ignite your AI passion.
-          </p>
-          <div className="gradient-btn">
-            <button type="button">
-              Let’s start
-              <Image src={ArrowIcon} alt="arrow-icon" />
-            </button>
-          </div>
-        </Grid>
-      </Grid>
+      </div>
     </section>
   );
 };

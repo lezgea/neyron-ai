@@ -21,7 +21,7 @@ const Footer = () => {
       <Grid item xs={12}>
         <ul className="nav-list">
           <li>
-            <Link href="/">About us</Link>
+            <Link href="/aboutUs">About us</Link>
           </li>
           <li>
             <Link href="/">Courses</Link>
@@ -30,13 +30,13 @@ const Footer = () => {
             <Link href="/">Community</Link>
           </li>
           <li>
-            <Link href="/">FAQ</Link>
+            <Link href="/faq">FAQ</Link>
           </li>
           <li>
             <Link href="/blog">Blog</Link>
           </li>
           <li>
-            <Link href="/">Contact us</Link>
+            <Link href="/contact">Contact us</Link>
           </li>
           <li>
             <Link href="/">Terms and conditions</Link>
