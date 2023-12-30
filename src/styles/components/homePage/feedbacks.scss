@@ -1,5 +1,4 @@
 #feedbacks {
-  height: 200vh !important;
   z-index: 300;
   .feedback-image {
     position: absolute;
@@ -14,15 +13,20 @@
     }
     .feedback-content {
       .left-feedback {
-        max-width: 100vh;
+        max-height: 40rem;
         overflow: auto;
+        padding-left: 2.75rem;
+        padding-top: 5rem;
         &::-webkit-scrollbar {
           display: none;
         }
         .person-box {
+          padding-top: 2rem;
           width: 100%;
-          margin-bottom: 5.44rem;
           display: flex;
+          &:not(:last-child) {
+            margin-bottom: 5rem;
+          }
           .person-box-detail {
             margin-left: 2.38rem;
             padding-top: 2.19rem;

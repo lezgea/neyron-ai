@@ -1,5 +1,9 @@
 #about-us {
-  height: calc(100vh);
+  padding-left: 2.75rem;
+  height: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   .text {
     p {
       width: 75%;
