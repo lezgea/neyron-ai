@@ -12,7 +12,7 @@ export const useForgotPassword = () => {
       onSuccess: () => {
         queryClient.invalidateQueries([QUERY_KEYS.forgotPassword]);
       },
-    }
+    },
   );
 };
 export const useResetPassword = () => {
@@ -27,6 +27,6 @@ export const useResetPassword = () => {
       onSuccess: () => {
         queryClient.invalidateQueries([QUERY_KEYS.resetPassword]);
       },
-    }
+    },
   );
 };

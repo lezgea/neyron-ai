@@ -2,7 +2,7 @@
 
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import { useResetPassword } from 'src/api/forgotPassword/mutation';
 
@@ -12,14 +12,22 @@ interface IResetPassword {
 }
 const ResetPassword = () => {
   const { register, handleSubmit } = useForm<IResetPassword>();
+  const router = useRouter();
   const param = useSearchParams();
   const { mutate } = useResetPassword();
   const onSubmit = (values: IResetPassword) => {
-    mutate({
-      password: values?.password,
-      confirmPassword: values?.confirmPassword as string,
-      token: param.get('token') as string,
-    });
+    mutate(
+      {
+        password: values?.password,
+        confirmPassword: values?.confirmPassword as string,
+        token: param.get('token') as string,
+      },
+      {
+        onSuccess: () => {
+          router.push('/login');
+        },
+      }
+    );
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
