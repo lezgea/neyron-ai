@@ -28,7 +28,7 @@ const ContainerPage = () => {
     },
     {
       fitCanvasToArtboardHeight: true,
-    }
+    },
   );
   useEffect(() => {
     if (rive) {
