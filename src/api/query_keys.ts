@@ -9,4 +9,5 @@ export const QUERY_KEYS = {
   faq: 'faq',
   forgotPassword: 'forgotPassword',
   resetPassword: 'resetPassword',
+  profile: 'profile',
 };

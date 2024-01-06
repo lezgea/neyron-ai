@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Logo from 'src/assets/images/logo.svg';
 
 import HeaderSwitch from './headerSwitch';
+import UserProfile from './userProfile';
 
 const Header = () => {
   return (
@@ -34,12 +35,7 @@ const Header = () => {
             <li>
               <HeaderSwitch />
             </li>
-            <li>
-              <Link href="/login">
-                {' '}
-                <button type="button">Log in</button>
-              </Link>
-            </li>
+            <UserProfile />
           </ul>
         </nav>
       </div>
