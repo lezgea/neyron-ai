@@ -5,7 +5,11 @@ import Footer from 'src/components/footer/footer';
 import Header from 'src/components/header/header';
 
 import '../styles/App.scss';
-
+import { SnackbarProvider } from 'notistack';
+import { StyledMaterialDesignContent } from 'src/utils/notistakStyles';
+import SuccessIcon from 'src/assets/images/successNotification.svg';
+import ErrorIcon from 'src/assets/images/errorNotification.svg';
+import Image from 'next/image';
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -17,15 +21,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       },
     },
   });
-
   return (
     <html lang="en">
       <body>
-        <Header />{' '}
         <QueryClientProvider client={queryClient}>
-          <main>{children}</main>
+          <Header />{' '}
+          <SnackbarProvider
+            iconVariant={{
+              success: <Image src={SuccessIcon} alt="success" />,
+              error: <Image src={ErrorIcon} alt="error" />,
+            }}
+            Components={{
+              success: StyledMaterialDesignContent,
+              error: StyledMaterialDesignContent,
+            }}
+            anchorOrigin={{ horizontal: 'center', vertical: 'top' }}
+          >
+            <main>{children}</main>
+          </SnackbarProvider>
+          <Footer />
         </QueryClientProvider>
-        <Footer />
       </body>
     </html>
   );

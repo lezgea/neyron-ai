@@ -11,6 +11,8 @@ import { useLogin } from 'src/api/login/mutation';
 import EyeIcon from 'src/assets/images/eyeIcon.svg';
 import GoogleIcon from 'src/assets/images/googleIcon.svg';
 import { loginFormSchema } from 'src/constant/formValidations';
+import useNotification from 'src/components/ui/useNotification';
+import { setAuthCookies } from 'src/utils/cookie';
 
 interface LoginForm {
   email: string;
@@ -30,6 +32,7 @@ const LoginForm = () => {
   });
 
   const { mutate } = useLogin();
+  const { showNotification } = useNotification();
 
   const onSubmit = (values: LoginForm) => {
     mutate(
@@ -38,15 +41,15 @@ const LoginForm = () => {
         password: values?.password,
       },
       {
-        onSuccess: () => {
-          alert('success');
+        onSuccess: (res) => {
+          showNotification({ title: 'Success', variant: 'success' });
+          setAuthCookies(res?.data?.data?.token);
         },
         onError: () => {
-          alert('error');
+          showNotification({ title: 'Error', variant: 'error' });
         },
-      },
+      }
     );
-    return checked;
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -98,14 +101,13 @@ const LoginForm = () => {
       <div className="line"></div>
 
       <Link href="https://api.neyron.ai/oauth2/authorization/google">
-        {' '}
         <button type="button" className="black-btn">
           <Image src={GoogleIcon} alt="sign in with Google" />
           Or sign in with Google
         </button>
       </Link>
       <p className="sign-up">
-        Dont have an account?{' '}
+        Dont have an account?
         <Link href="/register" className="link-text">
           Sign up now
         </Link>
