@@ -26,7 +26,7 @@ const ResetPassword = () => {
         onSuccess: () => {
           router.push('/login');
         },
-      }
+      },
     );
   };
   return (

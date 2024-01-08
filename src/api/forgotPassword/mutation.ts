@@ -15,6 +15,7 @@ export const useForgotPassword = () => {
     },
   );
 };
+
 export const useResetPassword = () => {
   const queryClient = useQueryClient();
   return useMutation(

@@ -1,18 +1,21 @@
 'use client';
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { FormControlLabel, Switch } from '@mui/material';
 
 import { useLogin } from 'src/api/login/mutation';
 import EyeIcon from 'src/assets/images/eyeIcon.svg';
 import GoogleIcon from 'src/assets/images/googleIcon.svg';
-import { loginFormSchema } from 'src/constant/formValidations';
 import useNotification from 'src/components/ui/useNotification';
+import { loginFormSchema } from 'src/constant/formValidations';
 import { setAuthCookies } from 'src/utils/cookie';
+
+import { LayoutContext } from '../layout';
 
 interface LoginForm {
   email: string;
@@ -20,8 +23,11 @@ interface LoginForm {
 }
 
 const LoginForm = () => {
+  const { setUserIsActive } = useContext(LayoutContext);
   const [inputType, setInputType] = useState(true);
-  const [checked, setChecked] = useState(false);
+  //   const [_checked, setChecked] = useState(false);
+
+  const navigate = useRouter();
 
   const {
     register,
@@ -44,17 +50,20 @@ const LoginForm = () => {
         onSuccess: (res) => {
           showNotification({ title: 'Success', variant: 'success' });
           setAuthCookies(res?.data?.data?.token);
+          navigate.push('/');
+          setUserIsActive(true);
         },
         onError: () => {
           showNotification({ title: 'Error', variant: 'error' });
         },
-      }
+      },
     );
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue: boolean = event.target.checked;
-    setChecked(newValue);
+    // setChecked(newValue);
+    return newValue;
   };
 
   //   href={`${process.env.LOGIN_GOOGLE_URL as string}`}
@@ -100,7 +109,7 @@ const LoginForm = () => {
 
       <div className="line"></div>
 
-      <Link href="https://api.neyron.ai/oauth2/authorization/google">
+      <Link href={`${process.env.NEXT_LOGIN_GOOGLE_URL as string}`}>
         <button type="button" className="black-btn">
           <Image src={GoogleIcon} alt="sign in with Google" />
           Or sign in with Google

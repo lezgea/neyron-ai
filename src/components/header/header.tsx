@@ -4,6 +4,8 @@ import Link from 'next/link';
 
 import Logo from 'src/assets/images/logo.svg';
 
+import SelectLanguage from '../selecLanguage/selectLanguage';
+
 import HeaderSwitch from './headerSwitch';
 import UserProfile from './userProfile';
 
@@ -31,6 +33,9 @@ const Header = () => {
             </li>
             <li>
               <Link href="/contact">Contact us</Link>
+            </li>
+            <li>
+              <SelectLanguage />
             </li>
             <li>
               <HeaderSwitch />

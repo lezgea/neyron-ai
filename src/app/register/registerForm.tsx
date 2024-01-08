@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Image from 'next/image';
@@ -16,6 +16,8 @@ import ActivateAccountModal from 'src/components/modal/activateAccountModal';
 import { loginFormSchema } from 'src/constant/formValidations';
 import { useNotification } from 'src/hooks/showNotification';
 
+import { LayoutContext } from '../layout';
+
 interface RegisterForm {
   email: string;
   password: string;
@@ -23,6 +25,8 @@ interface RegisterForm {
 }
 
 const RegisterForm = () => {
+  const { selectedLanguage } = useContext(LayoutContext);
+
   const [inputType, setInputType] = useState(true);
   const [visible, setVisible] = useState(false);
   const { register, handleSubmit, watch } = useForm<RegisterForm>({
@@ -36,7 +40,7 @@ const RegisterForm = () => {
       {
         email: values?.email,
         password: values?.password,
-        languageId: 1,
+        languageId: selectedLanguage?.id,
       },
       {
         onSuccess: () => {
