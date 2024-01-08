@@ -19,19 +19,12 @@
     padding-left: 2.87rem;
     .language {
       margin-top: 2rem;
+      display: flex;
+      align-items: center;
       span {
         letter-spacing: 0.03088rem;
         @include fontSize(0.77256rem, 500, 100%, #000);
         margin-right: 0.5rem;
-      }
-      #lang-select {
-        padding: 0.76rem 0.81rem;
-        border-radius: 0.5625rem;
-        background: #f4f5fb;
-        text-transform: uppercase;
-        outline: none;
-        border: none;
-        cursor: pointer;
       }
     }
   }

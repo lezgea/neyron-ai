@@ -25,3 +25,9 @@ export interface IDataTypeLanguage {
 }
 
 export type ChangeHandler = (newValue: boolean) => void;
+
+export interface ISelectedLanguage {
+  id: number;
+  name: string;
+  abbreviation: string;
+}
