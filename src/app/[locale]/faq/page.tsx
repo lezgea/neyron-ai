@@ -1,4 +1,4 @@
-import Faq from 'src/components/home-page/faq';
+import Faq from '../components/home-page/faq';
 
 const page = () => {
   return (

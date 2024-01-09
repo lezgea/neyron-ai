@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 // next.config.js
-const nextConfig = {
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const withNextIntl = require('next-intl/plugin');
+
+const nextConfig = withNextIntl()({
   webpack: (config) => {
     config.module.rules.push({
       test: /\.(riv)$/,
@@ -15,6 +18,6 @@ const nextConfig = {
     });
     return config;
   },
-};
+});
 
 module.exports = nextConfig;

@@ -5,7 +5,7 @@ import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
 
 import { Grid } from '@mui/material';
 
-import LandingAnimation2 from '../../../public/landingAnimation2.riv';
+import LandingAnimation2 from '../../../../../public/landingAnimation1.riv';
 
 import AboutUs from './aboutUs';
 import BeginAdventure from './beginAdventure';

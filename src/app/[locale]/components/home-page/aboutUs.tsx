@@ -1,15 +1,18 @@
 import React from 'react';
 import Image from 'next/image';
 
+// import { useTranslations } from 'next-intl';
 import ArrowIcon from 'src/assets/images/arrow.svg';
 
 const AboutUs = () => {
+  //   const t = useTranslations('about');
   return (
     <section id="about-us">
       {' '}
       <h1 className="page-head">About us</h1>
       <div className="text">
         {' '}
+        {/* {t('about')} */}
         <p>
           Welcome to <span>Neyron.ai</span> - Your AI Learning Companion
         </p>

@@ -27,7 +27,7 @@
 
   "rules": {
     "react/prop-types": 0,
-
+    "@typescript-eslint/no-var-requires": "error",
     "simple-import-sort/imports": "error"
   },
   "overrides": [

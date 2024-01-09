@@ -6,10 +6,11 @@ import { useRouter } from 'next/navigation';
 
 import { useGetFile } from 'src/api/file/queries';
 import { useGetProfileDetails } from 'src/api/profile/queries';
-import { LayoutContext } from 'src/app/layout';
 import LogoutIcon from 'src/assets/images/logoutIcon.svg';
 import ProfileIcon from 'src/assets/images/profileIcon.svg';
 import { getAccessToken, removeAuthCookies } from 'src/utils/cookie';
+
+import { LayoutContext } from '../../layoutContainer';
 
 const UserProfile = () => {
   const { userIsActive, setUserIsActive } = useContext(LayoutContext);

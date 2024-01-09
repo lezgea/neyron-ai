@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import { Grid } from '@mui/material';
 
 import { useGetBlogs } from 'src/api/blog/queries';
-import Paginate from 'src/components/ui/paginate';
+
+import Paginate from '../components/ui/paginate';
 
 import SingleBlogCard from './singleBlogCard';
 

@@ -1,17 +1,18 @@
 'use client';
-import { createContext, Dispatch, SetStateAction, useState } from 'react';
+import { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import Image from 'next/image';
 import { SnackbarProvider } from 'notistack';
 
 import ErrorIcon from 'src/assets/images/errorNotification.svg';
 import SuccessIcon from 'src/assets/images/successNotification.svg';
-import Footer from 'src/components/footer/footer';
-import Header from 'src/components/header/header';
 import { ISelectedLanguage } from 'src/types';
 import { StyledMaterialDesignContent } from 'src/utils/notistakStyles';
 
-import '../styles/App.scss';
+import Footer from './components/footer/footer';
+import Header from './components/header/header';
+
+import '../../styles/App.scss';
 
 interface ContextProps {
   userIsActive: boolean;
@@ -27,7 +28,11 @@ export const LayoutContext = createContext<ContextProps>({
   setSelectedLanguage: () => {},
 });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'az' }];
+}
+
+export default function LayoutContainer({ children }: { children: ReactNode }) {
   const [userIsActive, setUserIsActive] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState({
     id: 1,
@@ -47,30 +52,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   });
 
   return (
-    <html lang="en">
-      <body>
-        <LayoutContext.Provider
-          value={{ userIsActive, setUserIsActive, selectedLanguage, setSelectedLanguage }}
+    <LayoutContext.Provider value={{ userIsActive, setUserIsActive, selectedLanguage, setSelectedLanguage }}>
+      <QueryClientProvider client={queryClient}>
+        <Header />
+        <SnackbarProvider
+          iconVariant={{
+            success: <Image src={SuccessIcon} alt="success" />,
+            error: <Image src={ErrorIcon} alt="error" />,
+          }}
+          Components={{
+            success: StyledMaterialDesignContent,
+            error: StyledMaterialDesignContent,
+          }}
+          anchorOrigin={{ horizontal: 'center', vertical: 'top' }}
         >
-          <QueryClientProvider client={queryClient}>
-            <Header />
-            <SnackbarProvider
-              iconVariant={{
-                success: <Image src={SuccessIcon} alt="success" />,
-                error: <Image src={ErrorIcon} alt="error" />,
-              }}
-              Components={{
-                success: StyledMaterialDesignContent,
-                error: StyledMaterialDesignContent,
-              }}
-              anchorOrigin={{ horizontal: 'center', vertical: 'top' }}
-            >
-              <main>{children}</main>
-            </SnackbarProvider>
-            <Footer />
-          </QueryClientProvider>
-        </LayoutContext.Provider>
-      </body>
-    </html>
+          <main>{children}</main>
+        </SnackbarProvider>
+        <Footer />
+      </QueryClientProvider>
+    </LayoutContext.Provider>
   );
 }
