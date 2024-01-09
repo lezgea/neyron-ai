@@ -7,7 +7,8 @@ import InstaIcon from 'src/assets/images/insta-icon.svg';
 import LinkedinIcon from 'src/assets/images/linkedin-icon.svg';
 import TiktokIcon from 'src/assets/images/tiktok-icon.svg';
 import YoutubeIcon from 'src/assets/images/youtube-icon.svg';
-import ContactForm from 'src/components/contact/contactForm';
+
+import ContactForm from '../components/contact/contactForm';
 
 const Contact = () => {
   return (

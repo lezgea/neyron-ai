@@ -1,4 +1,4 @@
-import ContainerPage from 'src/components/home-page/containerPage';
+import ContainerPage from './components/home-page/containerPage';
 
 const App = () => {
   return (

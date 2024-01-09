@@ -1,4 +1,5 @@
 .contact-page {
+  padding-bottom: 6rem;
   .contact-container {
     @include flexBox(center, center);
     flex-direction: column;

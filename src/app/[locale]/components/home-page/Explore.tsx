@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react';
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 import { Grid } from '@mui/material';
 
 import ArrowIcon from 'src/assets/images/arrow.svg';
 
-import LandingAnimation1 from '../../../public/landingAnimation1.riv';
+import LandingAnimation1 from '../../../../../public/landingAnimation1.riv';
 import SelectLanguage from '../selecLanguage/selectLanguage';
 
 const Explore = () => {
+  const t = useTranslations('Index');
+  const tBtn = useTranslations('buttons');
   const { rive, RiveComponent } = useRive(
     {
       src: LandingAnimation1,
@@ -42,15 +45,15 @@ const Explore = () => {
         {' '}
         <Grid container sx={{ display: 'flex', justifyContent: 'space-between' }} className="explore-landing">
           <Grid item xs={8} className="explore-left">
-            <h1 className="page-head">Explore AI and get addicted to fun</h1>
-            <p className="biggerSize-text">Begin your AI Adventure with our Interactive Learning Platform!</p>
+            <h1 className="page-head">{t('exploreHead')}</h1>
+            <p className="biggerSize-text">{t('exploreText')}</p>
             <div className="language">
-              <span>Language</span>
+              <span>{t('languageText')}</span>
               <SelectLanguage />
             </div>
             <div className="gradient-btn">
               <button type="button">
-                Let’s start <Image src={ArrowIcon} alt="arrow-icon" />
+                {tBtn('startButton')} <Image src={ArrowIcon} alt="arrow-icon" />
               </button>
             </div>
           </Grid>

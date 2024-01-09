@@ -6,9 +6,10 @@ import Image from 'next/image';
 
 import { useChangeLanguage } from 'src/api/language/mutations';
 import { useGetLanguages } from 'src/api/language/queries';
-import { LayoutContext } from 'src/app/layout';
 import SelectIcon from 'src/assets/images/selectIcon.svg';
 import { IDataTypeLanguage, ISelectedLanguage } from 'src/types';
+
+import { LayoutContext } from '../../layoutContainer';
 
 const SelectLanguage = () => {
   const { data } = useGetLanguages();

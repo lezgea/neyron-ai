@@ -3,7 +3,7 @@ import { useContext, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 
-import { LayoutContext } from 'src/app/layout';
+import { LayoutContext } from 'src/app/[locale]/layoutContainer';
 import { setAuthCookies } from 'src/utils/cookie';
 
 const Success = () => {

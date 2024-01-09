@@ -12,11 +12,11 @@ import CheckBoxIcon from 'src/assets/images/checkBox.svg';
 import CheckedIcon from 'src/assets/images/checkedIcon.svg';
 import EyeIcon from 'src/assets/images/eyeIcon.svg';
 import GoogleIcon from 'src/assets/images/googleIcon.svg';
-import ActivateAccountModal from 'src/components/modal/activateAccountModal';
 import { loginFormSchema } from 'src/constant/formValidations';
 import { useNotification } from 'src/hooks/showNotification';
 
-import { LayoutContext } from '../layout';
+import ActivateAccountModal from '../components/modal/activateAccountModal';
+import { LayoutContext } from '../layoutContainer';
 
 interface RegisterForm {
   email: string;

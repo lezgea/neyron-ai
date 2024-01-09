@@ -11,11 +11,11 @@ import { FormControlLabel, Switch } from '@mui/material';
 import { useLogin } from 'src/api/login/mutation';
 import EyeIcon from 'src/assets/images/eyeIcon.svg';
 import GoogleIcon from 'src/assets/images/googleIcon.svg';
-import useNotification from 'src/components/ui/useNotification';
 import { loginFormSchema } from 'src/constant/formValidations';
 import { setAuthCookies } from 'src/utils/cookie';
 
-import { LayoutContext } from '../layout';
+import useNotification from '../components/ui/useNotification';
+import { LayoutContext } from '../layoutContainer';
 
 interface LoginForm {
   email: string;

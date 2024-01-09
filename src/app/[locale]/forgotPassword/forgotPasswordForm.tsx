@@ -5,8 +5,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Link from 'next/link';
 
 import { useForgotPassword } from 'src/api/forgotPassword/mutation';
-import ActivateAccountModal from 'src/components/modal/activateAccountModal';
 import { forgotPasswordSchema } from 'src/constant/formValidations';
+
+import ActivateAccountModal from '../components/modal/activateAccountModal';
 
 interface IForgotPassword {
   email: string;
