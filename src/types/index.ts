@@ -31,3 +31,9 @@ export interface ISelectedLanguage {
   name: string;
   abbreviation: string;
 }
+
+export interface ICountries {
+  id: string;
+  name: string;
+  code: string;
+}

@@ -5,11 +5,14 @@ import { QUERY_KEYS } from '../query_keys';
 
 export const useLogin = () => {
   const queryClient = useQueryClient();
-  return useMutation((data: { email: string; password: string }) => axiosOpen.post('users/login', data), {
-    onSuccess: () => {
-      queryClient.invalidateQueries([QUERY_KEYS.login]);
-    },
-  });
+  return useMutation(
+    (data: { email: string; password: string; rememberMe: boolean }) => axiosOpen.post('users/login', data),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries([QUERY_KEYS.login]);
+      },
+    }
+  );
 };
 
 export const useRegister = () => {
@@ -20,6 +23,6 @@ export const useRegister = () => {
       onSuccess: () => {
         queryClient.invalidateQueries([QUERY_KEYS.register]);
       },
-    },
+    }
   );
 };

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
 
 import { Grid } from '@mui/material';
@@ -16,6 +16,8 @@ import Feedbacks from './feedbacks';
 import WhyUs from './whyUs';
 
 const ContainerPage = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [startScroll, setStartScroll] = useState(false);
   const { rive, RiveComponent } = useRive(
     {
       src: LandingAnimation2,
@@ -28,7 +30,7 @@ const ContainerPage = () => {
     },
     {
       fitCanvasToArtboardHeight: true,
-    },
+    }
   );
   useEffect(() => {
     if (rive) {
@@ -39,6 +41,26 @@ const ContainerPage = () => {
       setTimeout(eyeAnimation, 3000);
     }
   }, [rive]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const stickyCard = ref.current;
+      if (!stickyCard) return;
+
+      const stickyCardPosition = stickyCard.getBoundingClientRect().top;
+      if (stickyCardPosition <= 0) {
+        setStartScroll(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      setStartScroll(false);
+    };
+  }, []);
+
   return (
     <div className="stack">
       <div className="stack__card">
@@ -47,7 +69,7 @@ const ContainerPage = () => {
       <div className="stack__card">
         <BeginAdventure />
       </div>
-      <div className="stack__card">
+      <div className="stack__card" ref={ref} style={{ overflow: startScroll ? 'auto' : 'hidden' }}>
         <Grid container className="container">
           <Grid item xs={7} className="stacked_card_container">
             {' '}

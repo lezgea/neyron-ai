@@ -11,7 +11,6 @@ export const axiosOpen: AxiosInstance = axios.create({
   baseURL: `${BASE_URL}/v1`,
   headers: {
     'Content-Type': 'application/json',
-    'Accept-Language': 'az',
   },
 });
 

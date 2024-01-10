@@ -8,6 +8,7 @@ export function removeAuthCookies() {
   Cookies.remove(accessTokenName, { path: '/login' });
 }
 
+
 export const setAuthCookies = (accessToken: string) => {
   Cookies.set(accessTokenName, accessToken, {
     expires: 7,

@@ -2,9 +2,58 @@
   "Index": {
     "exploreHead": "Explore AI and get addicted to fun",
     "exploreText": "Begin your AI Adventure with our Interactive Learning Platform!",
-    "languageText": "Language"
+    "languageText": "Language",
+    "coursesHead": "Begin Your AI Adventure",
+    "coursesText": "Dive into the essentials of AI and see how it shapes our world with beginner-friendly course to ignite your AI passion.",
+    "aboutHead": "About us",
+    "aboutTextHead": "Welcome to Neyron.ai - Your AI Learning Companion ",
+    "aboutText": "At Neyron.ai, our mission is to make Artificial Intelligence not just understandable but also enjoyable. Whether you're an AI enthusiast or a seasoned professional, we've created an environment where AI is accessible to everyone.",
+    "whyUsHead": "Why us?",
+    "whyUsText1Head": "Beginner-Friendly",
+    "whyUsText1": "Start with 'Introduction to AI' - No Prior Experience Needed!",
+    "whyUsText2Head": "Interactive & Addictive",
+    "whyUsText2": "Experience Gamified Learning - Engage with Every Lesson!",
+    "whyUsText3Head": "Community-Driven",
+    "whyUsText3": "Join Learners from all countries - Collaborate and Grow!",
+    "communityHead": "You’re not alone on this journey!",
+    "communityText": "Our platform connects you with a vibrant community of AI learners and experts. Share insights, ask questions, and find inspiration.",
+    "feedbackHead": "Raving Reviews",
+    "feedbackText": "Explore the raving reviews from our users who have dived into the world of AI with Neyron.ai    ",
+    "personName1": "Samir",
+    "personFeedback1": "Neyron.ai turns learning into an adventure. The platform is user-friendly, and the reward system keeps me motivated. I've never been so enthusiastic about AI!    ",
+    "personName2": "Tunar",
+    "personFeedback2": "As someone new to AI, Neyron.ai has been a game-changer. The clear, engaging modules and the ranking system make learning not only accessible but also exciting!",
+    "personName3": "Ulvi",
+    "personFeedback3": "Neyron.ai has made AI learning an absolute joy! The interactive adventures and gamified approach keep me hooked. Learning has never been this engaging!    ",
+    "personName4": "Khayal",
+    "personFeedback4": "I'm genuinely impressed with Neyron.ai. The clear and concise lessons, coupled with the interactive challenges, create a perfect learning environment. It's a must-try for anyone interested in AI!    ",
+    "personName5": "Üzeyir",
+    "personFeedback5": "Neyron.ai süni intellektlə öyrənməyi çox əyləncəli etdi! İnteraktiv fəsillər və viktorinalar çox əyləncəlidir. Bu, təhsildən daha çox şeydir; bu interaktiv səyahətdir!    ",
+    "personName6": "İlahə",
+    "personFeedback6": "Neyron.ai sadəcə süni intellektə öyrətmir, sizi ona batırır. Oyunlaşdırılmış öyrənmə hər bir modulu həyəcanlandıran problemə çevirən dahi konsepsiyadır. Tamamilə fantastik!    "
   },
   "buttons": {
-    "startButton": "Let's start"
+    "startButton": "Let's start",
+    "join": "Join"
+  },
+  "navbar": {
+    "about": "About us ",
+    "courses": "Courses",
+    "community": "Community",
+    "faq": "FAQ",
+    "contact": "Contact us",
+    "login": "Log in"
+  },
+  "select": {
+    "noOption": "Information not found"
+  },
+  "profile": {
+    "country": "Country",
+    "name": "Name",
+    "surname": "Surname",
+    "gender": "Gender",
+    "email": "E-mail",
+    "password": "Password",
+    "birthdate": "Birth date"
   }
 }

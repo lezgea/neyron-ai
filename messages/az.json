@@ -2,12 +2,61 @@
   "Index": {
     "exploreHead": "Süni İntellekti kəşf et, öyrən və əylən!",
     "exploreText": "Sİ tətbiq etməyə bizim interaktiv platformamızla başla!",
-    "languageText": "Dil"
+    "languageText": "Dil",
+    "coursesHead": "Süni İntellekt macərasını başlat    ",
+    "coursesText": "Süni İntellekti yeni öyrənməyə  başlayanlar üçün nəzərdə tutulmuş kursumuzla Sİ əsaslarını mənimsə və dünyamızı necə dəyişdiyinin şahidi ol!",
+    "aboutHead": "Haqqımızda",
+    "aboutTextHead": "Neyron.ai-a Xoş Gəldin;",
+    "aboutText": "Sİ dünyasına səyahətində yol yoldaşın Neyron.ai-də bizim missiyamız Süni İntellekti təkcə öyrətmək deyil, həm də öyrənmə prosesini əyləncəli etməkdir. İstər süni intellekt həvəskarı, istərsə də təcrübəli peşəkar olmağınızdan asılı olmayaraq, biz süni intellektin hər kəs üçün əlçatan olduğu bir mühit yaratmışıq.",
+    "whyUsHead": "Niyə biz?",
+    "whyUsText1Head": "Hər kəs üçündür",
+    "whyUsText1": "'Sİ-ə giriş' ilə başlayın - təcrübə və əlavə bilik tələb olunmur!",
+    "whyUsText2Head": "İnteraktiv və Əyləncəli",
+    "whyUsText2": "Oyun oynayaraq öyrənməkdən zövq al!",
+    "whyUsText3Head": "Community-Driven",
+    "whyUsText3": "Join Learners from all countries - Collaborate and Grow!",
+    "communityHead": "Bu səyahətində yalnız deyilsən! ",
+    "communityText": "Platformamızda onlayn icmaya qoşularaq digər Sİ öyrənən intuziastlar və ya peşəkarlarla öz təcrübə və fikirlərini bölüşərək, müzakirələr apararaq öyrənmə prosesini daha maraqlı və məhsuldar edə bilərsən. ",
+    "feedbackHead": "İstifadəçi Rəyləri",
+    "feedbackText": "Neyron.ai ilə süni intellekt dünyasına qədəm qoyan istifadəçilərimizin heyranedici rəylərini araşdırın.",
+    "personName1": "Samir",
+    "personFeedback1": "Neyron.ai öyrənməyi macəraya çevirir. Platforma istifadəçi dostudur və mükafat sistemi məni motivasiya edir. Mən süni intellektə heç vaxt bu qədər həvəsli olmamışam!    ",
+    "personName2": "Tunar",
+    "personFeedback2": "Süni intellektə yeni başlayan biri kimi Neyron.ai oyunu dəyişdirən oldu. Aydın, cəlbedici modullar və sıralama sistemi öyrənməyi təkcə əlçatan deyil, həm də maraqlı edir!    ",
+    "personName3": "Ülvi",
+    "personFeedback3": "Neyron.ai süni intellekt öyrənməni tamamilə sevincə çevirdi! İnteraktiv sərgüzəştlər və oyunlaşdırılmış yanaşma məni bağlı saxlayır. Öyrənmək heç vaxt bu qədər cəlbedici olmamışdı!    ",
+    "personName4": "Xəyal",
+    "personFeedback4": "Neyron.ai-dən həqiqətən heyran oldum. Aydın və qısa dərslər, interaktiv çətinliklərlə birlikdə mükəmməl öyrənmə mühiti yaradır. Süni intellektlə maraqlanan hər kəs üçün mütləq cəhd etməlidir!    ",
+    "personName5": "Üzeyir",
+    "personFeedback5": "Neyron.ai süni intellektlə öyrənməyi çox əyləncəli etdi! İnteraktiv fəsillər və viktorinalar çox əyləncəlidir. Bu, təhsildən daha çox şeydir; bu interaktiv səyahətdir!    ",
+    "personName6": "İlahə",
+    "personFeedback6": "Neyron.ai sadəcə süni intellektə öyrətmir, sizi ona batırır. Oyunlaşdırılmış öyrənmə hər bir modulu həyəcanlandıran problemə çevirən dahi konsepsiyadır. Tamamilə fantastik!    "
   },
   "buttons": {
-    "startButton": "Başla"
+    "startButton": "Başla",
+    "join": "Qoşul"
   },
   "about": {
     "text": "Neyron.ai-a Xoş Gəldin; Sİ dünyasına səyahətində yol yoldaşın Neyron.ai-də bizim missiyamız Süni İntellekti təkcə öyrətmək deyil, həm də öyrənmə prosesini əyləncəli etməkdir. İstər süni intellekt həvəskarı, istərsə də təcrübəli peşəkar olmağınızdan asılı olmayaraq, biz süni intellektin hər kəs üçün əlçatan olduğu bir mühit yaratmışıq"
+  },
+  "navbar": {
+    "about": "Haqqımızda",
+    "courses": "Kurslar",
+    "community": "İcma",
+    "faq": "FAQ",
+    "contact": "Əlaqə",
+    "login": "Daxil ol"
+  },
+  "select": {
+    "noOption": "Məlumat tapılmadı"
+  },
+  "profile": {
+    "country": "Country",
+    "name": "Name",
+    "surname": "Surname",
+    "gender": "Gender",
+    "email": "E-mail",
+    "password": "Password",
+    "birthdate": "Birthdate"
   }
 }

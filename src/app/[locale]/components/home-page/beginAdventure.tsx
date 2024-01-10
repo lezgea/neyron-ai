@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 import { Grid } from '@mui/material';
 
@@ -8,6 +9,8 @@ import Card1 from 'src/assets/images/backCard.svg';
 import Card2 from 'src/assets/images/frontCard.svg';
 
 const BeginAdventure = () => {
+  const t = useTranslations('Index');
+  const tBtn = useTranslations('buttons');
   return (
     <section id="begin-adventure">
       <div className="container">
@@ -27,14 +30,11 @@ const BeginAdventure = () => {
             </div>
           </Grid>
           <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
-            <h1 className="page-head">Begin Your AI Adventure</h1>
-            <p className="biggerSize-text">
-              Dive into the essentials of AI and see how it shapes our world with beginner-friendly course to
-              ignite your AI passion.
-            </p>
+            <h1 className="page-head">{t('coursesHead')}</h1>
+            <p className="biggerSize-text">{t('coursesText')}</p>
             <div className="gradient-btn">
               <button type="button">
-                Let’s start
+                {tBtn('startButton')}
                 <Image src={ArrowIcon} alt="arrow-icon" />
               </button>
             </div>

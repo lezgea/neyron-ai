@@ -3,8 +3,9 @@
 import { useContext } from 'react';
 import Select, { components, DropdownIndicatorProps, GroupBase, StylesConfig } from 'react-select';
 import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
 
-import { useChangeLanguage } from 'src/api/language/mutations';
+// import { useChangeLanguage } from 'src/api/language/mutations';
 import { useGetLanguages } from 'src/api/language/queries';
 import SelectIcon from 'src/assets/images/selectIcon.svg';
 import { IDataTypeLanguage, ISelectedLanguage } from 'src/types';
@@ -12,10 +13,12 @@ import { IDataTypeLanguage, ISelectedLanguage } from 'src/types';
 import { LayoutContext } from '../../layoutContainer';
 
 const SelectLanguage = () => {
+  const router = useRouter();
+  const pathName = usePathname();
   const { data } = useGetLanguages();
   const { selectedLanguage, setSelectedLanguage } = useContext(LayoutContext);
 
-  const { mutate: changeLanguage } = useChangeLanguage();
+  //   const { mutate: changeLanguage } = useChangeLanguage();
 
   type SelectChangeHandler = (lang: ISelectedLanguage | null) => void;
 
@@ -34,10 +37,13 @@ const SelectLanguage = () => {
   };
 
   const handleChange: SelectChangeHandler = (lang) => {
+    // first selected language is current language
     if (lang) {
+      const newPathName = pathName?.replace(selectedLanguage?.abbreviation, lang?.abbreviation as string);
+      router.push(newPathName);
       setSelectedLanguage(lang);
-      changeLanguage({ id: lang.id });
     }
+    //   changeLanguage({ id: lang.id })
   };
 
   const customStyles: StylesConfig<ISelectedLanguage, boolean, GroupBase<ISelectedLanguage>> = {
@@ -75,12 +81,12 @@ const SelectLanguage = () => {
     <Select
       styles={customStyles}
       value={selectedLanguage}
-      defaultValue={selectedLanguage}
+      //   defaultValue={selectedLanguage}
       onChange={handleChange}
       components={{ DropdownIndicator: CustomDropdownIndicator }}
       options={data?.data}
       getOptionLabel={(elem: IDataTypeLanguage) => elem.abbreviation?.toLocaleUpperCase()}
-      getOptionValue={(elem: IDataTypeLanguage) => elem.abbreviation}
+      getOptionValue={(elem: ISelectedLanguage) => elem?.abbreviation}
     />
   );
 };

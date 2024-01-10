@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -12,7 +12,13 @@ import TiktokIcon from 'src/assets/images/tiktok.svg';
 import WhiteLogo from 'src/assets/images/whiteLogo.svg';
 import YouTubeIcon from 'src/assets/images/youtube.svg';
 
+import { LayoutContext } from '../../layoutContainer';
+
 const Footer = () => {
+  const {
+    selectedLanguage: { abbreviation },
+  } = useContext(LayoutContext);
+
   return (
     <footer>
       <Grid item xs={12} className="logo-container">
@@ -21,28 +27,28 @@ const Footer = () => {
       <Grid item xs={12}>
         <ul className="nav-list">
           <li>
-            <Link href="/aboutUs">About us</Link>
+            <Link href={`/${abbreviation}/aboutUs`}>About us</Link>
           </li>
           <li>
-            <Link href="/">Courses</Link>
+            <Link href={`/${abbreviation}`}>Courses</Link>
           </li>
           <li>
-            <Link href="/">Community</Link>
+            <Link href={`/${abbreviation}`}>Community</Link>
           </li>
           <li>
-            <Link href="/faq">FAQ</Link>
+            <Link href={`/${abbreviation}/faq`}>FAQ</Link>
           </li>
           <li>
-            <Link href="/blog">Blog</Link>
+            <Link href={`/${abbreviation}/blog`}>Blog</Link>
           </li>
           <li>
-            <Link href="/contact">Contact us</Link>
+            <Link href={`/${abbreviation}/contact`}>Contact us</Link>
           </li>
           <li>
-            <Link href="/">Terms and conditions</Link>
+            <Link href={`/${abbreviation}`}>Terms and conditions</Link>
           </li>
           <li>
-            <Link href="/">Privacy Policy</Link>
+            <Link href={`/${abbreviation}`}>Privacy Policy</Link>
           </li>
         </ul>
       </Grid>

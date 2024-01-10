@@ -1,30 +1,26 @@
 import React from 'react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
-// import { useTranslations } from 'next-intl';
 import ArrowIcon from 'src/assets/images/arrow.svg';
+import { wrapWordWithSpan } from 'src/utils/wrapWordWithSpan';
 
 const AboutUs = () => {
-  //   const t = useTranslations('about');
+  const t = useTranslations('Index');
+  const tBtn = useTranslations('buttons');
   return (
     <section id="about-us">
       {' '}
-      <h1 className="page-head">About us</h1>
+      <h1 className="page-head">{t('aboutHead')}</h1>
       <div className="text">
         {' '}
         {/* {t('about')} */}
-        <p>
-          Welcome to <span>Neyron.ai</span> - Your AI Learning Companion
-        </p>
-        <p>
-          At <span>Neyron.ai</span>, our mission is to make Artificial Intelligence not just understandable
-          but also enjoyable. Whether you're an AI enthusiast or a seasoned professional, we've created an
-          environment where AI is accessible to everyone.
-        </p>
+        <p dangerouslySetInnerHTML={{ __html: wrapWordWithSpan(t('aboutTextHead'), 'Neyron.ai') }}></p>
+        <p dangerouslySetInnerHTML={{ __html: wrapWordWithSpan(t('aboutText'), 'Neyron.ai') }}></p>
       </div>
       <div className="gradient-btn">
         <button>
-          Join Now <Image src={ArrowIcon} alt="arrow-icon" />
+          {tBtn('startButton')} <Image src={ArrowIcon} alt="arrow-icon" />
         </button>
       </div>
     </section>

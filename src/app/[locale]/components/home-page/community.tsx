@@ -1,28 +1,28 @@
 import React from 'react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 import { Grid } from '@mui/material';
 
 import ArrowIcon from 'src/assets/images/arrow.svg';
 
 const Community = () => {
+  const t = useTranslations('Index');
+  const tBtn = useTranslations('buttons');
   return (
     <section id="community">
       <div className="container">
         {' '}
         <Grid container sx={{ height: '100%', paddingLeft: '1.87rem' }} spacing={2}>
           <Grid item xs={7} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
-            <h1 className="page-head">You’re not alone on this journey!</h1>
-            <div className="text">
+            <h1 className="page-head">{t('communityHead')}</h1>
+            <div className="text" style={{ marginTop: '1.69rem' }}>
               {' '}
-              <p>
-                Our platform connects you with a vibrant community of AI learners and experts. Share insights,
-                ask questions, and find inspiration.
-              </p>
+              <p>{t('communityText')}</p>
             </div>
             <div className="gradient-btn">
               <button>
-                Join Now
+                {tBtn('join')}
                 <Image src={ArrowIcon} alt="arrow-icon" />
               </button>
             </div>
