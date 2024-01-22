@@ -18,12 +18,6 @@ export interface IDataType {
   id: number;
 }
 
-export interface IDataTypeLanguage {
-  id: number;
-  name: string;
-  abbreviation: string;
-}
-
 export type ChangeHandler = (newValue: boolean) => void;
 
 export interface ISelectedLanguage {
@@ -31,3 +25,19 @@ export interface ISelectedLanguage {
   name: string;
   abbreviation: string;
 }
+
+export interface ICountries {
+  id: string;
+  name: string;
+  code: string;
+}
+
+export type FormDataProfile = {
+  name: string;
+  birthDate: string;
+  surname: string;
+  email: string;
+  password?: string;
+  gender: string;
+  countryId: string;
+};

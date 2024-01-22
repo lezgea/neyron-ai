@@ -2,12 +2,84 @@
   "Index": {
     "exploreHead": "Süni İntellekti kəşf et, öyrən və əylən!",
     "exploreText": "Sİ tətbiq etməyə bizim interaktiv platformamızla başla!",
-    "languageText": "Dil"
+    "languageText": "Dil",
+    "coursesHead": "Süni İntellekt macərasını başlat    ",
+    "coursesText": "Süni İntellekti yeni öyrənməyə  başlayanlar üçün nəzərdə tutulmuş kursumuzla Sİ əsaslarını mənimsə və dünyamızı necə dəyişdiyinin şahidi ol!",
+    "aboutHead": "Haqqımızda",
+    "aboutTextHead": "Xoş Gəldin Neyron-a: Sİ dünyasına səyahətində ən etibarlı yol yoldaşın!    ",
+    "aboutText": "Neyron.ai-də bizim missiyamız Süni İntellekti təkcə öyrətmək deyil, həm də öyrənmə prosesini əyləncəli etməkdir. İstər süni intellekt həvəskarı, istərsə də təcrübəli peşəkar olmağınızdan asılı olmayaraq, biz süni intellektin hər kəs üçün əlçatan olduğu bir mühit yaratmışıq.    ",
+    "whyUsHead": "Niyə biz?",
+    "whyUsText1Head": "Hər kəs üçündür",
+    "whyUsText1": "'Sİ-ə giriş' kursu ilə başla - təcrübə və əlavə bilik tələb olunmur!     ",
+    "whyUsText2Head": "İnteraktiv və Əyləncəli",
+    "whyUsText2": "Oyun oynayaraq öyrənməkdən zövq al!",
+    "whyUsText3Head": "Həmfikirlərinizi tapın     ",
+    "whyUsText3": "Digər ölkələrdən Sİ mütəxəssisləri və həvəskarları ilə fikirlərini bölüş, təcrübəni artır.    ",
+    "communityHead": "Bu səyahətində yalnız deyilsən! ",
+    "communityText": "Platformamızda onlayn icmaya qoşularaq digər Sİ öyrənən intuziastlar və ya peşəkarlarla öz təcrübə və fikirlərini bölüşərək, müzakirələr apararaq öyrənmə prosesini daha maraqlı və məhsuldar edə bilərsən. ",
+    "feedbackHead": "İstifadəçi Rəyləri",
+    "feedbackText": "Neyron.ai ilə Süni İntellekt dünyasına qədəm qoyan istifadəçilərimizin rəyləri ilə suallarınıza cavab tapın    ",
+    "personName1": "Samir",
+    "personFeedback1": "Neyron.ai öyrənmə prosesinin maraqlı macəraya çevirir. Platforma çox istifadəçi yönümlüdür və mükafat sistemi məni daim məni öyrənməyə motivasiya edir. “Süni intellektə giriş” kursunu bitirdikdən sonra marağım o qədər artıb ki, növbəti kursları da böyük həvəslə gözləyirəm!    ",
+    "personName2": "Eldar",
+    "personFeedback2": "Süni intellekt öyrənməyə yeni başlayan biri kimi, Neyron.ai mənim üçün mükəmməl bir yenilik oldu. Aydın, maraqlı modullar öyrənməyi asan, reytinqləmə sistemi isə maraqlı edir! ",
+    "personName3": "Ülvi",
+    "personFeedback3": "Süni intellekt öyrənməyin bu qədər maraqlı və asan ola biləcəyini təsəvvür etmirdim! İnteraktiv və oyunlaşdırılmış yanaşma məni davamlı öyrənməyə təşviq edir və nəticələrimi izləmək daha da həvəsləndirir!    ",
+    "personName4": "Xəyal",
+    "personFeedback4": "Neyron’a həqiqətən heyran oldum. Aydın, qısa dərslər və interaktiv oyunlar mükəmməl öyrənmə təcrübəsi yaradır. Süni intellektlə maraqlanan hər kəs, mütləq Neyronu yoxlamalıdır!    ",
+    "personName5": "Üzeyir",
+    "personFeedback5": "Neyron.ai süni intellekt öyrənməyi çox əyləncəli etdi! İnteraktiv modullar və kvizlər, çox əyləncəlidir. Bu, bəsit bir kurs deyil, Sİ dünyasına interaktiv səyahətdir!    ",
+    "personName6": "Zeynəb",
+    "personFeedback6": "Neyron.ai-da Fantastik bir təcrübə yaşadım! Platforma sizə sadəcə süni intellekt öyrətmir, o, sizi Sİ dünyasına sürükləyir. Oyunlaşdırılmış öyrənmə, zamanın necə keçdiyini hiss etmədən növbəti modullara keçməyinizi və davamiyyətinizi təmin edən dahi konsepsiyadır."
   },
   "buttons": {
-    "startButton": "Başla"
+    "startButton": "Başla",
+    "join": "Qoşul",
+    "send": "Göndər",
+    "save": "Yadda saxla",
+    "logOut": "Çıx"
   },
   "about": {
     "text": "Neyron.ai-a Xoş Gəldin; Sİ dünyasına səyahətində yol yoldaşın Neyron.ai-də bizim missiyamız Süni İntellekti təkcə öyrətmək deyil, həm də öyrənmə prosesini əyləncəli etməkdir. İstər süni intellekt həvəskarı, istərsə də təcrübəli peşəkar olmağınızdan asılı olmayaraq, biz süni intellektin hər kəs üçün əlçatan olduğu bir mühit yaratmışıq"
+  },
+  "navbar": {
+    "about": "Haqqımızda",
+    "courses": "Kurslar",
+    "community": "İcma",
+    "faq": "FAQ",
+    "contact": "Əlaqə",
+    "login": "Daxil ol"
+  },
+  "select": {
+    "noOption": "Məlumat tapılmadı"
+  },
+  "contact": {
+    "head": "Əlaqə",
+    "apply": "Müraciət et",
+    "name": "Ad Soyad",
+    "email": "E-mail ",
+    "message": "SMS",
+    "text": "Mətn"
+  },
+  "footer": {
+    "aboutUs": "Haqqımızda",
+    "courses": "Kurslar",
+    "community": "İcma",
+    "faq": "FAQ",
+    "blog": "Bloq",
+    "contactUs": "Əlaqə",
+    "terms": "Şərtlər və Qaydalar",
+    "privacy": "Gizlilik Siyasəti",
+    "rightsReserved": "Bütün hüquqlar qorunur",
+    "productOf": "ASİL tərəfindən hazırlanıb"
+  },
+  "profile": {
+    "name": "Ad",
+    "surname": "Soyad",
+    "birthdate": "Doğum tarixi",
+    "country": "Ölkə",
+    "gender": "Cinsiyyət",
+    "email": "E-mail ",
+    "password": "Şifrə"
   }
 }

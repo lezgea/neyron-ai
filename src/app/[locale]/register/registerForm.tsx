@@ -1,18 +1,19 @@
 'use client';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+// import { yupResolver } from '@hookform/resolvers/yup';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { Checkbox } from '@mui/material';
 
+import { useGetLanguages } from 'src/api/language/queries';
 import { useRegister } from 'src/api/login/mutation';
 import CheckBoxIcon from 'src/assets/images/checkBox.svg';
 import CheckedIcon from 'src/assets/images/checkedIcon.svg';
 import EyeIcon from 'src/assets/images/eyeIcon.svg';
 import GoogleIcon from 'src/assets/images/googleIcon.svg';
-import { loginFormSchema } from 'src/constant/formValidations';
+// import { loginFormSchema } from 'src/constant/formValidations';
 import { useNotification } from 'src/hooks/showNotification';
 
 import ActivateAccountModal from '../components/modal/activateAccountModal';
@@ -22,6 +23,8 @@ interface RegisterForm {
   email: string;
   password: string;
   languageId?: number;
+  source: string;
+  campaignId: string;
 }
 
 const RegisterForm = () => {
@@ -29,10 +32,8 @@ const RegisterForm = () => {
 
   const [inputType, setInputType] = useState(true);
   const [visible, setVisible] = useState(false);
-  const { register, handleSubmit, watch } = useForm<RegisterForm>({
-    resolver: yupResolver(loginFormSchema),
-  });
-
+  const { register, handleSubmit, watch } = useForm<RegisterForm>();
+  const { data } = useGetLanguages();
   const { mutate } = useRegister();
 
   const onSubmit = (values: RegisterForm) => {
@@ -40,7 +41,9 @@ const RegisterForm = () => {
       {
         email: values?.email,
         password: values?.password,
-        languageId: selectedLanguage?.id,
+        languageId: data?.data?.find((elem) => elem?.abbreviation === selectedLanguage)?.id as number,
+        source: window.localStorage.getItem('source') || '',
+        campaignId: window.localStorage.getItem('campaignId') || '',
       },
       {
         onSuccess: () => {
@@ -113,7 +116,7 @@ const RegisterForm = () => {
 
       <p className="sign-up">
         Have an account?
-        <Link href="/login" className="link-text">
+        <Link href={`/${selectedLanguage}/login`} className="link-text">
           Login
         </Link>
       </p>

@@ -1,0 +1,84 @@
+.profile {
+  .profile-container {
+    min-height: 90vh;
+    height: 90vh;
+    .sidebar {
+      background-color: #f4f6f9;
+      height: 100%;
+      padding: 1.44rem 1.62rem;
+      .sidebar-elem {
+        padding: 0.44rem 0.92rem;
+        @include flexBox(flex-start, center);
+        cursor: pointer;
+        font-size: 0.875rem;
+        font-weight: 400;
+        img {
+          margin-right: 0.6rem;
+        }
+      }
+    }
+    .profile-content {
+      padding-top: 2.19rem;
+      padding-left: 3.1rem;
+      .profile-img {
+        position: relative;
+        .profile-image {
+          width: 6.5rem;
+          height: 6.5rem;
+          display: block;
+        }
+        .camera-icon {
+          width: 1.125rem;
+          height: 1.125rem;
+          img {
+            width: 1.125rem;
+            height: 1.125rem;
+            display: block;
+            position: absolute;
+            bottom: 1rem;
+            left: 4.5rem;
+            z-index: 100;
+            cursor: pointer;
+          }
+          input[type='file']::file-selector-button {
+            width: 1.125rem;
+            height: 1.125rem;
+            position: absolute;
+            bottom: 1rem;
+            left: 4.5rem;
+            border: 1px solid transparent;
+            z-index: 104;
+            background-color: transparent;
+            outline: none;
+            color: transparent;
+          }
+          #file-input {
+            overflow: hidden;
+            color: transparent;
+          }
+        }
+      }
+    }
+    .profile-form {
+      margin-top: 2.19rem;
+      .btn-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      .form-group {
+        label {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+    .form-input {
+      border-radius: 0.3125rem;
+      border: 1px solid #dfe4ec;
+      padding: 0.95rem 1rem;
+      margin-top: 0.44rem;
+      width: 100%;
+    }
+  }
+}

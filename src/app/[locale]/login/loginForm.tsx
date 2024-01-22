@@ -20,12 +20,14 @@ import { LayoutContext } from '../layoutContainer';
 interface LoginForm {
   email: string;
   password: string;
+  rememberMe?: boolean;
 }
 
 const LoginForm = () => {
-  const { setUserIsActive } = useContext(LayoutContext);
+  const { selectedLanguage } = useContext(LayoutContext);
+  const { setUserIsActive, setSelectedLanguage } = useContext(LayoutContext);
   const [inputType, setInputType] = useState(true);
-  //   const [_checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(false);
 
   const navigate = useRouter();
 
@@ -45,6 +47,7 @@ const LoginForm = () => {
       {
         email: values?.email,
         password: values?.password,
+        rememberMe: checked,
       },
       {
         onSuccess: (res) => {
@@ -52,6 +55,7 @@ const LoginForm = () => {
           setAuthCookies(res?.data?.data?.token);
           navigate.push('/');
           setUserIsActive(true);
+          setSelectedLanguage(res?.data?.data?.language);
         },
         onError: () => {
           showNotification({ title: 'Error', variant: 'error' });
@@ -62,8 +66,7 @@ const LoginForm = () => {
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue: boolean = event.target.checked;
-    // setChecked(newValue);
-    return newValue;
+    setChecked(newValue);
   };
 
   //   href={`${process.env.LOGIN_GOOGLE_URL as string}`}
@@ -117,7 +120,7 @@ const LoginForm = () => {
       </Link>
       <p className="sign-up">
         Dont have an account?
-        <Link href="/register" className="link-text">
+        <Link href={`/${selectedLanguage}/register`} className="link-text">
           Sign up now
         </Link>
       </p>

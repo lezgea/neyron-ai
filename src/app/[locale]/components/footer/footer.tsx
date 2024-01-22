@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 import { Grid } from '@mui/material';
 
@@ -12,37 +13,82 @@ import TiktokIcon from 'src/assets/images/tiktok.svg';
 import WhiteLogo from 'src/assets/images/whiteLogo.svg';
 import YouTubeIcon from 'src/assets/images/youtube.svg';
 
+import { LayoutContext } from '../../layoutContainer';
+
 const Footer = () => {
+  const { selectedLanguage } = useContext(LayoutContext);
+
+  const t = useTranslations('footer');
   return (
     <footer>
       <Grid item xs={12} className="logo-container">
         <Image src={WhiteLogo} alt="logo" />
       </Grid>
       <Grid item xs={12}>
-        <ul className="nav-list">
+        <ul className="nav-list" style={{ marginLeft: selectedLanguage === 'ru' ? '10px' : '1rem' }}>
           <li>
-            <Link href="/aboutUs">About us</Link>
+            <Link
+              style={{ fontSize: selectedLanguage === 'ru' ? '1.2rem' : '1.375rem' }}
+              href={`/${selectedLanguage}/aboutUs`}
+            >
+              {t('aboutUs')}
+            </Link>
           </li>
           <li>
-            <Link href="/">Courses</Link>
+            <Link
+              style={{ fontSize: selectedLanguage === 'ru' ? '1.2rem' : '1.375rem' }}
+              href={`/${selectedLanguage}`}
+            >
+              {t('courses')}
+            </Link>
           </li>
           <li>
-            <Link href="/">Community</Link>
+            <Link
+              style={{ fontSize: selectedLanguage === 'ru' ? '1.2rem' : '1.375rem' }}
+              href={`/${selectedLanguage}`}
+            >
+              {t('community')}
+            </Link>
           </li>
           <li>
-            <Link href="/faq">FAQ</Link>
+            <Link
+              style={{ fontSize: selectedLanguage === 'ru' ? '1.2rem' : '1.375rem' }}
+              href={`/${selectedLanguage}/faq`}
+            >
+              {t('faq')}
+            </Link>
           </li>
           <li>
-            <Link href="/blog">Blog</Link>
+            <Link
+              style={{ fontSize: selectedLanguage === 'ru' ? '1.2rem' : '1.375rem' }}
+              href={`/${selectedLanguage}/blog`}
+            >
+              {t('blog')}
+            </Link>
           </li>
           <li>
-            <Link href="/contact">Contact us</Link>
+            <Link
+              style={{ fontSize: selectedLanguage === 'ru' ? '1.2rem' : '1.375rem' }}
+              href={`/${selectedLanguage}/contact`}
+            >
+              {t('contactUs')}
+            </Link>
           </li>
           <li>
-            <Link href="/">Terms and conditions</Link>
+            <Link
+              style={{ fontSize: selectedLanguage === 'ru' ? '1.2rem' : '1.375rem' }}
+              href={`/${selectedLanguage}`}
+            >
+              {t('terms')}
+            </Link>
           </li>
           <li>
-            <Link href="/">Privacy Policy</Link>
+            <Link
+              style={{ fontSize: selectedLanguage === 'ru' ? '1.2rem' : '1.375rem' }}
+              href={`/${selectedLanguage}`}
+            >
+              {t('privacy')}
+            </Link>
           </li>
         </ul>
       </Grid>
@@ -54,9 +100,9 @@ const Footer = () => {
           <Image src={LinkedinIcon} alt="linkedin" />
           <Image src={YouTubeIcon} alt="youtube" />
         </div>
-        <div className="rights-container">2023 | Neyron.ai | All rights reserved</div>
+        <div className="rights-container">2023 Neyron.ai {t('rightsReserved')}</div>
         <div className="produced-by">
-          <span>Product of</span>
+          <span>{t('productOf')}</span>
           <Image src={AilabLogo} alt="logo" />
         </div>
       </Grid>

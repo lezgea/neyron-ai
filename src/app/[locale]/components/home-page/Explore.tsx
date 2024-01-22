@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
@@ -8,6 +8,7 @@ import { Grid } from '@mui/material';
 import ArrowIcon from 'src/assets/images/arrow.svg';
 
 import LandingAnimation1 from '../../../../../public/landingAnimation1.riv';
+import { LayoutContext } from '../../layoutContainer';
 import SelectLanguage from '../selecLanguage/selectLanguage';
 
 const Explore = () => {
@@ -39,13 +40,19 @@ const Explore = () => {
     }
   }, [rive]);
 
+  const { selectedLanguage } = useContext(LayoutContext);
   return (
     <section id="explore-landing">
       <div className="container">
         {' '}
         <Grid container sx={{ display: 'flex', justifyContent: 'space-between' }} className="explore-landing">
           <Grid item xs={8} className="explore-left">
-            <h1 className="page-head">{t('exploreHead')}</h1>
+            <h1
+              className="page-head"
+              style={{ fontSize: selectedLanguage === 'ru' ? '3.375rem' : '4.375rem' }}
+            >
+              {t('exploreHead')}
+            </h1>
             <p className="biggerSize-text">{t('exploreText')}</p>
             <div className="language">
               <span>{t('languageText')}</span>

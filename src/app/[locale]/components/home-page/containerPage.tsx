@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
 
 import { Grid } from '@mui/material';
 
-import LandingAnimation2 from '../../../../../public/landingAnimation1.riv';
+import LandingAnimation2 from '../../../../../public/landingAnimation2.riv';
 
 import AboutUs from './aboutUs';
 import BeginAdventure from './beginAdventure';
@@ -16,6 +16,8 @@ import Feedbacks from './feedbacks';
 import WhyUs from './whyUs';
 
 const ContainerPage = () => {
+  const ref = useRef<HTMLDivElement>(null);
+
   const { rive, RiveComponent } = useRive(
     {
       src: LandingAnimation2,
@@ -39,6 +41,7 @@ const ContainerPage = () => {
       setTimeout(eyeAnimation, 3000);
     }
   }, [rive]);
+
   return (
     <div className="stack">
       <div className="stack__card">
@@ -47,12 +50,10 @@ const ContainerPage = () => {
       <div className="stack__card">
         <BeginAdventure />
       </div>
-      <div className="stack__card">
+      <div className="stack__card" ref={ref} style={{ overflow: 'auto' }}>
         <Grid container className="container">
           <Grid item xs={7} className="stacked_card_container">
-            {' '}
             <div className="stacked_card">
-              {' '}
               <AboutUs />
               <WhyUs />
             </div>

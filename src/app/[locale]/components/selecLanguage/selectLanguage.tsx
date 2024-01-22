@@ -3,21 +3,21 @@
 import { useContext } from 'react';
 import Select, { components, DropdownIndicatorProps, GroupBase, StylesConfig } from 'react-select';
 import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
 
-import { useChangeLanguage } from 'src/api/language/mutations';
+// import { useChangeLanguage } from 'src/api/language/mutations';
 import { useGetLanguages } from 'src/api/language/queries';
 import SelectIcon from 'src/assets/images/selectIcon.svg';
-import { IDataTypeLanguage, ISelectedLanguage } from 'src/types';
+import { ISelectedLanguage } from 'src/types';
 
 import { LayoutContext } from '../../layoutContainer';
 
 const SelectLanguage = () => {
+  const router = useRouter();
+  const pathName = usePathname();
   const { data } = useGetLanguages();
   const { selectedLanguage, setSelectedLanguage } = useContext(LayoutContext);
-
-  const { mutate: changeLanguage } = useChangeLanguage();
-
-  type SelectChangeHandler = (lang: ISelectedLanguage | null) => void;
+  //   const { mutate: changeLanguage } = useChangeLanguage();
 
   type CustomDropdownIndicatorProps = DropdownIndicatorProps<
     ISelectedLanguage,
@@ -31,13 +31,6 @@ const SelectLanguage = () => {
         <Image src={SelectIcon} alt="select icon" />
       </components.DropdownIndicator>
     );
-  };
-
-  const handleChange: SelectChangeHandler = (lang) => {
-    if (lang) {
-      setSelectedLanguage(lang);
-      changeLanguage({ id: lang.id });
-    }
   };
 
   const customStyles: StylesConfig<ISelectedLanguage, boolean, GroupBase<ISelectedLanguage>> = {
@@ -74,13 +67,19 @@ const SelectLanguage = () => {
   return (
     <Select
       styles={customStyles}
-      value={selectedLanguage}
-      defaultValue={selectedLanguage}
-      onChange={handleChange}
+      value={data?.data?.find((elem) => elem?.abbreviation === selectedLanguage)}
+      defaultValue={data?.data?.find((elem) => elem?.abbreviation === selectedLanguage)}
+      onChange={(lang) => {
+        if (lang) {
+          const newPathName = pathName?.replace(selectedLanguage, lang?.abbreviation as string);
+          router.push(newPathName);
+          setSelectedLanguage(lang?.abbreviation);
+        }
+      }}
       components={{ DropdownIndicator: CustomDropdownIndicator }}
       options={data?.data}
-      getOptionLabel={(elem: IDataTypeLanguage) => elem.abbreviation?.toLocaleUpperCase()}
-      getOptionValue={(elem: IDataTypeLanguage) => elem.abbreviation}
+      getOptionLabel={(elem: ISelectedLanguage) => elem?.abbreviation?.toLocaleUpperCase()}
+      getOptionValue={(elem: ISelectedLanguage) => elem?.abbreviation}
     />
   );
 };

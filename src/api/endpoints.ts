@@ -9,3 +9,5 @@ export const faqs = '/faqs';
 export const forgotPassword = '/forgot-password';
 export const resetPassword = '/reset-password';
 export const profile = '/profile';
+export const countries = '/countries';
+export const upload = '/upload';

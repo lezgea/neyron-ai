@@ -10,4 +10,5 @@ export const QUERY_KEYS = {
   forgotPassword: 'forgotPassword',
   resetPassword: 'resetPassword',
   profile: 'profile',
+  countries: 'countries',
 };
