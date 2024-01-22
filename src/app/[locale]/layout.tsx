@@ -4,7 +4,7 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 
 import LayoutContainer from './layoutContainer';
 
-const locales = ['en', 'az'];
+const locales = ['en', 'az', 'tr', 'ru'];
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -21,12 +21,13 @@ export default function RootLayout({
   unstable_setRequestLocale(params?.locale);
   const locale = useLocale();
   const messages = useMessages();
+
   if (params.locale !== locale) {
     notFound();
   }
 
   return (
-    <html lang={locale}>
+    <html>
       <body>
         <NextIntlClientProvider locale={params?.locale} messages={messages}>
           <LayoutContainer children={children} />

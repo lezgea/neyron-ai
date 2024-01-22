@@ -2,6 +2,7 @@
 import React, { useContext } from 'react';
 
 import { useGetFaq } from 'src/api/faq/queries';
+import { useGetLanguages } from 'src/api/language/queries';
 
 import { LayoutContext } from '../../layoutContainer';
 import AccordionComponent from '../ui/accordion';
@@ -14,7 +15,11 @@ interface IElement {
 }
 const FaqContainer = ({ mainPage }: { mainPage: boolean }) => {
   const { selectedLanguage } = useContext(LayoutContext);
-  const { data, isLoading } = useGetFaq({ isOnMainPage: mainPage, languageId: selectedLanguage?.id });
+  const { data: languages } = useGetLanguages();
+  const { data, isLoading } = useGetFaq({
+    isOnMainPage: mainPage,
+    languageId: languages?.data?.find((elem) => elem?.abbreviation === selectedLanguage)?.id as number,
+  });
   if (isLoading) <Loading />;
   return (
     <div style={{ marginBottom: !mainPage ? '5rem' : '' }}>

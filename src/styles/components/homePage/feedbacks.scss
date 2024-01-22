@@ -4,6 +4,10 @@
     position: absolute;
     right: -150px;
     top: 20px;
+    .thanks-image {
+      position: absolute;
+      left: -3rem;
+    }
   }
   .feedback-container {
     .feedback-head-container {
@@ -13,6 +17,7 @@
     }
     .feedback-content {
       .left-feedback {
+        overflow: auto;
         max-height: 40rem;
         padding-left: 2.75rem;
         padding-top: 5rem;

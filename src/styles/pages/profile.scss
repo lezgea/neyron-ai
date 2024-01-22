@@ -30,11 +30,32 @@
         .camera-icon {
           width: 1.125rem;
           height: 1.125rem;
-          display: block;
-          position: absolute;
-          bottom: 0;
-          left: 4.5rem;
-          z-index: 100;
+          img {
+            width: 1.125rem;
+            height: 1.125rem;
+            display: block;
+            position: absolute;
+            bottom: 1rem;
+            left: 4.5rem;
+            z-index: 100;
+            cursor: pointer;
+          }
+          input[type='file']::file-selector-button {
+            width: 1.125rem;
+            height: 1.125rem;
+            position: absolute;
+            bottom: 1rem;
+            left: 4.5rem;
+            border: 1px solid transparent;
+            z-index: 104;
+            background-color: transparent;
+            outline: none;
+            color: transparent;
+          }
+          #file-input {
+            overflow: hidden;
+            color: transparent;
+          }
         }
       }
     }

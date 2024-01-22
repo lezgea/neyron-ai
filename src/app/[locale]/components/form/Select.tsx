@@ -3,10 +3,12 @@ import { Control, Controller } from 'react-hook-form';
 import Select, { GroupBase, StylesConfig } from 'react-select';
 import { useTranslations } from 'next-intl';
 
+import { FormDataProfile } from 'src/types';
+
 interface CustomSelectProps<T> {
   options: T[];
-  control: Control;
-  name: string;
+  control: Control<FormDataProfile>;
+  name: 'name' | 'birthDate' | 'surname' | 'email' | 'password' | 'gender' | 'countryId';
   getOptionLabel: (option: T) => string;
   getOptionValue: (option: T) => string;
   title: string;

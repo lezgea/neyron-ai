@@ -24,6 +24,7 @@ interface LoginForm {
 }
 
 const LoginForm = () => {
+  const { selectedLanguage } = useContext(LayoutContext);
   const { setUserIsActive, setSelectedLanguage } = useContext(LayoutContext);
   const [inputType, setInputType] = useState(true);
   const [checked, setChecked] = useState(false);
@@ -54,12 +55,12 @@ const LoginForm = () => {
           setAuthCookies(res?.data?.data?.token);
           navigate.push('/');
           setUserIsActive(true);
-          setSelectedLanguage(res?.data?.data?.languageAbbreviation);
+          setSelectedLanguage(res?.data?.data?.language);
         },
         onError: () => {
           showNotification({ title: 'Error', variant: 'error' });
         },
-      }
+      },
     );
   };
 
@@ -119,7 +120,7 @@ const LoginForm = () => {
       </Link>
       <p className="sign-up">
         Dont have an account?
-        <Link href="/register" className="link-text">
+        <Link href={`/${selectedLanguage}/register`} className="link-text">
           Sign up now
         </Link>
       </p>

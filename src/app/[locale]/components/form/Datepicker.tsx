@@ -3,9 +3,11 @@ import { Control, Controller } from 'react-hook-form';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
+import { FormDataProfile } from 'src/types';
+
 interface CustomSelectProps {
-  control: Control;
-  name: string;
+  control: Control<FormDataProfile>;
+  name: 'name' | 'birthDate' | 'surname' | 'email' | 'password' | 'gender' | 'countryId';
   title: string;
 }
 
@@ -18,12 +20,9 @@ const DatepickerComponent = ({ control, name, title }: CustomSelectProps) => {
           <Controller
             control={control}
             name={name}
-            render={() => {
+            render={({ field }) => {
               return (
                 <DatePicker
-                slots={{
-                    open
-                }}
                   sx={{
                     '&': {
                       width: '100%',
@@ -37,6 +36,11 @@ const DatepickerComponent = ({ control, name, title }: CustomSelectProps) => {
                       color: '#616367',
                       padding: '0.85rem 0.9rem',
                     },
+                  }}
+                  onChange={(newValue) => {
+                    if (field) {
+                      field.onChange(new Date(newValue as Date));
+                    }
                   }}
                 />
               );

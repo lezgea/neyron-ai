@@ -13,5 +13,3 @@ export function wrapWordWithSpan(text: string, wordToWrap: string) {
 
   return wrappedText;
 }
-
-

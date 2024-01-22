@@ -11,18 +11,19 @@ export const useLogin = () => {
       onSuccess: () => {
         queryClient.invalidateQueries([QUERY_KEYS.login]);
       },
-    }
+    },
   );
 };
 
 export const useRegister = () => {
   const queryClient = useQueryClient();
   return useMutation(
-    (data: { email: string; password: string; languageId: number }) => axiosOpen.post('users/register', data),
+    (data: { email: string; password: string; languageId: number; campaignId: string; source: string }) =>
+      axiosOpen.post('users/register', data),
     {
       onSuccess: () => {
         queryClient.invalidateQueries([QUERY_KEYS.register]);
       },
-    }
+    },
   );
 };

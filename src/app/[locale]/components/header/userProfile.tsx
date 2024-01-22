@@ -78,7 +78,7 @@ const UserProfile = () => {
   };
 
   const handleNavigate = () => {
-    navigate.push(`${selectedLanguage?.abbreviation}/profile`);
+    navigate.push(`${selectedLanguage}/profile`);
   };
   return (
     <li>
@@ -99,7 +99,7 @@ const UserProfile = () => {
           </ul>
         </p>
       ) : (
-        <Link href={`${selectedLanguage?.abbreviation}/login`}>
+        <Link href={`/${selectedLanguage}/login`}>
           <button type="button">{t('login')}</button>
         </Link>
       )}

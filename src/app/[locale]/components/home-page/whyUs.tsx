@@ -7,7 +7,7 @@ import CommunityDriven from 'src/assets/images/communityDriven.svg';
 import Interactive from 'src/assets/images/interactive.svg';
 
 const WhyUs = () => {
-  const t = useTranslations("Index");
+  const t = useTranslations('Index');
   return (
     <section id="why-us">
       <h1 className="page-head">{t('whyUsHead')}</h1>

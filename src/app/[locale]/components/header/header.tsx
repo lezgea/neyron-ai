@@ -12,35 +12,32 @@ import HeaderSwitch from './headerSwitch';
 import UserProfile from './userProfile';
 
 const Header = () => {
-  const {
-    selectedLanguage: { abbreviation },
-  } = useContext(LayoutContext);
+  const { selectedLanguage } = useContext(LayoutContext);
 
   const t = useTranslations('navbar');
-
   return (
     <header>
       <div className="container header-container">
-        <Link href={`/${abbreviation}`} className="logo">
+        <Link href={`/${selectedLanguage}`} className="logo">
           <Image src={Logo} alt="logo" />
         </Link>
         <nav>
           <ul className="list-item">
             <li>
-              <Link href={`/${abbreviation}/aboutUs`}>{t('about')}</Link>
+              <Link href={`/${selectedLanguage}/aboutUs`}>{t('about')}</Link>
             </li>
             <li>
-              <Link href={`/${abbreviation}`}>{t('courses')}</Link>
+              <Link href={`/${selectedLanguage}`}>{t('courses')}</Link>
             </li>
             <li>
               {' '}
-              <Link href={`/${abbreviation}`}>{t('community')}</Link>
+              <Link href={`/${selectedLanguage}`}>{t('community')}</Link>
             </li>
             <li>
-              <Link href={`/${abbreviation}/faq`}>{t('faq')}</Link>
+              <Link href={`/${selectedLanguage}/faq`}>{t('faq')}</Link>
             </li>
             <li>
-              <Link href={`/${abbreviation}/contact`}>{t('contact')}</Link>
+              <Link href={`/${selectedLanguage}/contact`}>{t('contact')}</Link>
             </li>
             <li>
               <SelectLanguage />
