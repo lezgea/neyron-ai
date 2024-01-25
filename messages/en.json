@@ -51,6 +51,8 @@
     "noOption": "Information not found"
   },
   "profile": {
+    "profile": "Profile",
+    "other": "Other",
     "country": "Country",
     "name": "Name",
     "surname": "Surname",

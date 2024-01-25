@@ -36,12 +36,12 @@ const ProfileContainer = () => {
   const sidebarItems = [
     {
       elemIcon: ProfilePageIcon,
-      name: 'Profile',
+      name: t('profile'),
       id: 1,
     },
     {
       elemIcon: OtherIcon,
-      name: 'Other',
+      name: t('other'),
       id: 2,
     },
   ];

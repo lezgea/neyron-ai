@@ -75,6 +75,8 @@
   },
   "profile": {
     "name": "Ad",
+    "profile": "Profil",
+    "other": "Digər",
     "surname": "Soyad",
     "birthdate": "Doğum tarixi",
     "country": "Ölkə",
