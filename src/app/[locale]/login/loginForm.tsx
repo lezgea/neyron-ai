@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 import { FormControlLabel, Switch } from '@mui/material';
 
@@ -30,7 +31,7 @@ const LoginForm = () => {
   const [checked, setChecked] = useState(false);
 
   const navigate = useRouter();
-
+  const t = useTranslations('login');
   const {
     register,
     // formState: { errors },
@@ -72,17 +73,18 @@ const LoginForm = () => {
   //   href={`${process.env.LOGIN_GOOGLE_URL as string}`}
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <h1>{t('head')}</h1>
       <div className="form-group">
-        <label htmlFor="email">Email</label>
-        <input type="email" {...register('email')} id="email" placeholder="Email" />
+        <label htmlFor="email">{t('email')}</label>
+        <input type="email" {...register('email')} id="email" placeholder={t('email')} />
       </div>
       <div className="form-group">
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">{t('password')}</label>
         <div className="password-input">
           <input
             {...register('password')}
             id="password"
-            placeholder="Enter password"
+            placeholder={t('enterPassword')}
             type={inputType ? 'text' : 'password'}
           />
           <Image src={EyeIcon} alt="eye icon" onClick={() => setInputType(!inputType)} />
@@ -99,15 +101,15 @@ const LoginForm = () => {
               inputProps={{ 'aria-label': 'controlled' }}
             />
           }
-          label="Remember me"
+          label={t('rememberMe')}
           labelPlacement="end"
         />
-        <Link href="/forgotPassword" className="link-text">
-          Forgot password?
+        <Link href={`/${selectedLanguage}/forgotPassword`} className="link-text">
+          {t('forgotPassword')}
         </Link>
       </div>
       <button type="submit" className="filled-gradient-btn">
-        Login
+        {t('signIn')}
       </button>
 
       <div className="line"></div>
@@ -115,13 +117,13 @@ const LoginForm = () => {
       <Link href={`${process.env.NEXT_LOGIN_GOOGLE_URL as string}`}>
         <button type="button" className="black-btn">
           <Image src={GoogleIcon} alt="sign in with Google" />
-          Or sign in with Google
+          {t('loginWithGoogle')}
         </button>
       </Link>
       <p className="sign-up">
-        Dont have an account?
+        {t('createAccount')}
         <Link href={`/${selectedLanguage}/register`} className="link-text">
-          Sign up now
+          {t('register')}
         </Link>
       </p>
     </form>

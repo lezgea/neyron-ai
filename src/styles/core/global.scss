@@ -147,3 +147,19 @@ textarea {
 .rive-1 {
   height: 97% !important;
 }
+
+.custom-option-select {
+  width: 100%;
+  @include flexBox(flex-start, center);
+  cursor: pointer;
+  &:not(:last-child) {
+    margin-bottom: 0.75rem;
+  }
+  img {
+    margin-right: 0.6rem;
+    color: #000;
+    font-size: 0.77256rem;
+    font-weight: 450;
+    line-height: 100%;
+  }
+}

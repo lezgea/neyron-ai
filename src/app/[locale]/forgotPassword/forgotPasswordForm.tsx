@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 import { useForgotPassword } from 'src/api/forgotPassword/mutation';
 import { forgotPasswordSchema } from 'src/constant/formValidations';
@@ -15,10 +16,14 @@ interface IForgotPassword {
 
 const ForgotPassword = () => {
   const [visible, setVisible] = useState(false);
+  const t = useTranslations('forgotPassword');
+  const tBtn = useTranslations('buttons');
   const { register, handleSubmit, watch } = useForm<IForgotPassword>({
     resolver: yupResolver(forgotPasswordSchema),
   });
+
   const { mutate } = useForgotPassword();
+
   const onSubmit = (values: IForgotPassword) => {
     setVisible(true);
     mutate(
@@ -44,20 +49,20 @@ const ForgotPassword = () => {
         emailValue={watch('email')}
         textForLink="A type literal property cannot have an initializer."
       />
-      <h1>Enter your email adress</h1>
+      <h1>{t('head')}</h1>
 
       <div className="form-group">
-        <label htmlFor="email">Email</label>
-        <input type="email" {...register('email')} id="email" placeholder="Email" />
+        <label htmlFor="email">{t('email')}</label>
+        <input type="email" {...register('email')} id="email" placeholder={t('enterEmail')} />
       </div>
       <p className="sign-up" style={{ justifyContent: 'flex-start' }}>
-        or
+        {t('or')}
         <Link href="/login" className="link-text">
-          Log in
+          {t('login')}
         </Link>
       </p>
       <button type="submit" className="filled-gradient-btn">
-        Send
+        {tBtn('send')}
       </button>
     </form>
   );

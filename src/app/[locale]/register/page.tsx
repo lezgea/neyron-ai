@@ -9,7 +9,6 @@ const Register = () => {
     <section id="login" className="container">
       <Grid container sx={{ display: 'flex', justifyContent: 'center' }}>
         <div className="login-box">
-          <h1>Nice to see you</h1>
           <RegisterForm />
         </div>
       </Grid>

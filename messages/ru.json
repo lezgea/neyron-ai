@@ -79,5 +79,46 @@
     "gender": "Пол",
     "email": "Электронная почта",
     "password": "Пароль"
+  },
+  "login": {
+    "head": "Мы очень рады, что ты с нами!",
+    "headText": "Логин",
+    "email": "Имейл    ",
+    "password": "Пароль",
+    "enterPassword": "Введите пароль",
+    "rememberMe": "Запомни меня    ",
+    "forgotPassword": "Сбросить пароль",
+    "signIn": "Войти",
+    "loginWithGoogle": "Вход через Google аккаунт",
+    "createAccount": "У вас еще нет учетной записи? ",
+    "register": "Создайте учетную запись."
+  },
+  "forgotPassword": {
+    "head": "Введите адрес электронной почты",
+    "email": "Почта",
+    "enterEmail": "Введите ",
+    "or": "или ",
+    "login": "войдите"
+  },
+  "register": {
+    "head": "Добро пожаловать    ",
+    "email": "Почта",
+    "password": "Создать пароль    ",
+    "enterPassword": "Enter password",
+    "agree": "Я согласен с",
+    "termsConditions": "пользовательским соглашением и политикой конфиденциальности    ",
+    "signUp": "Создать аккаунт",
+    "withGoogle": "или войди через Google",
+    "haveAnAccount": "У тебя есть аккаунт?  ",
+    "login": "Зайти"
+  },
+  "resetPasswordModal": {
+    "head": "Проверь свою электронную почту    ",
+    "openGmail": "Открыть G-mail         ",
+    "openOutlook": "Открыть Outlook    ",
+    "checkSpam": "Не получил письмо? Проверь папку со спамом.    ",
+    "reEnter": "Введите свой адрес электронной почты и проверьте еще раз.    ",
+    "activateText1": "Мы отправили ссылку на почтe ",
+    "activateText2": "для активации учетной записи.    "
   }
 }

@@ -81,5 +81,46 @@
     "gender": "Cinsiyyət",
     "email": "E-mail ",
     "password": "Şifrə"
+  },
+  "login": {
+    "head": "Nə yaxşı ki, bizimləsən!",
+    "headText": "İstifadəçi adı",
+    "email": "E-poçt",
+    "password": "Şifrə",
+    "enterPassword": "Şifrəni daxil et    ",
+    "rememberMe": "Məni xatırla",
+    "forgotPassword": "Şifrəni unut",
+    "signIn": "Daxil ol",
+    "loginWithGoogle": "Və ya google hesabın ilə daxil ol",
+    "createAccount": "Hesabın hələ də yoxdur? İndi hesab yarat",
+    "register": "İndi hesab yarat"
+  },
+  "forgotPassword": {
+    "head": "E-poçt ünvanını daxil et",
+    "email": "E-poçt",
+    "enterEmail": "E-poçt ünvanını yaz",
+    "or": "və ya",
+    "login": "daxil ol"
+  },
+  "register": {
+    "head": "Xoş gəldin",
+    "email": "E-poçt",
+    "password": "Şifrə",
+    "enterPassword": "Şifrə",
+    "agree": "razıyam",
+    "termsConditions": " İstifadəçi razılaşması və Məxfilik siyasəti ilə ",
+    "signUp": "Hesab yarat    ",
+    "withGoogle": "və ya Google ilə giriş et    ",
+    "haveAnAccount": " Hesabın var?",
+    "login": "Giriş et"
+  },
+  "resetPasswordModal": {
+    "head": "E-poçtunu yoxla    ",
+    "openGmail": "G-mail hesabını aç",
+    "openOutlook": " Outlook aç    ",
+    "checkSpam": "Məktubu almadın? Spam qovluğunu yoxla.     ",
+    "reEnter": "E-poçt adresini yenidən gir və bir daha yoxla    ",
+    "activateText1": "Hesabını aktivləşdirməyin üçün",
+    "activateText2": "e-poçt adresinə link göndərildik"
   }
 }
