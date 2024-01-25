@@ -73,6 +73,8 @@
   },
   "profile": {
     "name": "Имя",
+    "profile": "Профиль",
+    "other": "Другой",
     "surname": "Фамилия",
     "birthdate": "Дата рождения",
     "country": "Страна",

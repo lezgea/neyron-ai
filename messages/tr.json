@@ -78,6 +78,8 @@
   },
   "profile": {
     "name": "Adı",
+    "profile": "Profil",
+    "other": "Diğer",
     "surname": "Soyadı",
     "birthdate": "Doğum tarihi",
     "country": "Ülke",
