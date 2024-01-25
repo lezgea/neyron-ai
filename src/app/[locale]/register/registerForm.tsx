@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 // import { yupResolver } from '@hookform/resolvers/yup';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 import { Checkbox } from '@mui/material';
 
@@ -29,7 +30,8 @@ interface RegisterForm {
 
 const RegisterForm = () => {
   const { selectedLanguage } = useContext(LayoutContext);
-
+  const t = useTranslations('register');
+  const tModal = useTranslations('resetPasswordModal');
   const [inputType, setInputType] = useState(true);
   const [visible, setVisible] = useState(false);
   const { register, handleSubmit, watch } = useForm<RegisterForm>();
@@ -58,23 +60,25 @@ const RegisterForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <h1>{t('head')}</h1>
+
       <ActivateAccountModal
         visible={visible}
         setVisible={setVisible}
-        textForLink="Re-enter your email, password and try again."
+        textForLink={tModal('reEnter')}
         emailValue={watch('email')}
       />
       <div className="form-group">
-        <label htmlFor="email">Email</label>
-        <input type="email" {...register('email')} id="email" placeholder="Email" />
+        <label htmlFor="email">{t('email')}</label>
+        <input type="email" {...register('email')} id="email" placeholder={t('email')} />
       </div>
       <div className="form-group">
-        <label htmlFor="password">Create password</label>
+        <label htmlFor="password">{t('password')}</label>
         <div className="password-input">
           <input
             {...register('password')}
             id="password"
-            placeholder="Enter password"
+            placeholder={t('enterPassword')}
             type={inputType ? 'text' : 'password'}
           />
           <Image src={EyeIcon} alt="eye icon" onClick={() => setInputType(!inputType)} />
@@ -94,15 +98,30 @@ const RegisterForm = () => {
             },
           }}
         />
-        <p style={{ display: 'flex', alignItems: 'center' }}>
-          I agree with
-          <Link className="link-text" href="/register">
-            user terms and conditiouns & privacy policy
-          </Link>
+        <p>
+          {selectedLanguage === 'az' || selectedLanguage === 'tr' ? (
+            <span style={{ display: 'flex', alignItems: 'center' }}>
+              <Link className="link-text" href="/register" style={{ marginRight: '6px' }}>
+                {t('termsConditions')}
+              </Link>
+              {t('agree')}
+            </span>
+          ) : (
+            <span style={{ display: 'flex', alignItems: 'center' }}>
+              {t('agree')}
+              <Link
+                className="link-text"
+                href="/register"
+                style={{ marginLeft: '6px', wordBreak: 'break-all' }}
+              >
+                {t('termsConditions')}
+              </Link>
+            </span>
+          )}
         </p>
       </div>
       <button type="submit" className="filled-gradient-btn">
-        Sign up
+        {t('signUp')}
       </button>
 
       <div className="line"></div>
@@ -110,14 +129,14 @@ const RegisterForm = () => {
       <Link href="https://api.neyron.ai/oauth2/authorization/google">
         <button type="submit" className="black-btn">
           <Image src={GoogleIcon} alt="sign in with Google" />
-          Or sign up with Google
+          {t('withGoogle')}
         </button>
       </Link>
 
       <p className="sign-up">
-        Have an account?
+        {t('haveAnAccount')}
         <Link href={`/${selectedLanguage}/login`} className="link-text">
-          Login
+          {t('login')}
         </Link>
       </p>
     </form>

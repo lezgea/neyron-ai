@@ -78,5 +78,46 @@
     "privacy": " Privacy Policy",
     "rightsReserved": "All rights reserved ",
     "productOf": " Product of"
+  },
+  "login": {
+    "head": "It's fantastic that you're here with us!",
+    "headText": "Username",
+    "email": "Email    ",
+    "password": "Password",
+    "enterPassword": "Enter password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "signIn": "Login",
+    "loginWithGoogle": "Or sign in with Google",
+    "createAccount": "Dont have an account?",
+    "register": "Sign up now"
+  },
+  "forgotPassword": {
+    "head": "Enter your email adress",
+    "email": "Email",
+    "enterEmail": "Enter email",
+    "or": "or",
+    "login": "Log in"
+  },
+  "register": {
+    "head": "Nice to see you",
+    "email": "E-mail",
+    "password": "Create password",
+    "enterPassword": "Enter password",
+    "agree": "I agree with",
+    "termsConditions": " user terms and conditiouns & privacy policy",
+    "signUp": "Sign up",
+    "withGoogle": "Or sign up with Google",
+    "haveAnAccount": " Have an account?",
+    "login": "Login"
+  },
+  "resetPasswordModal": {
+    "head": "Check your email",
+    "openGmail": "Open Gmail",
+    "openOutlook": "Open Outlook",
+    "checkSpam": "Didn't get an email? Check your spam folder!",
+    "reEnter": "Re-enter your email, password and try again.",
+    "activateText1": "We've sent a message to",
+    "activateText2": "with a link to activate your account."
   }
 }
