@@ -83,8 +83,12 @@ const UserProfile = () => {
   return (
     <li>
       {userIsActive ? (
-        <p className="profile-header" onClick={() => setShowDropdown(!showDropdown)} ref={dropdownTriggerRef}>
-          {username}
+        <div
+          className="profile-header"
+          onClick={() => setShowDropdown(!showDropdown)}
+          ref={dropdownTriggerRef}
+        >
+          <span>{username}</span>
           <Image src={userProfileImage || ProfileIcon} alt="user avatar" className="avatar-image" />
           <ul ref={dropdownRef} className={showDropdown ? 'dropdown-content show' : 'dropdown-content hide'}>
             <li onClick={handleNavigate}>
@@ -92,16 +96,13 @@ const UserProfile = () => {
               Profile
             </li>
             <li onClick={handleLogout}>
-              {' '}
               <Image src={LogoutIcon} alt="Logout" />
               Logout
             </li>
           </ul>
-        </p>
+        </div>
       ) : (
-        <Link href={`/${selectedLanguage}/login`}>
-          <button type="button">{t('login')}</button>
-        </Link>
+        <Link href={`/${selectedLanguage}/login`}>{t('login')}</Link>
       )}
     </li>
   );
