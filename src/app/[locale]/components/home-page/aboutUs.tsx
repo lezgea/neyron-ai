@@ -15,8 +15,8 @@ const AboutUs = () => {
       <div className="text">
         {' '}
         {/* {t('about')} */}
-        <p dangerouslySetInnerHTML={{ __html: wrapWordWithSpan(t('aboutTextHead'), 'Neyron.ai') }}></p>
-        <p dangerouslySetInnerHTML={{ __html: wrapWordWithSpan(t('aboutText'), 'Neyron.ai') }}></p>
+        <div dangerouslySetInnerHTML={{ __html: wrapWordWithSpan(t('aboutTextHead'), 'Neyron.ai') }}></div>
+        <div dangerouslySetInnerHTML={{ __html: wrapWordWithSpan(t('aboutText'), 'Neyron.ai') }}></div>
       </div>
       <div className="gradient-btn">
         <button>
