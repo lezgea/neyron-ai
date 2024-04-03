@@ -2,11 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-
-import { Grid } from '@mui/material';
-
 import ArrowIcon from 'src/assets/images/arrow.svg';
-
 import LandingAnimation1 from '../../../../../public/landingAnimation1.riv';
 import { LayoutContext } from '../../layoutContainer';
 import SelectLanguage from '../selecLanguage/selectLanguage';
@@ -27,7 +23,7 @@ const Explore = () => {
     },
     {
       fitCanvasToArtboardHeight: true,
-    },
+    }
   );
 
   useEffect(() => {
@@ -42,30 +38,23 @@ const Explore = () => {
 
   const { selectedLanguage } = useContext(LayoutContext);
   return (
-    <section id="explore-landing">
+    <section className="section section--explore">
       <div className="container">
-        {' '}
-        <Grid container sx={{ display: 'flex', justifyContent: 'space-between' }} className="explore-landing">
-          <Grid item xs={8} className="explore-left">
-            <h1
-              className="page-head"
-              style={{ fontSize: selectedLanguage === 'ru' ? '3.375rem' : '4.375rem' }}
-            >
-              {t('exploreHead')}
-            </h1>
-            <p className="biggerSize-text">{t('exploreText')}</p>
-            <div className="language">
+        <div className="section__content">
+          <div className={'section__header section__header--lg section__header--' + selectedLanguage}>
+            <h1 className="section__title">{t('exploreHead')}</h1>
+            <p className="section__desc">{t('exploreText')}</p>
+            <div className="ai-lang">
               <span>{t('languageText')}</span>
               <SelectLanguage />
             </div>
-            <div className="gradient-btn">
-              <button type="button">
-                {tBtn('startButton')} <Image src={ArrowIcon} alt="arrow-icon" />
-              </button>
-            </div>
-          </Grid>
-        </Grid>
-        {RiveComponent && <RiveComponent className="rive-1" />}
+            <button className="ai-btn ai-btn--primary ai-btn--lg" type="button">
+              <span>{tBtn('startButton')}</span>
+              <Image src={ArrowIcon} alt="arrow-icon" />
+            </button>
+          </div>
+        </div>
+        {RiveComponent && <RiveComponent className="section__graphic section__graphic--explore" />}
       </div>
     </section>
   );

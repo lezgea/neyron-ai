@@ -1,59 +1,12 @@
-#feedbacks {
-  z-index: 300;
-  .feedback-image {
-    position: absolute;
-    right: -150px;
-    top: 20px;
-    .thanks-image {
-      position: absolute;
-      left: -3rem;
-    }
-  }
-  .feedback-container {
-    .feedback-head-container {
-      .page-head {
-        font-size: 3rem;
-      }
-    }
-    .feedback-content {
-      .left-feedback {
-        overflow: auto;
-        max-height: 40rem;
-        padding-left: 2.75rem;
-        padding-top: 5rem;
-        &::-webkit-scrollbar {
-          display: none;
-        }
-        .person-box {
-          padding-top: 2rem;
-          width: 100%;
-          display: flex;
-          &:not(:last-child) {
-            margin-bottom: 5rem;
-          }
-          .person-box-detail {
-            margin-left: 2.38rem;
-            padding-top: 2.19rem;
-            h5 {
-              letter-spacing: 0.025rem;
-              @include fontSize(1.25rem, 600, 130%, #2e2e2e);
-            }
-            .field-name {
-              letter-spacing: 0.025rem;
-              @include fontSize(1.25rem, 300, 130%, #2e2e2e);
-            }
-            .content {
-              max-width: 17rem;
-              border-radius: 1.22175rem 1.22175rem 1.22175rem 0rem;
-              background: #f5f6f9;
-              padding: 1rem 1.1875rem;
-              margin-top: 3.9rem;
-              letter-spacing: 0.02rem;
-              @include fontSize(1rem, 500, 130%, #36373a);
-            }
-          }
-        }
-      }
+.section {
+  $section: &;
+  position: relative;
+
+  &--feedbacks {
+    #{$section}__content {
+      display: flex;
+      justify-content: center;
+      position: static;
     }
   }
 }

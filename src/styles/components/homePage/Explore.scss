@@ -1,30 +1,25 @@
-.container {
-  position: relative;
-  .rive-1 {
-    position: absolute;
-    bottom: 0;
-    z-index: 100;
-    right: -3rem;
-    width: 90%;
-  }
-}
-#explore-landing {
-  .rive-1 {
-    bottom: -12px;
-  }
-}
-.explore-landing {
-  .explore-left {
-    padding-top: 6rem;
-    padding-left: 2.87rem;
-    .language {
-      margin-top: 2rem;
-      display: flex;
-      align-items: center;
-      span {
-        letter-spacing: 0.03088rem;
-        @include fontSize(0.77256rem, 500, 100%, #000);
-        margin-right: 0.5rem;
+.section {
+  $section: &;
+
+  &--explore {
+    #{$section} {
+      &__content {
+        position: relative;
+        z-index: 101;
+      }
+
+      &__header {
+        .ai-btn {
+          min-width: 178px;
+        }
+      }
+
+      &__title {
+        max-width: 678px;
+      }
+
+      &__desc {
+        max-width: 572px;
       }
     }
   }

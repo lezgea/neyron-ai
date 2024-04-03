@@ -2,17 +2,14 @@ import React, { useContext } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-
 import { Grid } from '@mui/material';
-
 import AilabLogo from 'src/assets/images/ailabLogo.svg';
 import FacebookIcon from 'src/assets/images/facebook.svg';
 import InstagramIcon from 'src/assets/images/instagram.svg';
 import LinkedinIcon from 'src/assets/images/linkedin.svg';
 import TiktokIcon from 'src/assets/images/tiktok.svg';
-import WhiteLogo from 'src/assets/images/whiteLogo.svg';
+import Logo from 'src/assets/images/whiteLogo.svg';
 import YouTubeIcon from 'src/assets/images/youtube.svg';
-
 import { LayoutContext } from '../../layoutContainer';
 
 const Footer = () => {
@@ -20,92 +17,82 @@ const Footer = () => {
 
   const t = useTranslations('footer');
   return (
-    <footer>
-      <Grid item xs={12} className="logo-container">
-        <Image src={WhiteLogo} alt="logo" />
-      </Grid>
-      <Grid item xs={12}>
-        <ul className="nav-list" style={{ marginLeft: selectedLanguage === 'ru' ? '10px' : '1rem' }}>
-          <li>
-            <Link
-              style={{ fontSize: selectedLanguage === 'ru' ? '1.2rem' : '1.375rem' }}
-              href={`/${selectedLanguage}/aboutUs`}
-            >
-              {t('aboutUs')}
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ fontSize: selectedLanguage === 'ru' ? '1.2rem' : '1.375rem' }}
-              href={`/${selectedLanguage}`}
-            >
-              {t('courses')}
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ fontSize: selectedLanguage === 'ru' ? '1.2rem' : '1.375rem' }}
-              href={`/${selectedLanguage}`}
-            >
-              {t('community')}
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ fontSize: selectedLanguage === 'ru' ? '1.2rem' : '1.375rem' }}
-              href={`/${selectedLanguage}/faq`}
-            >
-              {t('faq')}
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ fontSize: selectedLanguage === 'ru' ? '1.2rem' : '1.375rem' }}
-              href={`/${selectedLanguage}/blog`}
-            >
-              {t('blog')}
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ fontSize: selectedLanguage === 'ru' ? '1.2rem' : '1.375rem' }}
-              href={`/${selectedLanguage}/contact`}
-            >
-              {t('contactUs')}
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ fontSize: selectedLanguage === 'ru' ? '1.2rem' : '1.375rem' }}
-              href={`/${selectedLanguage}`}
-            >
-              {t('terms')}
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ fontSize: selectedLanguage === 'ru' ? '1.2rem' : '1.375rem' }}
-              href={`/${selectedLanguage}`}
-            >
-              {t('privacy')}
-            </Link>
-          </li>
-        </ul>
-      </Grid>
-      <Grid item xs={12} className="bottom-line">
-        <div className="social-media-icons">
-          <Image src={TiktokIcon} alt="tik-tok" />
-          <Image src={FacebookIcon} alt="facebook" />
-          <Image src={InstagramIcon} alt="instagram" />
-          <Image src={LinkedinIcon} alt="linkedin" />
-          <Image src={YouTubeIcon} alt="youtube" />
+    <footer className="footer">
+      <div className="container">
+        <div className="footer__content footer__content--primary">
+          <Link href={`/${selectedLanguage}`} className="header__logo">
+            <Image src={Logo} alt="neron.ai" />
+          </Link>
+          <nav className="footer__nav">
+            <ul className="footer__nav__list">
+              <li>
+                <Link href={`/${selectedLanguage}/aboutUs`}>{t('aboutUs')}</Link>
+              </li>
+              <li>
+                <Link href={`/${selectedLanguage}`}>{t('courses')}</Link>
+              </li>
+              <li>
+                <Link href={`/${selectedLanguage}`}>{t('community')}</Link>
+              </li>
+              <li>
+                <Link href={`/${selectedLanguage}/faq`}>{t('faq')}</Link>
+              </li>
+              <li>
+                <Link href={`/${selectedLanguage}/blog`}>{t('blog')}</Link>
+              </li>
+              <li>
+                <Link href={`/${selectedLanguage}/contact`}>{t('contactUs')}</Link>
+              </li>
+              <li>
+                <Link href={`/${selectedLanguage}`}>{t('terms')}</Link>
+              </li>
+              <li>
+                <Link href={`/${selectedLanguage}`}>{t('privacy')}</Link>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <div className="rights-container">2023 Neyron.ai {t('rightsReserved')}</div>
-        <div className="produced-by">
-          <span>{t('productOf')}</span>
-          <Image src={AilabLogo} alt="logo" />
+        <div className="footer__content footer__content--secondary">
+          <div className="footer__content__item">
+            <ul className="ai-socials">
+              <li>
+                <a href="#" target="_blank">
+                  <Image src={TiktokIcon} alt="tik-tok" />
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank">
+                  <Image src={FacebookIcon} alt="facebook" />
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank">
+                  <Image src={InstagramIcon} alt="instagram" />
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank">
+                  <Image src={LinkedinIcon} alt="linkedin" />
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank">
+                  <Image src={YouTubeIcon} alt="youtube" />
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="footer__content__item">
+            <span className="ai-copyright">2023 Neyron.ai {t('rightsReserved')}</span>
+          </div>
+          <div className="footer__content__item">
+            <a href={'https://ailab.az'} target="_blank" className="ai-author">
+              <span>{t('productOf')}</span>
+              <Image src={AilabLogo} alt="ailab.az" />
+            </a>
+          </div>
         </div>
-      </Grid>
+      </div>
     </footer>
   );
 };

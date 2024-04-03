@@ -1,11 +1,7 @@
 import ContainerPage from './components/home-page/containerPage';
 
 const App = () => {
-  return (
-    <div className="home-page-container">
-      <ContainerPage />
-    </div>
-  );
+  return <ContainerPage />;
 };
 
 export default App;

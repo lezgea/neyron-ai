@@ -5,38 +5,42 @@ import { useTranslations } from 'next-intl';
 import { Grid } from '@mui/material';
 
 import ArrowIcon from 'src/assets/images/arrow.svg';
-import Card1 from 'src/assets/images/backCard.svg';
-import Card2 from 'src/assets/images/frontCard.svg';
+import Card1 from 'src/assets/images/adventure-card-1.svg';
+import Card2 from 'src/assets/images/adventure-card-2.svg';
+import Card3 from 'src/assets/images/adventure-card-3.svg';
 
 const BeginAdventure = () => {
   const t = useTranslations('Index');
   const tBtn = useTranslations('buttons');
   return (
-    <section id="begin-adventure">
+    <section id="begin-adventure" className="section section--adventure">
       <div className="container">
-        {' '}
-        <Grid container spacing={2}>
-          <Grid item xs={6}>
-            <div className="cards-container">
-              <div className="card-1">
-                <Image src={Card1} alt="card-1" className="card" />
-              </div>
-              <div className="card-2">
-                <Image src={Card1} alt="card-2" className="card" />
-              </div>
-              <div className="card-3">
-                <Image src={Card2} alt="card-3" className="card" />
+        <Grid container>
+          <Grid item xs={6} sx={{ display: 'flex' }}>
+            <div className="section__graphic">
+              <div className="cards-wrapper">
+                <div className="card card--1">
+                  <Image src={Card1} alt="card-1" className="card__picture" />
+                </div>
+                <div className="card card--2">
+                  <Image src={Card2} alt="card-2" className="card__picture" />
+                </div>
+                <div className="card card--3">
+                  <Image src={Card3} alt="card-3" className="card__picture" />
+                </div>
               </div>
             </div>
           </Grid>
-          <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
-            <h1 className="page-head">{t('coursesHead')}</h1>
-            <p className="biggerSize-text">{t('coursesText')}</p>
-            <div className="gradient-btn">
-              <button type="button">
-                {tBtn('startButton')}
-                <Image src={ArrowIcon} alt="arrow-icon" />
-              </button>
+          <Grid item xs={6} sx={{ display: 'flex' }}>
+            <div className="section__content">
+              <div className="section__header section__header--md">
+                <h2 className="section__title">{t('coursesHead')}</h2>
+                <p className="section__desc">{t('coursesText')}</p>
+                <button className="ai-btn ai-btn--primary ai-btn--lg" type="button">
+                  <span>{tBtn('startButton')}</span>
+                  <Image src={ArrowIcon} alt="arrow-icon" />
+                </button>
+              </div>
             </div>
           </Grid>
         </Grid>

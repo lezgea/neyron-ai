@@ -81,7 +81,7 @@ const UserProfile = () => {
     navigate.push(`${selectedLanguage}/profile`);
   };
   return (
-    <li>
+    <>
       {userIsActive ? (
         <div
           className="profile-header"
@@ -102,9 +102,11 @@ const UserProfile = () => {
           </ul>
         </div>
       ) : (
-        <Link href={`/${selectedLanguage}/login`}>{t('login')}</Link>
+        <Link href={`/${selectedLanguage}/login`} className="ai-btn ai-btn--secondary ai-btn--sm">
+          {t('login')}
+        </Link>
       )}
-    </li>
+    </>
   );
 };
 export default UserProfile;

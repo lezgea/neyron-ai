@@ -1,2 +1,79 @@
 $Inter: 'Inter';
 $Montserrat: 'Montserrat';
+
+:root {
+  /* Design colors */
+  --yellow-500: #fed33d;
+  --yellow-400: #fee16d;
+  --orange-500: #ffb967;
+  --fuchsia-500: #ff89ff;
+  --fuchsia-300: #ffcdff;
+  --violet-500: #7f00c5;
+  --violet-300: #a967ff;
+
+  /* General colors */
+  --gray-900: #000000;
+  --gray-800: #262626;
+  --gray-700: #36373a;
+  --gray-500: #5f6166;
+  --gray-400: #808080;
+  --gray-300: #9d9d9d;
+  --gray-100: #e2e2eb;
+  --gray-50: #f5f6f9;
+  --gray-0: #ffffff;
+
+  /* Gradient colors */
+  --gradient-1: linear-gradient(95deg, var(--fuchsia-500) 60%, var(--orange-500) 85%);
+  --gradient-2: linear-gradient(95deg, var(--fuchsia-300), var(--violet-300));
+  --gradient-3: linear-gradient(135deg, var(--fuchsia-300) 15%, var(--orange-500) 65%, var(--violet-500));
+  --gradient-4: linear-gradient(
+    45deg,
+    var(--gray-900),
+    var(--gray-900) 33.3%,
+    var(--fuchsia-500) 66.6%,
+    var(--orange-500)
+  );
+
+  /* Font family */
+  --primary-font-family: 'Aloevera', sans-serif;
+
+  /* Font size - Heading */
+  --fs-h1: 70px;
+  --fs-h2: 48px;
+  --fs-h3: 36px;
+
+  /* Line height - Heading */
+  --lh-h1: 88px;
+  --lh-h2: 56px;
+  --lh-h3: 40px;
+
+  /* Font size - Basic */
+  --fs-b1: 10px;
+  --fs-b2: 12px;
+  --fs-b3: 14px;
+  --fs-b4: 16px;
+  --fs-b5: 18px;
+  --fs-b6: 20px;
+  --fs-b7: 24px;
+  --fs-b8: 26px;
+  --fs-b9: 30px;
+
+  /* Line height - Basic */
+  --lh-b1: 16px;
+  --lh-b2: 16px;
+  --lh-b3: 16px;
+  --lh-b4: 20px;
+  --lh-b5: 24px;
+  --lh-b6: 24px;
+  --lh-b7: 32px;
+  --lh-b8: 32px;
+  --lh-b9: 40px;
+
+  /* Font weight */
+  --fw-extra-bold: 800;
+  --fw-bold: 700;
+  --fw-semi-bold: 600;
+  --fw-medium: 500;
+  --fw-regular: 400;
+  --fw-thin: 300;
+}

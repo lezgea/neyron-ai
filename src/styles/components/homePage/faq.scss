@@ -1,53 +1,21 @@
-.faq-stack {
-  position: relative;
-  .rive-2 {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 80%;
-    height: 70%;
-  }
-}
-.faq-container {
-  display: flex;
-  align-items: center;
-  flex-direction: column !important;
-  padding-top: 4rem;
-  .page-head {
-    font-size: 3rem;
-  }
-  .accordion-component {
-    margin-top: 4.25rem;
-    .Mui-expanded {
-      .MuiAccordionSummary-content {
-        font-weight: 500 !important;
+.section {
+  $section: &;
+
+  &--faq {
+    height: auto;
+    padding-bottom: 320px;
+
+    #{$section} {
+      &__content {
+        position: relative;
+        z-index: 1001;
+        max-width: 832px;
+        margin: 0 auto;
       }
-    }
-    .MuiAccordion-root {
-      padding: 1.5rem;
-      border-radius: 1.3125rem;
-      background: #f5f6f9;
-      width: 52rem;
-      margin-bottom: 0.56rem;
-      box-shadow: none !important;
-      &::before {
-        background: none;
-        width: 0px;
-      }
-      .expand-image {
-        width: 2.6rem;
-        height: 2.6rem;
-        border-radius: 50%;
-        background-color: #e2e2eb;
-        @include flexBox(center, center);
-      }
-      .MuiAccordionSummary-content {
-        @include fontSize(1.375rem, 300, 115%, #262626);
-      }
-      .MuiAccordionDetails-root {
-        letter-spacing: 0.0225rem;
-        @include fontSize(1.125rem, 400, 130%, #262626);
-        margin-top: 2.56rem;
+
+      &__footer {
+        display: flex;
+        justify-content: center;
       }
     }
   }

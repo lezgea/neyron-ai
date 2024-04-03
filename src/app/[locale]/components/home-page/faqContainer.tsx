@@ -1,22 +1,20 @@
 'use client';
 import React, { useContext } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-
-// import { useTranslations } from 'next-intl';
 import { useGetFaq } from 'src/api/faq/queries';
 import { useGetLanguages } from 'src/api/language/queries';
-import ArrowIcon from 'src/assets/images/arrow.svg';
-
 import { LayoutContext } from '../../layoutContainer';
-import AccordionComponent from '../ui/accordion';
 import Loading from '../ui/loading';
+import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
+import Image from 'next/image';
+import MinusIcon from 'src/assets/images/minusIcon.svg';
+import PlusIcon from 'src/assets/images/plusIcon.svg';
 
 interface IElement {
   id: number;
   question: string;
   answer: string;
 }
+
 const FaqContainer = ({ mainPage }: { mainPage: boolean }) => {
   const { selectedLanguage } = useContext(LayoutContext);
   const { data: languages } = useGetLanguages();
@@ -24,23 +22,34 @@ const FaqContainer = ({ mainPage }: { mainPage: boolean }) => {
     isOnMainPage: mainPage,
     languageId: languages?.data?.find((elem) => elem?.abbreviation === selectedLanguage)?.id as number,
   });
-  //   const tBtn = useTranslations('buttons');
+
   if (isLoading) <Loading />;
+
+  const [expanded, setExpanded] = React.useState<string | false>('panel0');
+
+  const handleChange = (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
+    setExpanded(newExpanded ? panel : false);
+  };
+
   return (
-    <div style={{ marginBottom: !mainPage ? '5rem' : '' }}>
-      {data?.data?.map((elem: IElement) => (
-        <AccordionComponent key={elem?.id} summary={elem?.question} details={elem?.answer} />
+    <>
+      {data?.data?.map((elem: IElement, index: number) => (
+        <Accordion expanded={expanded === `panel${index}`} onChange={handleChange(`panel${index}`)}>
+          <AccordionSummary
+            aria-controls={'panel' + index + 'bh-content'}
+            id={'panel' + index + 'bh-header'}
+            expandIcon={
+              <div className="expand-image">
+                <Image src={expanded && expanded === `panel${index}` ? MinusIcon : PlusIcon} alt="plusIcon" />
+              </div>
+            }
+          >
+            {elem?.question}
+          </AccordionSummary>
+          <AccordionDetails>{elem?.answer}</AccordionDetails>
+        </Accordion>
       ))}
-      {mainPage && (
-        <div className="gradient-btn" style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Link href={`/${selectedLanguage}/faq`}>
-            <button type="button">
-              More <Image src={ArrowIcon} alt="arrow-icon" />
-            </button>
-          </Link>
-        </div>
-      )}
-    </div>
+    </>
   );
 };
 

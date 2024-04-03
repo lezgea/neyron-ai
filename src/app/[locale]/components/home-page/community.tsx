@@ -13,47 +13,32 @@ const Community = () => {
   const tBtn = useTranslations('buttons');
   const { selectedLanguage } = useContext(LayoutContext);
   return (
-    <section id="community">
+    <section className="section section--community">
       <div className="container">
-        {' '}
-        <Grid container sx={{ height: '100%', paddingLeft: '1.87rem' }} spacing={2}>
-          <Grid item xs={7.5}>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                flexDirection: 'column',
-                width: '80%',
-                height: '100%',
-              }}
-            >
-              <h1
-                className="page-head"
-                style={{ fontSize: selectedLanguage === 'ru' ? '3.6rem' : '4.375rem' }}
-              >
-                {t('communityHead')}
-              </h1>
-              <div className="text" style={{ marginTop: '1.69rem' }}>
-                {' '}
-                <p>{t('communityText')}</p>
-              </div>
-              <div className="gradient-btn">
-                <button>
-                  {tBtn('join')}
+        <Grid container>
+          <Grid item xs={6} sx={{ display: 'flex' }}>
+            <div className="section__content">
+              <div className={'section__header section__header--md section__header--' + selectedLanguage}>
+                <h1 className="section__title">{t('communityHead')}</h1>
+                <p className="section__desc">{t('communityText')}</p>
+                <button className="ai-btn ai-btn--primary ai-btn--lg" type="button">
+                  <span>{tBtn('join')}</span>
                   <Image src={ArrowIcon} alt="arrow-icon" />
                 </button>
               </div>
             </div>
           </Grid>
-          <Grid item xs={4.5} container spacing={2}>
-            <Grid item xs={6} container>
-              <div className="red-bg" style={{ marginBottom: '0.87rem' }}></div>
-              <div className="purple-bg"></div>
-            </Grid>
-            <Grid item xs={6} container>
-              <div className="green-bg" style={{ marginBottom: '0.87rem' }}></div>
-              <div className="yellow-bg"></div>
-            </Grid>
+          <Grid item xs={6}>
+            <div className="cards-wrapper">
+              <div className="cards-col">
+                <div className="card card--red"></div>
+                <div className="card card--purple"></div>
+              </div>
+              <div className="cards-col">
+                <div className="card card--green"></div>
+                <div className="card card--yellow"></div>
+              </div>
+            </div>
           </Grid>
         </Grid>
       </div>
