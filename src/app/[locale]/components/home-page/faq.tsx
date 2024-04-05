@@ -12,18 +12,18 @@ const Faq = ({ mainPage }: { mainPage: boolean }) => {
   const tBtn = useTranslations('buttons');
 
   return (
-    <section className="section section--faq">
+    <section className="ai-section ai-section--faq">
       <div className="container">
-        <div className="section__content">
-          <div className="section__header section__header--md section__header--center">
-            <h1 className="section__title">FAQ</h1>
+        <div className="ai-section__content">
+          <div className="ai-section__header ai-section__header--md ai-section__header--center">
+            <h1 className="ai-section__title">FAQ</h1>
           </div>
-          <div className="section__body">
+          <div className="ai-section__body">
             <div className="ai-accordion">
               <FaqContainer mainPage={mainPage} />
             </div>
           </div>
-          <div className="section__footer">
+          <div className="ai-section__footer">
             {mainPage && (
               <Link href={`/${selectedLanguage}/faq`} className="ai-btn ai-btn--primary ai-btn--lg">
                 <span>{tBtn('more')}</span>
@@ -32,7 +32,7 @@ const Faq = ({ mainPage }: { mainPage: boolean }) => {
             )}
           </div>
         </div>
-        <div className="section__graphic section__graphic--faq">
+        <div className="ai-section__graphic ai-section__graphic--faq">
           <Image src={MonsterWithQuestion} alt="monster" />
         </div>
       </div>

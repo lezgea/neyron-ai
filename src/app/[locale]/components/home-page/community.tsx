@@ -13,14 +13,18 @@ const Community = () => {
   const tBtn = useTranslations('buttons');
   const { selectedLanguage } = useContext(LayoutContext);
   return (
-    <section className="section section--community">
+    <section className="ai-section ai-section--community">
       <div className="container">
         <Grid container>
           <Grid item xs={6} sx={{ display: 'flex' }}>
-            <div className="section__content">
-              <div className={'section__header section__header--md section__header--' + selectedLanguage}>
-                <h1 className="section__title">{t('communityHead')}</h1>
-                <p className="section__desc">{t('communityText')}</p>
+            <div className="ai-section__content">
+              <div
+                className={
+                  'ai-section__header ai-section__header--md ai-section__header--' + selectedLanguage
+                }
+              >
+                <h1 className="ai-section__title">{t('communityHead')}</h1>
+                <p className="ai-section__desc">{t('communityText')}</p>
                 <button className="ai-btn ai-btn--primary ai-btn--lg" type="button">
                   <span>{tBtn('join')}</span>
                   <Image src={ArrowIcon} alt="arrow-icon" />

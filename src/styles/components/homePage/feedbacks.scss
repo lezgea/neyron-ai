@@ -1,9 +1,12 @@
-.section {
+.ai-section {
   $section: &;
   position: relative;
 
   &--feedbacks {
+    padding: 0;
+
     #{$section}__content {
+      max-width: 80%;
       display: flex;
       justify-content: center;
       position: static;

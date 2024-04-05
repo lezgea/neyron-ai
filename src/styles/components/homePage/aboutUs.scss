@@ -1,11 +1,10 @@
-.section {
+.ai-section {
   $section: &;
 
   &--about {
     #{$section} {
       &__content {
         position: relative;
-        // width: 50%;
         z-index: 1001;
       }
 

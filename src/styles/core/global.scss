@@ -44,7 +44,7 @@ button {
   cursor: pointer;
 }
 
-.section-header {
+.ai-section-header {
   @include fontSize(26px, 800, 26px, #36373a);
   letter-spacing: 1.04px;
   margin: 40px 0;
@@ -208,11 +208,11 @@ html {
   background: var(--yellow-500);
 }
 
-.section {
+.ai-section {
   $section: &;
   position: relative;
   padding: $offsetTop 0;
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   background: var(--gray-0);
@@ -293,28 +293,23 @@ html {
       height: auto;
       width: 574px;
     }
-  }
-}
 
-.sections-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-  height: 100vh;
-  &::-webkit-scrollbar {
-    display: none;
+    &--why {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
 .ai-stack {
   &__card {
-    height: 100vh;
-    position: sticky;
+    min-height: 100vh;
+    // position: sticky;
     background-color: var(--gray-0);
-    top: 0;
+    // top: 0;
 
     &--auto {
       height: auto;
@@ -409,23 +404,57 @@ html {
   }
 }
 
-.ai-testimonials {
+.ai-scroll {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  gap: 40px;
-  overflow: auto;
-  height: calc(100vh - $offsetTop * 2);
+  height: 100vh;
+  overflow: hidden;
 
-  &::-webkit-scrollbar {
-    display: none;
+  &__wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: loop 20s linear infinite;
+
+    &#scroll-two {
+      transform: translateY(100%);
+      animation-delay: 10s;
+      opacity: 0;
+    }
   }
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+
+  &__fade {
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.9),
+      transparent 30%,
+      transparent 85%,
+      rgba(255, 255, 255, 0.9)
+    );
+    inset: 0;
+    pointer-event: none;
+  }
+}
+
+@keyframes loop {
+  0% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
 }
 
 .ai-testimonial {
   display: flex;
+  align-items: center;
+  flex-shrink: 0;
   gap: 36px;
+  margin: 12px 0;
 
   &__image {
     width: 172px;
@@ -573,6 +602,7 @@ html {
   opacity: 0;
   visibility: hidden;
   z-index: 1002;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04);
 
   svg,
   img {

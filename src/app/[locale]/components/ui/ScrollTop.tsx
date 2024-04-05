@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ArrowTop from 'src/assets/images/arrow-top.svg';
 
 const ScrollTop = () => {
@@ -21,7 +21,9 @@ const ScrollTop = () => {
     });
   };
 
-  window.addEventListener('scroll', toggleVisible);
+  useEffect(() => {
+    window.addEventListener('scroll', toggleVisible);
+  }, []);
 
   return (
     <button className={'ai-scroll-top' + (visible ? ' ai-scroll-top--show' : '')} onClick={scrollToTop}>

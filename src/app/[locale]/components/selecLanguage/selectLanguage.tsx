@@ -122,7 +122,7 @@ const SelectLanguage = () => {
       borderRadius: '8px',
       background: '#f5f6f9',
       minWidth: '100%',
-      boxShadow: 'none',
+      boxShadow: '0 0 4px 0 rgba(0, 0, 0, 0.04)',
     }),
     option: (base: object, state) => ({
       ...base,

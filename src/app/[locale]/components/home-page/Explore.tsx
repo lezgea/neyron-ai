@@ -38,12 +38,14 @@ const Explore = () => {
 
   const { selectedLanguage } = useContext(LayoutContext);
   return (
-    <section className="section section--explore">
+    <section className="ai-section ai-section--explore">
       <div className="container">
-        <div className="section__content">
-          <div className={'section__header section__header--lg section__header--' + selectedLanguage}>
-            <h1 className="section__title">{t('exploreHead')}</h1>
-            <p className="section__desc">{t('exploreText')}</p>
+        <div className="ai-section__content">
+          <div
+            className={'ai-section__header ai-section__header--lg ai-section__header--' + selectedLanguage}
+          >
+            <h1 className="ai-section__title">{t('exploreHead')}</h1>
+            <p className="ai-section__desc">{t('exploreText')}</p>
             <div className="ai-lang">
               <span>{t('languageText')}</span>
               <SelectLanguage />
@@ -54,7 +56,7 @@ const Explore = () => {
             </button>
           </div>
         </div>
-        {RiveComponent && <RiveComponent className="section__graphic section__graphic--explore" />}
+        {RiveComponent && <RiveComponent className="ai-section__graphic ai-section__graphic--explore" />}
       </div>
     </section>
   );
