@@ -19,7 +19,7 @@ import { useGetLanguages } from 'src/api/language/queries';
 import AzerbaijanFlag from 'src/assets/images/azerbaijani.svg';
 import UkFlag from 'src/assets/images/english.svg';
 import SelectIcon from 'src/assets/images/selectIcon.svg';
-import RussiaFlag from 'src/assets/images/turkish.svg';
+import RussiaFlag from 'src/assets/images/ru.svg';
 import TurkiyeFlag from 'src/assets/images/turkish.svg';
 import { ISelectedLanguage } from 'src/types';
 
@@ -88,17 +88,20 @@ const SelectLanguage = () => {
   const customStyles: StylesConfig<ISelectedLanguage, boolean, GroupBase<ISelectedLanguage>> = {
     control: (base: object) => ({
       ...base,
-      padding: '0.25rem 0.81rem',
-      borderRadius: '0.5625rem',
-      background: '#f4f5fb',
+      padding: '10px 12px',
+      borderRadius: '8px',
+      background: '#f5f6f9',
       textTransform: 'uppercase',
       outline: 'none',
       border: 'none',
+      boxShadow: 'none',
       cursor: 'pointer',
     }),
     menuList: (base: object) => ({
       ...base,
       maxHeight: '200px',
+      border: 'none',
+      padding: 0,
     }),
     multiValue: (base: object) => ({
       ...base,
@@ -115,17 +118,20 @@ const SelectLanguage = () => {
     }),
     menu: (base: object) => ({
       ...base,
-      padding: '0.88rem 1rem 0.88rem 0.81rem',
-      borderRadius: '0.5625rem',
-      background: '#F3F3F7',
-      minWidth: '100px',
+      padding: '6px 10px',
+      borderRadius: '8px',
+      background: '#f5f6f9',
+      minWidth: '100%',
+      boxShadow: '0 0 4px 0 rgba(0, 0, 0, 0.04)',
     }),
     option: (base: object, state) => ({
       ...base,
-      padding: '0px',
-      marginBottom: '12px',
-      backgroundColor: state.isSelected || state?.isFocused ? 'inherit' : 'inherit',
-      color: state.isSelected ? '#000' : '#000',
+      padding: '6px',
+      margin: '4px 0',
+      borderRadius: '4px',
+      backgroundColor: state.isSelected || state?.isFocused ? '#e2e2eb' : 'none',
+      color: state.isSelected ? '#262626' : '#262626',
+      cursor: 'pointer',
     }),
   };
 
@@ -137,16 +143,17 @@ const SelectLanguage = () => {
         if (newValue) {
           const newPathName = pathName?.replace(
             selectedLanguage,
-            (newValue as SingleValue<ISelectedLanguage>)?.abbreviation as string,
+            (newValue as SingleValue<ISelectedLanguage>)?.abbreviation as string
           );
           router.push(newPathName);
           setSelectedLanguage((newValue as SingleValue<ISelectedLanguage>)?.abbreviation as string);
         }
       }}
-      //   menuIsOpen={true}
+      // menuIsOpen={true}
       components={{ DropdownIndicator: CustomDropdownIndicator, SingleValue, Option: OptionValue }}
       options={data?.data}
       isMulti={false}
+      isSearchable={false}
       getOptionLabel={(elem: ISelectedLanguage) => elem?.abbreviation}
       getOptionValue={(elem: ISelectedLanguage) => elem?.abbreviation}
     />

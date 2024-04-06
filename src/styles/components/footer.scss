@@ -46,3 +46,89 @@ footer {
     }
   }
 }
+
+.footer {
+  position: relative;
+  z-index: 1001;
+
+  &__content {
+    $content: &;
+
+    &--primary {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &--secondary {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+
+      #{$content}__item {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:first-child {
+          justify-content: flex-start;
+        }
+
+        &:last-child {
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+
+    img {
+      display: block;
+      width: 142px;
+      height: auto;
+    }
+  }
+
+  &__nav {
+    padding-top: 52px;
+    padding-bottom: 72px;
+
+    &__list {
+      display: flex;
+      justify-content: center;
+
+      li {
+        list-style-type: none;
+
+        &:first-child a {
+          padding-left: 0;
+        }
+
+        &:last-child a {
+          padding-right: 0;
+        }
+
+        &:not(:last-child) {
+          border-right: 1px solid var(--gray-0);
+        }
+
+        a {
+          padding: 0 24px;
+          @include fontSize(var(--fs-b6), var(--fw-semi-bold), var(--lh-b6), var(--gray-0));
+          transition: all 250ms ease-in-out;
+
+          &:hover {
+            color: var(--yellow-500);
+          }
+        }
+      }
+    }
+  }
+
+  &__author {
+  }
+}

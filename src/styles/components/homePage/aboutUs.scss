@@ -1,20 +1,19 @@
 .ai-section {
   $section: &;
 
-  &--faq {
-    padding-bottom: 320px;
-
+  &--about {
     #{$section} {
       &__content {
         position: relative;
         z-index: 1001;
-        max-width: 832px;
-        margin: 0 auto;
       }
 
-      &__footer {
+      &__desc {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        gap: 16px;
+        font-size: var(--fs-b5);
+        line-height: var(--lh-b5);
       }
     }
   }

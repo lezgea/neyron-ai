@@ -34,10 +34,11 @@
   },
   "buttons": {
     "startButton": "Let's start",
-    "join": "Join",
+    "join": "Join now",
     "send": "Send",
     "save": "Save",
-    "logOut": "Log out"
+    "logOut": "Log out",
+    "more": "Show more"
   },
   "navbar": {
     "about": "About us ",

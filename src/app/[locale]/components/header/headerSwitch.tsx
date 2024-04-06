@@ -8,7 +8,7 @@ const HeaderSwitch = () => {
   return (
     <Switch
       defaultChecked={true}
-      className="switch-button"
+      className="ai-switch"
       onChange={() => {}}
       inputProps={{ 'aria-label': 'controlled' }}
     />

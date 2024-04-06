@@ -14,6 +14,7 @@ import Footer from './components/footer/footer';
 import Header from './components/header/header';
 
 import '../../styles/App.scss';
+import ScrollTop from './components/ui/ScrollTop';
 
 interface ContextProps {
   userIsActive: boolean;
@@ -63,6 +64,7 @@ export default function LayoutContainer({ children }: { children: ReactNode }) {
     <LayoutContext.Provider value={{ userIsActive, setUserIsActive, selectedLanguage, setSelectedLanguage }}>
       <QueryClientProvider client={queryClient}>
         <Header />
+        <ScrollTop />
         <SnackbarProvider
           iconVariant={{
             success: <Image src={SuccessIcon} alt="success" />,
@@ -74,7 +76,7 @@ export default function LayoutContainer({ children }: { children: ReactNode }) {
           }}
           anchorOrigin={{ horizontal: 'center', vertical: 'top' }}
         >
-          <main>{children}</main>
+          {children}
         </SnackbarProvider>
         <Footer />
       </QueryClientProvider>
