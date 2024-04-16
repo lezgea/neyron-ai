@@ -1,11 +1,12 @@
+'use client';
 import React, { useContext } from 'react';
-import FaqContainer from './faqContainer';
+import AccordionFaq from '../ui/AccordionFAQ';
 import Link from 'next/link';
 import Image from 'next/image';
 import { LayoutContext } from '../../layoutContainer';
 import { useTranslations } from 'next-intl';
 import ArrowIcon from 'src/assets/images/arrow.svg';
-import MonsterWithQuestion from 'src/assets/images/monster-with-question.svg';
+import MonsterQuestion from 'src/assets/images/monster-question.svg';
 
 const Faq = ({ mainPage }: { mainPage: boolean }) => {
   const { selectedLanguage } = useContext(LayoutContext);
@@ -20,7 +21,7 @@ const Faq = ({ mainPage }: { mainPage: boolean }) => {
           </div>
           <div className="ai-section__body">
             <div className="ai-accordion">
-              <FaqContainer mainPage={mainPage} />
+              <AccordionFaq mainPage={mainPage} />
             </div>
           </div>
           <div className="ai-section__footer">
@@ -33,7 +34,7 @@ const Faq = ({ mainPage }: { mainPage: boolean }) => {
           </div>
         </div>
         <div className="ai-section__graphic ai-section__graphic--faq">
-          <Image src={MonsterWithQuestion} alt="monster" />
+          <Image src={MonsterQuestion} alt="monster" />
         </div>
       </div>
     </section>

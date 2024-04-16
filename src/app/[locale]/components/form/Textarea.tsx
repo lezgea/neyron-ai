@@ -1,71 +1,54 @@
 import React, { FC, useId } from 'react';
 import { FieldValues } from 'react-hook-form';
 import { getClassName } from 'src/utils';
+import { InputStatus, InputVariant } from './Input';
 
-export type InputStatus = 'danger' | 'warning' | 'success' | null;
-export type InputVariant = 'general' | 'primary' | 'secondary';
-export type InputType =
-  | 'checkbox'
-  | 'color'
-  | 'date'
-  | 'email'
-  | 'file'
-  | 'hidden'
-  | 'number'
-  | 'password'
-  | 'radio'
-  | 'range'
-  | 'search'
-  | 'tel'
-  | 'text'
-  | 'time';
-
-interface InputProps extends Partial<FieldValues> {
+interface TextareaProps extends Partial<FieldValues> {
   name: string;
-  type?: InputType;
   label?: string;
   placeholder?: string;
   value?: string;
   defaultValue?: string;
+  rows?: number;
+  cols?: number;
+  maxLength?: number;
+  minLength?: number;
   required?: boolean;
   readOnly?: boolean;
   disabled?: boolean;
   autoComplete?: string;
   status?: InputStatus;
   variant?: InputVariant;
-  prefix?: React.ReactNode;
-  suffix?: React.ReactNode;
 }
 
-const Input: FC<InputProps> = (props) => {
+const Textarea: FC<TextareaProps> = (props) => {
   const id = useId();
   const {
     name,
     register,
-    type = 'text',
     label,
     placeholder,
     value,
     defaultValue,
-    readOnly,
+    rows,
+    cols,
+    maxLength,
+    minLength,
     required,
+    readOnly,
     disabled,
     autoComplete = 'on',
-    prefix,
-    suffix,
     status,
     variant = 'general',
     ...rest
   } = props;
 
   const cnFormControl = getClassName('ai-form__control', [
+    'textarea',
     variant,
-    type,
     status && status,
     disabled && 'disabled',
     readOnly && 'readonly',
-    prefix && 'has-prefix',
-    suffix && 'has-suffix',
   ]);
 
   return (
@@ -76,24 +59,25 @@ const Input: FC<InputProps> = (props) => {
         </label>
       )}
       <div className={cnFormControl}>
-        {prefix && <span className="prefix">{prefix}</span>}
-        <input
+        <textarea
           id={id}
           {...register(name)}
-          type={type}
           value={value}
           defaultValue={defaultValue}
           placeholder={placeholder}
           required={required}
           readOnly={readOnly}
           disabled={disabled}
+          rows={rows}
+          cols={cols}
+          maxLength={maxLength}
+          minLength={minLength}
           autoComplete={autoComplete}
           {...rest}
         />
-        {suffix && <span className="suffix">{suffix}</span>}
       </div>
     </div>
   );
 };
 
-export default Input;
+export default Textarea;

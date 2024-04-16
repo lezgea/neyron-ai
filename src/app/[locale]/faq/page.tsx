@@ -1,10 +1,10 @@
-import Faq from '../components/home-page/faq';
+import Faq from '../components/home/Faq';
 
 const page = () => {
   return (
-    <div>
+    <main className="ai-main ai-main--faq">
       <Faq mainPage={false} />
-    </div>
+    </main>
   );
 };
 

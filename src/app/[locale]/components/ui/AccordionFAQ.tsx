@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { useGetFaq } from 'src/api/faq/queries';
 import { useGetLanguages } from 'src/api/language/queries';
 import { LayoutContext } from '../../layoutContainer';
-import Loading from '../ui/loading';
+import Loading from './Loading';
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
 import Image from 'next/image';
 import MinusIcon from 'src/assets/images/minusIcon.svg';
@@ -15,7 +15,7 @@ interface IElement {
   answer: string;
 }
 
-const FaqContainer = ({ mainPage }: { mainPage: boolean }) => {
+const AccordionFaq = ({ mainPage }: { mainPage: boolean }) => {
   const { selectedLanguage } = useContext(LayoutContext);
   const { data: languages } = useGetLanguages();
   const { data, isLoading } = useGetFaq({
@@ -53,4 +53,4 @@ const FaqContainer = ({ mainPage }: { mainPage: boolean }) => {
   );
 };
 
-export default FaqContainer;
+export default AccordionFaq;

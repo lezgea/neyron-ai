@@ -8,27 +8,27 @@ import { useLocale, useTranslations } from 'next-intl';
 
 import { axiosOpen } from 'src/api/axiosInstance';
 import SuccessFormIcon from 'src/assets/images/successForm.svg';
+import ErrorNotification from 'src/assets/images/errorNotification.svg';
 import { contactFormSchema } from 'src/constant/formValidations';
 import { IContactFormState } from 'src/types';
 
 import { LayoutContext } from '../../layoutContainer';
-// import InputComponent from '../form/Input';
-import Loading from '../ui/loading';
+import Loading from '../ui/Loading';
+import Input from '../form/Input';
+import Textarea from '../form/Textarea';
 
 const ContactForm = () => {
   const { selectedLanguage } = useContext(LayoutContext);
+  const locale = useLocale();
   const t = useTranslations('contact');
   const tBtn = useTranslations('buttons');
-  const {
-    register,
-    handleSubmit,
-    // formState: { errors },
-  } = useForm<IContactFormState>({
-    resolver: yupResolver(contactFormSchema),
-  });
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
+
+  const { register, handleSubmit } = useForm<IContactFormState>({
+    resolver: yupResolver(contactFormSchema),
+  });
 
   const _onSubmit: SubmitHandler<IContactFormState> = async (data) => {
     setIsLoading(true);
@@ -43,50 +43,61 @@ const ContactForm = () => {
     }
   };
 
-  const locale = useLocale();
   if (selectedLanguage !== locale) {
     notFound();
   }
+
   return (
-    <form onSubmit={handleSubmit(_onSubmit)}>
-      <fieldset>
-        <legend>{t('apply')}</legend>
-        {isLoading ? (
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Loading />
-          </div>
-        ) : isSuccess ? (
-          <div className="success-message contact-success">
-            <Image src={SuccessFormIcon} alt="success" />
-            <span>Success</span>
-          </div>
-        ) : (
-          <>
-            <div className="form-group">
-              {/* <InputComponent
-                id="name"
+    <form onSubmit={handleSubmit(_onSubmit)} className="ai-form ai-form--contact">
+      {isLoading ? (
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Loading />
+        </div>
+      ) : isSuccess ? (
+        <div className="success-message contact-success">
+          <Image src={SuccessFormIcon} alt="success" />
+          <span>Success</span>
+        </div>
+      ) : (
+        <>
+          <div className="ai-form__content">
+            <div className="ai-form__body">
+              <Input
                 name="name"
-                title="Name, Surname"
-                placeholder="Name, Surname"
                 register={register}
-              /> */}
-              <label htmlFor="name"></label>
-              <input id="name" {...register('name')} placeholder={t('name')} />
+                label={t('name')}
+                placeholder={t('name')}
+                variant="primary"
+                // status={'danger'}
+                // readOnly
+                // disabled
+                // suffix={<Image src={ErrorNotification} alt="" />}
+                // prefix={<Image src={ErrorNotification} alt="" />}
+              />
+              <Input
+                name="email"
+                register={register}
+                label={t('email')}
+                placeholder={'email@mail.com'}
+                variant="primary"
+              />
+              <Textarea
+                name="message"
+                register={register}
+                label={t('message')}
+                type={'textarea'}
+                placeholder={'Text here'}
+                variant="primary"
+              />
             </div>
-            <div className="form-group">
-              <label htmlFor="email">{t('email')}</label>
-              <input type="email" {...register('email')} id="email" placeholder="email@mail.com" />
+            <div className="ai-form__footer">
+              <button type="submit" className="ai-btn ai-btn--tertiary">
+                {tBtn('send')}
+              </button>
             </div>
-            <div className="form-group">
-              <label htmlFor="message">{t('message')}</label>
-              <textarea id="message" {...register('message')} placeholder={t('message')} />
-            </div>
-            <button type="submit" className="filled-gradient-btn">
-              {tBtn('send')}
-            </button>
-          </>
-        )}
-      </fieldset>
+          </div>
+        </>
+      )}
     </form>
   );
 };

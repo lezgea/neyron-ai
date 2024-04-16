@@ -22,6 +22,11 @@ $Montserrat: 'Montserrat';
   --gray-50: #f5f6f9;
   --gray-0: #ffffff;
 
+  /* Semantic colors */
+  --error-400: #ff0000;
+  --success-400: #32d583;
+  --warning-400: #ffb359;
+
   /* Gradient colors */
   --gradient-1: linear-gradient(95deg, var(--fuchsia-500) 60%, var(--orange-500) 85%);
   --gradient-2: linear-gradient(95deg, var(--fuchsia-300), var(--violet-300));

@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider, useLocale, useMessages } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
-
 import LayoutContainer from './layoutContainer';
 
 const locales = ['en', 'az', 'tr', 'ru'];
@@ -22,9 +21,9 @@ export default function RootLayout({
   const locale = useLocale();
   const messages = useMessages();
 
-  if (params.locale !== locale) {
-    notFound();
-  }
+  // if (params.locale !== locale) {
+  //   notFound();
+  // }
 
   return (
     <html>

@@ -3,7 +3,7 @@ import React from 'react';
 const Loading = ({ className = '' }) => {
   return (
     <div className={`${className} lds-ring`}>
-      <div></div>
+      <div>loading</div>
       <div></div>
       <div></div>
       <div></div>

@@ -1,40 +1,25 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import ArrowIcon from 'src/assets/images/arrow.svg';
-import { wrapWordWithSpan } from 'src/utils/wrapWordWithSpan';
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
 import LandingAnimation2 from '../../../../../public/landingAnimation2.riv';
+import { wrapWordWithSpan } from 'src/utils';
 import { Grid } from '@mui/material';
 
 const AboutUs = () => {
   const t = useTranslations('Index');
   const tBtn = useTranslations('buttons');
 
-  const { rive, RiveComponent } = useRive(
-    {
-      src: LandingAnimation2,
-      autoplay: true,
-      stateMachines: 'State Machine 1',
-      layout: new Layout({
-        fit: Fit.Cover,
-        alignment: Alignment.Center,
-      }),
-    },
-    {
-      fitCanvasToArtboardHeight: true,
-    }
-  );
-
-  useEffect(() => {
-    if (rive) {
-      rive?.play('figures');
-      const eyeAnimation = () => {
-        rive?.play('eyes animation');
-      };
-      setTimeout(eyeAnimation, 3000);
-    }
-  }, [rive]);
+  const { rive, RiveComponent } = useRive({
+    src: LandingAnimation2,
+    autoplay: true,
+    stateMachines: 'State Machine 1',
+    layout: new Layout({
+      fit: Fit.Cover,
+      alignment: Alignment.Center,
+    }),
+  });
 
   return (
     <section className="ai-section ai-section--about">

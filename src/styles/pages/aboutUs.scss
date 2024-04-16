@@ -1,22 +1,23 @@
-#about-us-page {
-  padding-top: 5rem;
-  padding-bottom: 6rem;
-  .text {
-    max-width: 47rem;
-    margin: 0 auto;
-    text-align: center;
-    h1 {
-      @include fontSize(2rem, 600, 130%, #36373a);
-      letter-spacing: 0.04rem;
-      margin-bottom: 1.5rem;
-      span {
-        font-size: 2rem !important;
+.ai-section {
+  $section: &;
+
+  &--about-us {
+    min-height: auto;
+
+    #{$section} {
+      &__content {
+        max-width: 832px;
+        margin: 0 auto;
       }
-    }
-    h4 {
-      margin-top: 1.5rem;
-      @include fontSize(1.125rem, 600, 130%, #36373a);
-      letter-spacing: 0.0225rem;
+
+      &__body {
+        text-align: center;
+        @include fontSize(var(--fs-b5), var(--fw-thin), var(--lh-b5), var(--gray-900));
+
+        p {
+          margin-bottom: 1.5rem;
+        }
+      }
     }
   }
 }

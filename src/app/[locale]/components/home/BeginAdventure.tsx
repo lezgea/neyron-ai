@@ -1,9 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-
 import { Grid } from '@mui/material';
-
 import ArrowIcon from 'src/assets/images/arrow.svg';
 import Card1 from 'src/assets/images/adventure-card-1.svg';
 import Card2 from 'src/assets/images/adventure-card-2.svg';
@@ -12,6 +10,7 @@ import Card3 from 'src/assets/images/adventure-card-3.svg';
 const BeginAdventure = () => {
   const t = useTranslations('Index');
   const tBtn = useTranslations('buttons');
+
   return (
     <section className="ai-section ai-section--adventure">
       <div className="container">

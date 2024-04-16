@@ -1,10 +1,8 @@
 'use client';
-
 import React from 'react';
-
 import { Switch } from '@mui/material';
 
-const HeaderSwitch = () => {
+const ThemeSwitch = () => {
   return (
     <Switch
       defaultChecked={true}
@@ -15,4 +13,4 @@ const HeaderSwitch = () => {
   );
 };
 
-export default HeaderSwitch;
+export default ThemeSwitch;
