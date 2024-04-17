@@ -10,8 +10,8 @@ import ErrorIcon from 'src/assets/images/errorNotification.svg';
 import SuccessIcon from 'src/assets/images/successNotification.svg';
 import { StyledMaterialDesignContent } from 'src/utils/notistakStyles';
 
-import Footer from './components/footer/footer';
-import Header from './components/header/header';
+import Footer from './components/footer/Footer';
+import Header from './components/header/Header';
 
 import '../../styles/App.scss';
 import ScrollTop from './components/ui/ScrollTop';

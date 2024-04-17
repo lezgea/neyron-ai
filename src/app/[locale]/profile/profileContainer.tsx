@@ -19,9 +19,9 @@ import { FormDataProfile, ICountries } from 'src/types';
 import { getAccessToken } from 'src/utils/cookie';
 
 import DatepickerComponent from '../components/form/Datepicker';
-import InputComponent from '../components/form/Input';
+import InputComponent from '../components/form/InputComponent';
 import SelectComponent from '../components/form/Select';
-import Loading from '../components/ui/loading';
+import Loading from '../components/ui/Loading';
 import useNotification from '../components/ui/useNotification';
 
 const ProfileContainer = () => {
@@ -81,13 +81,13 @@ const ProfileContainer = () => {
               onError: () => {
                 showNotification({ title: 'Fail!', variant: 'error' });
               },
-            },
+            }
           );
         },
         onError: () => {
           showNotification({ title: 'Failed file upload!', variant: 'error' });
         },
-      },
+      }
     );
   };
 

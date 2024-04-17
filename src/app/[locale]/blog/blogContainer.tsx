@@ -5,7 +5,7 @@ import { Grid } from '@mui/material';
 
 import { useGetBlogs } from 'src/api/blog/queries';
 
-import Paginate from '../components/ui/paginate';
+import Paginate from '../components/ui/Paginate';
 
 import SingleBlogCard from './singleBlogCard';
 

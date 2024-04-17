@@ -13,3 +13,15 @@ export function wrapWordWithSpan(text: string, wordToWrap: string) {
 
   return wrappedText;
 }
+
+export function getClassName(base: string, modifiers: any[]) {
+  const modifierClasses = modifiers
+    .filter((modifier) => modifier) // Filter out falsy modifiers
+    .map((modifier) => `${base}--${modifier}`);
+
+  if (modifierClasses.length === 0) {
+    return base;
+  }
+
+  return `${base} ${modifierClasses.join(' ')}`;
+}

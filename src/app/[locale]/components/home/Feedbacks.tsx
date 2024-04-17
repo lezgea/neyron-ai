@@ -8,8 +8,8 @@ import ArrowIcon from 'src/assets/images/arrow.svg';
 import Person4 from 'src/assets/images/khayal.svg';
 import Person1 from 'src/assets/images/roger.svg';
 import Person3 from 'src/assets/images/samantha.svg';
-import MonsterWithThanks from 'src/assets/images/monsterWithThanks.svg';
-import { wrapWordWithSpan } from 'src/utils/wrapWordWithSpan';
+import MonsterThanks from 'src/assets/images/monster-thanks.svg';
+import { wrapWordWithSpan } from 'src/utils';
 
 const Feedbacks = () => {
   const [scrollStyle, setScrollStyle] = useState('hidden');
@@ -142,7 +142,7 @@ const Feedbacks = () => {
                 </button>
               </div>
               <div className="ai-section__graphic ai-section__graphic--feedbacks">
-                <Image src={MonsterWithThanks} alt="monster" />
+                <Image src={MonsterThanks} alt="monster" />
               </div>
             </div>
           </Grid>

@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import BeginnerFriendly from 'src/assets/images/beginnerFriendly.svg';
-import CommunityDriven from 'src/assets/images/communityDriven.svg';
-import Interactive from 'src/assets/images/interactive.svg';
+import BeginnerFriendly from 'src/assets/images/why-us-card-1.svg';
+import Interactive from 'src/assets/images/why-us-card-2.svg';
+import CommunityDriven from 'src/assets/images/why-us-card-3.svg';
 import { Grid } from '@mui/material';
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
 import SingleCharacterAnimation from '../../../../../public/singleCharacter.riv';
 
 const WhyUs = () => {
   const t = useTranslations('Index');
+
   const { rive, RiveComponent } = useRive({
     src: SingleCharacterAnimation,
     autoplay: true,
@@ -20,15 +21,6 @@ const WhyUs = () => {
     }),
   });
 
-  useEffect(() => {
-    if (rive) {
-      rive?.play('figures');
-      const eyeAnimation = () => {
-        rive?.play('eyes animation');
-      };
-      setTimeout(eyeAnimation, 3000);
-    }
-  }, [rive]);
   return (
     <section className="ai-section ai-section--why">
       <div className="container">
@@ -54,7 +46,7 @@ const WhyUs = () => {
                   </div>
                   <div className="card">
                     <div className="card__image">
-                      <Image src={Interactive} alt="beginner-friendly" />
+                      <Image src={Interactive} alt="interactive" />
                     </div>
                     <div className="card__text">
                       <div className="card__title">{t('whyUsText2Head')}</div>
@@ -63,7 +55,7 @@ const WhyUs = () => {
                   </div>
                   <div className="card">
                     <div className="card__image">
-                      <Image src={CommunityDriven} alt="beginner-friendly" />
+                      <Image src={CommunityDriven} alt="community-driven" />
                     </div>
                     <div className="card__text">
                       <div className="card__title">{t('whyUsText3Head')}</div>

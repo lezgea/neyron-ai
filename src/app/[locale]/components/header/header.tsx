@@ -5,9 +5,9 @@ import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import Logo from 'src/assets/images/logo.svg';
 import { LayoutContext } from '../../layoutContainer';
-import SelectLanguage from '../selecLanguage/selectLanguage';
-import HeaderSwitch from './headerSwitch';
-import UserProfile from './userProfile';
+import SelectLanguage from '../ui/SelectLanguage';
+import ThemeSwitch from '../ui/ThemeSwitch';
+import UserProfile from './UserProfile';
 
 const Header = () => {
   const { selectedLanguage } = useContext(LayoutContext);
@@ -16,7 +16,7 @@ const Header = () => {
   const navLinks = [
     {
       title: t('about'),
-      path: `/${selectedLanguage}/aboutUs`,
+      path: `/${selectedLanguage}/about`,
     },
     {
       title: t('courses'),
@@ -56,7 +56,7 @@ const Header = () => {
               </ul>
             </nav>
             <SelectLanguage />
-            <HeaderSwitch />
+            <ThemeSwitch />
             <UserProfile />
           </div>
         </div>
