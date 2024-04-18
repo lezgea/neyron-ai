@@ -1,0 +1,146 @@
+.ai-form {
+  $form: &;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__header {
+    display: flex;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__footer {
+    display: flex;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__control {
+    display: flex;
+    position: relative;
+    border: 1px solid var(--gray-50);
+    border-radius: 8px;
+    @include fontSize(var(--fs-b3), var(--fw-thin), var(--lh-b3), var(--gray-800));
+    flex-grow: 1;
+    min-width: 0;
+    transition: all 250ms ease-in-out;
+
+    input,
+    textarea {
+      flex-grow: 1;
+      padding: 16px 20px;
+
+      &::placeholder {
+        @include fontSize(var(--fs-b3), var(--fw-thin), var(--lh-b3), var(--gray-500));
+      }
+    }
+
+    span {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+
+      &.suffix {
+        right: 16px;
+      }
+
+      &.prefix {
+        left: 16px;
+      }
+
+      > * {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      > svg path {
+        stroke: var(--black-800);
+      }
+    }
+
+    &:focus-within {
+      border-color: var(--gray-100);
+    }
+
+    &--danger {
+      border-color: var(--error-400);
+
+      > svg path {
+        stroke: var(--error-400);
+      }
+
+      &:focus-within {
+        // border-color: var(--error-400);
+      }
+    }
+
+    &--success {
+      border-color: var(--success-400);
+
+      > svg path {
+        stroke: var(--success-400);
+      }
+
+      &:focus-within {
+        // border-color: var(--success-400);
+      }
+    }
+
+    &--has-prefix {
+      input {
+        padding-left: 52px;
+      }
+    }
+
+    &--has-suffix {
+      input {
+        padding-right: 52px;
+      }
+    }
+
+    &--primary {
+      background: var(--gray-50);
+    }
+
+    &--readonly {
+      background-color: #f3f7fe;
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    &--textarea {
+      min-height: 140px;
+    }
+  }
+
+  &__label {
+    @include fontSize(var(--fs-b2), var(--fw-thin), var(--lh-b2), var(--gray-800));
+  }
+
+  &--contact {
+    max-width: 360px;
+    width: 100%;
+  }
+}

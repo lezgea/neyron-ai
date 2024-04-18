@@ -18,11 +18,11 @@ import { convertDate } from 'src/hooks/dateConverter';
 import { FormDataProfile, ICountries } from 'src/types';
 import { getAccessToken } from 'src/utils/cookie';
 
-import DatepickerComponent from '../components/form/Datepicker';
-import InputComponent from '../components/form/InputComponent';
-import SelectComponent from '../components/form/Select';
-import Loading from '../components/ui/Loading';
-import useNotification from '../components/ui/useNotification';
+import DatepickerComponent from '../components/partials/form/Datepicker';
+import InputComponent from '../components/partials/form/InputComponent';
+import SelectComponent from '../components/partials/form/Select';
+import Loading from '../components/partials/Loading';
+import useNotification from '../components/partials/useNotification';
 
 const ProfileContainer = () => {
   const { showNotification } = useNotification();

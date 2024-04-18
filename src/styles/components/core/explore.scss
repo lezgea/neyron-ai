@@ -1,0 +1,37 @@
+.ai-section {
+  $section: &;
+
+  &--explore {
+    #{$section} {
+      &__content {
+        position: relative;
+        z-index: 1001;
+      }
+
+      &__header {
+        .ai-btn {
+          min-width: 178px;
+        }
+      }
+
+      &__title {
+        max-width: 678px;
+      }
+
+      &__desc {
+        max-width: 572px;
+      }
+    }
+  }
+}
+
+.ai-lang {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  > span {
+    letter-spacing: 0.04em;
+    @include fontSize(var(--fs-b2), var(--fw-medium), var(--lh-b2), var(--gray-900));
+  }
+}

@@ -15,7 +15,7 @@ import GoogleIcon from 'src/assets/images/googleIcon.svg';
 import { loginFormSchema } from 'src/constant/formValidations';
 import { setAuthCookies } from 'src/utils/cookie';
 
-import useNotification from '../components/ui/useNotification';
+import useNotification from '../components/partials/useNotification';
 import { LayoutContext } from '../layoutContainer';
 
 interface LoginForm {
@@ -61,7 +61,7 @@ const LoginForm = () => {
         onError: () => {
           showNotification({ title: 'Error', variant: 'error' });
         },
-      },
+      }
     );
   };
 
@@ -73,7 +73,7 @@ const LoginForm = () => {
   //   href={`${process.env.LOGIN_GOOGLE_URL as string}`}
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h1>{t('head')}</h1>
+      <h1>{t('title')}</h1>
       <div className="form-group">
         <label htmlFor="email">{t('email')}</label>
         <input type="email" {...register('email')} id="email" placeholder={t('email')} />
