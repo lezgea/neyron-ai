@@ -1,0 +1,54 @@
+.ai-accordion {
+  .MuiAccordion-root {
+    padding: 0;
+    border-radius: 1.25rem !important;
+    background: var(--gray-50);
+    box-shadow: none;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    &::before {
+      background: none;
+      width: 0px;
+    }
+
+    .expand-image {
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: 50%;
+      background: var(--gray-100);
+      @include flexBox(center, center);
+    }
+
+    .MuiAccordionSummary-content {
+      @include fontSize(var(--fs-b6), var(--fw-thin), var(--lh-b6), var(--gray-800));
+      transition: all 250ms ease-in-out;
+      margin: 0;
+    }
+
+    .MuiAccordionSummary-root {
+      min-height: auto;
+      padding: 1.5rem;
+    }
+
+    .MuiAccordionDetails-root {
+      padding: 0.5rem 1.5rem 1.5rem;
+      @include fontSize(var(--fs-b5), var(--fw-thin), var(--lh-b5), var(--gray-800));
+      margin-top: 0;
+    }
+
+    &.Mui-expanded {
+      margin: 0 0 10px;
+
+      .MuiAccordionSummary-content {
+        font-weight: var(--fw-medium);
+      }
+
+      .MuiAccordionSummary-root {
+        min-height: auto;
+      }
+    }
+  }
+}

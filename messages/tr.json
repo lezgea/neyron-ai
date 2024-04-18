@@ -58,7 +58,7 @@
     "noOption": "Bilgi bulunamadı"
   },
   "contact": {
-    "head": "İletişim",
+    "title": "İletişim",
     "apply": "Başvuru Formu",
     "name": "Adı Soyadı ",
     "email": "E-Posta",
@@ -89,7 +89,7 @@
     "password": "Şifre"
   },
   "login": {
-    "head": "Seni aramızda görmek muhteşem!    ",
+    "title": "Seni aramızda görmek muhteşem!    ",
     "headText": "Giriş yap",
     "email": "E-posta    ",
     "password": "Şifre",
@@ -102,14 +102,14 @@
     "register": "Hesap yarat."
   },
   "forgotPassword": {
-    "head": "E-posta adresi gir",
+    "title": "E-posta adresi gir",
     "email": "E-posta",
     "enterEmail": "E-posta adresini yaz",
     "or": "veya",
     "login": "daxil ol"
   },
   "register": {
-    "head": "Hoş geldin",
+    "title": "Hoş geldin",
     "email": "E-posta    ",
     "password": "Şifre",
     "enterPassword": "Şifre",
@@ -121,7 +121,7 @@
     "login": "Giriş yap"
   },
   "resetPasswordModal": {
-    "head": "E-postanı kontrol et    ",
+    "title": "E-postanı kontrol et    ",
     "openGmail": "G-mail hesabını aç   ",
     "openOutlook": " Outlook'u aç    ",
     "checkSpam": "Mektubu almadın mı?  Spam kutusunu kontrol et.",

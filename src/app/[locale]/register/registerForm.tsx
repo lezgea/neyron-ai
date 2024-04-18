@@ -17,7 +17,7 @@ import GoogleIcon from 'src/assets/images/googleIcon.svg';
 // import { loginFormSchema } from 'src/constant/formValidations';
 import { useNotification } from 'src/hooks/showNotification';
 
-import ActivateAccountModal from '../components/modal/activateAccountModal';
+import ActivateAccountModal from '../components/partials/modal/activateAccountModal';
 import { LayoutContext } from '../layoutContainer';
 
 interface RegisterForm {
@@ -54,13 +54,13 @@ const RegisterForm = () => {
         onError: () => {
           useNotification({ text: 'Error', type: 'error' });
         },
-      },
+      }
     );
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h1>{t('head')}</h1>
+      <h1>{t('title')}</h1>
 
       <ActivateAccountModal
         visible={visible}

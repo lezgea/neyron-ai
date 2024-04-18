@@ -1,0 +1,29 @@
+.ai-scroll-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gray-50);
+  transition: all 250ms ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1002;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04);
+
+  svg,
+  img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+  }
+
+  &--show {
+    opacity: 1;
+    visibility: visible;
+  }
+}

@@ -1,0 +1,21 @@
+.ai-section {
+  $section: &;
+
+  &--about-us {
+    #{$section} {
+      &__content {
+        max-width: 832px;
+        margin: 0 auto;
+      }
+
+      &__body {
+        text-align: center;
+        @include fontSize(var(--fs-b5), var(--fw-thin), var(--lh-b5), var(--gray-900));
+
+        p {
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+  }
+}

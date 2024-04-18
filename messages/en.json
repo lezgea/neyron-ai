@@ -63,12 +63,19 @@
     "birthdate": "Birth date"
   },
   "contact": {
-    "head": "Contact",
+    "title": "Contact",
     "apply": "Apply form",
     "name": "Name surname ",
     "email": "E-mail",
     "message": "Message",
     "textHere": "Text here"
+  },
+  "about": {
+    "text": "Neyron.ai-a Xoş Gəldin; Sİ dünyasına səyahətində yol yoldaşın Neyron.ai-də bizim missiyamız Süni İntellekti təkcə öyrətmək deyil, həm də öyrənmə prosesini əyləncəli etməkdir. İstər süni intellekt həvəskarı, istərsə də təcrübəli peşəkar olmağınızdan asılı olmayaraq, biz süni intellektin hər kəs üçün əlçatan olduğu bir mühit yaratmışıq"
+  },
+  "blog": {
+    "title": "Bloqlar",
+    "description": "Bloqlar"
   },
   "footer": {
     "aboutUs": "About us",
@@ -83,7 +90,7 @@
     "productOf": " Product of"
   },
   "login": {
-    "head": "It's fantastic that you're here with us!",
+    "title": "It's fantastic that you're here with us!",
     "headText": "Username",
     "email": "Email    ",
     "password": "Password",
@@ -96,14 +103,14 @@
     "register": "Sign up now"
   },
   "forgotPassword": {
-    "head": "Enter your email adress",
+    "title": "Enter your email adress",
     "email": "Email",
     "enterEmail": "Enter email",
     "or": "or",
     "login": "Log in"
   },
   "register": {
-    "head": "Nice to see you",
+    "title": "Nice to see you",
     "email": "E-mail",
     "password": "Create password",
     "enterPassword": "Enter password",
@@ -115,7 +122,7 @@
     "login": "Login"
   },
   "resetPasswordModal": {
-    "head": "Check your email",
+    "title": "Check your email",
     "openGmail": "Open Gmail",
     "openOutlook": "Open Outlook",
     "checkSpam": "Didn't get an email? Check your spam folder!",

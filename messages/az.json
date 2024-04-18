@@ -43,6 +43,10 @@
   "about": {
     "text": "Neyron.ai-a Xoş Gəldin; Sİ dünyasına səyahətində yol yoldaşın Neyron.ai-də bizim missiyamız Süni İntellekti təkcə öyrətmək deyil, həm də öyrənmə prosesini əyləncəli etməkdir. İstər süni intellekt həvəskarı, istərsə də təcrübəli peşəkar olmağınızdan asılı olmayaraq, biz süni intellektin hər kəs üçün əlçatan olduğu bir mühit yaratmışıq"
   },
+  "blog": {
+    "title": "Bloqlar",
+    "description": "Bloqlar"
+  },
   "navbar": {
     "about": "Haqqımızda",
     "courses": "Kurslar",
@@ -55,7 +59,7 @@
     "noOption": "Məlumat tapılmadı"
   },
   "contact": {
-    "head": "Əlaqə",
+    "title": "Əlaqə",
     "apply": "Müraciət et",
     "name": "Ad Soyad",
     "email": "E-mail ",
@@ -86,7 +90,7 @@
     "password": "Şifrə"
   },
   "login": {
-    "head": "Nə yaxşı ki, bizimləsən!",
+    "title": "Nə yaxşı ki, bizimləsən!",
     "headText": "İstifadəçi adı",
     "email": "E-poçt",
     "password": "Şifrə",
@@ -99,14 +103,14 @@
     "register": "İndi hesab yarat"
   },
   "forgotPassword": {
-    "head": "E-poçt ünvanını daxil et",
+    "title": "E-poçt ünvanını daxil et",
     "email": "E-poçt",
     "enterEmail": "E-poçt ünvanını yaz",
     "or": "və ya",
     "login": "daxil ol"
   },
   "register": {
-    "head": "Xoş gəldin",
+    "title": "Xoş gəldin",
     "email": "E-poçt",
     "password": "Şifrə",
     "enterPassword": "Şifrə",
@@ -118,7 +122,7 @@
     "login": "Giriş et"
   },
   "resetPasswordModal": {
-    "head": "E-poçtunu yoxla    ",
+    "title": "E-poçtunu yoxla    ",
     "openGmail": "G-mail hesabını aç",
     "openOutlook": " Outlook aç    ",
     "checkSpam": "Məktubu almadın? Spam qovluğunu yoxla.     ",
