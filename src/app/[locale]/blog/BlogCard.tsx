@@ -8,6 +8,7 @@ import { IDataType } from 'src/types';
 
 const BlogCard = ({ elem, isLoading }: { elem: IDataType; isLoading: boolean }) => {
   const [imageSrc, setImageSrc] = useState<string | undefined>(undefined);
+
   let { data: file, isLoading: fileLoading } = useGetFile({
     path: elem?.cover?.filePath,
     responseType: 'blob',
@@ -21,17 +22,19 @@ const BlogCard = ({ elem, isLoading }: { elem: IDataType; isLoading: boolean }) 
   }, [file, elem]);
 
   return (
-    <Link href={`blog/${elem?.id}`} className="ai-blog">
-      <div className="ai-blog__picture">
+    <Link href={`blog/${elem?.id}`} className="ai-blog__card">
+      <div className="ai-blog__card__picture">
         {fileLoading ? (
           <Skeleton animation="wave" />
         ) : (
           <Image src={imageSrc as string} alt="blog-picture" width={350} height={350} />
         )}
       </div>
-      <div className="ai-blog__details">
-        <div className="ai-blog__title">{isLoading ? <Skeleton animation="wave" /> : elem?.title}</div>
-        <div className="ai-blog__desc">{isLoading ? <Skeleton animation="wave" /> : elem?.description}</div>
+      <div className="ai-blog__card__details">
+        <div className="ai-blog__card__title">{isLoading ? <Skeleton animation="wave" /> : elem?.title}</div>
+        <div className="ai-blog__card__desc">
+          {isLoading ? <Skeleton animation="wave" /> : elem?.description}
+        </div>
       </div>
     </Link>
   );
