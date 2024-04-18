@@ -12,62 +12,100 @@
 }
 
 .ai-blog {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  flex-grow: 1;
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-grow: 1;
 
-  &__picture {
-    height: 286px;
-    border-radius: 16px;
-    overflow: hidden;
+    &__picture {
+      height: 286px;
+      border-radius: 16px;
+      overflow: hidden;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .MuiSkeleton-root {
+        height: 100%;
+        width: 100%;
+        transform: none;
+      }
     }
 
-    .MuiSkeleton-root {
-      height: 100%;
-      width: 100%;
-      transform: none;
+    &__details {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 8px;
+
+      .MuiSkeleton-root {
+        border-radius: 16px;
+        height: var(--fs-b5);
+        transform: none;
+      }
+    }
+
+    &__title {
+      @include fontSize(var(--fs-b5), var(--fw-semi-bold), var(--lh-b5), var(--gray-700));
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    &__desc {
+      @include fontSize(var(--fs-b4), var(--fw-regular), var(--lh-b4), var(--gray-500));
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      flex-grow: 1;
+
+      .MuiSkeleton-root {
+        width: 60%;
+      }
     }
   }
 
   &__details {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    gap: 8px;
+    &__picture {
+      border-radius: 18px;
+      overflow: hidden;
+      position: sticky;
+      top: 85px;
 
-    .MuiSkeleton-root {
-      border-radius: 16px;
-      height: var(--fs-b5);
-      transform: none;
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: auto;
+      }
+
+      .MuiSkeleton-root {
+        height: 400px;
+        width: 100%;
+        transform: none;
+      }
     }
-  }
 
-  &__title {
-    @include fontSize(var(--fs-b5), var(--fw-semi-bold), var(--lh-b5), var(--gray-700));
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
+    &__content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
 
-  &__desc {
-    @include fontSize(var(--fs-b4), var(--fw-regular), var(--lh-b4), var(--gray-500));
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    flex-grow: 1;
+      &__header {
+        @include fontSize(var(--fs-h3), var(--fw-semi-bold), var(--lh-h3), var(--gray-700));
+      }
 
-    .MuiSkeleton-root {
-      width: 60%;
+      &__body {
+      }
     }
   }
 }
