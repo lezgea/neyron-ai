@@ -38,7 +38,8 @@
     "send": "Göndər",
     "save": "Yadda saxla",
     "logOut": "Çıx",
-    "more": "Daha çox"
+    "more": "Daha çox",
+    "back": "Geri qayıt"
   },
   "about": {
     "text": "Neyron.ai-a Xoş Gəldin; Sİ dünyasına səyahətində yol yoldaşın Neyron.ai-də bizim missiyamız Süni İntellekti təkcə öyrətmək deyil, həm də öyrənmə prosesini əyləncəli etməkdir. İstər süni intellekt həvəskarı, istərsə də təcrübəli peşəkar olmağınızdan asılı olmayaraq, biz süni intellektin hər kəs üçün əlçatan olduğu bir mühit yaratmışıq"
@@ -129,5 +130,10 @@
     "reEnter": "E-poçt adresini yenidən gir və bir daha yoxla    ",
     "activateText1": "Hesabını aktivləşdirməyin üçün",
     "activateText2": "e-poçt adresinə link göndərildik"
+  },
+  "404": {
+    "title": "We lost this page",
+    "description": "We searched high and low, but couldn’t find what you’re looking for. Let’s find a better place for you to go.",
+    "button": "Take me home"
   }
 }

@@ -2,14 +2,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { Grid } from '@mui/material';
-import Person2 from 'src/assets/images/anne.svg';
-import ArrowIcon from 'src/assets/images/arrow.svg';
-import Person4 from 'src/assets/images/khayal.svg';
-import Person1 from 'src/assets/images/roger.svg';
-import Person3 from 'src/assets/images/samantha.svg';
-import MonsterThanks from 'src/assets/images/monster-thanks.svg';
 import { wrapWordWithSpan } from 'src/utils';
+import { Grid } from '@mui/material';
+import {
+  TestimonialCard1,
+  TestimonialCard2,
+  TestimonialCard3,
+  TestimonialCard4,
+  MonsterThanks,
+} from 'src/assets/images/';
+import { ArrowRightIcon } from 'src/assets/icons';
 
 const Feedbacks = () => {
   const [scrollStyle, setScrollStyle] = useState('hidden');
@@ -42,7 +44,7 @@ const Feedbacks = () => {
               <div className="ai-scroll__wrapper" id="scroll-one">
                 <div className="ai-testimonial">
                   <div className="ai-testimonial__image">
-                    <Image src={Person1} alt="person1" />
+                    <Image src={TestimonialCard1} alt="testimonial" />
                   </div>
                   <div className="ai-testimonial__text">
                     <h5 className="ai-testimonial__name">{t('personName1')}</h5>
@@ -52,7 +54,7 @@ const Feedbacks = () => {
                 </div>
                 <div className="ai-testimonial">
                   <div className="ai-testimonial__image">
-                    <Image src={Person2} alt="person2" />
+                    <Image src={TestimonialCard2} alt="person2" />
                   </div>
                   <div className="ai-testimonial__text">
                     <h5 className="ai-testimonial__name">{t('personName2')}</h5>
@@ -62,7 +64,7 @@ const Feedbacks = () => {
                 </div>
                 <div className="ai-testimonial">
                   <div className="ai-testimonial__image">
-                    <Image src={Person3} alt="person1" />
+                    <Image src={TestimonialCard3} alt="person1" />
                   </div>
                   <div className="ai-testimonial__text">
                     <h5 className="ai-testimonial__name">{t('personName3')}</h5>
@@ -72,7 +74,7 @@ const Feedbacks = () => {
                 </div>
                 <div className="ai-testimonial">
                   <div className="ai-testimonial__image">
-                    <Image src={Person4} alt="person2" />
+                    <Image src={TestimonialCard4} alt="person2" />
                   </div>
                   <div className="ai-testimonial__text">
                     <h5 className="ai-testimonial__name">{t('personName4')}</h5>
@@ -84,7 +86,7 @@ const Feedbacks = () => {
               <div className="ai-scroll__wrapper" id="scroll-two">
                 <div className="ai-testimonial">
                   <div className="ai-testimonial__image">
-                    <Image src={Person1} alt="person1" />
+                    <Image src={TestimonialCard1} alt="person1" />
                   </div>
                   <div className="ai-testimonial__text">
                     <h5 className="ai-testimonial__name">{t('personName1')}</h5>
@@ -94,7 +96,7 @@ const Feedbacks = () => {
                 </div>
                 <div className="ai-testimonial">
                   <div className="ai-testimonial__image">
-                    <Image src={Person2} alt="person2" />
+                    <Image src={TestimonialCard2} alt="person2" />
                   </div>
                   <div className="ai-testimonial__text">
                     <h5 className="ai-testimonial__name">{t('personName2')}</h5>
@@ -104,7 +106,7 @@ const Feedbacks = () => {
                 </div>
                 <div className="ai-testimonial">
                   <div className="ai-testimonial__image">
-                    <Image src={Person3} alt="person1" />
+                    <Image src={TestimonialCard3} alt="person1" />
                   </div>
                   <div className="ai-testimonial__text">
                     <h5 className="ai-testimonial__name">{t('personName3')}</h5>
@@ -114,7 +116,7 @@ const Feedbacks = () => {
                 </div>
                 <div className="ai-testimonial">
                   <div className="ai-testimonial__image">
-                    <Image src={Person4} alt="person2" />
+                    <Image src={TestimonialCard4} alt="person2" />
                   </div>
                   <div className="ai-testimonial__text">
                     <h5 className="ai-testimonial__name">{t('personName4')}</h5>
@@ -138,11 +140,11 @@ const Feedbacks = () => {
                 </div>
                 <button className="ai-btn ai-btn--primary ai-btn--lg" type="button">
                   <span>{tBtn('join')}</span>
-                  <Image src={ArrowIcon} alt="arrow-icon" />
+                  <ArrowRightIcon />
                 </button>
               </div>
               <div className="ai-section__graphic ai-section__graphic--feedbacks">
-                <Image src={MonsterThanks} alt="monster" />
+                <Image src={MonsterThanks} alt="monster thanks" />
               </div>
             </div>
           </Grid>

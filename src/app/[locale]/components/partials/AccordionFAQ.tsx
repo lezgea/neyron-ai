@@ -5,9 +5,7 @@ import { useGetLanguages } from 'src/api/language/queries';
 import { LayoutContext } from '../../layoutContainer';
 import Loading from './Loading';
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
-import Image from 'next/image';
-import MinusIcon from 'src/assets/images/minusIcon.svg';
-import PlusIcon from 'src/assets/images/plusIcon.svg';
+import { MinusIcon, PlusIcon } from 'src/assets/icons';
 
 interface IElement {
   id: number;
@@ -40,7 +38,7 @@ const AccordionFaq = ({ mainPage }: { mainPage: boolean }) => {
             id={'panel' + index + 'bh-header'}
             expandIcon={
               <div className="expand-image">
-                <Image src={expanded && expanded === `panel${index}` ? MinusIcon : PlusIcon} alt="plusIcon" />
+                {expanded && expanded === `panel${index}` ? <MinusIcon /> : <PlusIcon />}
               </div>
             }
           >

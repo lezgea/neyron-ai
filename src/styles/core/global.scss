@@ -152,7 +152,8 @@ html {
 .ai-main {
   padding-top: $offsetTop;
 
-  &--home {
+  &--home,
+  &--404 {
     padding-top: 0;
   }
 }
@@ -266,10 +267,15 @@ html {
   border-radius: 1.25rem;
   transition: all 250ms ease-in-out;
 
-  img {
-    width: 16px;
-    height: 16px;
+  img,
+  svg {
+    width: 20px;
+    height: 20px;
     object-fit: contain;
+
+    path {
+      stroke: var(--gray-800);
+    }
   }
 
   &--primary {
@@ -279,7 +285,8 @@ html {
     background-origin: border-box;
     background-clip: padding-box, border-box;
 
-    img {
+    img,
+    svg {
       opacity: 0;
       visibility: hidden;
       transition: all 250ms ease-in-out;
@@ -291,7 +298,8 @@ html {
     }
 
     &:hover {
-      img {
+      img,
+      svg {
         opacity: 1;
         visibility: visible;
       }

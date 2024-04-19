@@ -17,6 +17,18 @@
         height: 24px;
         object-fit: contain;
       }
+
+      svg {
+        path {
+          stroke: var(--gray-0);
+        }
+      }
+    }
+  }
+
+  &--dark {
+    li a svg path {
+      stroke: var(--gray-800);
     }
   }
 }

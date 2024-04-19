@@ -1,0 +1,12 @@
+.ai-section {
+  $section: &;
+
+  &--404 {
+    #{$section} {
+      &__content {
+        max-width: 832px;
+        margin: 0 auto;
+      }
+    }
+  }
+}

@@ -2,10 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Grid } from '@mui/material';
-import ArrowIcon from 'src/assets/images/arrow.svg';
-import Card1 from 'src/assets/images/adventure-card-1.svg';
-import Card2 from 'src/assets/images/adventure-card-2.svg';
-import Card3 from 'src/assets/images/adventure-card-3.svg';
+import { ArrowRightIcon } from 'src/assets/icons';
+import { AdventureCard1, AdventureCard2, AdventureCard3 } from 'src/assets/images';
 
 const BeginAdventure = () => {
   const t = useTranslations('Index');
@@ -19,13 +17,13 @@ const BeginAdventure = () => {
             <div className="ai-section__graphic">
               <div className="cards-wrapper">
                 <div className="card card--1">
-                  <Image src={Card1} alt="card-1" className="card__picture" />
+                  <Image src={AdventureCard1} alt="card-1" className="card__picture" />
                 </div>
                 <div className="card card--2">
-                  <Image src={Card2} alt="card-2" className="card__picture" />
+                  <Image src={AdventureCard2} alt="card-2" className="card__picture" />
                 </div>
                 <div className="card card--3">
-                  <Image src={Card3} alt="card-3" className="card__picture" />
+                  <Image src={AdventureCard3} alt="card-3" className="card__picture" />
                 </div>
               </div>
             </div>
@@ -37,7 +35,7 @@ const BeginAdventure = () => {
                 <p className="ai-section__desc">{t('coursesText')}</p>
                 <button className="ai-btn ai-btn--primary ai-btn--lg" type="button">
                   <span>{tBtn('startButton')}</span>
-                  <Image src={ArrowIcon} alt="arrow-icon" />
+                  <ArrowRightIcon />
                 </button>
               </div>
             </div>

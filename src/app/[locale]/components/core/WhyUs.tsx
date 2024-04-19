@@ -1,11 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import BeginnerFriendly from 'src/assets/images/why-us-card-1.svg';
-import Interactive from 'src/assets/images/why-us-card-2.svg';
-import CommunityDriven from 'src/assets/images/why-us-card-3.svg';
 import { Grid } from '@mui/material';
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
+import { BeginnerFriendly, Interactive, CommunityDriven } from 'src/assets/images';
 import SingleCharacterAnimation from '../../../../../public/singleCharacter.riv';
 
 const WhyUs = () => {
