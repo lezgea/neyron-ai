@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Aloevera', sans-serif;
+  font-family: var(--font-family-primary);
   letter-spacing: 0.02rem;
 }
 
@@ -255,6 +255,7 @@ html {
 }
 
 .ai-btn {
+  $btn: &;
   position: relative;
   display: flex;
   align-items: center;
@@ -263,9 +264,11 @@ html {
   gap: 8px;
   padding: 12px 24px;
   height: 50px;
-  @include fontSize(var(--fs-b4), var(--fw-bold), var(--lh-b4), var(--gray-800));
+  @include fontSize(var(--fs-b4), var(--fw-semi-bold), var(--lh-b4), var(--gray-800));
+  letter-spacing: 0.5px;
   border-radius: 1.25rem;
   transition: all 250ms ease-in-out;
+  user-select: none;
 
   img,
   svg {
@@ -276,6 +279,16 @@ html {
     path {
       stroke: var(--gray-800);
     }
+  }
+
+  &--lg {
+    padding: 14px 28px;
+    height: 55px;
+  }
+
+  &--sm {
+    padding: 12px 24px;
+    height: 45px;
   }
 
   &--primary {
@@ -324,14 +337,41 @@ html {
     border-radius: 8px;
   }
 
-  &--lg {
-    padding: 14px 28px;
-    height: 55px;
+  &--google {
+    background: var(--gray-800);
+    color: var(--gray-0);
+    border-radius: 8px;
+    font-weight: var(--fw-thin);
+
+    svg {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+
+      path {
+        stroke: inherit;
+      }
+    }
+
+    &:hover {
+      background: var(--gray-900);
+    }
   }
 
-  &--sm {
-    padding: 12px 24px;
-    height: 45px;
+  &--text {
+    padding: 0;
+    height: auto;
+    background: none;
+    color: var(--blue-500);
+
+    &:hover {
+      color: var(--blue-400);
+    }
+
+    &#{$btn}--sm {
+      font-size: var(--fs-b2);
+      line-height: var(--lh-b2);
+    }
   }
 }
 
@@ -405,6 +445,13 @@ html {
   p {
     font-weight: var(--fw-thin);
   }
+}
+
+.ai-btns-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
 }
 
 // Libraries

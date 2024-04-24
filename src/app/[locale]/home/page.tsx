@@ -17,7 +17,6 @@ const HomePage = () => {
       <ReactFullpage
         navigation
         scrollingSpeed={1000}
-        scrollOverflow={true}
         fadingEffect={'sections'}
         normalScrollElements={'.ai-testimonials'}
         render={({ fullpageApi }: any) => {

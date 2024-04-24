@@ -18,13 +18,18 @@ import InstagramIcon from './social/instagram.svg';
 import LinkedinIcon from './social/linkedin.svg';
 import TikTokIcon from './social/tik-tok.svg';
 import YouTubeIcon from './social/youtube.svg';
+import TwitterIcon from './social/twitter.svg';
 import GoogleIcon from './social/google.svg';
-import GmailIcon from './social/gmail.svg';
-import OutlookIcon from './social/outlook.svg';
+import GoogleBrandIcon from './social/google-brand.svg';
+import GmailBrandIcon from './social/gmail-brand.svg';
+import OutlookBrandIcon from './social/outlook-brand.svg';
 
 // Others
 import SunIcon from './sun.svg';
 import MoonIcon from './moon.svg';
+import EyeIcon from './eye.svg';
+import EyeStrokeIcon from './eye-stroke.svg';
+import CheckIcon from './check.svg';
 
 export {
     // Arrow
@@ -48,10 +53,15 @@ export {
     TikTokIcon,
     YouTubeIcon,
     GoogleIcon,
-    GmailIcon,
-    OutlookIcon,
+    TwitterIcon,
+    GoogleBrandIcon,
+    GmailBrandIcon,
+    OutlookBrandIcon,
 
     // Others
     SunIcon,
     MoonIcon,
+    EyeIcon,
+    EyeStrokeIcon,
+    CheckIcon
 }

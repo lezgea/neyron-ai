@@ -2,12 +2,12 @@
   $section: &;
 
   &--contact {
+    min-height: auto;
+
     #{$section} {
       &__content {
         position: relative;
         z-index: 1001;
-        // max-width: 360px;
-        // margin: 0 auto;
       }
 
       &__body {

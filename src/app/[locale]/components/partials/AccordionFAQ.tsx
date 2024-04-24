@@ -32,7 +32,11 @@ const AccordionFaq = ({ mainPage }: { mainPage: boolean }) => {
   return (
     <>
       {data?.data?.map((elem: IElement, index: number) => (
-        <Accordion expanded={expanded === `panel${index}`} onChange={handleChange(`panel${index}`)}>
+        <Accordion
+          key={index}
+          expanded={expanded === `panel${index}`}
+          onChange={handleChange(`panel${index}`)}
+        >
           <AccordionSummary
             aria-controls={'panel' + index + 'bh-content'}
             id={'panel' + index + 'bh-header'}

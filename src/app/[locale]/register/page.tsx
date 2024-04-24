@@ -6,13 +6,17 @@ import RegisterForm from './registerForm';
 
 const Register = () => {
   return (
-    <section id="login" className="container">
-      <Grid container sx={{ display: 'flex', justifyContent: 'center' }}>
-        <div className="login-box">
-          <RegisterForm />
+    <main className="ai-main ai-main--login">
+      <section className="ai-section ai-section--login">
+        <div className="container">
+          <div className="ai-section__content">
+            <div className="ai-section__body">
+              <RegisterForm />
+            </div>
+          </div>
         </div>
-      </Grid>
-    </section>
+      </section>
+    </main>
   );
 };
 

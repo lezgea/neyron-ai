@@ -72,7 +72,7 @@ const Footer = () => {
           <div className="footer__content__item">
             <a href={'https://ailab.az'} target="_blank" className="ai-author">
               <span>{t('productOf')}</span>
-              <Image src={LogoAilab} alt="ailab.az" />
+              <Image src={LogoAilab} alt="ailab.az" width={126} height={26} />
             </a>
           </div>
         </div>
