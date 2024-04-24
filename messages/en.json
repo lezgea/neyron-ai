@@ -38,7 +38,8 @@
     "send": "Send",
     "save": "Save",
     "logOut": "Log out",
-    "more": "Show more"
+    "more": "Show more",
+    "back": "Go back"
   },
   "navbar": {
     "about": "About us ",
@@ -129,5 +130,10 @@
     "reEnter": "Re-enter your email, password and try again.",
     "activateText1": "We've sent a message to",
     "activateText2": "with a link to activate your account."
+  },
+  "404": {
+    "title": "We lost this page",
+    "description": "We searched high and low, but couldn’t find what you’re looking for. Let’s find a better place for you to go.",
+    "button": "Take me home"
   }
 }

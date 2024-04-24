@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import ArrowIcon from 'src/assets/images/arrow.svg';
 import LandingAnimation1 from '../../../../../public/landingAnimation1.riv';
 import { LayoutContext } from '../../layoutContainer';
 import SelectLanguage from '../partials/SelectLanguage';
 import { Grid } from '@mui/material';
+import { ArrowRightIcon } from '../../../../assets/icons/';
 
 const Explore = () => {
   const { selectedLanguage } = useContext(LayoutContext);
@@ -43,7 +42,8 @@ const Explore = () => {
                 </div>
                 <button className="ai-btn ai-btn--primary ai-btn--lg" type="button">
                   <span>{tBtn('startButton')}</span>
-                  <Image src={ArrowIcon} alt="arrow-icon" />
+                  {/* <Image src={ArrowIcon} alt="arrow-icon" /> */}
+                  <ArrowRightIcon />
                 </button>
               </div>
             </div>

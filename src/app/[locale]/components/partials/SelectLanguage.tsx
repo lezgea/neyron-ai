@@ -1,5 +1,4 @@
 'use client';
-
 import { useContext } from 'react';
 import Select, {
   components,
@@ -13,34 +12,28 @@ import Select, {
 } from 'react-select';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
-
-// import { useChangeLanguage } from 'src/api/language/mutations';
 import { useGetLanguages } from 'src/api/language/queries';
-import AzerbaijanFlag from 'src/assets/images/azerbaijani.svg';
-import UkFlag from 'src/assets/images/english.svg';
-import SelectIcon from 'src/assets/images/selectIcon.svg';
-import RussiaFlag from 'src/assets/images/ru.svg';
-import TurkiyeFlag from 'src/assets/images/turkish.svg';
+import { AngleDown, FlagAz, FlagEn, FlagRu, FlagTr } from 'src/assets/images';
 import { ISelectedLanguage } from 'src/types';
-
 import { LayoutContext } from '../../layoutContainer';
+import { AngleDownIcon } from 'src/assets/icons';
 
 export const flags = [
   {
     abbreviation: 'en',
-    flag: <Image src={UkFlag} alt="image" />,
+    flag: <Image src={FlagEn} alt="image" />,
   },
   {
     abbreviation: 'az',
-    flag: <Image src={AzerbaijanFlag} alt="image" />,
+    flag: <Image src={FlagAz} alt="image" />,
   },
   {
     abbreviation: 'tr',
-    flag: <Image src={TurkiyeFlag} alt="image" />,
+    flag: <Image src={FlagTr} alt="image" />,
   },
   {
     abbreviation: 'ru',
-    flag: <Image src={RussiaFlag} alt="image" />,
+    flag: <Image src={FlagRu} alt="image" />,
   },
 ];
 
@@ -60,7 +53,7 @@ const SelectLanguage = () => {
   const CustomDropdownIndicator = ({ ...props }: CustomDropdownIndicatorProps) => {
     return (
       <components.DropdownIndicator {...props}>
-        <Image src={SelectIcon} alt="select icon" />
+        <Image src={AngleDown} alt="select icon" width={16} height={16} />
       </components.DropdownIndicator>
     );
   };
@@ -114,7 +107,7 @@ const SelectLanguage = () => {
     indicatorSeparator: () => ({ display: 'none' }),
     dropdownIndicator: (base: object) => ({
       ...base,
-      paddingLeft: '0px 0px 0px 8px',
+      padding: '0px 0px 0px 8px',
     }),
     menu: (base: object) => ({
       ...base,

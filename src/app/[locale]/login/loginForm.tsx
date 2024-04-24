@@ -1,22 +1,19 @@
 'use client';
-import React, { ChangeEvent, useContext, useState } from 'react';
+import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-
 import { FormControlLabel, Switch } from '@mui/material';
-
 import { useLogin } from 'src/api/login/mutation';
-import EyeIcon from 'src/assets/images/eyeIcon.svg';
-import GoogleIcon from 'src/assets/images/googleIcon.svg';
+import { GoogleIcon, EyeIcon, GoogleBrandIcon, EyeStrokeIcon } from 'src/assets/icons';
 import { loginFormSchema } from 'src/constant/formValidations';
 import { setAuthCookies } from 'src/utils/cookie';
 
 import useNotification from '../components/partials/useNotification';
 import { LayoutContext } from '../layoutContainer';
+import Input from '../components/partials/form/Input';
 
 interface LoginForm {
   email: string;
@@ -27,16 +24,12 @@ interface LoginForm {
 const LoginForm = () => {
   const { selectedLanguage } = useContext(LayoutContext);
   const { setUserIsActive, setSelectedLanguage } = useContext(LayoutContext);
-  const [inputType, setInputType] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
   const [checked, setChecked] = useState(false);
 
   const navigate = useRouter();
   const t = useTranslations('login');
-  const {
-    register,
-    // formState: { errors },
-    handleSubmit,
-  } = useForm<LoginForm>({
+  const { register, handleSubmit, getValues } = useForm<LoginForm>({
     resolver: yupResolver(loginFormSchema),
   });
 
@@ -70,62 +63,72 @@ const LoginForm = () => {
     setChecked(newValue);
   };
 
-  //   href={`${process.env.LOGIN_GOOGLE_URL as string}`}
+  const handleShowPassword = () => {
+    if (!!getValues('password')) {
+      setShowPassword((prev) => !prev);
+    }
+  };
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <h1>{t('title')}</h1>
-      <div className="form-group">
-        <label htmlFor="email">{t('email')}</label>
-        <input type="email" {...register('email')} id="email" placeholder={t('email')} />
-      </div>
-      <div className="form-group">
-        <label htmlFor="password">{t('password')}</label>
-        <div className="password-input">
-          <input
-            {...register('password')}
-            id="password"
-            placeholder={t('enterPassword')}
-            type={inputType ? 'text' : 'password'}
+    <form onSubmit={handleSubmit(onSubmit)} className="ai-form ai-form--login">
+      <div className="ai-form__content">
+        <div className="ai-form__header">{t('title')}</div>
+        <div className="ai-form__body">
+          <Input
+            name={'email'}
+            type={'email'}
+            register={register}
+            label={t('email')}
+            placeholder={t('email')}
+            variant="primary"
           />
-          <Image src={EyeIcon} alt="eye icon" onClick={() => setInputType(!inputType)} />
+          <Input
+            name={'password'}
+            type={showPassword ? 'text' : 'password'}
+            register={register}
+            label={t('password')}
+            placeholder={t('enterPassword')}
+            variant="primary"
+            suffix={<div onClick={handleShowPassword}>{showPassword ? <EyeStrokeIcon /> : <EyeIcon />}</div>}
+          />
+          <div className="ai-btns-wrapper">
+            <FormControlLabel
+              className="ai-form__switch"
+              value="remember"
+              control={
+                <Switch
+                  defaultChecked={true}
+                  onChange={handleChange}
+                  inputProps={{ 'aria-label': 'controlled' }}
+                />
+              }
+              label={t('rememberMe')}
+              labelPlacement="end"
+            />
+            <Link href={`/${selectedLanguage}/forgotPassword`} className="ai-btn ai-btn--text ai-btn--sm">
+              {t('forgotPassword')}
+            </Link>
+          </div>
+        </div>
+        <div className="ai-form__footer">
+          <div className="ai-form__footer__btns">
+            <button type="submit" className="ai-btn ai-btn--tertiary">
+              {t('signIn')}
+            </button>
+            <div className="line"></div>
+            <Link href={`${process.env.NEXT_LOGIN_GOOGLE_URL as string}`} className="ai-btn ai-btn--google">
+              <GoogleBrandIcon />
+              <span>{t('loginWithGoogle')}</span>
+            </Link>
+          </div>
+          <div className="ai-form__footer__text">
+            {t('createAccount')}
+            <Link className="ai-btn ai-btn--text ai-btn--sm" href={`/${selectedLanguage}/register`}>
+              {t('register')}
+            </Link>
+          </div>
         </div>
       </div>
-      <div className="form-details">
-        <FormControlLabel
-          value="remember"
-          control={
-            <Switch
-              defaultChecked={true}
-              className="remember-switch"
-              onChange={handleChange}
-              inputProps={{ 'aria-label': 'controlled' }}
-            />
-          }
-          label={t('rememberMe')}
-          labelPlacement="end"
-        />
-        <Link href={`/${selectedLanguage}/forgotPassword`} className="link-text">
-          {t('forgotPassword')}
-        </Link>
-      </div>
-      <button type="submit" className="filled-gradient-btn">
-        {t('signIn')}
-      </button>
-
-      <div className="line"></div>
-
-      <Link href={`${process.env.NEXT_LOGIN_GOOGLE_URL as string}`}>
-        <button type="button" className="black-btn">
-          <Image src={GoogleIcon} alt="sign in with Google" />
-          {t('loginWithGoogle')}
-        </button>
-      </Link>
-      <p className="sign-up">
-        {t('createAccount')}
-        <Link href={`/${selectedLanguage}/register`} className="link-text">
-          {t('register')}
-        </Link>
-      </p>
     </form>
   );
 };

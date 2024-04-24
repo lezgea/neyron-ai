@@ -17,6 +17,27 @@
         height: 24px;
         object-fit: contain;
       }
+
+      svg {
+        path {
+          fill: var(--gray-0);
+          transition: all 250ms ease-in-out;
+        }
+      }
+
+      &:hover {
+        svg {
+          path {
+            fill: var(--yellow-500);
+          }
+        }
+      }
+    }
+  }
+
+  &--dark {
+    li a svg path {
+      fill: var(--gray-800);
     }
   }
 }

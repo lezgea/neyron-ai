@@ -38,7 +38,8 @@
     "send": "Отправить",
     "save": "Сохранить",
     "logOut": "Выйти",
-    "more": "Показать больше"
+    "more": "Показать больше",
+    "back": "Возвращаться"
   },
   "navbar": {
     "about": "О нас",
@@ -123,5 +124,10 @@
     "reEnter": "Введите свой адрес электронной почты и проверьте еще раз.    ",
     "activateText1": "Мы отправили ссылку на почтe ",
     "activateText2": "для активации учетной записи.    "
+  },
+  "404": {
+    "title": "We lost this page",
+    "description": "We searched high and low, but couldn’t find what you’re looking for. Let’s find a better place for you to go.",
+    "button": "Take me home"
   }
 }

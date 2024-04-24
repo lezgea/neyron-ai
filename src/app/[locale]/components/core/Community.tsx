@@ -1,12 +1,8 @@
 import React, { useContext } from 'react';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-
 import { Grid } from '@mui/material';
-
-import ArrowIcon from 'src/assets/images/arrow.svg';
-
 import { LayoutContext } from '../../layoutContainer';
+import { ArrowRightIcon } from 'src/assets/icons';
 
 const Community = () => {
   const t = useTranslations('Index');
@@ -27,7 +23,7 @@ const Community = () => {
                 <p className="ai-section__desc">{t('communityText')}</p>
                 <button className="ai-btn ai-btn--primary ai-btn--lg" type="button">
                   <span>{tBtn('join')}</span>
-                  <Image src={ArrowIcon} alt="arrow-icon" />
+                  <ArrowRightIcon />
                 </button>
               </div>
             </div>

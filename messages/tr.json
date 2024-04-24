@@ -44,7 +44,8 @@
     "send": "Gönder",
     "save": "Kaydet",
     "logOut": "Çık",
-    "more": "Daha çok"
+    "more": "Daha çok",
+    "back": "Geri dön"
   },
   "navbar": {
     "about": "Hakkımızda",
@@ -128,5 +129,10 @@
     "reEnter": "E-posta adresini tekrar gir ve tekrar kontrol et.    ",
     "activateText1": "Hesabını etkinleştirmen için ",
     "activateText2": " e-posta adresine bir bağlantı gönderildi.    "
+  },
+  "404": {
+    "title": "We lost this page",
+    "description": "We searched high and low, but couldn’t find what you’re looking for. Let’s find a better place for you to go.",
+    "button": "Take me home"
   }
 }

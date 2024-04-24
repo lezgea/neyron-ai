@@ -1,11 +1,10 @@
 import React from 'react';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import ArrowIcon from 'src/assets/images/arrow.svg';
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas';
 import LandingAnimation2 from '../../../../../public/landingAnimation2.riv';
 import { wrapWordWithSpan } from 'src/utils';
 import { Grid } from '@mui/material';
+import { ArrowRightIcon } from 'src/assets/icons';
 
 const AboutUs = () => {
   const t = useTranslations('Index');
@@ -41,7 +40,7 @@ const AboutUs = () => {
                 </div>
                 <button className="ai-btn ai-btn--primary ai-btn--lg" type="button">
                   <span>{tBtn('startButton')}</span>
-                  <Image src={ArrowIcon} alt="arrow-icon" />
+                  <ArrowRightIcon />
                 </button>
               </div>
             </div>

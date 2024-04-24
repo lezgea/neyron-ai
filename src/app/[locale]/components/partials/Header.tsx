@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import Logo from 'src/assets/images/logo.svg';
+import { LogoNeyronDark } from 'src/assets/images';
 import { LayoutContext } from '../../layoutContainer';
 import SelectLanguage from './SelectLanguage';
 import ThemeSwitch from './ThemeSwitch';
@@ -41,7 +41,7 @@ const Header = () => {
       <div className="container">
         <div className="header__content">
           <Link href={`/${selectedLanguage}`} className="header__logo">
-            <Image src={Logo} alt="logo" />
+            <Image src={LogoNeyronDark} alt="logo" />
           </Link>
           <div className="header__content__group">
             <nav className="header__menu">

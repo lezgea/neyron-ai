@@ -20,6 +20,17 @@
       border-radius: 50%;
       background: var(--gray-100);
       @include flexBox(center, center);
+
+      svg,
+      img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+
+        path {
+          stroke: var(gray-200);
+        }
+      }
     }
 
     .MuiAccordionSummary-content {

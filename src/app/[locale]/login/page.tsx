@@ -1,18 +1,19 @@
 import React from 'react';
-
-import { Grid } from '@mui/material';
-
 import LoginForm from './loginForm';
 
 const Login = () => {
   return (
-    <section id="login" className="container">
-      <Grid container sx={{ display: 'flex', justifyContent: 'center' }}>
-        <div className="login-box">
-          <LoginForm />
+    <main className="ai-main ai-main--login">
+      <section className="ai-section ai-section--login">
+        <div className="container">
+          <div className="ai-section__content">
+            <div className="ai-section__body">
+              <LoginForm />
+            </div>
+          </div>
         </div>
-      </Grid>
-    </section>
+      </section>
+    </main>
   );
 };
 

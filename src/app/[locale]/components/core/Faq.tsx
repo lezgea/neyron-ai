@@ -5,8 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { LayoutContext } from '../../layoutContainer';
 import { useTranslations } from 'next-intl';
-import ArrowIcon from 'src/assets/images/arrow.svg';
-import MonsterQuestion from 'src/assets/images/monster-question.svg';
+import { MonsterQuestion } from 'src/assets/images';
+import { ArrowRightIcon } from 'src/assets/icons';
 
 const Faq = ({ mainPage }: { mainPage: boolean }) => {
   const { selectedLanguage } = useContext(LayoutContext);
@@ -28,7 +28,7 @@ const Faq = ({ mainPage }: { mainPage: boolean }) => {
             {mainPage && (
               <Link href={`/${selectedLanguage}/faq`} className="ai-btn ai-btn--primary ai-btn--lg">
                 <span>{tBtn('more')}</span>
-                <Image src={ArrowIcon} alt="arrow-icon" />
+                <ArrowRightIcon />
               </Link>
             )}
           </div>

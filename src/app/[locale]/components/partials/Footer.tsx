@@ -3,8 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { LayoutContext } from '../../layoutContainer';
-import Logo from 'src/assets/images/logo-white.svg';
-import LogoAilab from 'src/assets/images/logo-ailab.svg';
+import { LogoNeyronLight, LogoAilab } from 'src/assets/images';
 import SocialList from './SocialList';
 
 const Footer = () => {
@@ -51,7 +50,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer__content footer__content--primary">
           <Link href={`/${selectedLanguage}`} className="header__logo">
-            <Image src={Logo} alt="neron.ai" />
+            <Image src={LogoNeyronLight} alt="neron.ai" />
           </Link>
           <nav className="footer__nav">
             <ul className="footer__nav__list">
@@ -73,7 +72,7 @@ const Footer = () => {
           <div className="footer__content__item">
             <a href={'https://ailab.az'} target="_blank" className="ai-author">
               <span>{t('productOf')}</span>
-              <Image src={LogoAilab} alt="ailab.az" />
+              <Image src={LogoAilab} alt="ailab.az" width={126} height={26} />
             </a>
           </div>
         </div>
