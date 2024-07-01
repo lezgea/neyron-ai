@@ -1,6 +1,6 @@
-import { notFound } from 'next/navigation';
-import { NextIntlClientProvider, useLocale, useMessages } from 'next-intl';
+import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
+
 import LayoutContainer from './layoutContainer';
 
 const locales = ['en', 'az', 'tr', 'ru'];
@@ -18,7 +18,6 @@ export default function RootLayout({
 }) {
   // it is important
   unstable_setRequestLocale(params?.locale);
-  const locale = useLocale();
   const messages = useMessages();
 
   // if (params.locale !== locale) {
