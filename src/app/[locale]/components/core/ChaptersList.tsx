@@ -4,7 +4,7 @@ import { LayoutContext } from '../../layoutContainer';
 import { useTranslations } from 'next-intl';
 
 
-const COURSES: {
+const CHAPTERS: {
     title: string,
     description: string,
     image: string,
@@ -14,87 +14,87 @@ const COURSES: {
     {
         title: 'A lot of the information that',
         description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
-        image: '/images/course_1.png',
+        image: '/images/chapter_1.png',
         price: '$500',
         duration: '13 days to go'
     },
     {
         title: 'A lot of the information that',
         description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
-        image: '/images/course_2.png',
+        image: '/images/chapter_2.png',
         price: '$600',
         duration: '15 days to go'
     },
     {
         title: 'A lot of the information that',
         description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
-        image: '/images/course_3.png',
+        image: '',
         price: '$400',
         duration: '14 days to go'
     },
     {
         title: 'A lot of the information that',
         description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
-        image: '/images/course_4.png',
+        image: '',
         price: '$500',
         duration: '11 days to go'
     },
     {
         title: 'A lot of the information that',
         description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
-        image: '/images/course_1.png',
+        image: '',
         price: '$500',
         duration: '13 days to go'
     },
     {
         title: 'A lot of the information that',
         description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
-        image: '/images/course_3.png',
+        image: '',
         price: '$500',
         duration: '10 days to go'
     },
     {
         title: 'A lot of the information that',
         description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
-        image: '/images/course_2.png',
+        image: '',
         price: '$500',
         duration: '13 days to go'
     }
 ];
 
 
-const CoursesList = ({ mainPage }: { mainPage: boolean }) => {
+const ChaptersList = ({ mainPage }: { mainPage: boolean }) => {
     const { selectedLanguage } = useContext(LayoutContext);
     const tBtn = useTranslations('buttons');
 
 
     return (
-        <section className='course-list'>
+        <section className='chapters-list'>
             <div className='container'>
-                <div className='course-list__header course-list__header--md course-list__header--center'>
-                    <div className='course-list__title'>Introduction to AI</div>
-                    <div className='course-list__desc'>
+                <div className='chapters-list__header chapters-list__header--md chapters-list__header--center'>
+                    <div className='chapters-list__title'>Introduction to AI</div>
+                    <div className='chapters-list__desc'>
                         This chapter gives you a basic overview of Artificial Intelligence, its key concepts, and
                         technologies.
                     </div>
                 </div>
-                <div className='course-list__content'>
+                <div className='chapters-list__content'>
                     {
-                        COURSES.map((item: object, i: number) =>
-                            <div key={i} className='course-list__course'>
-                                <div className='course-list__course__image-container'>
+                        CHAPTERS.map((item: object, i: number) =>
+                            <div key={i} className='chapters-list__course'>
+                                <div className='chapters-list__chapter__image-container'>
                                     <img
                                         src={item.image}
                                         alt={item.image}
-                                        className='course-list__course__image'
+                                        className='chapters-list__chapter__image'
                                     />
                                 </div>
-                                <div className='course-list__course__content'>
-                                    <div className='course-list__course__title'>{item.title}</div>
-                                    <div className='course-list__course__description'>{item.description}</div>
-                                    <div className='course-list__course__bottom-container'>
-                                        <div className='course-list__course__price'>{item.price}</div>
-                                        <div className='course-list__course__time'>{item.duration}</div>
+                                <div className='chapters-list__chapter__content'>
+                                    <div className='chapters-list__chapter__title'>{item.title}</div>
+                                    <div className='chapters-list__chapter__description'>{item.description}</div>
+                                    <div className='chapters-list__chapter__bottom-container'>
+                                        <div className='chapters-list__chapter__price'>{item.price}</div>
+                                        <div className='chapters-list__chapter__time'>{item.duration}</div>
                                     </div>
                                 </div>
                             </div>
@@ -107,4 +107,4 @@ const CoursesList = ({ mainPage }: { mainPage: boolean }) => {
 };
 
 
-export default CoursesList;
+export default ChaptersList;

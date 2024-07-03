@@ -1,4 +1,4 @@
-.course-list {
+.chapters-list {
   $section: &;
   position: relative;
   padding: $offsetTop 0;
@@ -34,7 +34,7 @@
     }
   }
 
-  &__course {
+  &__chapter {
     width: 100%;
     min-width: 20%;
     max-width: 24%;
