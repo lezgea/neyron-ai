@@ -33,11 +33,11 @@
   --gradient-2: linear-gradient(95deg, var(--fuchsia-300), var(--violet-300));
   --gradient-3: linear-gradient(135deg, var(--fuchsia-300) 15%, var(--orange-500) 65%, var(--violet-500));
   --gradient-4: linear-gradient(
-    45deg,
-    var(--gray-900),
-    var(--gray-900) 33.3%,
-    var(--fuchsia-500) 66.6%,
-    var(--orange-500)
+                  45deg,
+                  var(--gray-900),
+                  var(--gray-900) 33.3%,
+                  var(--fuchsia-500) 66.6%,
+                  var(--orange-500)
   );
 
   /* Font family */
@@ -70,7 +70,7 @@
   --lh-b3: 16px;
   --lh-b4: 20px;
   --lh-b5: 24px;
-  --lh-b6: 24px;
+  --lh-b6: 28px;
   --lh-b7: 32px;
   --lh-b8: 32px;
   --lh-b9: 40px;

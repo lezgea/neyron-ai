@@ -1,7 +1,4 @@
 import React from 'react';
-
-import { Grid } from '@mui/material';
-
 import RegisterForm from './registerForm';
 
 const Register = () => {

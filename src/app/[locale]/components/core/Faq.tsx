@@ -8,37 +8,38 @@ import { useTranslations } from 'next-intl';
 import { MonsterQuestion } from 'src/assets/images';
 import { ArrowRightIcon } from 'src/assets/icons';
 
-const Faq = ({ mainPage }: { mainPage: boolean }) => {
-  const { selectedLanguage } = useContext(LayoutContext);
-  const tBtn = useTranslations('buttons');
 
-  return (
-    <section className="ai-section ai-section--faq">
-      <div className="container">
-        <div className="ai-section__content">
-          <div className="ai-section__header ai-section__header--md ai-section__header--center">
-            <h1 className="ai-section__title">FAQ</h1>
-          </div>
-          <div className="ai-section__body">
-            <div className="ai-accordion">
-              <AccordionFaq mainPage={mainPage} />
+const Faq = ({ mainPage }: { mainPage: boolean }) => {
+    const { selectedLanguage } = useContext(LayoutContext);
+    const tBtn = useTranslations('buttons');
+
+    return (
+        <section className='ai-section ai-section--faq'>
+            <div className='container'>
+                <div className='ai-section__content'>
+                    <div className='ai-section__header ai-section__header--md ai-section__header--center'>
+                        <h1 className='ai-section__title'>FAQ</h1>
+                    </div>
+                    <div className='ai-section__body'>
+                        <div className='ai-accordion'>
+                            <AccordionFaq mainPage={mainPage} />
+                        </div>
+                    </div>
+                    <div className='ai-section__footer'>
+                        {mainPage && (
+                            <Link href={`/${selectedLanguage}/faq`} className='ai-btn ai-btn--primary ai-btn--lg'>
+                                <span>{tBtn('more')}</span>
+                                <ArrowRightIcon />
+                            </Link>
+                        )}
+                    </div>
+                </div>
+                <div className='ai-section__graphic ai-section__graphic--faq'>
+                    <Image src={MonsterQuestion} alt='monster' />
+                </div>
             </div>
-          </div>
-          <div className="ai-section__footer">
-            {mainPage && (
-              <Link href={`/${selectedLanguage}/faq`} className="ai-btn ai-btn--primary ai-btn--lg">
-                <span>{tBtn('more')}</span>
-                <ArrowRightIcon />
-              </Link>
-            )}
-          </div>
-        </div>
-        <div className="ai-section__graphic ai-section__graphic--faq">
-          <Image src={MonsterQuestion} alt="monster" />
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
 
 export default Faq;
