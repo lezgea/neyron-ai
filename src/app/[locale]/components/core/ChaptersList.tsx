@@ -2,63 +2,49 @@
 import React, { useContext } from 'react';
 import { LayoutContext } from '../../layoutContainer';
 import { useTranslations } from 'next-intl';
+import { Grid } from '@mui/material';
+import Link from 'next/link';
 
 
 const CHAPTERS: {
     title: string,
-    description: string,
     image: string,
-    price: string,
-    duration: string
+    completed: string,
 }[] = [
     {
-        title: 'A lot of the information that',
-        description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
+        title: 'AI basics',
         image: '/images/chapter_1.png',
-        price: '$500',
-        duration: '13 days to go'
+        completed: '1/3'
     },
     {
-        title: 'A lot of the information that',
-        description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
+        title: 'AI implementation',
         image: '/images/chapter_2.png',
-        price: '$600',
-        duration: '15 days to go'
+        completed: '0/3'
     },
     {
-        title: 'A lot of the information that',
-        description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
+        title: '',
         image: '',
-        price: '$400',
-        duration: '14 days to go'
+        completed: ''
     },
     {
-        title: 'A lot of the information that',
-        description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
+        title: '',
         image: '',
-        price: '$500',
-        duration: '11 days to go'
+        completed: ''
     },
     {
-        title: 'A lot of the information that',
-        description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
+        title: '',
         image: '',
-        price: '$500',
-        duration: '13 days to go'
+        completed: ''
     },
     {
-        title: 'A lot of the information that',
-        description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
+        title: '',
         image: '',
-        price: '$500',
-        duration: '10 days to go'
+        completed: ''
     },
     {
-        title: 'A lot of the information that',
-        description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
+        title: '',
         image: '',
-        price: '$500',
-        duration: '13 days to go'
+        completed: ''
     }
 ];
 
@@ -78,29 +64,46 @@ const ChaptersList = ({ mainPage }: { mainPage: boolean }) => {
                         technologies.
                     </div>
                 </div>
-                <div className='chapters-list__content'>
+                <Grid container spacing={2} className='chapters-list__content'>
                     {
                         CHAPTERS.map((item: object, i: number) =>
-                            <div key={i} className='chapters-list__course'>
-                                <div className='chapters-list__chapter__image-container'>
-                                    <img
-                                        src={item.image}
-                                        alt={item.image}
-                                        className='chapters-list__chapter__image'
-                                    />
-                                </div>
-                                <div className='chapters-list__chapter__content'>
-                                    <div className='chapters-list__chapter__title'>{item.title}</div>
-                                    <div className='chapters-list__chapter__description'>{item.description}</div>
-                                    <div className='chapters-list__chapter__bottom-container'>
-                                        <div className='chapters-list__chapter__price'>{item.price}</div>
-                                        <div className='chapters-list__chapter__time'>{item.duration}</div>
+                            <Grid item xs={6} md={4} key={i}>
+                                <Link href={`/${selectedLanguage}/lessons`} className='chapters-list__chapter'>
+                                    <div className='chapters-list__chapter__image-container'>
+                                        <img
+                                            src={item.image || '/images/no_image.png'}
+                                            alt={item.image}
+                                            className='chapters-list__chapter__image'
+                                        />
                                     </div>
-                                </div>
-                            </div>
+                                    <div className='chapters-list__chapter__content'>
+                                        <div className='chapters-list__chapter__top'>
+                                            {
+                                                !!item.title &&
+                                                <>
+                                                    <div className='chapters-list__chapter__top-card'>
+                                                        <div className='chapters-list__chapter__top-card__title'>
+                                                            <strong>{`Chapter ${i + 1}`}</strong>
+                                                        </div>
+                                                    </div>
+                                                    <div className='chapters-list__chapter__top-card'>
+                                                        <div className='chapters-list__chapter__top-card__title'>
+                                                            Completed: <strong>{item.completed}</strong>
+                                                        </div>
+                                                    </div>
+                                                </>
+                                            }
+                                        </div>
+                                        <div className='chapters-list__chapter__title'>{item.title}</div>
+                                        {/*<div className='chapters-list__chapter__bottom-container'>*/}
+                                        {/*    <div className='chapters-list__chapter__price'>{item.completed}</div>*/}
+                                        {/*</div>*/}
+                                    </div>
+                                </Link>
+                            </Grid>
                         )
                     }
-                </div>
+                </Grid>
             </div>
         </section>
     );

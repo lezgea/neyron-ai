@@ -2,6 +2,7 @@
 import React, { useContext } from 'react';
 import { LayoutContext } from '../../layoutContainer';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 
 const COURSES: {
@@ -81,7 +82,7 @@ const CoursesList = ({ mainPage }: { mainPage: boolean }) => {
                 <div className='course-list__content'>
                     {
                         COURSES.map((item: object, i: number) =>
-                            <div key={i} className='course-list__course'>
+                            <Link key={i} href={`/${selectedLanguage}/chapters`} className='course-list__course'>
                                 <div className='course-list__course__image-container'>
                                     <img
                                         src={item.image}
@@ -97,7 +98,7 @@ const CoursesList = ({ mainPage }: { mainPage: boolean }) => {
                                         <div className='course-list__course__time'>{item.duration}</div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         )
                     }
                 </div>
