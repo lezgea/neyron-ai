@@ -18,7 +18,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@fullpage/react-fullpage": "^0.1.9",
+    "@fullpage/react-fullpage": "^0.1.42",
     "@hookform/resolvers": "^3.3.2",
     "@mui/icons-material": "^5.14.19",
     "@mui/material": "^5.14.20",
@@ -50,6 +50,7 @@
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
     "@types/js-cookie": "^3.0.6",
+    "@types/lodash": "^4.17.6",
     "@types/node": "^20",
     "@types/qs": "^6.9.11",
     "@types/react": "^18",

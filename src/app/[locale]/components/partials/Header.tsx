@@ -16,7 +16,6 @@ const Header: React.FC = () => {
     const fullpageApiRef = useFullpageApi();
     const pathName = usePathname();
     const router = useRouter();
-    const { pathname } = router;
     const t = useTranslations('navbar');
     const navLinks = [
         {
@@ -25,7 +24,7 @@ const Header: React.FC = () => {
         },
         {
             title: t('courses'),
-            path: `/${selectedLanguage}/#courses`
+            path: ''
         },
         {
             title: t('community'),
@@ -42,39 +41,10 @@ const Header: React.FC = () => {
     ];
 
     const moveToSection = (sectionNumber: number) => {
-        // if (fullpageApiRef && fullpageApiRef.current) {
-        //     fullpageApiRef.current.moveTo(2);
-        // }
-        router.push('#courses');
-
-        if (window.location.hash) {
-            const element = document.querySelector(window.location.hash);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-            // if (fullpageApiRef && fullpageApiRef.current) {
-            //     fullpageApiRef.current.moveTo(2);
-            // }
+        if (fullpageApiRef.current) {
+            fullpageApiRef.current.moveTo(sectionNumber);
         }
-
-        // window.history.replaceState(null, '/#courses', ' ');
-        // setTimeout(() => router.replace('#courses', {route:}))
     };
-
-
-    React.useEffect(() => {
-        // Check if URL contains a hash (#) and scroll to the target element
-        if (window.location.hash) {
-            const element = document.querySelector(window.location.hash);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-            // if (fullpageApiRef && fullpageApiRef.current) {
-            //     fullpageApiRef.current.moveTo(2);
-            // }
-        }
-    }, [window.location.hash]);
-
 
     return (
         <header className='header'>
@@ -88,17 +58,24 @@ const Header: React.FC = () => {
                             <ul className='header__menu__list'>
                                 {navLinks.map((link) => (
                                     <li key={link.title}>
-                                        <a
-                                            // href='/#courses'
-                                            className={pathName === link.path ? 'active' : ' '}
-                                            onClick={() => moveToSection(2)}
-                                        >
-                                            {link.title}
-                                        </a>
-
-                                        {/*<Link href={`#courses`} className={pathName === link.path ? 'active' : ' '}>*/}
-                                        {/*    {link.title}*/}
-                                        {/*</Link>*/}
+                                        {
+                                            !!link.path
+                                                ?
+                                                <Link
+                                                    className={pathName === link.path ? 'active' : ''}
+                                                    href={link.path}
+                                                >
+                                                    {link.title}
+                                                </Link>
+                                                :
+                                                <Link
+                                                    className={pathName === link.path ? 'active' : ''}
+                                                    href='/'
+                                                    onClick={() => moveToSection(2)}
+                                                >
+                                                    {link.title}
+                                                </Link>
+                                        }
                                     </li>
                                 ))}
                             </ul>

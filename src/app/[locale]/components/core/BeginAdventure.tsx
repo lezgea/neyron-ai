@@ -15,7 +15,7 @@ const BeginAdventure = () => {
 
 
     return (
-        <section className='ai-section ai-section--adventure'>
+        <section className='ai-section ai-section--adventure' id='courses'>
             <div className='container'>
                 <Grid container>
                     <Grid item xs={6} sx={{ display: 'flex' }}>

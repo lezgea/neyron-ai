@@ -26,7 +26,6 @@ const AboutUs = () => {
 
     return (
         <section className='ai-section ai-section--about'>
-            <div id='courses' />
             <div className='container'>
                 <Grid container>
                     <Grid item xs={6}>

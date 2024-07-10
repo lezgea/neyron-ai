@@ -26,20 +26,16 @@ interface ContextProps {
 
 export const LayoutContext = createContext<ContextProps>({
     userIsActive: false,
-    setUserIsActive: () => {
-    },
+    setUserIsActive: () => { },
     selectedLanguage: '',
-    setSelectedLanguage: () => {
-    }
+    setSelectedLanguage: () => { }
 });
-
 
 export function generateStaticParams() {
     return [{ locale: 'en' }, { locale: 'az' }, { locale: 'tr' }, { locale: 'ru' }];
 }
 
-
-export default function LayoutContainer({ children }: { children: ReactNode }) {
+const LayoutContainer: React.FC<{ children: ReactNode }> = ({ children }) => {
     const locale = useLocale();
     const [userIsActive, setUserIsActive] = useState(false);
     const [selectedLanguage, setSelectedLanguage] = useState(locale);
@@ -89,4 +85,6 @@ export default function LayoutContainer({ children }: { children: ReactNode }) {
             </QueryClientProvider>
         </LayoutContext.Provider>
     );
-}
+};
+
+export default LayoutContainer;

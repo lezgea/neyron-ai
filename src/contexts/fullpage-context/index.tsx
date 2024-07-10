@@ -1,25 +1,15 @@
-import React, { createContext, MutableRefObject, ReactNode, useContext, useRef } from 'react';
+import React, { createContext, useContext, useRef, ReactNode, MutableRefObject } from 'react';
 
-interface FullpageApiContextType {
+interface FullpageApiContextProps {
     current: any;
 }
 
-const FullpageApiContext = createContext<FullpageApiContextType | null>(null);
+const FullpageApiContext = createContext<MutableRefObject<FullpageApiContextProps | null>>(null);
 
-export const useFullpageApi = (): MutableRefObject<any> => {
-    const context = useContext(FullpageApiContext);
-    if (!context) {
-        throw new Error('useFullpageApi must be used within a FullpageApiProvider');
-    }
-    return context;
-};
+export const useFullpageApi = () => useContext(FullpageApiContext);
 
-interface FullpageApiProviderProps {
-    children: ReactNode;
-}
-
-export const FullpageApiProvider: React.FC<FullpageApiProviderProps> = ({ children }) => {
-    const fullpageApiRef = useRef<any>(null);
+export const FullpageApiProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+    const fullpageApiRef = useRef<FullpageApiContextProps | null>(null);
 
     return (
         <FullpageApiContext.Provider value={fullpageApiRef}>
