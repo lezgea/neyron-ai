@@ -36,7 +36,6 @@ const UserProfile = () => {
 
     useEffect(() => {
         if (getAccessToken() && getAccessToken() !== 'undefined') {
-            console.log('@@@@@@', data);
             setUserIsActive(true);
             setUsername(data?.data?.name || data?.data?.email.substring(0, 5));
         }

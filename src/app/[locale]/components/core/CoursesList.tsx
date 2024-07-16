@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { LayoutContext } from '../../layoutContainer';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import { useGetCourses } from 'src/api/courses/queries';
 
 
 const COURSES: {
@@ -68,6 +69,9 @@ const CoursesList = ({ mainPage }: { mainPage: boolean }) => {
     const { selectedLanguage } = useContext(LayoutContext);
     const tBtn = useTranslations('buttons');
 
+    const { data: courses } = useGetCourses();
+
+    console.log('###', courses);
 
     return (
         <section className='course-list'>
