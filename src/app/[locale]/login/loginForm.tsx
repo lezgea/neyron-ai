@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { FormControlLabel, Switch } from '@mui/material';
 import { useLogin } from 'src/api/login/mutation';
-import { EyeIcon, EyeStrokeIcon, GoogleBrandIcon } from 'src/assets/icons';
+import { EyeIcon, EyeStrokeIcon } from 'src/assets/icons';
 import { loginFormSchema } from 'src/constant/formValidations';
 import { setAuthCookies } from 'src/utils/cookie';
 
@@ -27,7 +27,7 @@ const LoginForm = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [checked, setChecked] = useState(false);
 
-    const navigate = useRouter();
+    const router = useRouter();
     const t = useTranslations('login');
     const { register, handleSubmit, getValues } = useForm<LoginForm>({
         resolver: yupResolver(loginFormSchema)
@@ -36,8 +36,8 @@ const LoginForm = () => {
     const { mutate } = useLogin();
     const { showNotification } = useNotification();
 
-    const onSubmit = (values: LoginForm) => {
-        mutate(
+    const onSubmit = async (values: LoginForm) => {
+        await mutate(
             {
                 email: values.email,
                 password: values.password,
@@ -47,9 +47,9 @@ const LoginForm = () => {
                 onSuccess: (res) => {
                     showNotification({ title: 'Success', variant: 'success' });
                     setAuthCookies(res?.data?.data?.token);
-                    navigate.push('/');
+                    router.push(`/${selectedLanguage}/`);
                     setUserIsActive(true);
-                    setSelectedLanguage(res?.data?.data?.language);
+                    setSelectedLanguage(res?.data?.data?.language?.abbreviation);
                 },
                 onError: () => {
                     showNotification({ title: 'Error', variant: 'error' });
@@ -118,10 +118,10 @@ const LoginForm = () => {
                             {t('signIn')}
                         </button>
                         <div className='line'></div>
-                        <Link href={`${process.env.NEXT_LOGIN_GOOGLE_URL as string}`} className='ai-btn ai-btn--google'>
-                            <GoogleBrandIcon />
-                            <span>{t('loginWithGoogle')}</span>
-                        </Link>
+                        {/*<Link href={`${process.env.NEXT_LOGIN_GOOGLE_URL as string}`} className='ai-btn ai-btn--google'>*/}
+                        {/*    <GoogleBrandIcon />*/}
+                        {/*    <span>{t('loginWithGoogle')}</span>*/}
+                        {/*</Link>*/}
                     </div>
                     <div className='ai-form__footer__text'>
                         {t('createAccount')}

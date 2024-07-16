@@ -11,3 +11,5 @@ export const resetPassword = '/reset-password';
 export const profile = '/profile';
 export const countries = '/countries';
 export const upload = '/upload';
+export const courses = '/courses';
+export const chapters = '/chapters';

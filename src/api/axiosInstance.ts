@@ -8,19 +8,20 @@ export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://api.neyron.
 const authToken = getAccessToken();
 
 export const axiosOpen: AxiosInstance = axios.create({
-  baseURL: `${BASE_URL}/v1`,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+    baseURL: `${BASE_URL}/v1`,
+    headers: {
+        'Content-Type': 'application/json'
+    }
 });
 
 export const axiosInstance = axios.create({
-  baseURL: BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${authToken}`,
-  },
-  paramsSerializer: (params) => {
-    return qs.stringify(params, { indices: false });
-  },
+    baseURL: BASE_URL,
+    headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${authToken}`,
+        'Accept-language': 1
+    },
+    paramsSerializer: (params) => {
+        return qs.stringify(params, { indices: false });
+    }
 });
