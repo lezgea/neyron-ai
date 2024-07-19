@@ -23,7 +23,7 @@ const HomePage: React.FC = () => {
                 scrollingSpeed={1000}
                 fadingEffect={'sections'}
                 normalScrollElements={'.ai-testimonials'}
-                credits={{ enabled: true, label: 'My Custom Credits', position: 'right' }} // Add the credits property here
+                credits={{ enabled: false, position: 'right' }} // Add the credits property here
                 render={({ fullpageApi }) => {
                     if (!fullpageApiRef.current) {
                         fullpageApiRef.current = fullpageApi;

@@ -9,35 +9,35 @@ const LESSONS: {
     title: string,
     image: string,
 }[] = [
-    {
-        title: 'What is AI ?',
-        image: '/images/chapter_1.png'
-    },
-    {
-        title: '',
-        image: ''
-    },
-    {
-        title: '',
-        image: ''
-    },
-    {
-        title: '',
-        image: ''
-    },
-    {
-        title: '',
-        image: ''
-    },
-    {
-        title: '',
-        image: ''
-    },
-    {
-        title: '',
-        image: ''
-    }
-];
+        {
+            title: 'What is AI ?',
+            image: '/images/chapter_1.png'
+        },
+        {
+            title: '',
+            image: '/images/no_image.png'
+        },
+        {
+            title: '',
+            image: '/images/no_image.png'
+        },
+        {
+            title: '',
+            image: '/images/no_image.png'
+        },
+        {
+            title: '',
+            image: '/images/no_image.png'
+        },
+        {
+            title: '',
+            image: '/images/no_image.png'
+        },
+        {
+            title: '',
+            image: '/images/no_image.png'
+        }
+    ];
 
 
 const LessonsList = ({ mainPage }: { mainPage: boolean }) => {

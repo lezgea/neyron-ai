@@ -20,7 +20,7 @@ const Feedbacks = () => {
   const tBtn = useTranslations('buttons');
   const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleScroll = () => {
       const currentPosition = ref?.current?.getBoundingClientRect().top as number;
       if (currentPosition <= 100) {
