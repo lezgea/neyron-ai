@@ -19,7 +19,6 @@ export const axiosInstance = axios.create({
     headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${authToken}`,
-        'Accept-language': 1
     },
     paramsSerializer: (params) => {
         return qs.stringify(params, { indices: false });

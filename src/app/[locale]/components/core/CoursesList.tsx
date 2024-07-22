@@ -13,63 +13,63 @@ const COURSES: {
     price: string,
     duration: string
 }[] = [
-    {
-        title: 'A lot of the information that',
-        description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
-        image: '/images/course_1.png',
-        price: '$500',
-        duration: '13 days to go'
-    },
-    {
-        title: 'A lot of the information that',
-        description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
-        image: '/images/course_2.png',
-        price: '$600',
-        duration: '15 days to go'
-    },
-    {
-        title: 'A lot of the information that',
-        description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
-        image: '/images/course_3.png',
-        price: '$400',
-        duration: '14 days to go'
-    },
-    {
-        title: 'A lot of the information that',
-        description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
-        image: '/images/course_4.png',
-        price: '$500',
-        duration: '11 days to go'
-    },
-    {
-        title: 'A lot of the information that',
-        description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
-        image: '/images/course_1.png',
-        price: '$500',
-        duration: '13 days to go'
-    },
-    {
-        title: 'A lot of the information that',
-        description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
-        image: '/images/course_3.png',
-        price: '$500',
-        duration: '10 days to go'
-    },
-    {
-        title: 'A lot of the information that',
-        description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
-        image: '/images/course_2.png',
-        price: '$500',
-        duration: '13 days to go'
-    }
-];
+        {
+            title: 'A lot of the information that',
+            description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
+            image: '/images/course_1.png',
+            price: '$500',
+            duration: '13 days to go'
+        },
+        {
+            title: 'A lot of the information that',
+            description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
+            image: '/images/course_2.png',
+            price: '$600',
+            duration: '15 days to go'
+        },
+        {
+            title: 'A lot of the information that',
+            description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
+            image: '/images/course_3.png',
+            price: '$400',
+            duration: '14 days to go'
+        },
+        {
+            title: 'A lot of the information that',
+            description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
+            image: '/images/course_4.png',
+            price: '$500',
+            duration: '11 days to go'
+        },
+        {
+            title: 'A lot of the information that',
+            description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
+            image: '/images/course_1.png',
+            price: '$500',
+            duration: '13 days to go'
+        },
+        {
+            title: 'A lot of the information that',
+            description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
+            image: '/images/course_3.png',
+            price: '$500',
+            duration: '10 days to go'
+        },
+        {
+            title: 'A lot of the information that',
+            description: 'A lot of the information that we encounter in the course of a typical day is personalized.',
+            image: '/images/course_2.png',
+            price: '$500',
+            duration: '13 days to go'
+        }
+    ];
 
 
 const CoursesList = ({ mainPage }: { mainPage: boolean }) => {
     const { selectedLanguage } = useContext(LayoutContext);
     const tBtn = useTranslations('buttons');
 
-    const { data: courses } = useGetCourses();
+    const { data: courses } = useGetCourses(selectedLanguage);
 
     console.log('###', courses);
 

@@ -4,6 +4,7 @@ import { LayoutContext } from '../../layoutContainer';
 import { useTranslations } from 'next-intl';
 import { Grid } from '@mui/material';
 import Link from 'next/link';
+import { useGetChapters } from 'src/api/chapters/queries';
 
 
 const CHAPTERS: {
@@ -11,47 +12,51 @@ const CHAPTERS: {
     image: string,
     completed: string,
 }[] = [
-    {
-        title: 'AI basics',
-        image: '/images/chapter_1.png',
-        completed: '1/3'
-    },
-    {
-        title: 'AI implementation',
-        image: '/images/chapter_2.png',
-        completed: '0/3'
-    },
-    {
-        title: '',
-        image: '',
-        completed: ''
-    },
-    {
-        title: '',
-        image: '',
-        completed: ''
-    },
-    {
-        title: '',
-        image: '',
-        completed: ''
-    },
-    {
-        title: '',
-        image: '',
-        completed: ''
-    },
-    {
-        title: '',
-        image: '',
-        completed: ''
-    }
-];
+        {
+            title: 'AI basics',
+            image: '/images/chapter_1.png',
+            completed: '1/3'
+        },
+        {
+            title: 'AI implementation',
+            image: '/images/chapter_2.png',
+            completed: '0/3'
+        },
+        {
+            title: '',
+            image: '',
+            completed: ''
+        },
+        {
+            title: '',
+            image: '',
+            completed: ''
+        },
+        {
+            title: '',
+            image: '',
+            completed: ''
+        },
+        {
+            title: '',
+            image: '',
+            completed: ''
+        },
+        {
+            title: '',
+            image: '',
+            completed: ''
+        }
+    ];
 
 
 const ChaptersList = ({ mainPage }: { mainPage: boolean }) => {
     const { selectedLanguage } = useContext(LayoutContext);
     const tBtn = useTranslations('buttons');
+
+    const { data: chapters } = useGetChapters(selectedLanguage, 1);
+
+    console.log('###', chapters);
 
 
     return (
@@ -95,9 +100,6 @@ const ChaptersList = ({ mainPage }: { mainPage: boolean }) => {
                                             }
                                         </div>
                                         <div className='chapters-list__chapter__title'>{item.title}</div>
-                                        {/*<div className='chapters-list__chapter__bottom-container'>*/}
-                                        {/*    <div className='chapters-list__chapter__price'>{item.completed}</div>*/}
-                                        {/*</div>*/}
                                     </div>
                                 </Link>
                             </Grid>
