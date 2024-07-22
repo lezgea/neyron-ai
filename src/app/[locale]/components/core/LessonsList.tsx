@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { LayoutContext } from '../../layoutContainer';
 import { useTranslations } from 'next-intl';
 import { Grid } from '@mui/material';
+import { useGetLessons } from 'src/api/lessons/queries';
 
 
 const LESSONS: {
@@ -43,6 +44,7 @@ const LESSONS: {
 const LessonsList = ({ mainPage }: { mainPage: boolean }) => {
     const { selectedLanguage } = useContext(LayoutContext);
     const tBtn = useTranslations('buttons');
+    const { data: lessons } = useGetLessons(selectedLanguage);
 
 
     return (

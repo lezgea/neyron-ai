@@ -12,5 +12,6 @@ export const QUERY_KEYS = {
     profile: 'profile',
     countries: 'countries',
     courses: 'courses',
-    chapters: 'chapters'
+    chapters: 'chapters',
+    lessons: 'lessons',
 };
