@@ -5,58 +5,92 @@ import { useTranslations } from 'next-intl';
 import { Grid } from '@mui/material';
 import Link from 'next/link';
 import { useGetChapters } from 'src/api/chapters/queries';
+import { Button } from '../partials/button';
+import { useAddChapter } from 'src/api/chapters/mutation';
+import useNotification from '../partials/useNotification';
 
+type Chapter = {
+    title: string;
+    image: string;
+    completed: string;
+};
 
-const CHAPTERS: {
-    title: string,
-    image: string,
-    completed: string,
-}[] = [
-        {
-            title: 'AI basics',
-            image: '/images/chapter_1.png',
-            completed: '1/3'
-        },
-        {
-            title: 'AI implementation',
-            image: '/images/chapter_2.png',
-            completed: '0/3'
-        },
-        {
-            title: '',
-            image: '',
-            completed: ''
-        },
-        {
-            title: '',
-            image: '',
-            completed: ''
-        },
-        {
-            title: '',
-            image: '',
-            completed: ''
-        },
-        {
-            title: '',
-            image: '',
-            completed: ''
-        },
-        {
-            title: '',
-            image: '',
-            completed: ''
-        }
-    ];
+const CHAPTERS: Chapter[] = [
+    {
+        title: 'AI basics',
+        image: '/images/chapter_1.png',
+        completed: '1/3'
+    },
+    {
+        title: 'AI implementation',
+        image: '/images/chapter_2.png',
+        completed: '0/3'
+    },
+    {
+        title: '',
+        image: '',
+        completed: ''
+    },
+    {
+        title: '',
+        image: '',
+        completed: ''
+    },
+    {
+        title: '',
+        image: '',
+        completed: ''
+    },
+    {
+        title: '',
+        image: '',
+        completed: ''
+    },
+    {
+        title: '',
+        image: '',
+        completed: ''
+    }
+];
 
+type ChaptersListProps = {
+    mainPage: boolean;
+};
 
-const ChaptersList = ({ mainPage }: { mainPage: boolean }) => {
+const ChaptersList: React.FC<ChaptersListProps> = ({ mainPage }) => {
     const { selectedLanguage } = useContext(LayoutContext);
     const tBtn = useTranslations('buttons');
+    const { showNotification } = useNotification();
 
+    const [state, setState] = React.useState({
+        name: '',
+        description: '',
+        chapterId: 0,
+        languageId: 0,
+    })
     const { data: chapters } = useGetChapters(selectedLanguage, 1);
+    const { mutate, isLoading } = useAddChapter(selectedLanguage);
 
-    console.log('###', chapters);
+
+    function addChapter() {
+        mutate(
+            {
+                courseId: 1,
+                name: 'test',
+                description: 'fff',
+                chapterId: 4,
+                languageId: 1,
+            },
+            {
+                onSuccess: () => {
+                    showNotification({ title: 'Success', variant: 'success' });
+                },
+                onError: () => {
+                    showNotification({ title: 'Fail!', variant: 'error' });
+                },
+            }
+        );
+    }
 
 
     return (
@@ -68,10 +102,15 @@ const ChaptersList = ({ mainPage }: { mainPage: boolean }) => {
                         This chapter gives you a basic overview of Artificial Intelligence, its key concepts, and
                         technologies.
                     </div>
+                    <Button
+                        type='blue'
+                        title='Add Chapter'
+                        onClick={addChapter}
+                    />
                 </div>
                 <Grid container spacing={2} className='chapters-list__content'>
                     {
-                        CHAPTERS.map((item: object, i: number) =>
+                        CHAPTERS.map((item, i) =>
                             <Grid item xs={6} md={4} key={i}>
                                 <Link href={`/${selectedLanguage}/lessons`} className='chapters-list__chapter'>
                                     <div className='chapters-list__chapter__image-container'>
@@ -110,6 +149,5 @@ const ChaptersList = ({ mainPage }: { mainPage: boolean }) => {
         </section>
     );
 };
-
 
 export default ChaptersList;
