@@ -87,28 +87,34 @@ const UserProfile = () => {
                     onClick={() => setShowDropdown(!showDropdown)}
                     ref={dropdownTriggerRef}
                 >
-                    <span>{username}</span>
-                    <Image src={userProfileImage || '/svg/profileIcon.svg'}
-                           alt='user avatar'
-                           width={30}
-                           height={30}
-                           className='avatar-image'
-                    />
-                    <ul ref={dropdownRef} className={showDropdown ? 'dropdown-content show' : 'dropdown-content hide'}>
-                        <li onClick={handleNavigate}>
-                            <Image
-                                src={'/svg/profileIcon.svg'}
-                                alt='profile'
-                                width={30}
-                                height={30}
-                            />
-                            Profile
-                        </li>
-                        <li onClick={handleLogout}>
-                            <Image src={LogoutIcon} alt='Logout' />
-                            Logout
-                        </li>
-                    </ul>
+                    <div className='profile-header-wrapper'>
+                        <Image
+                            src={userProfileImage || '/svg/profileIcon.svg'}
+                            alt='user avatar'
+                            width={30}
+                            height={30}
+                            className='avatar-image'
+                        />
+                        <div className='username'>{username}</div>
+                    </div>
+                    {
+                        showDropdown &&
+                        <ul ref={dropdownRef} className={showDropdown ? 'dropdown-content show' : 'dropdown-content hide'}>
+                            <li onClick={handleNavigate}>
+                                <Image
+                                    src={'/svg/profileIcon.svg'}
+                                    alt='profile'
+                                    width={30}
+                                    height={30}
+                                />
+                                Profile
+                            </li>
+                            <li onClick={handleLogout}>
+                                <Image src={LogoutIcon} alt='Logout' />
+                                Logout
+                            </li>
+                        </ul>
+                    }
                 </div>
             ) : (
                 <Link href={`/${selectedLanguage}/login`} className='ai-btn ai-btn--secondary ai-btn--sm'>

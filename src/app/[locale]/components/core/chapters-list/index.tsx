@@ -1,13 +1,16 @@
 'use client';
 import React, { useContext } from 'react';
-import { LayoutContext } from '../../layoutContainer';
+import { LayoutContext } from '../../../layoutContainer';
 import { useTranslations } from 'next-intl';
 import { Grid } from '@mui/material';
 import Link from 'next/link';
 import { useGetChapters } from 'src/api/chapters/queries';
-import { Button } from '../partials/button';
+import { Button } from '../../partials/button';
 import { useAddChapter } from 'src/api/chapters/mutation';
-import useNotification from '../partials/useNotification';
+import useNotification from '../../partials/useNotification';
+import Modal from '../../partials/modal/Modal';
+import { ChapterAddModal } from '../chapter-add-modal';
+import { ChapterEditModal } from '../chapter-edit-modal';
 
 type Chapter = {
     title: string;
@@ -61,36 +64,9 @@ const ChaptersList: React.FC<ChaptersListProps> = ({ mainPage }) => {
     const { selectedLanguage } = useContext(LayoutContext);
     const tBtn = useTranslations('buttons');
     const { showNotification } = useNotification();
-
-    const [state, setState] = React.useState({
-        name: '',
-        description: '',
-        chapterId: 0,
-        languageId: 0,
-    })
+    const [showAddModal, setShowAddModal] = React.useState(false)
+    const [showEditModal, setShowEditModal] = React.useState(false)
     const { data: chapters } = useGetChapters(selectedLanguage, 1);
-    const { mutate, isLoading } = useAddChapter(selectedLanguage);
-
-
-    function addChapter() {
-        mutate(
-            {
-                courseId: 1,
-                name: 'test',
-                description: 'fff',
-                chapterId: 4,
-                languageId: 1,
-            },
-            {
-                onSuccess: () => {
-                    showNotification({ title: 'Success', variant: 'success' });
-                },
-                onError: () => {
-                    showNotification({ title: 'Fail!', variant: 'error' });
-                },
-            }
-        );
-    }
 
 
     return (
@@ -102,11 +78,13 @@ const ChaptersList: React.FC<ChaptersListProps> = ({ mainPage }) => {
                         This chapter gives you a basic overview of Artificial Intelligence, its key concepts, and
                         technologies.
                     </div>
-                    <Button
-                        type='blue'
-                        title='Add Chapter'
-                        onClick={addChapter}
-                    />
+                    <button
+                        style={{ marginTop: 10 }}
+                        onClick={() => setShowAddModal(true)}
+                        className="ai-btn ai-btn--tertiary"
+                    >
+                        Add Chapter
+                    </button>
                 </div>
                 <Grid container spacing={2} className='chapters-list__content'>
                     {
@@ -145,6 +123,18 @@ const ChaptersList: React.FC<ChaptersListProps> = ({ mainPage }) => {
                         )
                     }
                 </Grid>
+                <ChapterAddModal
+                    visible={showAddModal}
+                    width={'500'}
+                    height={'300'}
+                    setVisible={() => setShowAddModal(!showAddModal)}
+                />
+                <ChapterEditModal
+                    visible={showEditModal}
+                    width={'500'}
+                    height={'300'}
+                    setVisible={() => setShowEditModal(!showEditModal)}
+                />
             </div>
         </section>
     );

@@ -124,6 +124,8 @@ textarea {
 $offsetTop: 85px;
 
 .container {
+  display: flex;
+  flex-direction: column;
   width: 1244px;
   margin: 0 auto;
   padding-left: 12px;

@@ -7,8 +7,9 @@ interface ModalProps {
   width: string;
   height: string;
   className?: string;
+  style?: object,
 }
-const Modal = ({ children, visible, setVisible, width, height = 'initial', className }: ModalProps) => {
+const Modal = ({ children, visible, setVisible, style, width, height = 'initial', className }: ModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const handleOutsideClick: (event: MouseEvent) => void = (event: MouseEvent) => {
@@ -29,7 +30,7 @@ const Modal = ({ children, visible, setVisible, width, height = 'initial', class
       <div className={`modal ${visible ? 'is-open' : 'is-closing'}`}>
         <div
           className={`modal-container ${className || ''}`}
-          style={{ width: width, height: height }}
+          style={{ width: width, height: height, ...style }}
           ref={modalRef}
         >
           {children}

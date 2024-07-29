@@ -1,11 +1,11 @@
-import ChaptersList from 'src/app/[locale]/components/core/ChaptersList';
+import ChaptersList from "../components/core/chapters-list";
 
 
 const page = () => {
     function test() {
         const aaarb = 'sdsd'
     }
-    
+
     return (
         <main>
             <ChaptersList mainPage={false} />
