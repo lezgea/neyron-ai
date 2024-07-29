@@ -73,7 +73,7 @@ const LessonsList: React.FC<LessonsListProps> = ({ mainPage }) => {
                 </button>
                 <Grid container spacing={2} className='lessons-list__content'>
                     {LESSONS.map((item, i) => (
-                        <Grid item xs={6} md={4} key={i}>
+                        <Grid item xs={12} md={4} key={i}>
                             <div className='lessons-list__lesson'>
                                 <div className='lessons-list__lesson__image-container'>
                                     <img
