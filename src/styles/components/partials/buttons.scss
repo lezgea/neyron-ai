@@ -7,13 +7,13 @@
     justify-content: center;
     flex-shrink: 0;
     border-radius: 20px;
-    background: #F2F4F8;
+    background: #1591f0;
     user-select: none;
     transition: .4s ease-in-out;
 
-    .action-button-label {
-        color: #212123;
-        font-size: 11px;
+    .blue-button-label {
+        color: #ffffff;
+        font-size: 14px;
         font-style: normal;
         font-weight: 400;
         line-height: 125%;
@@ -29,7 +29,7 @@
     &:hover {
         background: linear-gradient(249deg, #FFB39B 10.24%, #CD75EB 101.13%);
 
-        .label {
+        .blue-button-label {
             color: #fff;
         }
 

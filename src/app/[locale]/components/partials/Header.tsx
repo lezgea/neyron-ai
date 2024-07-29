@@ -10,6 +10,10 @@ import ThemeSwitch from './ThemeSwitch';
 import UserProfile from './UserProfile';
 import { useFullpageApi } from 'src/contexts';
 
+interface NavLink {
+    title: string;
+    path: string;
+}
 
 const Header: React.FC = () => {
     const { selectedLanguage } = React.useContext(LayoutContext);
@@ -17,7 +21,8 @@ const Header: React.FC = () => {
     const pathName = usePathname();
     const router = useRouter();
     const t = useTranslations('navbar');
-    const navLinks = [
+
+    const navLinks: NavLink[] = [
         {
             title: t('about'),
             path: `/${selectedLanguage}/about`
@@ -59,7 +64,7 @@ const Header: React.FC = () => {
                                 {navLinks.map((link) => (
                                     <li key={link.title}>
                                         {
-                                            !!link.path
+                                            link.path
                                                 ?
                                                 <Link
                                                     className={pathName === link.path ? 'active' : ''}
@@ -69,7 +74,7 @@ const Header: React.FC = () => {
                                                 </Link>
                                                 :
                                                 <Link
-                                                    className={pathName === link.path ? 'active' : ''}
+                                                    className={pathName === '/' ? 'active' : ''}
                                                     href='/'
                                                     onClick={() => moveToSection(2)}
                                                 >
