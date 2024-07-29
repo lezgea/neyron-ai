@@ -89,7 +89,7 @@ const ChaptersList: React.FC<ChaptersListProps> = ({ mainPage }) => {
                 <Grid container spacing={2} className='chapters-list__content'>
                     {
                         CHAPTERS.map((item, i) =>
-                            <Grid item xs={6} md={4} key={i}>
+                            <Grid item xs={12} md={4} key={i}>
                                 <Link href={`/${selectedLanguage}/lessons`} className='chapters-list__chapter'>
                                     <div className='chapters-list__chapter__image-container'>
                                         <img

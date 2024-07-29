@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 1002;
-  padding: 17px 0;
+  padding: 17px;
   background: var(--gray-0);
 
   &__content {
@@ -13,10 +13,22 @@
     justify-content: space-between;
     gap: 40px;
 
+    .mobile-sidebar-drawer {
+      display: none;
+
+      @media(max-width: 768px) {
+        display: block;
+      }
+    }
+
     &__group {
       display: flex;
       align-items: center;
       gap: 26px;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
 
       .ai-btn {
         min-width: 110px;
@@ -33,6 +45,7 @@
   }
 
   &__menu {
+
     &__list {
       display: flex;
       align-items: center;
