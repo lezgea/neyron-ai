@@ -69,19 +69,30 @@ const Header: React.FC = () => {
 
 
     const SidebarMenu = (
-        <Box sx={{ width: 250, padding: 2 }} role="presentation">
-            <SelectLanguage />
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 20, paddingBottom: 10 }}>
-                <UserProfile />
-                <ThemeSwitch />
+        <Box sx={{ width: 250, padding: 2 }} role="presentation" onClick={toggleSidebar(false)}>
+            <div onClick={(e) => e.stopPropagation()}>
+                <SelectLanguage />
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 20, paddingBottom: 10 }}>
+                    <UserProfile />
+                    <ThemeSwitch />
+                </div>
             </div>
             <Divider />
             <List>
                 {navLinks.map((link, index) => (
                     <ListItem key={link.title} disablePadding>
-                        <ListItemButton>
-                            <ListItemText primary={link.title} />
-                        </ListItemButton>
+                        {
+                            link.path
+                                ?
+                                <ListItemButton onClick={() => router.push(link.path)}>
+                                    <ListItemText primary={link.title} />
+                                </ListItemButton>
+                                :
+                                <ListItemButton onClick={() => { router.push('/'); moveToSection(2) }}>
+                                    <ListItemText primary={link.title} />
+                                </ListItemButton>
+                        }
+
                     </ListItem>
                 ))}
             </List>
