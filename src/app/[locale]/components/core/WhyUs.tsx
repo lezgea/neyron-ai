@@ -23,10 +23,10 @@ const WhyUs = () => {
     <section className="ai-section ai-section--why">
       <div className="container">
         <Grid container>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6} lg={6}>
             {RiveComponent && <RiveComponent className="ai-section__graphic ai-section__graphic--why" />}
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6} lg={6}>
             <div className="ai-section__content">
               <div className="ai-section__header ai-section__header--lg">
                 <h1 className="ai-section__title">{t('whyUsHead')}</h1>

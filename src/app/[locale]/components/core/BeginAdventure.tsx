@@ -18,7 +18,7 @@ const BeginAdventure = () => {
         <section className='ai-section ai-section--adventure' id='courses'>
             <div className='container'>
                 <Grid container>
-                    <Grid item xs={6} sx={{ display: 'flex' }}>
+                    <Grid item xs={12} md={6} lg={6} sx={{ display: 'flex' }}>
                         <div className='ai-section__graphic'>
                             <div className='cards-wrapper'>
                                 <div className='card card--1'>
@@ -33,7 +33,7 @@ const BeginAdventure = () => {
                             </div>
                         </div>
                     </Grid>
-                    <Grid item xs={6} sx={{ display: 'flex' }}>
+                    <Grid item xs={11} md={6} lg={6} sx={{ display: 'flex' }}>
                         <div className='ai-section__content'>
                             <div className='ai-section__header ai-section__header--md'>
                                 <h2 className='ai-section__title'>{t('coursesHead')}</h2>

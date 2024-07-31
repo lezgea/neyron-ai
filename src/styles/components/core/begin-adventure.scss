@@ -12,6 +12,10 @@
       position: relative;
       display: flex;
 
+      @media(max-width: 768px) {
+        margin-bottom: 150px;
+      }
+
       &:hover {
         .card {
           &--1 {
@@ -37,6 +41,10 @@
         border-radius: 18px;
         overflow: hidden;
         transition: all 200ms ease-in-out;
+
+        @media(max-width: 768px) {
+          width: 220px;
+        }
 
         &__picture {
           width: 100%;
