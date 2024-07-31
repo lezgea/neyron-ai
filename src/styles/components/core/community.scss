@@ -11,7 +11,11 @@
     .cards-wrapper {
       display: flex;
       gap: 16px;
-      height: 552px;
+      height: 252px;
+
+      @media(max-width: 768px) {
+        margin-top: 60px;
+      }
 
       &:hover {
         .card {

@@ -39,7 +39,7 @@ const Feedbacks = () => {
     <section className="ai-section ai-section--feedbacks">
       <div className="container">
         <Grid container>
-          <Grid item xs={6} ref={ref} sx={{ overflow: scrollStyle }}>
+          <Grid item xs={12} md={6} lg={6} ref={ref} sx={{ overflow: scrollStyle }}>
             <div className="ai-scroll">
               <div className="ai-scroll__wrapper" id="scroll-one">
                 <div className="ai-testimonial">
@@ -128,7 +128,7 @@ const Feedbacks = () => {
               <div className="ai-scroll__fade"></div>
             </div>
           </Grid>
-          <Grid item xs={6} sx={{ display: 'flex' }}>
+          <Grid item xs={12} md={6} lg={6} sx={{ display: 'flex' }}>
             <div className="ai-section__content">
               <div className="ai-section__header ai-section__header--md">
                 <h1 className="ai-section__title">{t('feedbackHead')}</h1>

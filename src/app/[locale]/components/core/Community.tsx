@@ -4,15 +4,17 @@ import { Grid } from '@mui/material';
 import { LayoutContext } from '../../layoutContainer';
 import { ArrowRightIcon } from 'src/assets/icons';
 
+
 const Community = () => {
   const t = useTranslations('Index');
   const tBtn = useTranslations('buttons');
   const { selectedLanguage } = useContext(LayoutContext);
+
   return (
     <section className="ai-section ai-section--community">
       <div className="container">
         <Grid container>
-          <Grid item xs={6} sx={{ display: 'flex' }}>
+          <Grid item xs={12} md={6} lg={6} sx={{ display: 'flex' }}>
             <div className="ai-section__content">
               <div
                 className={
@@ -28,7 +30,7 @@ const Community = () => {
               </div>
             </div>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6} lg={6}>
             <div className="cards-wrapper">
               <div className="cards-col">
                 <div className="card card--red"></div>
