@@ -18,7 +18,7 @@ const SignUp: React.FC = () => {
     return (
         <div className="min-h-screen max-h-screen flex">
             {/* Left side with image */}
-            <div className="w-full lg:w-1/2 relative hidden lg:block">
+            {/* <div className="w-full lg:w-1/2 relative hidden lg:block">
                 <Image
                     src="/png/login.png"
                     alt="Team Photo"
@@ -34,7 +34,7 @@ const SignUp: React.FC = () => {
                     <h1 className="text-4xl font-medium">{t('title')}</h1>
                     <p className="text-lg text-gray-500">{t('description')}</p>
                 </div>
-            </div>
+            </div> */}
 
             {/* Right side with form */}
             <div className="w-full lg:w-1/2 bg-white content-center px-8 py-[30px] lg:p-20 overflow-y-scroll">

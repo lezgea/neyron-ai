@@ -1,6 +1,6 @@
-# DataRace AI
+# Neyron AI
 
-DataRace AI is a cutting-edge platform designed for data scientists and AI enthusiasts to compete in data-driven challenges.
+Neyron AI is a cutting-edge platform designed for data scientists and AI enthusiasts to compete in data-driven challenges.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -14,8 +14,8 @@ DataRace AI is a cutting-edge platform designed for data scientists and AI enthu
 To get started, clone the repository and install dependencies:
 
 ```bash
-git clone git@github.com:aaicenter/datarace-web-client.git
-cd datarace-web-client
+git clone git@github.com:aaicenter/neyron-web-client.git
+cd neyron-web-client
 npm install
 ```
 
