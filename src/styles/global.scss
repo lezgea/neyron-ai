@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'variables';
 
 :root {
     --dark-rgb: 0, 0, 0;
@@ -239,6 +240,35 @@ header a {
                     transition-delay: 50ms;
                 }
             }
+        }
+    }
+
+
+    &--about-us {
+        #{$section} {
+            &__content {
+                max-width: 832px;
+                margin: 0 auto;
+            }
+
+            &__body {
+                text-align: center;
+                // @include fontSize(var(--fs-b5), var(--fw-thin), var(--lh-b5), var(--gray-900));
+
+                p {
+                    margin-bottom: 1.5rem;
+                }
+            }
+        }
+    }
+
+    .ai-highlight {
+        span {
+            background: var(--gradient-1);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: var(--fw-bold);
         }
     }
 }
