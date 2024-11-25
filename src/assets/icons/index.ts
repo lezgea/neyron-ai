@@ -1,4 +1,3 @@
-import DataraceLogo from './datarace-logo.svg';
 import RaceIcon from './races.svg';
 import ArrowStyledIcon from './arrow_styled.svg';
 import DropIcon from './drop.svg';
@@ -48,13 +47,22 @@ import HeartIcon from './heart.svg';
 import NoDataSvg from './no-data.svg';
 import DocUpload from './doc-upload.svg';
 import TrashIcon from './trash.svg';
-
+import AiLabLogo from './ailablogo.svg';
+import Logo from './logo.svg';
+import AdventureCard1 from './adventure-card-1.svg';
+import AdventureCard2 from './adventure-card-1.svg';
+import AdventureCard3 from './adventure-card-1.svg';
+import BeginnerIllustration from './beginner.svg';
+import InteractiveIllustration from './interactive.svg';
+import CommunityIllustration from './community.svg';
+import CominIllustration from './comin.svg';
 
 
 export {
     // logos
-    DataraceLogo,
     LogoWhite,
+    AiLabLogo,
+    Logo,
 
     // illustrations
     TeamBrainstorming,
@@ -64,6 +72,13 @@ export {
     Failed,
     RaceFlag,
     NoDataSvg,
+    AdventureCard1,
+    AdventureCard2,
+    AdventureCard3,
+    BeginnerIllustration,
+    InteractiveIllustration,
+    CommunityIllustration,
+    CominIllustration,
 
     // icons
     TrashIcon,

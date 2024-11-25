@@ -1,5 +1,3 @@
-export * from './race-item';
-export * from './resource-item';
 export * from './form-input';
 export * from './loader';
 export * from './skeletons';
@@ -11,7 +9,6 @@ export * from './no-data';
 export * from './auth-modal';
 export * from './terms-modal';
 export * from './footer-terms-modal';
-export * from './text-editor';
-export * from './dataset-comment';
-export * from './competition-comment';
-export * from './tag-input';
+export * from './text-pull-up';
+export * from './text-fade';
+export * from './description-pull-up';

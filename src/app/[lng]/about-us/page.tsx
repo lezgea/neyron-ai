@@ -3,17 +3,16 @@ import { Metadata } from 'next';
 import { Loader } from '@components/shared';
 import Link from 'next/link';
 import { AboutSection } from '@components/features/about';
-import { IParamsLanguage } from 'types/lang-types';
 import { useTranslations } from 'next-intl';
 
 
 export const metadata: Metadata = {
-    title: "About Us | Datarace.ai",
-    description: "DataRace is an innovative platform designed to bring data scientists and Al enthusiasts together to compete in data-driven challenges.",
+    title: "About Us | Neyron AI",
+    description: "Neyron AI is an innovative platform designed to bring data scientists and Al enthusiasts together to compete in data-driven challenges.",
 };
 
 
-const AboutUs: React.FC<IParamsLanguage> = ({ params: { lng } }) => {
+const AboutUs: React.FC = () => {
     const t = useTranslations();
 
     return (

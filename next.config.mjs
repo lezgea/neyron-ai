@@ -21,6 +21,19 @@ const nextConfig = {
         domains: ['api.datarace.ai'],
     },
     webpack(config) {
+        // Add your existing rule for handling .riv files
+        config.module.rules.push({
+            test: /\.(riv)$/,
+            use: {
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    publicPath: '/_next/static/public/',
+                    outputPath: 'static/public/',
+                },
+            },
+        });
+
         config.module.rules.push({
             test: /\.svg$/,
             use: [

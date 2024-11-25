@@ -9,11 +9,11 @@ export default function middleware(req: NextRequest) {
     const { pathname } = req.nextUrl;
 
     // Define locales and the default locale
-    const locales = ['az', 'en'];
+    const locales = ['az', 'en', 'tr', 'ru'];
     const defaultLocale = 'en';
 
     // Regular expression to prevent duplicate locales
-    const localePattern = new RegExp(`^/(az|en)(/\\1)+`);
+    const localePattern = new RegExp(`^/(az|en|tr|ru)(/\\1)+`);
 
     // Check for duplicate locales in the path
     if (localePattern.test(pathname)) {
@@ -36,5 +36,5 @@ export default function middleware(req: NextRequest) {
 
 export const config = {
     // Match only internationalized pathnames
-    matcher: ['/', '/(az|en)/:path*'],
+    matcher: ['/', '/(az|en|tr|ru)/:path*'],
 };

@@ -1,0 +1,138 @@
+{
+  "main": {
+    "exploreHead": "Yapay zekayı keşfet ve eğlencenin bağımlısı ol    ",
+    "exploreText": "Yapay Zeka macerana İnteraktif Öğrenme Platformumuzla başla!    ",
+    "languageText": "Dil ",
+    "coursesHead": "Yapay Zeka Macerana Başla    ",
+    "coursesText": "Yapay zekanın temellerine dal ve yapay zekaya olan tutkunu ateşleyecek, başlangıç ​​seviyesi dostu bir kursta yapay zekanın dünyamızı nasıl şekillendirdiğini öğren.    ",
+    "aboutHead": "Hakkımızda",
+    "aboutTextHead": "Yapay zeka öğrenim arkadaşınız - Neyron.ai'a hoş geldiniz. ",
+    "aboutText": "Neyron.ai'nin misyonu, yapay zekayı yalnızca anlaşılır değil aynı zamanda eğlenceli hale getirmektir. İster bir yapay zeka meraklısı ister deneyimli bir profesyonel olun, yapay zekanın herkesin erişebileceği bir ortam yarattık.    ",
+    "whyUsHead": "Neden Neyron.ai?    ",
+    "whyUsText1Head": "Yeni başlayanlar için uygun    ",
+    "whyUsText1": "Yapay Zekaya Giriş ile başla; önceden deneyime gerek yok!    ",
+    "whyUsText2Head": "Etkileşimli ve bağımlılık yapıcı    ",
+    "whyUsText2": "Eğlenceli öğrenmeyi deneyimle - her dersten zevk al!    ",
+    "whyUsText3Head": "Topluluk Odaklı    ",
+    "whyUsText3": "Diğer ülkelerden öğrencilere katıl - işbirliği yap ve kendini geliştir!    ",
+    "communityHead": "Bu yolculukta yalnız değilsin!    ",
+    "communityText": "Platformumuzdaki diğer yapay zeka öğrencileri ve uzmanlarından oluşan sanal topluluğa katıl. Bilgileri paylaş, sorular sor ve ilham al, arkadaşlar edin.     ",
+    "feedbackHead": "Yorumlar ",
+    "feedbackText": "Neyron.ai ile yapay zeka dünyasına adım atan kullanıcılarımızın yorumlarına göz atın.    ",
+    "personName1": "Samir",
+    "person1Position": "UI/UX Tasarımcısı    ",
+    "personFeedback1": "Neyron.ai öğrenmeyi bir maceraya dönüştürüyor. Platform kullanıcı dostu ve ödül sistemi beni motive ediyor. Yapay zeka konusunda hiç bu kadar hevesli olmamıştım!    ",
+    "personName2": "Ulvi",
+    "person2Position": "Yazılım Mühendisi    ",
+    "personFeedback2": "İnteraktif maceralarla dolu öğrenme süreci muhteşem bir deneyimdi. ! Öğrenmek hiç bu kadar teşvik edici olmamıştı!",
+    "personName3": "Eldar",
+    "person3Position": "Grafik tasarımcı",
+    "personFeedback3": "Yapay zekaya yeni başlayan biri olarak Neyron.ai benim için oyunun kurallarını değiştirdi. Anlaşılır, ilgi çekici modüller ve sıralama sistemi, öğrenmeyi yalnızca erişilebilir değil aynı zamanda heyecan verici hale getiriyor!",
+    "personName4": "Hayyal",
+    "person4Position": "Ürün Müdürü    ",
+    "personFeedback4": "Neyron.ai'den gerçekten etkilendim. Açık ve özlü dersler, etkileşimli zorluklarla birleştiğinde mükemmel bir öğrenme ortamı yaratır. Yapay zekayla ilgilenen herkesin mutlaka denemesi gereken bir eser!    ",
+    "personName5": "Üzeyir",
+    "person5Position": "BT danışmanı",
+    "personFeedback5": "Neyron.ai yapay zeka öğrenimini çok eğlenceli hale getirdi! İnteraktif bölümler ve testler çok eğlenceli. Bu eğitimden daha fazlasıdır; bu interaktif bir yolculuk!    ",
+    "personName6": "Zeynep",
+    "person6Position": "Pazarlama Müdürü",
+    "personFeedback6": "Neyron.ai yalnızca yapay zekayı öğretmez, aynı zamanda sizi içine çeker. Oyunlaştırılmış öğrenme, her modülü heyecan verici bir mücadeleye dönüştüren dahiyane bir kavramdır. Kesinlikle harika!    "
+  },
+  "buttons": {
+    "startButton": "Başla",
+    "join": "Katıl",
+    "send": "Gönder",
+    "save": "Kaydet",
+    "logOut": "Çık",
+    "more": "Daha çok",
+    "back": "Geri dön"
+  },
+  "navbar": {
+    "about": "Hakkımızda",
+    "courses": "Kurslar",
+    "community": "Topluluk",
+    "faq": "SSS",
+    "contact": "Bize Ulaşın",
+    "login": "Giriş Yap  "
+  },
+  "select": {
+    "noOption": "Bilgi bulunamadı"
+  },
+  "contact": {
+    "title": "İletişim",
+    "apply": "Başvuru Formu",
+    "name": "Adı Soyadı ",
+    "email": "E-Posta",
+    "message": " Mesaj",
+    "textHere": "Metni buraya yazın"
+  },
+  "footer": {
+    "aboutUs": "Hakkımızda",
+    "courses": "Kurslar",
+    "community": "Topluluk",
+    "faq": "SSS",
+    "blog": "Blog",
+    "contactUs": "Bize Ulaşı",
+    "terms": "Kullanım Koşulları",
+    "privacy": "Gizlilik Politikası",
+    "rightsReserved": "Tüm hakları saklıdır",
+    "productOf": "Product of "
+  },
+  "profile": {
+    "name": "Adı",
+    "profile": "Profil",
+    "other": "Diğer",
+    "surname": "Soyadı",
+    "birthdate": "Doğum tarihi",
+    "country": "Ülke",
+    "gender": "Cinsiyet",
+    "email": "E-posta ",
+    "password": "Şifre"
+  },
+  "login": {
+    "title": "Seni aramızda görmek muhteşem!    ",
+    "headText": "Giriş yap",
+    "email": "E-posta    ",
+    "password": "Şifre",
+    "enterPassword": "Şifreyi gir",
+    "rememberMe": "Beni hatırla",
+    "forgotPassword": "Şifreyi unut?",
+    "signIn": "Giriş yap",
+    "loginWithGoogle": "Google hesabı ile giriş yap",
+    "createAccount": "Hala hesabın yok mu?",
+    "register": "Hesap yarat."
+  },
+  "forgotPassword": {
+    "title": "E-posta adresi gir",
+    "email": "E-posta",
+    "enterEmail": "E-posta adresini yaz",
+    "or": "veya",
+    "login": "daxil ol"
+  },
+  "register": {
+    "title": "Hoş geldin",
+    "email": "E-posta    ",
+    "password": "Şifre",
+    "enterPassword": "Şifre",
+    "agree": "kabul ediyorum ",
+    "termsConditions": "Kullanıcı sözleşmesini ve Gizlilik politikasını",
+    "signUp": "Hesap oluştur    ",
+    "withGoogle": "veya Google ile oturum açın    ",
+    "haveAnAccount": " Hesabın var mı?  ",
+    "login": "Giriş yap"
+  },
+  "resetPasswordModal": {
+    "title": "E-postanı kontrol et    ",
+    "openGmail": "G-mail hesabını aç   ",
+    "openOutlook": " Outlook'u aç    ",
+    "checkSpam": "Mektubu almadın mı?  Spam kutusunu kontrol et.",
+    "reEnter": "E-posta adresini tekrar gir ve tekrar kontrol et.    ",
+    "activateText1": "Hesabını etkinleştirmen için ",
+    "activateText2": " e-posta adresine bir bağlantı gönderildi.    "
+  },
+  "404": {
+    "title": "We lost this page",
+    "description": "We searched high and low, but couldn’t find what you’re looking for. Let’s find a better place for you to go.",
+    "button": "Take me home"
+  }
+}

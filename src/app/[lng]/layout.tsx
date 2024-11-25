@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
-import '../../styles/global.css';
+import { Poppins } from "next/font/google";
+import '../../styles/global.scss';
+import 'tailwindcss/tailwind.css';
 import { Footer, Header, Loader } from "components";
 import ReduxProvider from "providers/redux-provider";
 import ToastProvider from "@providers/toast-provider";
-import { IntlProvider, NextIntlClientProvider } from 'next-intl';
-import { notFound } from 'next/navigation';
+import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from "next-intl/server";
+import { FullpageApiProvider } from "@providers/fullpage-api-provider";
 
 
-const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ["200", "300", "400", "500", "600", "700", "800", "900"] }); // Specify weights if needed
 
 
 export const metadata: Metadata = {
-  title: "Datarace.ai",
-  description: "DataRace is an innovative platform designed to bring data scientists and Al enthusiasts together to compete in data-driven challenges.",
+  title: "Neyron.ai",
+  description: "Neyron is an innovative platform designed to bring data scientists and Al enthusiasts together to compete in data-driven challenges.",
 };
 
 export default async function RootLayout({
@@ -34,17 +34,19 @@ export default async function RootLayout({
         {/* Link to the favicon */}
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${inter.className} ${poppins.className}`}>
+      <body className={`${poppins.className}`}>
         <NextIntlClientProvider messages={messages}>
-          <ReduxProvider>
-            <ToastProvider>
-              <Header />
-              <div className="min-h-screen">
-                {children}
-              </div>
-              <Footer />
-            </ToastProvider>
-          </ReduxProvider>
+          <FullpageApiProvider>
+            <ReduxProvider>
+              <ToastProvider>
+                <div className="relative min-h-screen">
+                  <Header />
+                  {children}
+                </div>
+                <Footer />
+              </ToastProvider>
+            </ReduxProvider>
+          </FullpageApiProvider>
         </NextIntlClientProvider>
       </body>
     </html>

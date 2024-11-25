@@ -8,6 +8,7 @@ const config: Config = {
     "./src/utils/**/*.{js,ts,jsx,tsx,mdx,scss}",
     "./src/constants/**/*.{js,ts,jsx,tsx,mdx,scss}",
     "./src/providers/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/assets/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   darkMode: 'class',
   theme: {
@@ -21,10 +22,13 @@ const config: Config = {
         '2xl': '1536px',
       },
       colors: {
+        purple: '#BE79FB',
+        purpleLight: '#E4C5FF',
+        purpleDark: '#9358C8',
         primaryExtra: '#EDF6F0',
         primaryLight: '#2CA67B',
-        primary: '#248462',
-        primaryDark: '#1C644A',
+        primary: '#fed33d',
+        primaryDark: '#f1c42a',
         customBlue: {
           50: '#ebf5ff',
           100: '#e1effe',
@@ -97,6 +101,10 @@ const config: Config = {
           '50%': { transform: 'scale(1.1)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
+        gradientSlide: {
+          '0%': { 'background-position': '0% 50%' },
+          '100%': { 'background-position': '100% 50%' },
+        },
       },
       animation: {
         'main-label': 'mainLabelAnimation 0.5s ease-in-out',
@@ -106,6 +114,7 @@ const config: Config = {
         'right-svg': 'rightSvgAnimation 1s ease-in-out',
         'star': 'starAnimation 1.5s ease-in-out',
         'opacity': 'opacityAnimation 0.3s ease-in-out',
+        'gradient-slide': 'gradientSlide 1.5s ease-in-out',
       },
     },
   },

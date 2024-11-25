@@ -1,3 +1,4 @@
-export * from './categories-section';
-export * from './competitions-section';
-export * from './datasets-section';
+export * from './explore-section';
+export * from './adventure-section';
+export * from './about-section';
+export * from './why-us-section';

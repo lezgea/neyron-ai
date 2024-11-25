@@ -4,7 +4,6 @@ import { ExpandableInfoSection, Loader } from '@components/shared';
 import Link from 'next/link';
 import { PlusIcon } from '@assets/icons';
 import { HelpSection } from '@components/features';
-import { IParamsLanguage } from 'types/lang-types';
 import { useTranslations } from 'next-intl';
 
 
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 
-const FAQ: React.FC<IParamsLanguage> = ({ params: { lng } }) => {
+const FAQ: React.FC = () => {
     const t = useTranslations();
 
     return (
