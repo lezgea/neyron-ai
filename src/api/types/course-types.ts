@@ -1,3 +1,37 @@
+export interface ICourse {
+    id: number,
+    name: string,
+    description: string,
+    image: {
+        id: number,
+        filePath: string
+    }
+}
+
+export interface ICoursesResponse {
+    timestamp: string,
+    status: number,
+    key: string,
+    message: string,
+    data: ICourse[],
+    errors: [
+        {
+            field: string,
+            message: string
+        }
+    ]
+}
+
+export interface ICoursesRequest {
+    lang: string,
+}
+
+
+
+
+
+
+
 export interface IMessageResponse {
     error?: string,
     success?: string,
@@ -58,27 +92,6 @@ export interface IScoreboardResponse {
 
 export interface ICompetitionInfoRequest {
     id: string | number,
-}
-
-export interface ICompetition {
-    id: number,
-    name: string,
-    text: string,
-    rules?: string,
-    awardAmount: number,
-    imageUrl: string | null,
-    lifeTimeDays: number,
-    joinAvailable: boolean,
-    uploadAvailable: boolean,
-    currencySymbol: string,
-    isEditable?: boolean,
-    tags?: { id?: number, name: string }[],
-}
-
-export interface ICompetitionsResponse {
-    competitions: ICompetition[],
-    hasNextPage: boolean,
-    totalCount: number,
 }
 
 

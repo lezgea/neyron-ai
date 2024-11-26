@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
-import { IMessageResponse } from './types/competition-types';
+import { IMessageResponse } from './types/course-types';
 import { DownloadResultResponse, IDatasetFileUploadRequest, IDownloadResultRequest, IFileUploadRequest, IFileUploadResponse, IGetDatasetRequest, IGetDatasetResponse, IGetResultRequest, IGetResultResponse, IResultSaveRequest, ISubmitResultRequest } from './types/upload-types';
 
 
