@@ -19,8 +19,8 @@ import { useDispatch } from 'react-redux';
 
 
 const DROPDOWN_MENU: { route: string; label: string }[] = [
-    { route: '/profile', label: 'profile' },
-    { route: '/races', label: 'races' },
+    { route: '/profile', label: 'profile.profile' },
+    { route: '/courses', label: 'navbar.courses' },
 ];
 
 interface IUserProfileProps {
@@ -41,14 +41,14 @@ export const UserProfile: React.FC<IUserProfileProps> = () => {
     const { user, isAuthenticated, loading: isUserLoading } = useSelector((state: RootState) => state.user);
 
     const userImage = React.useMemo(
-        () => (user?.profileImage ? getImgFromBase64(user.profileImage) : '/svg/user.svg'),
-        [user?.profileImage]
+        () => (user?.data?.avatar || '/svg/user.svg'),
+        [user?.data?.avatar]
     );
 
 
     const handleLogout = async () => {
         try {
-            await logoutUser().unwrap();
+            // await logoutUser().unwrap();
             dispatch(logout());
             router.push('/');
         } catch (error) {
@@ -57,25 +57,25 @@ export const UserProfile: React.FC<IUserProfileProps> = () => {
     };
 
     const DropdownContent = (
-        <div role="menu" aria-orientation="vertical" aria-labelledby="options-menu" className="w-40">
+        <div role="menu" aria-orientation="vertical" aria-labelledby="options-menu" className="flex flex-col w-40">
             {DROPDOWN_MENU.map((item, index) => (
                 <Link
                     key={index}
                     href={`/${lng}${item.route}`}
-                    className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary rounded-md transition-all duration-200 ease-in-out"
+                    className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-purple rounded-md transition-all duration-200 ease-in-out"
                     role="menuitem"
                 >
                     {t(item.label)}
                 </Link>
             ))}
-            <Divider />
-            <button
-                disabled={isLoading}
-                onClick={() => setAskModal(true)}
-                className="flex w-full text-sm text-medium text-center justify-center px-5 py-2 text-gray-500 transition-all bg-gray-100 rounded-lg hover:bg-primaryDark hover:text-white shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:shadow-none"
-            >
-                {t('signOut')}
-            </button>
+            <div className="w-full flex flex-col mt-3">
+                <Button
+                    style="black"
+                    size="small"
+                    label={t('buttons.logOut')}
+                    onClick={() => setAskModal(true)}
+                />
+            </div>
         </div>
     );
 
@@ -100,7 +100,7 @@ export const UserProfile: React.FC<IUserProfileProps> = () => {
         <Dropdown content={DropdownContent}>
             <div className="flex items-center cursor-pointer group select-none">
                 <div className="hidden md:flex text-gray-600 font-regmed mr-3 group-hover:text-primary transition-all duration-200 ease-in-out">
-                    {user?.fullName?.split(" ")[0]}
+                    {user?.data?.name}
                 </div>
                 <div className="relative w-[40px] h-[40px] min-w-[40px] min-h-[40px] rounded-full overflow-hidden">
                     <Image

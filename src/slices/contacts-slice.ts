@@ -35,7 +35,7 @@ const contactsSlice = createSlice({
             state.loading = false;
             state.user = null;
             state.error = null;
-            Cookies.remove('dtr-token');
+            Cookies.remove('neyroken');
         },
     },
     extraReducers: (builder) => {

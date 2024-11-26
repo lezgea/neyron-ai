@@ -20,7 +20,7 @@ import { Button } from '@components/shared/buttons';
 
 
 interface IFormInput {
-    emailOrNickname: string;
+    email: string;
     password: string;
     rememberMe?: boolean;
 }
@@ -42,10 +42,10 @@ const SignInContent: React.FC = () => {
 
 
     const validationSchema = Yup.object().shape({
-        emailOrNickname: Yup.string().required(t('emailNicknameIsRequired')),
+        email: Yup.string().required(t('emailIsRequired')),
         password: Yup.string()
             .required(t('passwordIsRequired'))
-            .min(3, t('atLeast3Characters')),
+            .min(6, t('atLeast6Characters')),
     });
 
     const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({
@@ -79,7 +79,7 @@ const SignInContent: React.FC = () => {
     React.useEffect(() => {
         if (token) {
             router.push('/');
-            Cookies.set('dtr-token', token as string, {
+            Cookies.set('neyroken', token as string, {
                 secure: process.env.NODE_ENV === 'production',
                 expires: 47 / 24,
             });
@@ -159,7 +159,7 @@ const SignInContent: React.FC = () => {
                     </Link> */}
                     </form>
                     <p className="mt-6 text-center font-light">
-                        {t('dontHaveAnAccount')} <a href={`/${lng}/sign-up`} className="!text-gray-700 font-semi hover:!text-primaryLight transition duration-200 ease-in-out transform">{t('signUp')}</a>
+                        {t('login.createAccount')} <a href={`/${lng}/sign-up`} className="!text-gray-700 font-semi hover:!text-purple transition duration-200 ease-in-out transform">{t('register.signUp')}</a>
                     </p>
                 </div>
             </div>

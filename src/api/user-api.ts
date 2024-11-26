@@ -10,7 +10,7 @@ export const userApi = createApi({
     endpoints: (builder) => ({
         registerUser: builder.mutation<RegisterResponse, IRegisterRequest>({
             query: (credentials) => ({
-                url: '/users',
+                url: '/users/register',
                 method: 'POST',
                 data: credentials,
             }),
@@ -22,6 +22,21 @@ export const userApi = createApi({
                 data: credentials,
             }),
         }),
+        getUser: builder.query<IUser, void>({
+            query: () => ({
+                url: '/users/profile',
+                method: 'GET',
+            }),
+            providesTags: ['User'],
+        }),
+        logoutUser: builder.mutation<string, void>({
+            query: () => ({
+                url: '/users/logout',
+                method: 'GET',
+            }),
+        }),
+
+
         forgotPassword: builder.mutation<null, IForgetRequest>({
             query: (credentials) => ({
                 url: '/users/forget-password',
@@ -36,24 +51,11 @@ export const userApi = createApi({
                 data: { password: credentials.password },
             }),
         }),
-        logoutUser: builder.mutation<string, void>({
-            query: () => ({
-                url: '/users/logout',
-                method: 'GET',
-            }),
-        }),
         activateUser: builder.query<IActivateUserResponse, { token: string }>({
             query: ({ token }) => ({
                 url: `/users/active?token=${encodeURIComponent(token)}`,
                 method: 'GET',
             }),
-        }),
-        getUser: builder.query<IUser, void>({
-            query: () => ({
-                url: '/users',
-                method: 'GET',
-            }),
-            providesTags: ['User'],
         }),
         updateUser: builder.mutation<IUser, { id: number | string; data: Partial<IUser> }>({
             query: ({ id, data }) => ({

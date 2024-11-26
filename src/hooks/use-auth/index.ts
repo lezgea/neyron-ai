@@ -7,7 +7,7 @@ import { useGetUserQuery } from '@api/user-api';
 export const useAuthenticate = () => {
     const dispatch = useDispatch();
     const [loading, setLoading] = React.useState(true);
-    const token = Cookies.get('dtr-token');
+    const token = Cookies.get('neyroken');
 
     const { data: userData, error, isLoading, refetch } = useGetUserQuery(undefined, {
         skip: !token,

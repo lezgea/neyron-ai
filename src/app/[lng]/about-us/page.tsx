@@ -22,7 +22,7 @@ const AboutUs: React.FC = () => {
                 <main id="main-content" className="container mx-auto flex-grow px-5 py-10 md:px-0 md:py-[6rem]">
                     {/* Breadcrumb */}
                     <nav className="text-sm flex justify-start items-center text-gray-600 space-x-3">
-                        <Link href="/" className="hover:text-primaryLight">{t('main.mainPage')}</Link>
+                        <Link href="/" className="hover:text-purple">{t('main.mainPage')}</Link>
                         <span className="text-lg">&gt;</span>
                         <span>{t('main.aboutHead')}</span>
                     </nav>

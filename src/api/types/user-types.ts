@@ -1,12 +1,15 @@
 export interface IRegisterRequest {
-    email: string;
-    password: string;
+    email: string,
+    password: string,
+    source?: string,
+    compaignId?: string,
+    languageId?: number,
 }
 
 export type RegisterResponse = string
 
 export interface ILoginRequest {
-    emailOrNickname: string,
+    email: string,
     password: string,
     rememberMe?: boolean,
 }
@@ -21,19 +24,34 @@ export interface IChangeRequest {
 }
 
 
-export type LoginResponse = string
+export interface LoginResponse {
+    data: {
+        language: {
+            id: number,
+            name: string,
+            abbreviation: string,
+        },
+        token: string,
+    }
+}
 
 
 export interface IUser {
-    id: number | string,
-    fullName: string,
-    profileImage?: string,
-    profileFileId?: number | string,
-    nickname?: string,
-    email?: string,
-    phoneNumber?: string,
-    acceptNotification?: boolean,
-    message?: string,
+    data: {
+        avatar: string,
+        birthDate: string,
+        campaignId: number | string,
+        country: string,
+        email: string,
+        gender: string,
+        id: number,
+        languageId: number | string,
+        name: string,
+        role: string,
+        source: string,
+        status: string,
+        surname: string,
+    },
 }
 
 export interface IActivateUserResponse {

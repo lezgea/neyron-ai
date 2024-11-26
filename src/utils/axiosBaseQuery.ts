@@ -11,7 +11,7 @@ interface AxiosBaseQueryArgs {
     onUploadProgress?: (progressEvent: AxiosProgressEvent) => void; // Add support for upload progress
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_API_URL || 'https://api.datarace.ai/v1';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_API_URL || 'https://api.neyron.ai/v1';
 
 const axiosBaseQuery: BaseQueryFn<AxiosBaseQueryArgs, unknown, unknown> = async (
     { url, method, data, params, headers, onUploadProgress },
@@ -19,7 +19,7 @@ const axiosBaseQuery: BaseQueryFn<AxiosBaseQueryArgs, unknown, unknown> = async 
     extraOptions
 ) => {
     try {
-        const token = Cookies.get('dtr-token');
+        const token = Cookies.get('neyroken');
         const result = await axios({
             url: BASE_URL + url,
             method,

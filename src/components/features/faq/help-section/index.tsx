@@ -4,7 +4,7 @@ import React from 'react';
 
 
 interface IHelpSectionProps {
-    title: string,
+    title?: string,
     items?: [{ title: string, description: string }],
 }
 
@@ -14,7 +14,6 @@ export const HelpSection: React.FC<IHelpSectionProps> = (props) => {
 
     return (
         <section className="py-5 space-y-2">
-            <h2 className="text-2xl mb-5 font-regmed">&#8226; {title}</h2>
             <ExpandableInfoSection
                 title={t('faqTitle1')}
                 description={t('faqDescription1')}

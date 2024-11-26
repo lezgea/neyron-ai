@@ -1,6 +1,6 @@
 {
   "main": {
-      "mainPage": "Main page",
+    "mainPage": "Main page",
     "exploreHead": "Explore AI and get addicted to fun",
     "exploreText": "Begin your AI Adventure with our Interactive Learning Platform!",
     "languageText": "Language",
@@ -117,10 +117,10 @@
     "password": "Create password",
     "enterPassword": "Enter password",
     "agree": "I agree with",
-    "termsConditions": " user terms and conditiouns & privacy policy",
+    "termsConditions": "I accept Terms and Conditiouns",
     "signUp": "Sign up",
     "withGoogle": "Or sign up with Google",
-    "haveAnAccount": " Have an account?",
+    "haveAnAccount": "Have an account?",
     "login": "Login"
   },
   "resetPasswordModal": {

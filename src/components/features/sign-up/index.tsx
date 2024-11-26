@@ -1,2 +1,2 @@
-export * from './email-sent';
+export * from './otp-screen';
 export * from './sign-up-form';

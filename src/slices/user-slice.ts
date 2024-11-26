@@ -34,7 +34,7 @@ const userSlice = createSlice({
             state.loading = false;
             state.user = null;
             state.error = null;
-            Cookies.remove('dtr-token');
+            Cookies.remove('neyroken');
         },
     },
     extraReducers: (builder) => {
@@ -57,9 +57,77 @@ const userSlice = createSlice({
                 userApi.endpoints.loginUser.matchRejected,
                 (state, action) => {
                     state.loading = false;
+                    state.error = action.error?.message || 'Registration failed';
+                }
+            );
+
+        // LOGIN USER
+        builder
+            .addMatcher(
+                userApi.endpoints.loginUser.matchPending,
+                (state) => {
+                    state.loading = true;
+                    state.error = null;
+                    let token = Cookies.get('neyroken')
+                    if (!!token) {
+                        Cookies.remove('neyroken')
+                    }
+                }
+            )
+            .addMatcher(
+                userApi.endpoints.loginUser.matchFulfilled,
+                (state, action: PayloadAction<LoginResponse, string, { arg: { originalArgs: ILoginRequest } }>) => {
+                    state.loading = false;
+                    state.isAuthenticated = true;
+
+                    const data = action.payload.data;
+                    const { rememberMe } = action.meta.arg.originalArgs;
+
+                    // Determine the expiration time based on rememberMe
+                    const expirationTime = rememberMe ? 47 / 24 : 50 / 1440; // 47 hours for rememberMe, 50 minutes otherwise
+
+                    // Store the token in the cookie with the appropriate expiration time
+                    Cookies.set('neyroken', data.token, {
+                        secure: process.env.NODE_ENV === 'production',
+                        expires: expirationTime,
+                    });
+                }
+            )
+            .addMatcher(
+                userApi.endpoints.loginUser.matchRejected,
+                (state, action) => {
+                    state.loading = false;
                     state.error = action.error?.message || 'Login failed';
                 }
             );
+
+        // GET USER
+        builder
+            .addMatcher(
+                userApi.endpoints.getUser.matchPending,
+                (state) => {
+                    state.loading = true;
+                    state.error = null;
+                }
+            )
+            .addMatcher(
+                userApi.endpoints.getUser.matchFulfilled,
+                (state, action: PayloadAction<IUser>) => {
+                    state.loading = false;
+                    state.isAuthenticated = true;
+                    state.user = action.payload;
+                }
+            )
+            .addMatcher(
+                userApi.endpoints.getUser.matchRejected,
+                (state, action) => {
+                    state.loading = false;
+                    state.error = action.error?.message || 'Failed to fetch user data';
+                    state.isAuthenticated = false;
+                    state.user = null;
+                }
+            );
+
 
         // ACTIVATE USER
         builder
@@ -76,7 +144,7 @@ const userSlice = createSlice({
                     state.loading = false;
                     state.isAuthenticated = false;
                     state.user = null;
-                    Cookies.remove('dtr-token'); // Removes old token (if exists) on successful activation
+                    Cookies.remove('neyroken'); // Removes old token (if exists) on successful activation
                 }
             )
             .addMatcher(
@@ -113,45 +181,7 @@ const userSlice = createSlice({
                 }
             );
 
-        // LOGIN USER
-        builder
-            .addMatcher(
-                userApi.endpoints.loginUser.matchPending,
-                (state) => {
-                    state.loading = true;
-                    state.error = null;
-                    let token = Cookies.get('dtr-token')
-                    if (!!token) {
-                        Cookies.remove('dtr-token')
-                    }
-                }
-            )
-            .addMatcher(
-                userApi.endpoints.loginUser.matchFulfilled,
-                (state, action: PayloadAction<LoginResponse, string, { arg: { originalArgs: ILoginRequest } }>) => {
-                    state.loading = false;
-                    state.isAuthenticated = true;
 
-                    const token = action.payload;
-                    const { rememberMe } = action.meta.arg.originalArgs;
-
-                    // Determine the expiration time based on rememberMe
-                    const expirationTime = rememberMe ? 47 / 24 : 50 / 1440; // 47 hours for rememberMe, 50 minutes otherwise
-
-                    // Store the token in the cookie with the appropriate expiration time
-                    Cookies.set('dtr-token', token, {
-                        secure: process.env.NODE_ENV === 'production',
-                        expires: expirationTime,
-                    });
-                }
-            )
-            .addMatcher(
-                userApi.endpoints.loginUser.matchRejected,
-                (state, action) => {
-                    state.loading = false;
-                    state.error = action.error?.message || 'Login failed';
-                }
-            );
 
         // FORGOT PASSWORD
         builder
@@ -192,7 +222,7 @@ const userSlice = createSlice({
                     state.loading = false;
                     state.isAuthenticated = false;
                     state.user = null;
-                    Cookies.remove('dtr-token'); // Remove token on successful logout
+                    Cookies.remove('neyroken'); // Remove token on successful logout
                 }
             )
             .addMatcher(
@@ -200,33 +230,6 @@ const userSlice = createSlice({
                 (state, action) => {
                     state.loading = false;
                     state.error = action.error?.message || 'Logout failed';
-                }
-            );
-
-        // GET USER
-        builder
-            .addMatcher(
-                userApi.endpoints.getUser.matchPending,
-                (state) => {
-                    state.loading = true;
-                    state.error = null;
-                }
-            )
-            .addMatcher(
-                userApi.endpoints.getUser.matchFulfilled,
-                (state, action: PayloadAction<IUser>) => {
-                    state.loading = false;
-                    state.isAuthenticated = true;
-                    state.user = action.payload;
-                }
-            )
-            .addMatcher(
-                userApi.endpoints.getUser.matchRejected,
-                (state, action) => {
-                    state.loading = false;
-                    state.error = action.error?.message || 'Failed to fetch user data';
-                    state.isAuthenticated = false;
-                    state.user = null;
                 }
             );
 
@@ -244,7 +247,7 @@ const userSlice = createSlice({
                 (state, action: PayloadAction<IUser>) => {
                     state.loading = false;
                     state.user = action.payload;
-                    toast.success(action.payload?.message || 'User data updated successfully');
+                    // toast.success(action.payload?.message || 'User data updated successfully');
                 }
             )
             .addMatcher(
@@ -269,9 +272,9 @@ const userSlice = createSlice({
                 (state, action) => {
                     state.loading = false;
                     state.user = null;
-                    let token = Cookies.get('dtr-token')
+                    let token = Cookies.get('neyroken')
                     if (!!token) {
-                        Cookies.remove('dtr-token')
+                        Cookies.remove('neyroken')
                     }
                     toast.success('Your account has been deleted successfully');
                 }

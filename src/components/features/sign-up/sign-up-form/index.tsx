@@ -8,16 +8,14 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { EmailIcon, EyeClosedIcon, EyeIcon } from '@assets/icons';
 import { useRegisterUserMutation } from '@api/user-api';
 import { toast } from 'react-toastify';
-import Link from 'next/link';
-import Image from 'next/image';
-import { EmailSent } from '../email-sent';
 import { useLocale, useTranslations } from 'next-intl';
+import { OTPScreen } from '../otp-screen';
+import { Button } from '@components/shared/buttons';
 
 
 interface IFormInput {
     email: string;
     password: string;
-    confirmation: string;
 }
 
 
@@ -36,10 +34,7 @@ export const SignUpForm: React.FC = () => {
             .required(t('emailIsRequired')),
         password: Yup.string()
             .required(t('passwordIsRequired'))
-            .min(3, t('atLeast3Characters')),
-        confirmation: Yup.string()
-            .required(t('passwordConfirmationIsRequired'))
-            .oneOf([Yup.ref('password')], t('passwordMustMatch')),
+            .min(6, t('atLeast6Characters')),
     });
 
 
@@ -66,21 +61,17 @@ export const SignUpForm: React.FC = () => {
     };
 
 
-    if (emailSent) return <EmailSent />
+    if (emailSent) return <OTPScreen />
 
 
     return (
         <div className="w-full mx-auto lg:max-w-md animate-right-svg">
             <div>
-                <Link className="flex items-center lg:hidden justify-center cursor-pointer mb-[50px]" href="/">
-                    <Image src="/svg/datarace-logo.svg" alt="Logo" width={250} height={70} priority />
-                </Link>
-                <h2 className="text-2xl font-semi mb-4 lg:text-start text-center">{t('registerWithEmail')}</h2>
-                <p className="mb-4 text-sm text-gray-600 lg:text-start text-center">{t('enterYourEmailPasswordForSignUp')}</p>
+                <h2 className="text-2xl font-semi mb-4 lg:text-start text-center">{t('register.signUp')}</h2>
             </div>
-            <form className="space-y-5 select-none" onSubmit={handleSubmit(onSubmit)}>
+            <form className="flex flex-col space-y-5 select-none" onSubmit={handleSubmit(onSubmit)}>
                 <FormInput
-                    label={`${t('email')}*`}
+                    label={`${t('login.email')}*`}
                     type='email'
                     name='email'
                     placeholder="example@company.com"
@@ -89,20 +80,10 @@ export const SignUpForm: React.FC = () => {
                     icon={<EmailIcon />}
                 />
                 <FormInput
-                    label={`${t('password')}*`}
+                    label={`${t('login.password')}*`}
                     type={showPassword ? "text" : "password"}
                     name='password'
-                    placeholder={t('enterPassword')}
-                    register={register}
-                    errors={errors}
-                    onClickIcon={togglePasswordVisibility}
-                    icon={showPassword ? <EyeIcon /> : <EyeClosedIcon />}
-                />
-                <FormInput
-                    label={`${t('confirmPassword')}*`}
-                    type={showPassword ? "text" : "password"}
-                    name='confirmation'
-                    placeholder={t('enterPassword')}
+                    placeholder={t('login.enterPassword')}
                     register={register}
                     errors={errors}
                     onClickIcon={togglePasswordVisibility}
@@ -129,15 +110,9 @@ export const SignUpForm: React.FC = () => {
                             </svg>
                         </span>
                     </label>
-                    <div className="ml-2 text-gray-700 hover:text-primary underline cursor-pointer" onClick={() => setTermsModal(true)}>{t('iAcceptTermsConditions')}</div>
+                    <div className="ml-2 text-gray-700 hover:text-purple underline cursor-pointer" onClick={() => setTermsModal(true)}>{t('register.termsConditions')}</div>
                 </div>
-                <button
-                    disabled={!terms}
-                    type="submit"
-                    className="w-full h-[50px] font-regmed bg-primary text-white py-2 rounded-xl ring-2 ring-primary hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
-                >
-                    {t('signUp')}
-                </button>
+                <Button type="submit" style="black" size="large" label={t('register.signUp')} />
                 {/* <div className="text-center my-4">{t('or')}</div>
                 <Link
                     href="https://api.datarace.ai/oauth2/authorization/google"
@@ -149,14 +124,14 @@ export const SignUpForm: React.FC = () => {
                 </Link> */}
             </form>
             <p className="mt-6 text-center font-light">
-                {t('haveAnAccount')} <a href={`/${lng}/sign-in`} className="!text-gray-700 font-semi hover:!text-primaryLight transition duration-200 ease-in-out transform">{t('signIn')}</a>
+                {t('register.haveAnAccount')} <a href={`/${lng}/sign-in`} className="!text-gray-700 font-semi hover:!text-purple transition duration-200 ease-in-out transform">{t('login.signIn')}</a>
             </p>
 
-            <TermsModal
+            {/* <TermsModal
                 visible={termsModal}
                 onConfirm={() => acceptTerms(true)}
                 onClose={() => setTermsModal(false)}
-            />
+            /> */}
         </div>
     )
 }
