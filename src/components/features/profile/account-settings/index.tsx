@@ -22,10 +22,8 @@ import { IUserUpdateRequest } from '@api/types/user-types';
 interface IFormInput extends IUserUpdateRequest { }
 
 const validationSchema = Yup.object().shape({
-    fullName: Yup.string().required('Fullname is required'),
-    email: Yup.string().email('Invalid email').required('Email is required'),
-    nickname: Yup.string(),
-    phoneNumber: Yup.string(),
+    // name: Yup.string().required('Name is required'),
+    // surname: Yup.string().required('Surname is required'),
 });
 
 
