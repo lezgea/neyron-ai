@@ -1,6 +1,5 @@
 "use client";
 
-import { AuthModal } from '@components/shared';
 import CompetitionsSkeleton from '@components/shared/skeletons/competitions-skeleton';
 import { RootState } from '@store/store';
 import { useLocale, useTranslations } from 'next-intl';
@@ -9,6 +8,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import CourseItem from '../course-item';
 import { useLazyGetCoursesQuery } from '@api/courses-api';
+import { AuthModal } from '@components/shared';
 
 
 const TEST_COURSES = [
@@ -77,18 +77,8 @@ export const CoursesTable: React.FC<ICoursesTable> = () => {
     const [totalPages, setTotalPages] = useState(1);
     const [triggerGetCourses, { data: courses, error, isLoading }] = useLazyGetCoursesQuery();
 
-    const itemsPerPage = 6;
 
-    const CATEGORY_LABELS: Record<number, string> = {
-        1: t('all'),
-        2: "Environment",
-        3: "Education",
-        4: "Oil & Industry",
-        5: "Technology",
-    };
-
-
-    const onClickCompetition = (e: any) => {
+    const onClickCourse = (e: any) => {
         if (isAuthenticated) {
             e.stopPropagation()
         } else {
@@ -134,7 +124,7 @@ export const CoursesTable: React.FC<ICoursesTable> = () => {
                     <CourseItem
                         key={i}
                         {...item}
-                    // onClick={onClickCompetition}
+                        onClick={onClickCourse}
                     />
                 ))}
             </div>
@@ -159,10 +149,10 @@ export const CoursesTable: React.FC<ICoursesTable> = () => {
                 //     </button>
                 // </div>
             }
-            {/* <AuthModal
+            <AuthModal
                 visible={showAuthModal}
                 onClose={() => setShowAuthModal(false)}
-            /> */}
+            />
         </>
     );
 };
