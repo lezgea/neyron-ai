@@ -60,13 +60,13 @@ export const UserProfile: React.FC<IUserProfileProps> = () => {
                 <Link
                     key={index}
                     href={`/${lng}${item.route}`}
-                    className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-purple rounded-md transition-all duration-200 ease-in-out"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-purple rounded-full transition-all duration-200 ease-in-out"
                     role="menuitem"
                 >
                     {t(item.label)}
                 </Link>
             ))}
-            <div className="w-full flex flex-col mt-3">
+            <div className="w-full flex flex-col mt-2">
                 <Button
                     style="black"
                     size="small"
@@ -97,7 +97,7 @@ export const UserProfile: React.FC<IUserProfileProps> = () => {
     return (
         <Dropdown content={DropdownContent}>
             <div className="flex items-center cursor-pointer group select-none">
-                <div className="hidden md:flex text-gray-600 font-regmed mr-3 group-hover:text-primary transition-all duration-200 ease-in-out">
+                <div className="hidden md:flex text-gray-600 font-regmed mr-3 group-hover:text-purple transition-all duration-200 ease-in-out">
                     {user?.data?.name}
                 </div>
                 <div className="relative w-[40px] h-[40px] min-w-[40px] min-h-[40px] rounded-full overflow-hidden">

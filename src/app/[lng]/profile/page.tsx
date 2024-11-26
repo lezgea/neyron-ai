@@ -79,7 +79,7 @@ const Profile: React.FC = () => {
             <main className="flex-grow py-20">
                 <section className="container flex flex-col items-center justify-between space-y-7 mx-auto p-10 border border-gray-300 rounded-3xl lg:flex-row lg:space-x-10 lg:space-y-0">
                     <div
-                        className="relative w-[150px] h-[150px] min-w-[150px] min-h-[150px] rounded-full overflow-hidden border border-bg-gray-200"
+                        className="relative w-[250px] h-[250px] min-w-[250px] min-h-[250px] rounded-full overflow-hidden border border-bg-gray-200"
                         onMouseEnter={() => setHovering(true)}
                         onMouseLeave={() => setHovering(false)}
                     >
@@ -90,7 +90,6 @@ const Profile: React.FC = () => {
                             className="object-cover"
                             priority={true}
                         />
-
                         {hovering && (
                             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                                 {/* Label makes the hover area clickable */}
@@ -115,10 +114,8 @@ const Profile: React.FC = () => {
                     </div>
 
                     <div className="w-full flex flex-col space-y-5 md:flex-row justify-start md:space-y-0">
-                        <div className="w-full flex flex-col items-center md:items-start md:justify-end space-y-1">
-                            <p className="text-[2rem] font-medium">{user?.data?.name}</p>
-                            <p className="text-md text-gray-500">{user?.data?.email}</p>
-                            <p className="text-md text-gray-500">@{user?.data?.role}</p>
+                        <div className="w-full flex items-center md:items-start md:justify-end space-y-1">
+                            <AccountSettings />
                         </div>
                     </div>
                 </section>
@@ -130,9 +127,9 @@ const Profile: React.FC = () => {
                     </div>
                 )}
 
-                <section className="container mx-auto py-10 space-y-5">
+                {/* <section className="container mx-auto py-10 space-y-5">
                     <AccountSettings />
-                </section>
+                </section> */}
             </main>
         </div>
     );

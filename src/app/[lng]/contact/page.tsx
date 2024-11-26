@@ -7,8 +7,8 @@ import { InstagramIcon, LinkedinIcon, TwitterIcon, YoutubeIcon } from '@assets/i
 
 
 export const metadata: Metadata = {
-    title: "Contact Us | Datarace.ai",
-    description: "DataRace is an innovative platform designed to bring data scientists and Al enthusiasts together to compete in data-driven challenges.",
+    title: "Contact Us | Neyron AI",
+    description: "Neyron AI is an innovative platform designed to bring data scientists and Al enthusiasts together to compete in data-driven challenges.",
 };
 
 

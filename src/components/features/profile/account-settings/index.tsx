@@ -16,6 +16,7 @@ import { RootState } from '@store/store';
 import { ConfirmationModal } from '@components/shared';
 import { useTranslations } from 'next-intl';
 import { IUserUpdateRequest } from '@api/types/user-types';
+import { Button } from '@components/shared/buttons';
 
 
 
@@ -52,18 +53,15 @@ export const AccountSettings: React.FC = () => {
 
     React.useEffect(() => {
         if (user) {
-            // Set default values when user data is available
-            // setValue('profileFileId', user.profileFileId || 1);
-            // setValue('fullName', user.fullName || '');
-            // setValue('email', user.email || '');
-            // setValue('nickname', user.nickname || '');
-            // setValue('phoneNumber', user.phoneNumber || '');
+            setValue('name', user.data?.name || '');
+            setValue('surname', user.data?.surname || '');
         }
     }, [user, setValue]);
 
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         try {
             await updateUser({ id: user?.data?.id || '', data: data }).unwrap();
+            toast.success('Profile data has been updated!')
         } catch (err: any) {
             console.error('Unknown error:', err);
             toast.error(err.data?.message || 'An unexpected error occurred');
@@ -79,18 +77,9 @@ export const AccountSettings: React.FC = () => {
         }
     };
 
-    const onCancel = () => {
-        if (user) {
-            // setValue('fullName', user.fullName || '');
-            // setValue('email', user.email || '');
-            // setValue('nickname', user.nickname || '');
-            // setValue('phoneNumber', user.phoneNumber || '');
-        }
-    }
-
 
     return (
-        <div>
+        <div className='w-full'>
             <div className="space-y-5">
                 {/* <div className="flex items-center border border-gray-300 px-5 py-3 rounded-2xl space-x-5">
                     <WarningIcon className="w-10 h-10" />
@@ -99,56 +88,38 @@ export const AccountSettings: React.FC = () => {
                         {t('verifyNow')}
                     </button>
                 </div> */}
-                <form className="space-y-4 w-full sm:w-80" onSubmit={handleSubmit(onSubmit)}>
+                <form className="space-y-4 w-full" onSubmit={handleSubmit(onSubmit)}>
                     <FormEditInput
-                        label={t('fullName')}
+                        label={t('profile.name')}
                         type='string'
-                        name='fullName'
-                        placeholder="Jon Doe"
+                        name='name'
+                        placeholder={t('profile.name')}
                         register={register}
                         errors={errors}
                     />
                     <FormEditInput
-                        label={t('userName')}
+                        label={t('profile.surname')}
                         type='text'
-                        name='nickname'
-                        placeholder="@nickname"
+                        name='surname'
+                        placeholder={t('profile.surname')}
                         register={register}
                         errors={errors}
                     />
-                    <div className="space-y-2">
-                        <FormEditInput
-                            label={t('contact')}
-                            type='email'
-                            name='email'
-                            placeholder="email@example.com"
-                            register={register}
-                            errors={errors}
-                        />
-                        <FormEditInput
-                            type='string'
-                            name='phoneNumber'
-                            placeholder="phone"
-                            register={register}
-                            errors={errors}
-                        />
-                    </div>
 
-                    <div className="flex w-full space-x-3 py-4">
-                        <button type="submit" className="flex w-full text-center justify-center px-4 py-2 text-white transition-all bg-primary rounded-lg hover:bg-primaryDark hover:text-white shadow-neutral-300 dark:shadow-neutral-700 hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:shadow-none">
-                            {t('save')}
-                        </button>
-                        <button type="button" onClick={onCancel} className="flex w-full text-center justify-center px-4 py-2 text-primaryDark transition-all border border-primaryDark rounded-lg hover:bg-primaryDark hover:text-white shadow-neutral-300 dark:shadow-neutral-700 hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:shadow-none">
-                            {t('cancel')}
-                        </button>
+                    <div className="flex-row w-full space-x-3 py-4">
+                        <Button
+                            type="submit"
+                            size="medium"
+                            label={t('buttons.save')}
+                        />
+                        <Button
+                            style="black"
+                            size="medium"
+                            label={t('buttons.logOut')}
+                            onClick={() => setLogoutModal(true)}
+                        />
                     </div>
                 </form>
-
-                <div className="w-full">
-                    <button onClick={() => setLogoutModal(true)} className="flex w-full sm:w-40 text-center justify-center px-4 py-2 text-gray-500 transition-all bg-gray-100 rounded-lg hover:bg-primaryDark hover:text-white shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:shadow-none">
-                        <span>{t('signOut')}</span>
-                    </button>
-                </div>
             </div>
 
             <ConfirmationModal
