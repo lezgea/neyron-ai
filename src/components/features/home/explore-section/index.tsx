@@ -27,7 +27,7 @@ export const ExploreSection = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowRive(true);
-        }, 800); // 600 milliseconds delay
+        }, 600); // 600 milliseconds delay
 
         return () => clearTimeout(timer); // Cleanup timeout on component unmount
     }, []);

@@ -25,7 +25,7 @@ export const Header: React.FC = () => {
     const NAV_ROUTES: { route: string; label: string }[] = [
         { route: '/about-us', label: t('navbar.about') },
         { route: '/courses', label: t('navbar.courses') },
-        { route: '/community', label: t('navbar.community') },
+        // { route: '/community', label: t('navbar.community') },
         { route: '/faq', label: t('navbar.faq') },
         { route: '/contact', label: t('navbar.contact') },
     ];
