@@ -200,10 +200,10 @@ const uploadSlice = createSlice({
                 }
             );
 
-        // UPLOAD AVATAR MUTATION
+        // UPLOAD FILE MUTATION
         builder
             .addMatcher(
-                uploadApi.endpoints.uploadAvatar.matchPending,
+                uploadApi.endpoints.uploadFile.matchPending,
                 (state) => {
                     state.loading = true;
                     state.error = false;
@@ -211,48 +211,22 @@ const uploadSlice = createSlice({
                 }
             )
             .addMatcher(
-                uploadApi.endpoints.uploadAvatar.matchFulfilled,
+                uploadApi.endpoints.uploadFile.matchFulfilled,
                 (state, action) => {
                     state.loading = false;
                     state.success = true;
-                    state.message = "Profile Image has been uploaded!";
+                    state.message = "File has been uploaded!";
                 }
             )
             .addMatcher(
-                uploadApi.endpoints.uploadAvatar.matchRejected,
+                uploadApi.endpoints.uploadFile.matchRejected,
                 (state, action) => {
                     state.loading = false;
-                    state.error = action.error?.message || 'Failed to upload the profile image';
+                    state.error = action.error?.message || 'Failed to upload the file';
                     toast.error(state.error);
                 }
             );
 
-        // UPLOAD DATASET IMAGE MUTATION
-        builder
-            .addMatcher(
-                uploadApi.endpoints.uploadDatasetImage.matchPending,
-                (state) => {
-                    state.loading = true;
-                    state.error = false;
-                    state.success = false;
-                }
-            )
-            .addMatcher(
-                uploadApi.endpoints.uploadDatasetImage.matchFulfilled,
-                (state, action) => {
-                    state.loading = false;
-                    state.success = true;
-                    state.message = "Dataset Image has been uploaded!";
-                }
-            )
-            .addMatcher(
-                uploadApi.endpoints.uploadDatasetImage.matchRejected,
-                (state, action) => {
-                    state.loading = false;
-                    state.error = action.error?.message || 'Failed to upload the dataset image';
-                    toast.error(state.error);
-                }
-            );
     },
 });
 

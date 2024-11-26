@@ -1,19 +1,16 @@
 "use client";
 
-import { useGetUserQuery, useLogoutUserMutation } from '@api/user-api';
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { ConfirmationModal, UserProfileSkeleton } from '@components/shared';
 import { Button } from '@components/shared/buttons';
-import Divider from '@components/shared/divider';
 import { Dropdown } from '@components/shared/dropdown';
 import { useAuthenticate } from '@hooks/use-auth';
 import { logout } from '@slices/user-slice';
 import { RootState } from '@store/store';
-import getImgFromBase64 from '@utils/base64toImg';
 import { useLocale, useTranslations } from 'next-intl';
-import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
@@ -31,7 +28,6 @@ interface IUserProfileProps {
 export const UserProfile: React.FC<IUserProfileProps> = () => {
     const lng = useLocale();
     const t = useTranslations();
-    const [logoutUser, { isLoading, isError, error }] = useLogoutUserMutation();
     const [askModal, setAskModal] = React.useState<boolean>(false);
     const dispatch = useDispatch();
     const router = useRouter();
@@ -41,7 +37,9 @@ export const UserProfile: React.FC<IUserProfileProps> = () => {
     const { user, isAuthenticated, loading: isUserLoading } = useSelector((state: RootState) => state.user);
 
     const userImage = React.useMemo(
-        () => (user?.data?.avatar || '/svg/user.svg'),
+        () => (
+            // user?.data?.avatar?.filePath ||
+            '/svg/user.svg'),
         [user?.data?.avatar]
     );
 

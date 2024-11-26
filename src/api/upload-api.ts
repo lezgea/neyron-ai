@@ -1,13 +1,22 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
 import { IMessageResponse } from './types/competition-types';
-import { DownloadResultResponse, IDatasetFileUploadRequest, IDownloadResultRequest, IGetDatasetRequest, IGetDatasetResponse, IGetResultRequest, IGetResultResponse, IProfileImageUploadRequest, IProfileImageUploadResponse, IResultSaveRequest, ISubmitResultRequest } from './types/upload-types';
+import { DownloadResultResponse, IDatasetFileUploadRequest, IDownloadResultRequest, IFileUploadRequest, IFileUploadResponse, IGetDatasetRequest, IGetDatasetResponse, IGetResultRequest, IGetResultResponse, IResultSaveRequest, ISubmitResultRequest } from './types/upload-types';
 
 
 export const uploadApi = createApi({
     reducerPath: 'uploadApi',
     baseQuery: axiosBaseQuery,
     endpoints: (builder) => ({
+        uploadFile: builder.mutation<IFileUploadResponse, IFileUploadRequest>({
+            query: ({ file }) => ({
+                url: '/files/upload',
+                method: 'POST',
+                data: file,
+            }),
+        }),
+
+
         saveResult: builder.mutation<IMessageResponse, IResultSaveRequest>({
             query: ({ competitionId, file }) => ({
                 url: `/files/upload/result/${competitionId}`,
@@ -49,38 +58,16 @@ export const uploadApi = createApi({
                 method: 'GET',
             }),
         }),
-        uploadAvatar: builder.mutation<IProfileImageUploadResponse, IProfileImageUploadRequest>({
-            query: ({ file }) => ({
-                url: '/files/upload/profile-image',
-                method: 'POST',
-                data: file,
-            }),
-        }),
-        uploadDatasetImage: builder.mutation<IProfileImageUploadResponse, IProfileImageUploadRequest>({
-            query: ({ file }) => ({
-                url: '/files/upload/dataset-image',
-                method: 'POST',
-                data: file,
-            }),
-        }),
-        uploadDatasetFile: builder.mutation<IProfileImageUploadResponse, IDatasetFileUploadRequest>({
-            query: ({ datasetId, file }) => ({
-                url: `/files/upload/dataset/${datasetId}`,
-                method: 'POST',
-                data: file,
-            }),
-        }),
     }),
 });
 
 export const {
+    useUploadFileMutation,
+
     useSaveResultMutation,
-    useUploadAvatarMutation,
     useGetResultQuery,
     useLazyDownloadResultQuery,
     useLazyDownloadDataQuery,
     useLazySubmitResultQuery,
     useLazyGetDatasetQuery,
-    useUploadDatasetImageMutation,
-    useUploadDatasetFileMutation,
 } = uploadApi;

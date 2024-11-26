@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
-import { IActivateUserResponse, IChangeRequest, IForgetRequest, ILoginRequest, IRegisterRequest, IUser, LoginResponse, RegisterResponse } from './types/user-types';
+import { IActivateUserResponse, IChangeRequest, IForgetRequest, ILoginRequest, IRegisterRequest, IUser, IUserUpdateRequest, LoginResponse, RegisterResponse } from './types/user-types';
 
 
 export const userApi = createApi({
@@ -29,11 +29,13 @@ export const userApi = createApi({
             }),
             providesTags: ['User'],
         }),
-        logoutUser: builder.mutation<string, void>({
-            query: () => ({
-                url: '/users/logout',
-                method: 'GET',
+        updateUser: builder.mutation<IUser, { id: number | string; data: IUserUpdateRequest }>({
+            query: ({ id, data }) => ({
+                url: `/users/${id}`,
+                method: 'PUT',
+                data,
             }),
+            invalidatesTags: ['User'],
         }),
 
 
@@ -57,32 +59,15 @@ export const userApi = createApi({
                 method: 'GET',
             }),
         }),
-        updateUser: builder.mutation<IUser, { id: number | string; data: Partial<IUser> }>({
-            query: ({ id, data }) => ({
-                url: `/users/${id}`,
-                method: 'PUT',
-                data,
-            }),
-            invalidatesTags: ['User'],
-        }),
-        deleteUser: builder.mutation<void, { id: number | string }>({
-            query: ({ id }) => ({
-                url: `/users/${id}`,
-                method: 'DELETE',
-            }),
-            invalidatesTags: ['User'],
-        }),
     }),
 });
 
 export const {
     useRegisterUserMutation,
     useLoginUserMutation,
-    useLogoutUserMutation,
     useActivateUserQuery,
     useGetUserQuery,
     useUpdateUserMutation,
-    useDeleteUserMutation,
     useForgotPasswordMutation,
     useChangePasswordMutation,
 } = userApi;

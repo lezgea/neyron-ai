@@ -38,7 +38,10 @@ export interface LoginResponse {
 
 export interface IUser {
     data: {
-        avatar: string,
+        avatar: {
+            id: number,
+            filePath: string,
+        },
         birthDate: string,
         campaignId: number | string,
         country: string,
@@ -52,6 +55,15 @@ export interface IUser {
         status: string,
         surname: string,
     },
+}
+
+export interface IUserUpdateRequest {
+    name?: string,
+    surname?: string,
+    gender?: string,
+    birthDate?: string,
+    avatarId?: number,
+    countryId?: number,
 }
 
 export interface IActivateUserResponse {

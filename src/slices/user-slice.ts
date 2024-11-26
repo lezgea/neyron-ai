@@ -207,31 +207,6 @@ const userSlice = createSlice({
                 }
             );
 
-        // LOGOUT USER
-        builder
-            .addMatcher(
-                userApi.endpoints.logoutUser.matchPending,
-                (state) => {
-                    state.loading = true;
-                    state.error = null;
-                }
-            )
-            .addMatcher(
-                userApi.endpoints.logoutUser.matchFulfilled,
-                (state) => {
-                    state.loading = false;
-                    state.isAuthenticated = false;
-                    state.user = null;
-                    Cookies.remove('neyroken'); // Remove token on successful logout
-                }
-            )
-            .addMatcher(
-                userApi.endpoints.logoutUser.matchRejected,
-                (state, action) => {
-                    state.loading = false;
-                    state.error = action.error?.message || 'Logout failed';
-                }
-            );
 
         // UPDATE USER
         builder
@@ -255,36 +230,6 @@ const userSlice = createSlice({
                 (state, action) => {
                     state.loading = false;
                     state.error = action.error?.message || 'Failed to update user data';
-                }
-            );
-
-        // DELETE USER
-        builder
-            .addMatcher(
-                userApi.endpoints.deleteUser.matchPending,
-                (state) => {
-                    state.loading = true;
-                    state.error = null;
-                }
-            )
-            .addMatcher(
-                userApi.endpoints.deleteUser.matchFulfilled,
-                (state, action) => {
-                    state.loading = false;
-                    state.user = null;
-                    let token = Cookies.get('neyroken')
-                    if (!!token) {
-                        Cookies.remove('neyroken')
-                    }
-                    toast.success('Your account has been deleted successfully');
-                }
-            )
-            .addMatcher(
-                userApi.endpoints.deleteUser.matchRejected,
-                (state, action) => {
-                    state.loading = false;
-                    state.error = action.error?.message || 'Failed to delete user';
-                    toast.error('Unable to delete your account');
                 }
             );
     },

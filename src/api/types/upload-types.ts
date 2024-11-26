@@ -42,12 +42,15 @@ export interface IDownloadResultRequest {
 
 export type DownloadResultResponse = Blob;
 
-export interface IProfileImageUploadRequest {
+export interface IFileUploadRequest {
     file: FormData,
 }
 
-export interface IProfileImageUploadResponse {
-    id: number,
+export interface IFileUploadResponse {
+    data: {
+        id: number,
+        filePath: string,
+    }
 }
 
 export interface ISubmitResultRequest {
