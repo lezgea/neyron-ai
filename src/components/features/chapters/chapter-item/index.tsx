@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 
 
-interface ICourseProps extends ICourse {
+interface IChapterProps extends ICourse {
     // id: number | string,
     // competitionId: number,
     // competitionName: string,
@@ -26,16 +26,16 @@ interface ICourseProps extends ICourse {
 }
 
 
-const CourseItem: React.FC<ICourseProps> = (props) => {
+const ChapterItem: React.FC<IChapterProps> = (props) => {
     let { id, name, description, image, onClick } = props;
     let lng = useLocale();
 
     const { isAuthenticated } = useSelector((state: RootState) => state.user);
-    const imageUrl = "/svg/no_course.svg";
+    const imageUrl = "/svg/no_chapter.svg";
 
 
     return (
-        <Link href={isAuthenticated ? `/${lng}/courses/${id}/chapters` : ''} onClick={onClick} className="h-md rounded-custom_md select-none cursor-pointer overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg group active:shadow-none bg-white">
+        <Link href={isAuthenticated ? `/${lng}/races/${id}` : ''} onClick={onClick} className="h-md rounded-custom_md select-none cursor-pointer overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg group active:shadow-none bg-white">
             <div className="relative overflow-hidden">
                 <Image
                     src={imageUrl}
@@ -56,4 +56,4 @@ const CourseItem: React.FC<ICourseProps> = (props) => {
     );
 };
 
-export default CourseItem;
+export default ChapterItem;
