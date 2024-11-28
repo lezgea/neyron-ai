@@ -13,6 +13,7 @@ import { truncate } from 'lodash';
 import { useTranslations } from 'next-intl';
 import { AccountSettings } from '@components/features';
 import { useUploadFileMutation } from '@api/upload-api';
+import { createSelector } from '@reduxjs/toolkit';
 
 
 
@@ -23,16 +24,24 @@ const Profile: React.FC = () => {
     const [hovering, setHovering] = React.useState(false);
     const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
     const [isClient, setIsClient] = React.useState<boolean>(false);
-    const { user, isAuthenticated, loading } = useSelector((state: RootState) => state.user);
+    const selectAuthData = createSelector(
+        (state: RootState) => state.user.user,
+        (state: RootState) => state.user.isAuthenticated,
+        (state: RootState) => state.user.loading,
+        (user, isAuthenticated, loading) => ({ user, isAuthenticated, loading })
+    );
+
+    const { user, isAuthenticated, loading } = useSelector(selectAuthData);
 
     const [uploadFile, { isLoading }] = useUploadFileMutation();
     const [updateUser, { isLoading: updateLoading, isError: updateError, data }] = useUpdateUserMutation();
 
     const userImage = React.useMemo(
         () => (
-            // user?.data?.avatar?.filePath ||
-            '/svg/user.svg'),
-        [user?.data?.avatar]
+            `https://api.neyron.ai/v1/files/streams/${user?.data?.avatar.filePath}` ||
+            '/svg/user.svg'
+        ),
+        [user?.data]
     );
 
     const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {

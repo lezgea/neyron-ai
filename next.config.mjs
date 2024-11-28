@@ -18,7 +18,7 @@ const nextConfig = {
         includePaths: [path.join(__dirname, 'src/styles')],
     },
     images: {
-        domains: ['api.datarace.ai'],
+        domains: ['api.neyron.ai'],
     },
     webpack(config) {
         // Add your existing rule for handling .riv files
