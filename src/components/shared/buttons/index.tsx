@@ -3,7 +3,7 @@ import React from 'react';
 
 interface IButtonProps {
     style?: "primary" | "black" | "outlined",
-    size?: "large" | "medium" | "small",
+    size?: "large" | "medium" | "small" | "tiny",
     type?: "button" | "submit",
     label: string,
     onClick?: () => void,
@@ -13,9 +13,10 @@ export const Button: React.FC<IButtonProps> = (props) => {
     let { style, type = "button", size = "medium", label, onClick } = props;
 
     const SIZES = {
-        small: 'text-sm px-3 md:px-5 py-2',
-        medium: 'text-md px-3 md:px-6 py-2',
-        large: 'text-xl px-5 md:px-8 py-4',
+        tiny: 'text-sm px-3 md:px-5 py-2 min-w-[50px]',
+        small: 'text-md px-3 md:px-5 py-2 min-w-[60px]',
+        medium: 'text-md px-4 md:px-6 py-3 min-w-[120px]',
+        large: 'text-xl px-5 md:px-8 py-4 min-w-[120px]',
     }
 
     switch (style) {

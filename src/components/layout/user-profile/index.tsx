@@ -70,7 +70,7 @@ export const UserProfile: React.FC<IUserProfileProps> = () => {
             <div className="w-full flex flex-col mt-2">
                 <Button
                     style="black"
-                    size="small"
+                    size="tiny"
                     label={t('buttons.logOut')}
                     onClick={() => setAskModal(true)}
                 />
@@ -86,10 +86,10 @@ export const UserProfile: React.FC<IUserProfileProps> = () => {
         return (
             <div className="flex space-x-1 md:space-x-3">
                 <Link href={`/${lng}/sign-in`}>
-                    <Button style="primary" label={t('navbar.login')} />
+                    <Button size="small" style="primary" label={t('navbar.login')} />
                 </Link>
                 <Link href={`/${lng}/sign-up`}>
-                    <Button style="black" label={t('register.signUp')} />
+                    <Button size="small" style="black" label={t('register.signUp')} />
                 </Link>
             </div>
         );
@@ -98,7 +98,7 @@ export const UserProfile: React.FC<IUserProfileProps> = () => {
     return (
         <Dropdown content={DropdownContent}>
             <div className="flex items-center cursor-pointer group select-none">
-                <div className="hidden md:flex text-gray-600 font-regmed mr-3 group-hover:text-purple transition-all duration-200 ease-in-out">
+                <div className="hidden md:flex text-gray-600 font-medium mr-3 group-hover:text-purple transition-all duration-200 ease-in-out">
                     {user?.data?.name}
                 </div>
                 <div className="relative w-[40px] h-[40px] min-w-[40px] min-h-[40px] rounded-full overflow-hidden">

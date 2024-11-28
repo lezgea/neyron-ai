@@ -88,25 +88,26 @@ export const AccountSettings: React.FC = () => {
                         {t('verifyNow')}
                     </button>
                 </div> */}
-                <form className="space-y-4 w-full" onSubmit={handleSubmit(onSubmit)}>
-                    <FormEditInput
-                        label={t('profile.name')}
-                        type='string'
-                        name='name'
-                        placeholder={t('profile.name')}
-                        register={register}
-                        errors={errors}
-                    />
-                    <FormEditInput
-                        label={t('profile.surname')}
-                        type='text'
-                        name='surname'
-                        placeholder={t('profile.surname')}
-                        register={register}
-                        errors={errors}
-                    />
-
-                    <div className="flex-row w-full space-x-3 py-4">
+                <form className="flex flex-col space-y-10 w-full" onSubmit={handleSubmit(onSubmit)}>
+                    <div className='flex w-full'>
+                        <FormEditInput
+                            label={t('profile.name')}
+                            type='string'
+                            name='name'
+                            placeholder={t('profile.name')}
+                            register={register}
+                            errors={errors}
+                        />
+                        <FormEditInput
+                            label={t('profile.surname')}
+                            type='text'
+                            name='surname'
+                            placeholder={t('profile.surname')}
+                            register={register}
+                            errors={errors}
+                        />
+                    </div>
+                    <div className="flex w-full space-x-3">
                         <Button
                             type="submit"
                             size="medium"

@@ -14,6 +14,7 @@ import { useTranslations } from 'next-intl';
 import { AccountSettings } from '@components/features';
 import { useUploadFileMutation } from '@api/upload-api';
 import { createSelector } from '@reduxjs/toolkit';
+import { LogoWhite } from '@assets/icons';
 
 
 
@@ -85,60 +86,76 @@ const Profile: React.FC = () => {
 
     return (
         <div className="min-h-screen flex flex-col p-5">
-            <main className="flex-grow py-20">
-                <section className="container flex flex-col items-center justify-between space-y-7 mx-auto p-10 border border-gray-300 rounded-3xl lg:flex-row lg:space-x-10 lg:space-y-0">
-                    <div
-                        className="relative w-[250px] h-[250px] min-w-[250px] min-h-[250px] rounded-full overflow-hidden border border-bg-gray-200"
-                        onMouseEnter={() => setHovering(true)}
-                        onMouseLeave={() => setHovering(false)}
-                    >
+            <main className="flex-grow py-20 space-y-5">
+                <section className="container relative flex flex-col mx-auto rounded-3xl lg:space-y-0 overflow-hidden shadow-md border-t border-t-primaryExtra">
+                    <div className="flex w-full relative">
                         <Image
-                            src={userImage}
-                            alt="Avatar"
-                            fill={true}
-                            className="object-cover"
-                            priority={true}
+                            src={"/svg/banner.svg"}
+                            alt="Datarace Banner Image"
+                            height={200}
+                            width={800}
+                            className="w-full h-[12rem] md:h-[17rem] object-cover"
                         />
-                        {hovering && (
-                            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                                {/* Label makes the hover area clickable */}
-                                <label
-                                    htmlFor="image-upload"
-                                    className="cursor-pointer bg-none text-white text-xs px-4 py-2 border border-1 border-white rounded-full"
-                                >
-                                    {isLoading ? 'Uploading...' : 'Upload Image'}
-                                </label>
-                            </div>
-                        )}
-
-                        {/* Invisible input */}
-                        <input
-                            id="image-upload"
-                            type="file"
-                            className="absolute inset-0 opacity-0 cursor-pointer"
-                            accept="image/png, image/jpeg"
-                            onChange={handleImageChange}
-                            disabled={isLoading}
-                        />
+                        <div className='absolute flex flex-col items-end md:justify-center gap-7 p-10 lg:px-20 md:py-[1.5rem] top-0 w-full h-full'>
+                            <LogoWhite className='w-[150px] h-[50px] md:w-[200px] md:h-[70px]' />
+                            <p className='hidden md:flex text-md text-white font-light md:max-w-[50%] text-end'>
+                                Dive into the essentials of AI and see how it shapes our world with beginner-friendly course to ignite your AI passion
+                            </p>
+                        </div>
                     </div>
 
-                    <div className="w-full flex flex-col space-y-5 md:flex-row justify-start md:space-y-0">
-                        <div className="w-full flex items-center md:items-start md:justify-end space-y-1">
-                            <AccountSettings />
+                    <div className="flex flex-col md:flex-row justify-center px-10 lg:px-20 pb-10">
+                        <div
+                            className="relative -mt-[100px] w-[200px] h-[200px] min-w-[200px] min-h-[200px] rounded-full overflow-hidden border-4 border-white bg-gray-200"
+                            onMouseEnter={() => setHovering(true)}
+                            onMouseLeave={() => setHovering(false)}
+                        >
+                            <Image
+                                src={userImage}
+                                alt="Avatar"
+                                fill={true}
+                                className="object-cover"
+                                priority={true}
+                            />
+
+                            {hovering && (
+                                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                                    {/* Label makes the hover area clickable */}
+                                    <label
+                                        htmlFor="image-upload"
+                                        className="cursor-pointer bg-none text-white text-xs px-4 py-2 border border-1 border-white rounded-full"
+                                    >
+                                        {isLoading ? 'Uploading...' : 'Upload Image'}
+                                    </label>
+                                </div>
+                            )}
+
+                            {/* Invisible input */}
+                            <input
+                                id="image-upload"
+                                type="file"
+                                className="absolute inset-0 opacity-0 cursor-pointer"
+                                accept="image/png, image/jpeg"
+                                onChange={handleImageChange}
+                                disabled={isLoading}
+                            />
+                        </div>
+
+                        <div className="w-full flex flex-col md:flex-row py-5 md:pl-5">
+                            <div className="w-full flex flex-col items-between">
+                                <p className="text-[1.7rem] font-medium">{user?.data?.name} {user?.data?.surname}</p>
+                                <p className="text-md text-gray-500">{user?.data?.email}</p>
+                            </div>
+                            <div>
+                                <p className="text-md text-purple">@{user?.data?.role}</p>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                {/* Show error message if invalid file */}
-                {errorMessage && (
-                    <div className="text-red-500 text-center mt-4">
-                        {errorMessage}
-                    </div>
-                )}
-
-                {/* <section className="container mx-auto py-10 space-y-5">
+                <section className="container relative flex flex-col mx-auto rounded-3xl lg:space-y-0 overflow-hidden shadow-md border-t border-t-primaryExtra p-10">
                     <AccountSettings />
-                </section> */}
+                </section>
             </main>
         </div>
     );
