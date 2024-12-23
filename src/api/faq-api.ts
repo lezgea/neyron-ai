@@ -1,7 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
-import { IUser } from './types/user-types';
-import { IGetFaqListRequest } from './types/faq-types';
+import { IGetFaqListRequest, IGetFaqListResponse } from './types/faq-types';
 
 
 export const faqApi = createApi({
@@ -9,9 +8,9 @@ export const faqApi = createApi({
     baseQuery: axiosBaseQuery,
     tagTypes: ['User'],
     endpoints: (builder) => ({
-        getFaqs: builder.query<IUser, IGetFaqListRequest>({
+        getFaqs: builder.query<IGetFaqListResponse, IGetFaqListRequest>({
             query: ({ langId, isOnMainPage }) => ({
-                url: '/faqs/languages/${langId}',
+                url: `/faqs/languages/${langId}`,
                 method: 'GET',
                 params: { languageId: langId, isOnMainPage: isOnMainPage }
             }),

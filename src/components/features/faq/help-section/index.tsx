@@ -1,5 +1,9 @@
+"use client"
+
+import { useGetFaqsQuery } from '@api/faq-api';
 import { ExpandableInfoSection } from '@components/shared';
-import { useTranslations } from 'next-intl';
+import { LANGS } from 'constants/langs';
+import { useLocale, useTranslations } from 'next-intl';
 import React from 'react';
 
 
@@ -8,52 +12,26 @@ interface IHelpSectionProps {
     items?: [{ title: string, description: string }],
 }
 
+type LangKey = keyof typeof LANGS;
+
 export const HelpSection: React.FC<IHelpSectionProps> = (props) => {
     let { title, items } = props;
     const t = useTranslations();
+    const lng = useLocale();
+
+    const { data: faqData } = useGetFaqsQuery({ langId: LANGS[lng as LangKey]?.key, isOnMainPage: true })
 
     return (
         <section className="py-5 space-y-2">
-            <ExpandableInfoSection
-                title={t('faqTitle1')}
-                description={t('faqDescription1')}
-            />
-            <ExpandableInfoSection
-                title={t('faqTitle2')}
-                description={t('faqDescription2')}
-            />
-            <ExpandableInfoSection
-                title={t('faqTitle3')}
-                description={t('faqDescription3')}
-            />
-            <ExpandableInfoSection
-                title={t('faqTitle4')}
-                description={t('faqDescription4')}
-            />
-            <ExpandableInfoSection
-                title={t('faqTitle5')}
-                description={t('faqDescription5')}
-            />
-            <ExpandableInfoSection
-                title={t('faqTitle6')}
-                description={t('faqDescription6')}
-            />
-            <ExpandableInfoSection
-                title={t('faqTitle7')}
-                description={t('faqDescription7')}
-            />
-            <ExpandableInfoSection
-                title={t('faqTitle8')}
-                description={t('faqDescription8')}
-            />
-            <ExpandableInfoSection
-                title={t('faqTitle9')}
-                description={t('faqDescription9')}
-            />
-            <ExpandableInfoSection
-                title={t('faqTitle10')}
-                description={t('faqDescription10')}
-            />
+            {
+                faqData?.data?.map(faq =>
+                    <ExpandableInfoSection
+                        key={faq.id}
+                        title={faq.question}
+                        description={faq.answer}
+                    />
+                )
+            }
         </section>
     )
 }

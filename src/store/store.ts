@@ -5,12 +5,14 @@ import coursesReducer from '@slices/courses-slice';
 import datasetsReducer from '@slices/dataset-slice';
 import uploadReducer from '@slices/upload-slice';
 import contactReducer from '@slices/contacts-slice';
+import faqReducer from '@slices/faq-slice';
 import { userApi } from '@api/user-api';
 import { categoryApi } from '@api/category-api';
 import { uploadApi } from '@api/upload-api';
 import { datasetsApi } from '@api/datasets-api';
 import { contactsApi } from '@api/contact-api';
 import { coursesApi } from '@api/courses-api';
+import { faqApi } from '@api/faq-api';
 
 
 export const store = configureStore({
@@ -21,12 +23,14 @@ export const store = configureStore({
         datasets: datasetsReducer,
         uploads: uploadReducer,
         contacts: contactReducer,
+        faq: faqReducer,
         [userApi.reducerPath]: userApi.reducer,
         [categoryApi.reducerPath]: categoryApi.reducer,
         [coursesApi.reducerPath]: coursesApi.reducer,
         [datasetsApi.reducerPath]: datasetsApi.reducer,
         [uploadApi.reducerPath]: uploadApi.reducer,
         [contactsApi.reducerPath]: contactsApi.reducer,
+        [faqApi.reducerPath]: faqApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(
@@ -36,6 +40,7 @@ export const store = configureStore({
             datasetsApi.middleware,
             uploadApi.middleware,
             contactsApi.middleware,
+            faqApi.middleware,
         ),
 });
 
