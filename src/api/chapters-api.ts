@@ -13,7 +13,6 @@ export const chaptersApi = createApi({
                 url: `/chapters/courses/${courseId}`,
                 method: 'GET',
                 // params: { page: data.page, count: data.count },
-                // headers: { "Accept-language": lang }
                 headers: { "Accept-language": lang }
             }),
         }),

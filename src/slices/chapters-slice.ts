@@ -1,11 +1,11 @@
-import { coursesApi } from '@api/courses-api';
+import { chaptersApi } from '@api/chapters-api';
+import { IGetChaptersListResponse } from '@api/types/chapter-types';
 import { ICoursesResponse } from '@api/types/course-types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
 
 
 interface IChapterState {
-    courses: ICoursesResponse | {},
+    chapters: ICoursesResponse | {},
     loading: boolean,
     error?: string | boolean,
     success?: string | boolean,
@@ -13,7 +13,7 @@ interface IChapterState {
 }
 
 const initialState: IChapterState = {
-    courses: {},
+    chapters: {},
     loading: false,
     error: false,
     success: false,
@@ -23,34 +23,30 @@ const initialState: IChapterState = {
 const chaptersSlice = createSlice({
     name: 'chapters',
     initialState,
-    reducers: {
-        // setSelectedCategory: (state, action: PayloadAction<number>) => {
-        //     state.selectedCategory = action.payload;
-        // },
-    },
+    reducers: {},
     extraReducers: (builder) => {
 
-        // GET COMPETITIONS QUERY
+        // GET CHAPTERS LIST QUERY
         builder
             .addMatcher(
-                coursesApi.endpoints.getCourses.matchPending,
+                chaptersApi.endpoints.getChapters.matchPending,
                 (state) => {
                     state.loading = true;
                     state.error = false;
                 }
             )
             .addMatcher(
-                coursesApi.endpoints.getCourses.matchFulfilled,
-                (state, action: PayloadAction<ICoursesResponse>) => {
+                chaptersApi.endpoints.getChapters.matchFulfilled,
+                (state, action: PayloadAction<IGetChaptersListResponse>) => {
                     state.loading = false;
-                    state.courses = action.payload;
+                    state.chapters = action.payload;
                 }
             )
             .addMatcher(
-                coursesApi.endpoints.getCourses.matchRejected,
+                chaptersApi.endpoints.getChapters.matchRejected,
                 (state, action) => {
                     state.loading = false;
-                    state.error = action.error?.message || 'Failed to fetch courses list';
+                    state.error = action.error?.message || 'Failed to fetch chapters list';
                 }
             );
     },
