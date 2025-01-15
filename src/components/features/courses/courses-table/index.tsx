@@ -11,54 +11,6 @@ import { useLazyGetCoursesQuery } from '@api/courses-api';
 import { AuthModal } from '@components/shared';
 
 
-const TEST_COURSES = [
-    {
-        id: 1,
-        name: 'Test Course 1',
-        description: 'This chapter gives you a basic overview of Artificial Intelligence, its key concepts, and technologies.',
-        image: {
-            id: 1,
-            filePath: '',
-        }
-    },
-    {
-        id: 2,
-        name: 'Test Course 2',
-        description: 'This chapter gives you a basic overview of Artificial Intelligence, its key concepts, and technologies.',
-        image: {
-            id: 1,
-            filePath: '',
-        }
-    },
-    {
-        id: 3,
-        name: 'Test Course 3',
-        description: 'This chapter gives you a basic overview of Artificial Intelligence, its key concepts, and technologies.',
-        image: {
-            id: 1,
-            filePath: '',
-        }
-    },
-    {
-        id: 4,
-        name: 'Test Course 4',
-        description: 'This chapter gives you a basic overview of Artificial Intelligence, its key concepts, and technologies.',
-        image: {
-            id: 1,
-            filePath: '',
-        }
-    },
-    {
-        id: 5,
-        name: 'Test Course 5',
-        description: 'This chapter gives you a basic overview of Artificial Intelligence, its key concepts, and technologies.',
-        image: {
-            id: 1,
-            filePath: '',
-        }
-    },
-]
-
 interface ICoursesTable {
     lng?: string,
     t?: (val: string) => string,
@@ -125,26 +77,6 @@ export const CoursesTable: React.FC<ICoursesTable> = () => {
                 ))}
             </div>
 
-            {/* Pagination Controls */
-                // !!competitionsData?.totalCount &&
-                // <div className="flex justify-between items-center mt-6">
-                //     <button
-                //         onClick={handlePreviousPage}
-                //         disabled={currentPage === 0}
-                //         className={`px-4 py-2 rounded-md ${currentPage === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-primary text-white hover:bg-primaryDark'}`}
-                //     >
-                //         {t('previous')}
-                //     </button>
-                //     <span>{t('page')} {currentPage + 1} of {totalPages}</span>
-                //     <button
-                //         onClick={handleNextPage}
-                //         disabled={currentPage >= totalPages - 1}
-                //         className={`px-4 py-2 rounded-md ${currentPage >= totalPages - 1 ? 'bg-gray-300 cursor-not-allowed' : 'bg-primary text-white hover:bg-primaryDark'}`}
-                //     >
-                //         {t('next')}
-                //     </button>
-                // </div>
-            }
             <AuthModal
                 visible={showAuthModal}
                 onClose={() => setShowAuthModal(false)}
