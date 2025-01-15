@@ -93,6 +93,7 @@ export const CoursesTable: React.FC<ICoursesTable> = () => {
         }).then((response) => {
             // if (response?.data?.totalCount) {
             //     setTotalPages(Math.ceil(response.data.totalCount / itemsPerPage));
+            //     setTotalElems(response?.data?.totalCount);
             // } else {
             //     setTotalPages(1)
             // }
@@ -100,17 +101,12 @@ export const CoursesTable: React.FC<ICoursesTable> = () => {
     }, [lng]);
 
 
-    const handleNextPage = () => {
-        if (currentPage < totalPages - 1) {
-            setCurrentPage((prevPage) => prevPage + 1);
+    const onPageChange = (page: number) => {
+        if (page >= 0 && page < totalPages) {
+            setCurrentPage(page);
         }
     };
 
-    const handlePreviousPage = () => {
-        if (currentPage > 0) {
-            setCurrentPage((prevPage) => prevPage - 1);
-        }
-    };
 
     if (coursesLoading || isLoading) {
         return <CompetitionsSkeleton />;
@@ -120,7 +116,7 @@ export const CoursesTable: React.FC<ICoursesTable> = () => {
     return (
         <>
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
-                {TEST_COURSES.map((item, i) => (
+                {courses?.data?.map((item, i) => (
                     <CourseItem
                         key={i}
                         {...item}
