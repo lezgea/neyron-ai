@@ -7,15 +7,15 @@ import { useParams, useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useLazyGetChaptersQuery } from '@api/chapters-api';
-import ChapterItem from '../chapter-item';
+import ChapterItem from '../lesson-item';
 
 
-interface IChaptersTable {
+interface ILessonsTable {
     lng?: string,
     t?: (val: string) => string,
 }
 
-export const ChaptersTable: React.FC<IChaptersTable> = () => {
+export const LessonsTable: React.FC<ILessonsTable> = () => {
     const t = useTranslations();
     const lng = useLocale();
     const router = useRouter();
