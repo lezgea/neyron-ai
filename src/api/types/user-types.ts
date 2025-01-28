@@ -6,7 +6,11 @@ export interface IRegisterRequest {
     languageId?: number,
 }
 
-export type RegisterResponse = string
+export interface RegisterResponse {
+    data: string,
+    key: string | number,
+    status: string,
+}
 
 export interface ILoginRequest {
     email: string,

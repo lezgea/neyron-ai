@@ -1,11 +1,11 @@
 API
 
-- courses / pagination controls
-- chapters / pagination controls
-- lessons / pagination controls
-- lessons / chapter id to fetch list
-
+- activation emailin title-ini "user activation code" elemek lazimdir
+- user activation api ishlemir "full authentification is required" yazir
 
 FRONT
 
+- OTP input screen uchun description
 - Lessons List UI
+- search for multilang templates
+

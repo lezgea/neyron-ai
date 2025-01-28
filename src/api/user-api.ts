@@ -53,9 +53,9 @@ export const userApi = createApi({
                 data: { password: credentials.password },
             }),
         }),
-        activateUser: builder.query<IActivateUserResponse, { token: string }>({
-            query: ({ token }) => ({
-                url: `/users/active?token=${encodeURIComponent(token)}`,
+        activateUser: builder.mutation<IActivateUserResponse, { token: string, otp: number | undefined }>({
+            query: ({ token, otp }) => ({
+                url: `/users/activate?confirmationToken=${encodeURIComponent(token)}&otp=${otp}`,
                 method: 'GET',
             }),
         }),
@@ -65,7 +65,7 @@ export const userApi = createApi({
 export const {
     useRegisterUserMutation,
     useLoginUserMutation,
-    useActivateUserQuery,
+    useActivateUserMutation,
     useGetUserQuery,
     useUpdateUserMutation,
     useForgotPasswordMutation,

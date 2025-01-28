@@ -25,7 +25,7 @@ export const SignUpForm: React.FC = () => {
 
     const [terms, acceptTerms] = React.useState<boolean>(false);
     const [showPassword, setShowPassword] = React.useState<boolean>(false);
-    const [emailSent, showEmailSent] = React.useState<boolean>(false);
+    const [activationToken, setActivationToken] = React.useState<string>();
     const [termsModal, setTermsModal] = React.useState<boolean>(false);
 
     const validationSchema = Yup.object().shape({
@@ -48,8 +48,8 @@ export const SignUpForm: React.FC = () => {
 
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         try {
-            await registerUser(data).unwrap();
-            showEmailSent(true);
+            let response = await registerUser(data).unwrap();
+            setActivationToken(response.data);
         } catch (err: any) {
             console.error('Unknown error:', err);
             toast.error(err.data?.message || 'An unexpected error occurred');
@@ -61,7 +61,8 @@ export const SignUpForm: React.FC = () => {
     };
 
 
-    if (emailSent) return <OTPScreen />
+    if (activationToken)
+        return <OTPScreen token={activationToken} />
 
 
     return (
