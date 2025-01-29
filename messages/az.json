@@ -105,11 +105,12 @@
     "register": "İndi hesab yarat"
   },
   "forgotPassword": {
-    "title": "E-poçt ünvanını daxil et",
+    "title": "Şifrəni unutduz",
+    "description": "E-poçt ünvanını daxil et",
     "email": "E-poçt",
     "enterEmail": "E-poçt ünvanını yaz",
     "or": "və ya",
-    "login": "daxil ol"
+    "send": "Göndər"
   },
   "register": {
     "title": "Xoş gəldin",
@@ -121,6 +122,7 @@
     "signUp": "Hesab yarat    ",
     "withGoogle": "və ya Google ilə giriş et    ",
     "haveAnAccount": " Hesabın var?",
+    "dontHaveAnAccount": "Hesabınız yoxdur?",
     "login": "Giriş et"
   },
   "resetPasswordModal": {

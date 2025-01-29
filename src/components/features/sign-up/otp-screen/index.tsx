@@ -35,7 +35,7 @@ export const OTPScreen: React.FC<IOTPProps> = (props) => {
 
 
     return (
-        <div className="flex flex-col w-full md:w-[50%] items-center justify-center mx-auto lg:max-w-md space-y-7 animate-right-svg text-center">
+        <div className="flex flex-col w-full items-center justify-center mx-auto lg:max-w-md space-y-7 animate-right-svg text-center">
             <Teamwork />
             <h2 className="text-[2.3rem] font-regmed">E-mail has been sent</h2>
             <p className="text-sm text-gray-600">

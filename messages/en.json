@@ -105,11 +105,12 @@
     "register": "Sign up now"
   },
   "forgotPassword": {
-    "title": "Enter your email adress",
+    "title": "Forgot password",
+    "description": "Enter your email adress",
     "email": "Email",
     "enterEmail": "Enter email",
     "or": "or",
-    "login": "Log in"
+    "send": "Send"
   },
   "register": {
     "title": "Nice to see you",
@@ -121,6 +122,7 @@
     "signUp": "Sign up",
     "withGoogle": "Or sign up with Google",
     "haveAnAccount": "Have an account?",
+    "dontHaveAnAccount": "Don't have an account?",
     "login": "Login"
   },
   "resetPasswordModal": {

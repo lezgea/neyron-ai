@@ -16,7 +16,7 @@ export const Button: React.FC<IButtonProps> = (props) => {
         tiny: 'text-sm px-3 md:px-5 py-2 min-w-[50px]',
         small: 'text-md px-3 md:px-5 py-2 min-w-[60px]',
         medium: 'text-md px-4 md:px-6 py-3 min-w-[120px]',
-        large: 'text-xl px-5 md:px-8 py-4 min-w-[120px]',
+        large: 'text-xl px-5 md:px-8 py-3.5 min-w-[120px]',
     }
 
     switch (style) {

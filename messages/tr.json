@@ -104,7 +104,8 @@
     "register": "Hesap yarat."
   },
   "forgotPassword": {
-    "title": "E-posta adresi gir",
+    "title": "Şifrəni unutduz",
+    "description": "E-posta adresi gir",
     "email": "E-posta",
     "enterEmail": "E-posta adresini yaz",
     "or": "veya",

@@ -8,13 +8,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { FormInput, Loader } from '@components/shared';
 import { toast } from 'react-toastify';
-import { EmailIcon, EyeClosedIcon, EyeIcon, GoogleIcon, } from '@assets/icons';
+import { EmailIcon, EyeClosedIcon, EyeIcon, GoogleIcon, Logo, } from '@assets/icons';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createSelector } from '@reduxjs/toolkit';
 import { RootState } from '@store/store';
 import { useSelector } from 'react-redux';
 import { useLocale, useTranslations } from 'next-intl';
+import { Button } from '@components/shared/buttons';
 
 
 interface IFormInput {
@@ -22,7 +23,7 @@ interface IFormInput {
 }
 
 
-const ForgetPassword: React.FC = () => {
+const ForgotPassword: React.FC = () => {
     const t = useTranslations();
     const lng = useLocale();
     const router = useRouter();
@@ -73,38 +74,18 @@ const ForgetPassword: React.FC = () => {
 
     return (
         <div className="min-h-screen max-h-screen flex">
-            {/* Left side with image */}
-            <div className="w-full lg:w-1/2 relative hidden lg:block">
-                <Image
-                    src="/png/login.png"
-                    alt="Team Photo"
-                    layout="fill"
-                    objectFit="cover"
-                    className="h-full"
-                    priority
-                />
-                <div className="absolute column w-full h-full content-end text-center px-20 py-[10%] space-y-7">
-                    <a className="flex cursor-pointer justify-center mb-10" href="/">
-                        <Image src="/svg/datarace-logo.svg" alt="Logo" width={250} height={70} />
-                    </a>
-                    <h1 className="text-4xl font-medium">{t('title')}</h1>
-                    <p className="text-lg text-gray-500">{t('description')}</p>
-                </div>
-            </div>
-
-            {/* Right side with form */}
-            <div className="w-full lg:w-1/2 bg-white content-center px-8 py-[30px] lg:p-20 overflow-y-scroll">
+            <div className="w-full bg-white content-center px-8 py-[30px] lg:p-20 overflow-y-scroll">
                 <div className="w-full mx-auto lg:max-w-md space-y-10 animate-right-svg">
-                    <Link className="flex items-center lg:hidden justify-center cursor-pointer mb-[50px]" href="/">
-                        <Image src="/svg/datarace-logo.svg" alt="Logo" width={250} height={70} priority />
+                    <Link href={`/${lng}`} passHref title='Logo' className='w-full flex flex-col items-center justify-center lg:items-end'>
+                        <Logo alt="Logo" className="h-[50px] w-[200px]" />
                     </Link>
-                    <div>
-                        <h2 className="text-2xl font-semi mb-4 lg:text-start text-center">{t('forgotPassword')}</h2>
-                        <p className="mb-4 text-sm text-gray-600 lg:text-start text-center">{t('restorePasswordText')}</p>
+                    <div className='flex flex-col text-center gap-2'>
+                        <h1 className="text-4xl font-medium">{t('forgotPassword.title')}</h1>
+                        <p className="mb-4 text-sm text-gray-600 text-center">{t('forgotPassword.description')}</p>
                     </div>
-                    <form className="space-y-10 select-none" onSubmit={handleSubmit(onSubmit)}>
+                    <form className="flex flex-col space-y-10 select-none" onSubmit={handleSubmit(onSubmit)}>
                         <FormInput
-                            label={`${t('email')}*`}
+                            label={`${t('forgotPassword.email')}*`}
                             type='text'
                             name='email'
                             placeholder="example@company.com"
@@ -112,15 +93,10 @@ const ForgetPassword: React.FC = () => {
                             errors={errors}
                             icon={<EmailIcon />}
                         />
-                        <button
-                            type="submit"
-                            className="w-full h-[50px] font-regmed bg-primary text-white py-2 rounded-xl ring-2 ring-primary hover:bg-primaryDark hover:ring-primaryDark hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none transition duration-200 ease-in-out transform"
-                        >
-                            {t('send')}
-                        </button>
+                        <Button type="submit" style="black" size="large" label={t('forgotPassword.send')} />
                     </form>
                     <p className="mt-6 text-center font-light">
-                        {t('dontHaveAnAccount')} <a href={`/${lng}/sign-up`} className="!text-gray-700 font-semi hover:!text-primaryLight transition duration-200 ease-in-out transform">{t('signUp')}</a>
+                        {t('register.dontHaveAnAccount')} <a href={`/${lng}/sign-up`} className="!text-gray-700 font-semi hover:!text-primaryLight transition duration-200 ease-in-out transform">{t('register.signUp')}</a>
                     </p>
                 </div>
             </div>
@@ -128,4 +104,4 @@ const ForgetPassword: React.FC = () => {
     );
 };
 
-export default ForgetPassword;
+export default ForgotPassword;

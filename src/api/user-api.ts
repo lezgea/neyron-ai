@@ -37,15 +37,14 @@ export const userApi = createApi({
             }),
             invalidatesTags: ['User'],
         }),
-
-
         forgotPassword: builder.mutation<null, IForgetRequest>({
             query: (credentials) => ({
-                url: '/users/forget-password',
+                url: '/users/forgot-password',
                 method: 'POST',
                 data: credentials,
             }),
         }),
+
         changePassword: builder.mutation<null, IChangeRequest>({
             query: (credentials) => ({
                 url: `/users/change-password?token=${encodeURIComponent(credentials.token)}`,
