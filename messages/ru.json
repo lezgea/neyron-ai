@@ -117,6 +117,14 @@
     "haveAnAccount": "У тебя есть аккаунт?  ",
     "login": "Зайти"
   },
+  "resetPassword": {
+    "title": "Сброс пароля",
+    "description": "Введите новый пароль",
+    "password": "Пароль",
+    "email": "Электронная почта",
+    "enterEmail": "Введите электронную почту",
+    "submit": "Отправить"
+  },
   "resetPasswordModal": {
     "title": "Проверь свою электронную почту    ",
     "openGmail": "Открыть G-mail         ",

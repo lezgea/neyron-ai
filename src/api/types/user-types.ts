@@ -76,3 +76,13 @@ export interface IActivateUserResponse {
     message?: string;
 }
 
+
+export interface IResetPasswordRequest {
+    token: string,
+    resetPassword: string,
+    confirmResetPassword: string,
+}
+
+export interface IResetPasswordResponse {
+    // token: string,
+}

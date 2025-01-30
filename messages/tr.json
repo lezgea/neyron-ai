@@ -123,6 +123,14 @@
     "haveAnAccount": " Hesabın var mı?  ",
     "login": "Giriş yap"
   },
+  "resetPassword": {
+    "title": "Şifreyi sıfırla",
+    "description": "Yeni şifrenizi girin",
+    "password": "Şifrə",
+    "email": "E-posta",
+    "enterEmail": "E-posta girin",
+    "submit": "Gönder"
+  },
   "resetPasswordModal": {
     "title": "E-postanı kontrol et    ",
     "openGmail": "G-mail hesabını aç   ",

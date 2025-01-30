@@ -39,7 +39,7 @@ const Profile: React.FC = () => {
 
     const userImage = React.useMemo(
         () => (
-            `https://api.neyron.ai/v1/files/streams/${user?.data?.avatar.filePath}` ||
+            `https://api.neyron.ai/v1/files/streams/${user?.data?.avatar?.filePath}` ||
             '/svg/user.svg'
         ),
         [user?.data]

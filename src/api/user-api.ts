@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
-import { IActivateUserResponse, IChangeRequest, IForgetRequest, ILoginRequest, IRegisterRequest, IUser, IUserUpdateRequest, LoginResponse, RegisterResponse } from './types/user-types';
+import { IActivateUserResponse, IChangeRequest, IForgetRequest, ILoginRequest, IRegisterRequest, IResetPasswordRequest, IUser, IUserUpdateRequest, LoginResponse, RegisterResponse } from './types/user-types';
 
 
 export const userApi = createApi({
@@ -39,12 +39,18 @@ export const userApi = createApi({
         }),
         forgotPassword: builder.mutation<null, IForgetRequest>({
             query: (credentials) => ({
-                url: '/users/forgot-password',
+                url: `/users/forgot-password?email=${encodeURIComponent(credentials.email)}`,
+                method: 'POST',
+                params: credentials,
+            }),
+        }),
+        resetPassword: builder.mutation<null, IResetPasswordRequest>({
+            query: (credentials) => ({
+                url: `/users/reset-password?token=${encodeURIComponent(credentials.token)}`,
                 method: 'POST',
                 data: credentials,
             }),
         }),
-
         changePassword: builder.mutation<null, IChangeRequest>({
             query: (credentials) => ({
                 url: `/users/change-password?token=${encodeURIComponent(credentials.token)}`,
@@ -69,4 +75,5 @@ export const {
     useUpdateUserMutation,
     useForgotPasswordMutation,
     useChangePasswordMutation,
+    useResetPasswordMutation,
 } = userApi;

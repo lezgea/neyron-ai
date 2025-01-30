@@ -125,6 +125,14 @@
     "dontHaveAnAccount": "Don't have an account?",
     "login": "Login"
   },
+  "resetPassword": {
+    "title": "Reset password",
+    "description": "Enter your new password",
+    "password": "Password",
+    "enterPassword": "Enter password",
+    "confirmPassword": "Confirm password",
+    "submit": "Submit"
+  },
   "resetPasswordModal": {
     "title": "Check your email",
     "openGmail": "Open Gmail",

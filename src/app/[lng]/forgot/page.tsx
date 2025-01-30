@@ -96,7 +96,7 @@ const ForgotPassword: React.FC = () => {
                         <Button type="submit" style="black" size="large" label={t('forgotPassword.send')} />
                     </form>
                     <p className="mt-6 text-center font-light">
-                        {t('register.dontHaveAnAccount')} <a href={`/${lng}/sign-up`} className="!text-gray-700 font-semi hover:!text-primaryLight transition duration-200 ease-in-out transform">{t('register.signUp')}</a>
+                        {t('register.dontHaveAnAccount')} <a href={`/${lng}/sign-up`} className="!text-gray-700 font-semi hover:!text-purple transition duration-200 ease-in-out transform">{t('register.signUp')}</a>
                     </p>
                 </div>
             </div>

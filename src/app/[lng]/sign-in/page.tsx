@@ -145,7 +145,7 @@ const SignInContent: React.FC = () => {
                                 </span>
                                 <span className="ml-2 text-gray-700">{t('login.rememberMe')}</span>
                             </label>
-                            <Link href={`/${lng}/forgot`} className="!text-gray-700 font-medium hover:!text-primaryLight transition duration-200 ease-in-out transform">{t('login.forgotPassword')}</Link>
+                            <Link href={`/${lng}/forgot`} className="!text-gray-700 font-medium hover:!text-purple transition duration-200 ease-in-out transform">{t('login.forgotPassword')}</Link>
                         </div>
                         <Button type="submit" style="black" size="large" label={t('login.signIn')} />
                         {/* <div className="text-center my-4">{t('or')}</div>

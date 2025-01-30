@@ -125,6 +125,14 @@
     "dontHaveAnAccount": "Hesabınız yoxdur?",
     "login": "Giriş et"
   },
+  "resetPassword": {
+    "title": "Şifrəni sıfırla",
+    "description": "Yeni şifrənizi daxil edin",
+    "password": "Şifrə",
+    "email": "E-poçt",
+    "enterEmail": "E-poçt daxil edin",
+    "submit": "Təsdiqlə"
+  },
   "resetPasswordModal": {
     "title": "E-poçtunu yoxla    ",
     "openGmail": "G-mail hesabını aç",
