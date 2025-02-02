@@ -36,6 +36,7 @@ export const ChaptersTable: React.FC<IChaptersTable> = () => {
             triggerGetChapters({
                 lang: lng,
                 courseId: courseId as string,
+                dto: {}
             }).then((response) => {
 
             });
@@ -61,12 +62,11 @@ export const ChaptersTable: React.FC<IChaptersTable> = () => {
         return <CompetitionsSkeleton />;
     }
 
-    console.log('@@@', chapters);
 
     return (
         <>
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
-                {chapters?.data?.map((item, i) => (
+                {chapters?.data?.content?.map((item, i) => (
                     <ChapterItem
                         key={i}
                         {...item}

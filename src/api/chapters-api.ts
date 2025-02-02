@@ -9,10 +9,10 @@ export const chaptersApi = createApi({
     tagTypes: ['Chapters'],
     endpoints: (builder) => ({
         getChapters: builder.query<IGetChaptersListResponse, IGetChaptersListRequest>({
-            query: ({ lang, courseId }) => ({
+            query: ({ lang, courseId, dto }) => ({
                 url: `/chapters/courses/${courseId}`,
                 method: 'GET',
-                // params: { page: data.page, count: data.count },
+                params: { dto: dto },
                 headers: { "Accept-language": lang }
             }),
         }),

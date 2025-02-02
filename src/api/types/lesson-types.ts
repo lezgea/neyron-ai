@@ -9,7 +9,9 @@ export interface IGetLessonsListResponse {
     status: number,
     key: string,
     message: string,
-    data: ILesson[],
+    data: {
+        content: ILesson[],
+    },
     errors: any,
 }
 

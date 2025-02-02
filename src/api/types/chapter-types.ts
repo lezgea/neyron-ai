@@ -1,6 +1,7 @@
 export interface IGetChaptersListRequest {
     lang: string,
     courseId: number | string,
+    dto: { size?: number, page?: number },
 }
 
 
@@ -9,7 +10,9 @@ export interface IGetChaptersListResponse {
     status: number,
     key: string,
     message: string,
-    data: IChapter[],
+    data: {
+        content: IChapter[],
+    },
     errors: any,
 }
 

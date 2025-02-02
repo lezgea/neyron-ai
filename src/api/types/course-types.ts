@@ -13,7 +13,9 @@ export interface ICoursesResponse {
     status: number,
     key: string,
     message: string,
-    data: ICourse[],
+    data: {
+        content: ICourse[],
+    },
     errors: [
         {
             field: string,
@@ -24,9 +26,8 @@ export interface ICoursesResponse {
 
 export interface ICoursesRequest {
     lang: string,
+    dto: { size?: number, page?: number },
 }
-
-
 
 
 

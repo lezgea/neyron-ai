@@ -13,8 +13,7 @@ export const coursesApi = createApi({
                 url: `/courses/languages`,
                 method: 'GET',
                 // params: { page: data.page, count: data.count },
-                // headers: { "Accept-language": lang }
-                headers: { "Accept-language": "en" }
+                headers: { "Accept-language": lang }
             }),
         }),
 

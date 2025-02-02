@@ -41,7 +41,8 @@ export const CoursesTable: React.FC<ICoursesTable> = () => {
 
     React.useEffect(() => {
         triggerGetCourses({
-            lang: lng
+            lang: lng,
+            dto: {}
         }).then((response) => {
             // if (response?.data?.totalCount) {
             //     setTotalPages(Math.ceil(response.data.totalCount / itemsPerPage));
@@ -68,7 +69,7 @@ export const CoursesTable: React.FC<ICoursesTable> = () => {
     return (
         <>
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
-                {courses?.data?.map((item, i) => (
+                {courses?.data?.content?.map((item, i) => (
                     <CourseItem
                         key={i}
                         {...item}
