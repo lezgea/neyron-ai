@@ -1,6 +1,7 @@
 export interface IGetLessonsListRequest {
     lang: string,
-    courseId: number | string,
+    chapterId: number | string,
+    dto: { size?: number, page?: number },
 }
 
 

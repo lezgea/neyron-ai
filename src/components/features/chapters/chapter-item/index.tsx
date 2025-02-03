@@ -1,8 +1,11 @@
+"use client"
+
 import { IChapter } from "@api/types/chapter-types";
 import { RootState } from "@store/store";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams, usePathname, useSearchParams } from "next/navigation";
 import { useSelector } from "react-redux";
 
 
@@ -14,13 +17,14 @@ interface IChapterProps extends IChapter {
 const ChapterItem: React.FC<IChapterProps> = (props) => {
     let { id, name, description, image, onClick } = props;
     let lng = useLocale();
+    let pathname = usePathname();
 
     const { isAuthenticated } = useSelector((state: RootState) => state.user);
     const imageUrl = "/svg/no_chapter.svg";
 
 
     return (
-        <Link href={isAuthenticated ? `/${lng}/races/${id}` : ''} onClick={onClick} className="h-md rounded-custom_md select-none cursor-pointer overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg group active:shadow-none bg-white">
+        <Link href={isAuthenticated ? `${pathname}/${id}/lessons` : ''} onClick={onClick} className="h-md rounded-custom_md select-none cursor-pointer overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg group active:shadow-none bg-white">
             <div className="relative overflow-hidden">
                 <Image
                     src={imageUrl}

@@ -1,4 +1,4 @@
-import { IChapter } from "@api/types/chapter-types";
+import { ILesson } from "@api/types/lesson-types";
 import { RootState } from "@store/store";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
@@ -6,21 +6,21 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 
 
-interface IChapterProps extends IChapter {
+interface ILessonProps extends ILesson {
     onClick?: (e: any) => void,
 }
 
 
-const ChapterItem: React.FC<IChapterProps> = (props) => {
+const LessonItem: React.FC<ILessonProps> = (props) => {
     let { id, name, description, image, onClick } = props;
     let lng = useLocale();
 
     const { isAuthenticated } = useSelector((state: RootState) => state.user);
-    const imageUrl = "/svg/no_chapter.svg";
+    const imageUrl = "/svg/no_lesson.svg";
 
 
     return (
-        <Link href={isAuthenticated ? `/${lng}/races/${id}` : ''} onClick={onClick} className="h-md rounded-custom_md select-none cursor-pointer overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg group active:shadow-none bg-white">
+        <Link href={isAuthenticated ? `/${lng}/info/${id}` : ''} onClick={onClick} className="h-md rounded-custom_md select-none cursor-pointer overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg group active:shadow-none bg-white">
             <div className="relative overflow-hidden">
                 <Image
                     src={imageUrl}
@@ -41,4 +41,4 @@ const ChapterItem: React.FC<IChapterProps> = (props) => {
     );
 };
 
-export default ChapterItem;
+export default LessonItem;

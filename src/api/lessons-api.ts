@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
-import { IGetChaptersListRequest, IGetChaptersListResponse } from './types/chapter-types';
+import { IGetLessonsListRequest, IGetLessonsListResponse } from './types/lesson-types';
 
 
 export const lessonsApi = createApi({
@@ -8,17 +8,17 @@ export const lessonsApi = createApi({
     baseQuery: axiosBaseQuery,
     tagTypes: ['Lessons'],
     endpoints: (builder) => ({
-        // getLessons: builder.query<IGetChaptersListResponse, IGetChaptersListRequest>({
-        //     query: ({ lang }) => ({
-        //         url: `/lessons/${id}/${courseId}`,
-        //         method: 'GET',
-        //         // params: { page: data.page, count: data.count },
-        //         headers: { "Accept-language": lang }
-        //     }),
-        // }),
+        getLessons: builder.query<IGetLessonsListResponse, IGetLessonsListRequest>({
+            query: ({ chapterId, lang, dto }) => ({
+                url: `/lessons/chapters/${chapterId}`,
+                method: 'GET',
+                params: { dto: dto },
+                headers: { "Accept-language": lang }
+            }),
+        }),
     }),
 });
 
 export const {
-    // useLazyGetChaptersQuery,
+    useLazyGetLessonsQuery,
 } = lessonsApi;
