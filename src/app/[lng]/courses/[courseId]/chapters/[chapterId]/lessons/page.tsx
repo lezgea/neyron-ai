@@ -23,14 +23,16 @@ const Lessons: React.FC = () => {
                 <nav className="text-sm flex justify-start items-center text-gray-600 space-x-3">
                     <Link href="/" className="hover:text-purple">{t('main.mainPage')}</Link>
                     <span className="text-lg">&gt;</span>
-                    <Link href={`/${lng}/courses`} className="hover:text-purple">{t('footer.courses')}</Link>
+                    <Link href={`/${lng}/courses`} className="hover:text-purple">{t('navbar.courses')}</Link>
                     <span className="text-lg">&gt;</span>
-                    <span>{t('footer.chapters')}</span>
+                    <Link href={`/${lng}/courses`} className="hover:text-purple">{t('navbar.chapters')}</Link>
+                    <span className="text-lg">&gt;</span>
+                    <span>{t('navbar.lessons')}</span>
                 </nav>
                 <section className="container mx-auto w-full">
                     <div className="flex flex-col text-center justify-between items-center w-full">
                         <h2 className="text-[32px] md:text-[2.3rem] font-medium">Introduction to AI</h2>
-                        <p className="text-md text-gray-700">This chapter gives you a basic overview of Artificial Intelligence, its key concepts, and technologies.</p>
+                        <p className="text-md text-gray-700">This lesson gives you a basic overview of Artificial Intelligence, its key concepts, and technologies.</p>
                     </div>
                 </section>
                 <section className="container mx-auto w-full mt-10">

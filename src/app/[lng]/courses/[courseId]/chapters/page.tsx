@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { useLocale, useTranslations } from 'next-intl';
-import { CoursesTable } from '@components/features/courses';
 import { ChaptersTable } from '@components/features';
 
 
@@ -24,9 +23,9 @@ const Chapters: React.FC = () => {
                 <nav className="text-sm flex justify-start items-center text-gray-600 space-x-3">
                     <Link href="/" className="hover:text-purple">{t('main.mainPage')}</Link>
                     <span className="text-lg">&gt;</span>
-                    <Link href={`/${lng}/courses`} className="hover:text-purple">{t('footer.courses')}</Link>
+                    <Link href={`/${lng}/courses`} className="hover:text-purple">{t('navbar.courses')}</Link>
                     <span className="text-lg">&gt;</span>
-                    <span>{t('footer.chapters')}</span>
+                    <span>{t('navbar.chapters')}</span>
                 </nav>
                 <section className="container mx-auto w-full">
                     <div className="flex flex-col text-center justify-between items-center w-full">
