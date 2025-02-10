@@ -9,8 +9,8 @@ import { useRouter, usePathname } from 'next/navigation';
 const LANGS: { code: string; name: string }[] = [
     { code: 'en', name: 'English' },
     { code: 'az', name: 'Azerbaijani' },
-    { code: 'ru', name: 'Russian' },
-    { code: 'tr', name: 'Turkish' },
+    // { code: 'ru', name: 'Russian' },
+    // { code: 'tr', name: 'Turkish' },
 ];
 
 const LanguageSwitcher = () => {
