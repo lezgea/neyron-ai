@@ -60,8 +60,9 @@ export const userApi = createApi({
         }),
         activateUser: builder.mutation<IActivateUserResponse, { token: string, otp: number | undefined }>({
             query: ({ token, otp }) => ({
-                url: `/users/activate?confirmationToken=${encodeURIComponent(token)}&otp=${otp}`,
-                method: 'GET',
+                url: `/users/activate`,
+                method: 'POST',
+                data: { confirmationToken: token, otp: otp },
             }),
         }),
     }),
