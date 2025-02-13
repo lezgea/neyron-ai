@@ -25,7 +25,7 @@ export const Button: React.FC<IButtonProps> = (props) => {
                 <button
                     type={type}
                     onClick={onClick}
-                    className={`${SIZES[size]} inline-flex w-auto font-regmed text-center items-center justify-center text-dark transition-all bg-primary rounded-full hover:bg-gradient-to-r hover:from-purple hover:to-purpleLight bg-[length:100%_100%] hover:animate-gradient-slide shadow-neutral-300 dark:shadow-neutral-700 hover:text-white hover:shadow-sm hover:shadow-neutral-300 hover:-tranneutral-y-px focus:shadow-none`}
+                    className={`${SIZES[size]} inline-flex w-full font-regmed text-center items-center justify-center text-dark transition-all bg-primary rounded-full hover:bg-gradient-to-r hover:from-purple hover:to-purpleLight bg-[length:100%_100%] hover:animate-gradient-slide shadow-neutral-300 dark:shadow-neutral-700 hover:text-white hover:shadow-sm hover:shadow-neutral-300 hover:-tranneutral-y-px focus:shadow-none`}
                 >
                     {label}
                 </button>
@@ -35,7 +35,7 @@ export const Button: React.FC<IButtonProps> = (props) => {
                 <button
                     type={type}
                     onClick={onClick}
-                    className={`${SIZES[size]} inline-flex w-auto text-center items-center justify-center text-white transition-all duration-500 bg-dark rounded-full sm:w-auto shadow-neutral-300 dark:shadow-neutral-700 hover:shadow-sm hover:shadow-neutral-300 focus:shadow-none hover:bg-gradient-to-r hover:from-purple hover:to-purpleLight bg-[length:100%_100%] hover:animate-gradient-slide hover:text-white`}
+                    className={`${SIZES[size]} inline-flex w-full text-center items-center justify-center text-white transition-all duration-500 bg-dark rounded-full sm:w-auto shadow-neutral-300 dark:shadow-neutral-700 hover:shadow-sm hover:shadow-neutral-300 focus:shadow-none hover:bg-gradient-to-r hover:from-purple hover:to-purpleLight bg-[length:100%_100%] hover:animate-gradient-slide hover:text-white`}
                 >
                     {label}
                 </button>
@@ -45,7 +45,7 @@ export const Button: React.FC<IButtonProps> = (props) => {
                 <button
                     type={type}
                     onClick={onClick}
-                    className={`${SIZES[size]} inline-flex w-auto text-center items-center justify-center text-white transition-all duration-500 bg-dark rounded-full sm:w-auto shadow-neutral-300 dark:shadow-neutral-700 hover:shadow-sm hover:shadow-neutral-300 focus:shadow-none hover:bg-gradient-to-r hover:from-purple hover:to-purpleLight bg-[length:100%_100%] hover:animate-gradient-slide hover:text-white`}
+                    className={`${SIZES[size]} inline-flex w-full text-center items-center justify-center text-white transition-all duration-500 bg-dark rounded-full sm:w-auto shadow-neutral-300 dark:shadow-neutral-700 hover:shadow-sm hover:shadow-neutral-300 focus:shadow-none hover:bg-gradient-to-r hover:from-purple hover:to-purpleLight bg-[length:100%_100%] hover:animate-gradient-slide hover:text-white`}
                 >
                     {label}
                 </button>

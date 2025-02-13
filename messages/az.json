@@ -31,7 +31,8 @@
     "personName5": "Üzeyir",
     "personFeedback5": "Neyron.ai süni intellekt öyrənməyi çox əyləncəli etdi! İnteraktiv modullar və kvizlər, çox əyləncəlidir. Bu, bəsit bir kurs deyil, Sİ dünyasına interaktiv səyahətdir!    ",
     "personName6": "Zeynəb",
-    "personFeedback6": "Neyron.ai-da Fantastik bir təcrübə yaşadım! Platforma sizə sadəcə süni intellekt öyrətmir, o, sizi Sİ dünyasına sürükləyir. Oyunlaşdırılmış öyrənmə, zamanın necə keçdiyini hiss etmədən növbəti modullara keçməyinizi və davamiyyətinizi təmin edən dahi konsepsiyadır."
+    "personFeedback6": "Neyron.ai-da Fantastik bir təcrübə yaşadım! Platforma sizə sadəcə süni intellekt öyrətmir, o, sizi Sİ dünyasına sürükləyir. Oyunlaşdırılmış öyrənmə, zamanın necə keçdiyini hiss etmədən növbəti modullara keçməyinizi və davamiyyətinizi təmin edən dahi konsepsiyadır.",
+    "submit": "Təsdiqlə"
   },
   "buttons": {
     "startButton": "Başla",
@@ -64,11 +65,11 @@
   },
   "contact": {
     "title": "Əlaqə",
+    "description": "Suallarınızı və təkliflərinizi bizimlə paylaşmaqdan çəkinməyin",
     "apply": "Müraciət et",
     "name": "Ad Soyad",
     "email": "E-mail ",
-    "message": "SMS",
-    "text": "Mətn"
+    "message": "Mətn"
   },
   "footer": {
     "aboutUs": "Haqqımızda",

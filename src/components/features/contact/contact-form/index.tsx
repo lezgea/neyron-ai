@@ -8,6 +8,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useLocale, useTranslations } from 'next-intl';
 import { useSendContactDetailsMutation } from '@api/contact-api';
+import { Button } from '@components/shared/buttons';
 
 
 interface IFormInput {
@@ -55,15 +56,15 @@ export const ContactForm: React.FC = () => {
             <form className="space-y-5 select-none" onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col space-y-5 md:flex-row md:space-x-5 md:space-y-0">
                     <FormInput
-                        label={`${t('nameAndSurname')}*`}
+                        label={`${t('contact.name')}*`}
                         type='text'
                         name='fullName'
-                        placeholder="Jhon Doe"
+                        placeholder="John Doe"
                         register={register}
                         errors={errors}
                     />
                     <FormInput
-                        label={`${t('emailAddress')}*`}
+                        label={`${t('contact.email')}*`}
                         type='email'
                         name='email'
                         placeholder="example@company.com"
@@ -71,28 +72,30 @@ export const ContactForm: React.FC = () => {
                         errors={errors}
                     />
                 </div>
-                <FormInput
+                {/* <FormInput
                     label={`${t('subject')}*`}
                     type="text"
                     name='subject'
                     placeholder={t('subject')}
                     register={register}
                     errors={errors}
-                />
+                /> */}
                 <FormInput
                     isTextarea={true}
-                    label={`${t('message')}*`}
+                    label={`${t('contact.message')}*`}
                     name='message'
-                    placeholder={t('message')}
+                    placeholder={t('contact.message')}
                     register={register}
                     errors={errors}
                 />
-                <button
-                    type="submit"
-                    className="w-full h-[50px] font-regmed bg-primary text-white py-2 rounded-lg ring-2 ring-primary hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
-                >
-                    {t('submit')}
-                </button>
+                <div className='flex w-full'>
+                    <Button
+                        type="submit"
+                        size="medium"
+                        style="primary"
+                        label={t('main.submit')}
+                    />
+                </div>
             </form>
         </div>
     )
