@@ -12,9 +12,8 @@ import { Button } from '@components/shared/buttons';
 
 
 interface IFormInput {
-    fullName: string;
+    name: string;
     email: string;
-    subject: string;
     message: string;
 }
 
@@ -24,9 +23,8 @@ export const ContactForm: React.FC = () => {
     const t = useTranslations();
 
     const validationSchema = Yup.object().shape({
-        fullName: Yup.string().required('Full name is required'),
+        name: Yup.string().required('Full name is required'),
         email: Yup.string().email(t('invalidEmail')).required(t('emailIsRequired')),
-        subject: Yup.string().required('Subject is required'),
         message: Yup.string().required('Message is required'),
     });
 
@@ -58,7 +56,7 @@ export const ContactForm: React.FC = () => {
                     <FormInput
                         label={`${t('contact.name')}*`}
                         type='text'
-                        name='fullName'
+                        name='name'
                         placeholder="John Doe"
                         register={register}
                         errors={errors}

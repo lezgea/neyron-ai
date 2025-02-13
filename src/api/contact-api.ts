@@ -11,7 +11,7 @@ export const contactsApi = createApi({
     endpoints: (builder) => ({
         sendContactDetails: builder.mutation<IMessageResponse, IContactDetailsSendRequest>({
             query: (credentials) => ({
-                url: '/contacts',
+                url: '/contact-us-requests',
                 method: 'POST',
                 data: credentials,
             }),
