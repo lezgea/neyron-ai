@@ -6,8 +6,8 @@ import { useLocale, useTranslations } from 'next-intl';
 import { useParams, useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import ChapterItem from '../lesson-item';
 import { useLazyGetLessonsQuery } from '@api/lessons-api';
+import LessonItem from '../lesson-item';
 
 
 interface ILessonsTable {
@@ -30,24 +30,22 @@ export const LessonsTable: React.FC<ILessonsTable> = () => {
 
     const itemsPerPage = 6;
 
-    async function getChapters() {
+    async function getLessons() {
         try {
             triggerGetLessons({
                 lang: lng,
                 chapterId: chapterId as string,
                 dto: {},
-            }).then((response) => {
-
-            });
+            }).unwrap()
         } catch (err: any) {
             console.log('Error: ', err)
         }
     }
 
     React.useEffect(() => {
-        if (lng)
-            getChapters();
-    }, [lng]);
+        if (chapterId)
+            getLessons();
+    }, [chapterId]);
 
 
     const onPageChange = (page: number) => {
@@ -66,7 +64,7 @@ export const LessonsTable: React.FC<ILessonsTable> = () => {
         <>
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
                 {lessons?.data?.content.map((item, i) => (
-                    <ChapterItem
+                    <LessonItem
                         key={i}
                         {...item}
                         onClick={() => { }}

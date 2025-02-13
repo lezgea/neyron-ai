@@ -4,6 +4,7 @@ API
 - Course Delete / NEW
 - Chapter Info / NEW
 - Chapter Create doesn't work
+- We can create lesson without course id ?
 
 FRONT
 

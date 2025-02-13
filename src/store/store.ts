@@ -3,6 +3,7 @@ import userReducer from '@slices/user-slice';
 import categoryReducer from '@slices/category-slice';
 import coursesReducer from '@slices/courses-slice';
 import chaptersReducer from '@slices/chapters-slice';
+import lessonsReducer from '@slices/lessons-slice';
 import datasetsReducer from '@slices/dataset-slice';
 import uploadReducer from '@slices/upload-slice';
 import contactReducer from '@slices/contacts-slice';
@@ -14,6 +15,7 @@ import { datasetsApi } from '@api/datasets-api';
 import { contactsApi } from '@api/contact-api';
 import { coursesApi } from '@api/courses-api';
 import { chaptersApi } from '@api/chapters-api';
+import { lessonsApi } from '@api/lessons-api';
 import { faqApi } from '@api/faq-api';
 
 
@@ -23,6 +25,7 @@ export const store = configureStore({
         categories: categoryReducer,
         courses: coursesReducer,
         chapters: chaptersReducer,
+        lessons: lessonsReducer,
         datasets: datasetsReducer,
         uploads: uploadReducer,
         contacts: contactReducer,
@@ -31,6 +34,7 @@ export const store = configureStore({
         [categoryApi.reducerPath]: categoryApi.reducer,
         [coursesApi.reducerPath]: coursesApi.reducer,
         [chaptersApi.reducerPath]: chaptersApi.reducer,
+        [lessonsApi.reducerPath]: lessonsApi.reducer,
         [datasetsApi.reducerPath]: datasetsApi.reducer,
         [uploadApi.reducerPath]: uploadApi.reducer,
         [contactsApi.reducerPath]: contactsApi.reducer,
@@ -42,6 +46,7 @@ export const store = configureStore({
             categoryApi.middleware,
             coursesApi.middleware,
             chaptersApi.middleware,
+            lessonsApi.middleware,
             datasetsApi.middleware,
             uploadApi.middleware,
             contactsApi.middleware,

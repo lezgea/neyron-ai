@@ -1,3 +1,4 @@
+import React from 'react';
 import { ILesson } from "@api/types/lesson-types";
 import { RootState } from "@store/store";
 import { useLocale, useTranslations } from "next-intl";
@@ -12,11 +13,19 @@ interface ILessonProps extends ILesson {
 
 
 const LessonItem: React.FC<ILessonProps> = (props) => {
-    let { id, name, description, image, onClick } = props;
+    let { id, name, description, content, onClick } = props;
     let lng = useLocale();
 
     const { isAuthenticated } = useSelector((state: RootState) => state.user);
-    const imageUrl = "/svg/no_lesson.svg";
+
+    const imageUrl = React.useMemo(
+        () => (
+            content?.filePath
+                ? `https://api.neyron.ai/v1/files/streams/${content?.filePath}`
+                : "/svg/no_lesson.svg"
+        ),
+        [content]
+    );
 
 
     return (

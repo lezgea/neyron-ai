@@ -21,7 +21,7 @@ export interface ILesson {
     id: number | null,
     name: string,
     description: string,
-    image: {
+    content: {
         id: number | null,
         filePath: string
     }
