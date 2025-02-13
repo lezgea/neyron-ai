@@ -1,5 +1,6 @@
 "use client"
 
+import React from 'react'
 import { IChapter } from "@api/types/chapter-types";
 import { RootState } from "@store/store";
 import { useLocale, useTranslations } from "next-intl";
@@ -20,8 +21,15 @@ const ChapterItem: React.FC<IChapterProps> = (props) => {
     let pathname = usePathname();
 
     const { isAuthenticated } = useSelector((state: RootState) => state.user);
-    const imageUrl = "/svg/no_chapter.svg";
 
+    const imageUrl = React.useMemo(
+        () => (
+            image?.filePath
+                ? `https://api.neyron.ai/v1/files/streams/${image?.filePath}`
+                : "/svg/no_chapter.svg"
+        ),
+        [image]
+    );
 
     return (
         <Link href={isAuthenticated ? `${pathname}/${id}/lessons` : ''} onClick={onClick} className="h-md rounded-custom_md select-none cursor-pointer overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg group active:shadow-none bg-white">

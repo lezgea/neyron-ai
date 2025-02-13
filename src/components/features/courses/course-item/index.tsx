@@ -1,3 +1,4 @@
+import React from 'react'
 import { ICourse } from "@api/types/course-types";
 import { ArrowGreenIcon, BookmarkIcon } from "@assets/icons";
 import { RootState } from "@store/store";
@@ -31,7 +32,16 @@ const CourseItem: React.FC<ICourseProps> = (props) => {
     let lng = useLocale();
 
     const { isAuthenticated } = useSelector((state: RootState) => state.user);
-    const imageUrl = "/svg/no_course.svg";
+
+    const imageUrl = React.useMemo(
+        () => (
+            image?.filePath
+                ? `https://api.neyron.ai/v1/files/streams/${image?.filePath}`
+                : "/svg/no_course.svg"
+        ),
+        [image]
+    );
+
 
 
     return (

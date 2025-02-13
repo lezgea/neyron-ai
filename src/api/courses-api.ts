@@ -16,6 +16,14 @@ export const coursesApi = createApi({
                 headers: { "Accept-language": lang }
             }),
         }),
+        getCoursesInfo: builder.query<ICoursesResponse, ICoursesRequest>({
+            query: ({ lang }) => ({
+                url: `/courses/languages`,
+                method: 'GET',
+                // params: { page: data.page, count: data.count },
+                headers: { "Accept-language": lang }
+            }),
+        }),
 
     }),
 });

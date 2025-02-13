@@ -1,11 +1,11 @@
 API
 
-- activation emailin title-ini "user activation code" elemek lazimdir
-- user activation api ishlemir "full authentification is required" yazir
+- Course Info / NEW
+- Course Delete / NEW
+- Chapter Info / NEW
+- Chapter Create doesn't work
 
 FRONT
 
-- OTP input screen uchun description
-- Lessons List UI
-- search for multilang templates
+
 

@@ -24,12 +24,12 @@ const Courses: React.FC = () => {
                     <span className="text-lg">&gt;</span>
                     <span>{t('footer.courses')}</span>
                 </nav>
-                <section className="container mx-auto w-full">
+                {/* <section className="container mx-auto w-full">
                     <div className="flex flex-col text-center justify-between items-center w-full">
                         <h2 className="text-[32px] md:text-[2.3rem] font-medium">Introduction to AI</h2>
                         <p className="text-md text-gray-700">This chapter gives you a basic overview of Artificial Intelligence, its key concepts, and technologies.</p>
                     </div>
-                </section>
+                </section> */}
                 <section className="container mx-auto w-full mt-10">
                     <CoursesTable />
                 </section>
