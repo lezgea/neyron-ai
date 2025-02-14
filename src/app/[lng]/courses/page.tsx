@@ -28,8 +28,8 @@ const Courses: React.FC = () => {
                 <section className="flex flex-col items-center jusitfy-center h-[12rem] md:h-[14rem] w-full relative">
                     <div className="flex w-screen mt-3">
                         <Image
-                            src={"/svg/banner.svg"}
-                            alt="Datarace Banner Image"
+                            src={"/svg/courses-banner.svg"}
+                            alt="Neyron Courses Banner"
                             height={200}
                             width={800}
                             className="w-full h-[12rem] md:h-[14rem] object-cover"

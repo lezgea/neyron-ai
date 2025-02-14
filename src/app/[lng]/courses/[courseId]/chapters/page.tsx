@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { useLocale, useTranslations } from 'next-intl';
 import { ChaptersTable } from '@components/features';
+import Image from 'next/image';
 
 
 export const metadata: Metadata = {
@@ -18,21 +19,30 @@ const Chapters: React.FC = () => {
     return (
         <div className="min-h-screen flex flex-col">
             <a href="#main-content" className="sr-only focus:not-sr-only">Skip to main content</a>
-            <main id="main-content" className="container mx-auto flex-grow px-5 py-10 md:px-0 md:py-[6rem]">
+            <main id="main-content" className="flex-grow px-5 py-10 md:px-0 md:py-[5rem]">
                 {/* Breadcrumb */}
-                <nav className="text-sm flex justify-start items-center text-gray-600 space-x-3">
+                <nav className="container mx-auto text-sm flex justify-start items-center text-gray-600 space-x-3">
                     <Link href="/" className="hover:text-purple">{t('main.mainPage')}</Link>
                     <span className="text-lg">&gt;</span>
                     <Link href={`/${lng}/courses`} className="hover:text-purple">{t('navbar.courses')}</Link>
                     <span className="text-lg">&gt;</span>
                     <span>{t('navbar.chapters')}</span>
                 </nav>
-                {/* <section className="container mx-auto w-full">
-                    <div className="flex flex-col text-center justify-between items-center w-full">
-                        <h2 className="text-[32px] md:text-[2.3rem] font-medium">Introduction to AI</h2>
-                        <p className="text-md text-gray-700">This chapter gives you a basic overview of Artificial Intelligence, its key concepts, and technologies.</p>
+                <section className="flex flex-col items-center jusitfy-center h-[12rem] md:h-[14rem] w-full relative">
+                    <div className="flex w-screen mt-3">
+                        <Image
+                            src={"/svg/chapters-banner.svg"}
+                            alt="Neyron Chapter Banner"
+                            height={200}
+                            width={800}
+                            className="w-full h-[12rem] md:h-[14rem] object-cover"
+                        />
                     </div>
-                </section> */}
+                    <div className="container mx-auto flex flex-col justify-end items-center w-full absolute h-full pb-6 gap-3">
+                        <h2 className="text-[32px] text-center md:text-[2.3rem] font-medium text-white">Courses's title will be here</h2>
+                        <p className="text-sm text-white font-light text-center max-w-[80%]">Join our AI courses and explore machine learning, deep learning, and data science with hands-on projects. Whether you're a beginner or an advanced learner, gain the skills to build intelligent systems and stay ahead in the AI revolution!</p>
+                    </div>
+                </section>
                 <section className="container mx-auto w-full mt-10">
                     <ChaptersTable />
                 </section>
