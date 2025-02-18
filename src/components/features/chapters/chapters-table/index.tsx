@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useLazyGetChaptersQuery } from '@api/chapters-api';
 import ChapterItem from '../chapter-item';
+import { NoData } from '@components/shared';
 
 
 interface IChaptersTable {
@@ -62,10 +63,19 @@ export const ChaptersTable: React.FC<IChaptersTable> = () => {
         return <CompetitionsSkeleton />;
     }
 
+    if (!chapters?.data?.content.length) {
+        return (
+            <div className="flex">
+                <NoData />
+            </div>
+        )
+    }
+
 
     return (
         <>
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
+
                 {chapters?.data?.content?.map((item, i) => (
                     <ChapterItem
                         key={i}

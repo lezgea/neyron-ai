@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useLazyGetLessonsQuery } from '@api/lessons-api';
 import LessonItem from '../lesson-item';
+import { NoData } from '@components/shared';
 
 
 interface ILessonsTable {
@@ -59,6 +60,13 @@ export const LessonsTable: React.FC<ILessonsTable> = () => {
         return <CompetitionsSkeleton />;
     }
 
+    if (!isLoading && !lessons?.data?.content.length) {
+        return (
+            <div className="flex">
+                <NoData />
+            </div>
+        )
+    }
 
     return (
         <>

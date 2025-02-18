@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import CourseItem from '../course-item';
 import { useLazyGetCoursesQuery } from '@api/courses-api';
-import { AuthModal } from '@components/shared';
+import { AuthModal, NoData } from '@components/shared';
 
 
 interface ICoursesTable {
@@ -63,6 +63,14 @@ export const CoursesTable: React.FC<ICoursesTable> = () => {
 
     if (coursesLoading || isLoading) {
         return <CompetitionsSkeleton />;
+    }
+
+    if (!isLoading && !courses?.data.content.length) {
+        return (
+            <div className="flex">
+                <NoData />
+            </div>
+        )
     }
 
 
