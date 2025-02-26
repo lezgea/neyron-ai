@@ -9,20 +9,6 @@ import { useSelector } from "react-redux";
 
 
 interface ICourseProps extends ICourse {
-    // id: number | string,
-    // competitionId: number,
-    // competitionName: string,
-    // text: string,
-    // awardAmount: number,
-    // currencySymbol: string,
-    // lifeTimeDays: number,
-    // fullName: string,
-    // nickname: string,
-    // phoneNumber: string | number,
-    // resultFileId: string,
-    // imageUrl?: string,
-    // t?: (val: string) => string,
-    // lng?: string,
     onClick?: (e: any) => void,
 }
 

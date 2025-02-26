@@ -2,6 +2,7 @@ export interface ICourse {
     id: number,
     name: string,
     description: string,
+    published: boolean,
     image: {
         id: number,
         filePath: string

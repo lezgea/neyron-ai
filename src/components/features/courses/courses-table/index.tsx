@@ -77,7 +77,7 @@ export const CoursesTable: React.FC<ICoursesTable> = () => {
     return (
         <>
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
-                {courses?.data?.content?.map((item, i) => (
+                {courses?.data?.content?.filter(item => item.published).map((item, i) => (
                     <CourseItem
                         key={i}
                         {...item}
