@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { useLocale, useTranslations } from 'next-intl';
 import { LessonsTable } from '@components/features/lessons';
 import Image from 'next/image';
+import LessonInfoContent from '@components/features/lessons/lesson-info-content';
 
 
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ const Lessons: React.FC = () => {
     const lng = useLocale();
 
     return (
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col bg-[#F6F7FA]">
             <a href="#main-content" className="sr-only focus:not-sr-only">Skip to main content</a>
             <main id="main-content" className="flex-grow px-5 py-10 md:px-0 md:py-[5rem]">
                 {/* Breadcrumb */}
@@ -30,7 +31,8 @@ const Lessons: React.FC = () => {
                     <span className="text-lg">&gt;</span>
                     <span>{t('navbar.lessons')}</span>
                 </nav>
-                <section className="flex flex-col items-center jusitfy-center h-[12rem] md:h-[14rem] w-full relative">
+
+                {/* <section className="flex flex-col items-center jusitfy-center h-[12rem] md:h-[14rem] w-full relative">
                     <div className="flex w-screen mt-3">
                         <Image
                             src={"/svg/lessons-banner.svg"}
@@ -47,7 +49,9 @@ const Lessons: React.FC = () => {
                 </section>
                 <section className="container mx-auto w-full mt-10">
                     <LessonsTable />
-                </section>
+                </section> */}
+                <LessonInfoContent />
+
             </main>
         </div>
     );

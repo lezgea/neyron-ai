@@ -56,6 +56,9 @@ import BeginnerIllustration from './beginner.svg';
 import InteractiveIllustration from './interactive.svg';
 import CommunityIllustration from './community.svg';
 import CominIllustration from './comin.svg';
+import MedalIcon from './medal.svg';
+import MedalGrayIcon from './medal-gray.svg';
+import ArrowUpIcon from './arrow-up.svg';
 
 
 export {
@@ -81,6 +84,9 @@ export {
     CominIllustration,
 
     // icons
+    ArrowUpIcon,
+    MedalGrayIcon,
+    MedalIcon,
     TrashIcon,
     DocUpload,
     HeartIcon,

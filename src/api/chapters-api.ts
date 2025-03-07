@@ -12,7 +12,7 @@ export const chaptersApi = createApi({
             query: ({ lang, courseId, dto }) => ({
                 url: `/chapters/courses/${courseId}`,
                 method: 'GET',
-                params: { dto: dto },
+                params: dto,
                 headers: { "Accept-language": lang }
             }),
         }),

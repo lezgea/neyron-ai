@@ -51,7 +51,7 @@ export const Header: React.FC = () => {
 
     return (
         <>
-            <header className="backdrop-blur-xl w-full fixed z-30 h-[65px] select-none">
+            <header className="backdrop-blur-xl w-full fixed z-30 h-[65px] select-none bg-white/50">
                 <nav role="navigation" aria-label="Main navigation" className="container w-full mx-auto flex justify-between items-center px-3 py-0 h-full space-x-5 md:px-0">
                     <div className="flex items-center cursor-pointer lg:w-[15%] space-x-3 lg:space-x-0">
                         <div className="w-[30px] ml-3 flex lg:hidden">

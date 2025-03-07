@@ -116,45 +116,21 @@ body {
     text-overflow: ellipsis;
 }
 
+.truncate-text-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .description-font * {
     font-size: 16px;
     font-weight: 400;
     /* Set to your desired font size */
 }
 
-
-header::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: 15px 15px;
-    backdrop-filter: brightness(90%) blur(20px);
-    -webkit-backdrop-filter: brightness(90%) blur(20px);
-    -moz-backdrop-filter: brightness(90%) blur(20px);
-    mask-image: repeating-radial-gradient(circle at 50% 50% center,
-            var(--background),
-            var(--background) 20px,
-            rgba(255, 255, 255, 0.3) 20.5px,
-            rgba(255, 255, 255, 0.3) 21px);
-    -webkit-mask-image: repeating-radial-gradient(circle at 50% 50%,
-            var(--background),
-            var(--background) 20px,
-            rgba(255, 255, 255, 0.3) 20.5px,
-            rgba(255, 255, 255, 0.3) 21px);
-}
-
-header {
-    position: fixed;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
 
 header svg {
     margin-right: 20px;
