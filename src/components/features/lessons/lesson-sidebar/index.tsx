@@ -4,7 +4,11 @@ import React from 'react';
 import { useParams } from 'next/navigation';
 import { useLazyGetChaptersQuery } from '@api/chapters-api';
 import { useLazyGetLessonsQuery } from '@api/lessons-api';
-import { ArrowUpIcon, MedalGrayIcon, MedalIcon } from '@assets/icons';
+import { ArrowDownIcon, MedalGrayIcon, MedalIcon } from '@assets/icons';
+import { useDispatch } from 'react-redux';
+import { setSelectedLessonId } from '@slices/lessons-slice';
+import { useSelector } from 'react-redux';
+import { RootState } from '@store/store';
 
 
 export const LessonSidebar = () => {
@@ -13,7 +17,9 @@ export const LessonSidebar = () => {
     const [lang, setLang] = React.useState<string>('en');
     const [lessonsVisible, showLessons] = React.useState<boolean>(false);
     const [selectedChapterId, setSelectedChapterId] = React.useState<number | null>(null);
-    const [selectedLessonId, setSelectedLessonId] = React.useState<number | null>(null);
+
+    const dispatch = useDispatch();
+    const { selectedLessonId } = useSelector((state: RootState) => state.lessons);
 
     const [triggerGetChapters, { data: chaptersData, error, isLoading }] = useLazyGetChaptersQuery();
     const [triggerGetLessons, { data: lessons, isLoading: isLessonsLoading }] = useLazyGetLessonsQuery();
@@ -53,9 +59,9 @@ export const LessonSidebar = () => {
         <div className='flex flex-col gap-2 max-w-[300px] min-w-[300px]'>
             {
                 chaptersData?.data?.content?.map((chapter, i) =>
-                    <div className='flex flex-col cursor-pointer bg-white rounded-lg shadow-sm overflow-hidden'>
+                    <div className='flex flex-col cursor-pointer bg-white rounded-lg shadow-sm overflow-hidden select-none'>
                         <div
-                            className='flex hover:bg-primaryBlue py-2 px-3 chapter-group duration-300 ease-in-out transform'
+                            className='flex py-2 px-3 chapter-group hover:bg-[#F6F7FA] duration-300 ease-in-out transform'
                             onClick={() => setSelectedChapterId(chapter.id)}
                         >
                             <div className='w-full flex flex-col'>
@@ -64,7 +70,7 @@ export const LessonSidebar = () => {
                             </div>
                             <div className='flex items-center justify-center gap-2'>
                                 {i == 0 ? <MedalGrayIcon /> : <MedalIcon />}
-                                <ArrowUpIcon />
+                                <ArrowDownIcon className={`transition-transform ${selectedChapterId === chapter.id ? 'animate-rotateDown' : 'animate-rotateUp'}`} />
                             </div>
                         </div>
 
@@ -78,24 +84,13 @@ export const LessonSidebar = () => {
                                     !!lessons?.data?.content?.length && !isLessonsLoading &&
                                     lessons?.data?.content?.map((lesson, j) =>
                                         <div
-                                            // onClick={() => navigate(`/content/${courseId}/chapters/${id}/${lesson.id}`)}
-                                            className='w-full flex gap-2 text-[#515151] text-sm items-center justify-between px-3 py-2.5 bg-[#F6F7FA] hover:text-white hover:bg-primaryBlue rounded-lg group duration-300 ease-in-out transform cursor-pointer truncate-text'
+                                            onClick={() => dispatch(setSelectedLessonId(lesson.id || 0))}
+                                            className={`w-full flex gap-2 text-[#515151] text-sm items-center justify-between px-3 py-2.5 hover:text-white hover:bg-primaryBlue rounded-lg group duration-300 ease-in-out transform cursor-pointer truncate-text ${selectedLessonId == lesson.id ? 'bg-primaryBlue text-white' : 'bg-[#F6F7FA]'}`}
                                         >
-                                            <strong className='text-primaryBlue mr-1 group-hover:text-white duration-300 ease-in-out transform'>{j + 1}</strong> {lesson.name}
+                                            <strong className={`mr-1 group-hover:text-white duration-300 ease-in-out transform ${selectedLessonId == lesson.id ? 'text-white' : 'text-primaryBlue'}`}>{j + 1}</strong> {lesson.name}
                                         </div>
                                     )
                                 }
-                                {/* <button
-                                    onClick={() => setLessonCreateModal(true)}
-                                    className='w-full flex gap-2 items-center px-3 py-2 rounded-lg border-2 border-dashed group hover:border-primary hover:border-solid duration-300 ease-in-out transform'
-                                >
-                                    <PlusIcon />
-                                    <span className='text-gray-400 group-hover:text-primary'>Add lesson</span>
-                                </button>
-                                <button className='w-full flex gap-2 items-center px-3 py-2 rounded-lg border-2 border-dashed group hover:border-primary hover:border-solid duration-300 ease-in-out transform'>
-                                    <PlusIcon />
-                                    <span className='text-gray-400 group-hover:text-primary'>Add quiz</span>
-                                </button> */}
                             </div>
                         }
                     </div>

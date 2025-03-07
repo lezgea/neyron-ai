@@ -59,6 +59,7 @@ import CominIllustration from './comin.svg';
 import MedalIcon from './medal.svg';
 import MedalGrayIcon from './medal-gray.svg';
 import ArrowUpIcon from './arrow-up.svg';
+import ArrowDownIcon from './arrow-down.svg';
 
 
 export {
@@ -84,6 +85,7 @@ export {
     CominIllustration,
 
     // icons
+    ArrowDownIcon,
     ArrowUpIcon,
     MedalGrayIcon,
     MedalIcon,

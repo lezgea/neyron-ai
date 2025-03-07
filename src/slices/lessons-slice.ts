@@ -5,6 +5,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 
 interface ILessonState {
+    selectedLessonId: number | null,
     lessons: IGetLessonsListResponse | {},
     loading: boolean,
     error?: string | boolean,
@@ -13,6 +14,7 @@ interface ILessonState {
 }
 
 const initialState: ILessonState = {
+    selectedLessonId: null,
     lessons: {},
     loading: false,
     error: false,
@@ -23,7 +25,11 @@ const initialState: ILessonState = {
 const lessonsSlice = createSlice({
     name: 'lessons',
     initialState,
-    reducers: {},
+    reducers: {
+        setSelectedLessonId: (state, action: PayloadAction<number>) => {
+            state.selectedLessonId = action.payload;
+        },
+    },
     extraReducers: (builder) => {
 
         // GET LESSONS LIST QUERY
@@ -52,6 +58,6 @@ const lessonsSlice = createSlice({
     },
 });
 
-export const { } = lessonsSlice.actions;
+export const { setSelectedLessonId } = lessonsSlice.actions;
 
 export default lessonsSlice.reducer;

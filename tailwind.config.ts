@@ -106,6 +106,14 @@ const config: Config = {
           '0%': { 'background-position': '0% 50%' },
           '100%': { 'background-position': '100% 50%' },
         },
+        rotateDown: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(180deg)' },
+        },
+        rotateUp: {
+          '0%': { transform: 'rotate(180deg)' },
+          '100%': { transform: 'rotate(0deg)' },
+        },
       },
       animation: {
         'main-label': 'mainLabelAnimation 0.5s ease-in-out',
@@ -116,6 +124,8 @@ const config: Config = {
         'star': 'starAnimation 1.5s ease-in-out',
         'opacity': 'opacityAnimation 0.3s ease-in-out',
         'gradient-slide': 'gradientSlide 1.5s ease-in-out',
+        'rotateDown': 'rotateDown 0.3s ease-in-out forwards',
+        'rotateUp': 'rotateUp 0.3s ease-in-out forwards',
       },
     },
   },

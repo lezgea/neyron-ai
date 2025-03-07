@@ -21,7 +21,6 @@ import { LogoWhite } from '@assets/icons';
 const Profile: React.FC = () => {
     const t = useTranslations();
 
-
     const [hovering, setHovering] = React.useState(false);
     const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
     const [isClient, setIsClient] = React.useState<boolean>(false);

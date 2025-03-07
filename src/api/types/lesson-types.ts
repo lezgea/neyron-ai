@@ -1,9 +1,30 @@
+export interface ILesson {
+    id: number | null,
+    name: string,
+    description: string,
+    textContent: string,
+    content: {
+        id: number | null,
+        filePath: string
+    }
+}
+
+
+// REQUESTS
+
 export interface IGetLessonsListRequest {
     lang: string,
     chapterId: number | string,
     dto: { size?: number, page?: number },
 }
 
+export interface IGetLessonInfoRequest {
+    id: number,
+    lang: string,
+}
+
+
+// RESPONSES
 
 export interface IGetLessonsListResponse {
     timestamp: string,
@@ -16,13 +37,16 @@ export interface IGetLessonsListResponse {
     errors: any,
 }
 
-
-export interface ILesson {
-    id: number | null,
-    name: string,
-    description: string,
-    content: {
-        id: number | null,
-        filePath: string
-    }
+export interface IGetLessonInfoResponse {
+    timestamp: string,
+    status: number,
+    key: string,
+    message: string,
+    data: ILesson,
+    errors: [
+        {
+            field: string,
+            message: string
+        }
+    ]
 }
