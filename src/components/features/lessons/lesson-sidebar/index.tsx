@@ -61,12 +61,19 @@ export const LessonSidebar = () => {
                 chaptersData?.data?.content?.map((chapter, i) =>
                     <div className='flex flex-col cursor-pointer bg-white rounded-lg shadow-sm overflow-hidden select-none'>
                         <div
-                            className='flex py-2 px-3 chapter-group hover:bg-[#F6F7FA] duration-300 ease-in-out transform'
+                            className={`flex py-2 px-3 group hover:gray-100 duration-300 ease-in-out transform`}
                             onClick={() => setSelectedChapterId(chapter.id)}
                         >
                             <div className='w-full flex flex-col'>
-                                <div className='text-sm text-gray-400'>Chapter <span className='text-primaryBlue font-semibold'>{i + 1}</span></div>
-                                <div className='text-sm font-semibold truncate-text-1 chapter-group-hover:text-primaryBlue'>{chapter.name}</div>
+                                <div className={`text-sm text-gray-400`}>
+                                    Chapter
+                                    <span className={`text-primaryBlue font-semibold ml-1`}>
+                                        {i + 1}
+                                    </span>
+                                </div>
+                                <div className={`text-sm font-semibold truncate-text-1 group-hover:text-purpleDark text-[#2C2C30]`}>
+                                    {chapter.name}
+                                </div>
                             </div>
                             <div className='flex items-center justify-center gap-2'>
                                 {i == 0 ? <MedalGrayIcon /> : <MedalIcon />}
