@@ -30,6 +30,7 @@ const config: Config = {
         primary: '#fed33d',
         primaryDark: '#f1c42a',
         primaryBlue: '#9FB4FF',
+        primaryBlueDark: '#586cb3',
         customBlue: {
           50: '#ebf5ff',
           100: '#e1effe',

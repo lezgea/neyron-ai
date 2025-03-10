@@ -12,3 +12,4 @@ export * from './footer-terms-modal';
 export * from './text-pull-up';
 export * from './text-fade';
 export * from './description-pull-up';
+export * from './table-pagination';

@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
-import { ICoursesRequest, ICoursesResponse } from './types/course-types';
+import { ICourseInfoRequest, ICourseInfoResponse, ICoursesRequest, ICoursesResponse } from './types/course-types';
 
 
 export const coursesApi = createApi({
@@ -9,18 +9,17 @@ export const coursesApi = createApi({
     tagTypes: ['Courses'],
     endpoints: (builder) => ({
         getCourses: builder.query<ICoursesResponse, ICoursesRequest>({
-            query: ({ lang }) => ({
+            query: ({ lang, dto }) => ({
                 url: `/courses/languages`,
                 method: 'GET',
-                // params: { page: data.page, count: data.count },
+                params: dto,
                 headers: { "Accept-language": lang }
             }),
         }),
-        getCoursesInfo: builder.query<ICoursesResponse, ICoursesRequest>({
-            query: ({ lang }) => ({
-                url: `/courses/languages`,
+        getCoursesInfo: builder.query<ICourseInfoResponse, ICourseInfoRequest>({
+            query: ({ lang, id }) => ({
+                url: `/courses/${id}/info`,
                 method: 'GET',
-                // params: { page: data.page, count: data.count },
                 headers: { "Accept-language": lang }
             }),
         }),
@@ -30,4 +29,5 @@ export const coursesApi = createApi({
 
 export const {
     useLazyGetCoursesQuery,
+    useLazyGetCoursesInfoQuery,
 } = coursesApi;

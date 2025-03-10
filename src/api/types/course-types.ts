@@ -16,6 +16,7 @@ export interface ICoursesResponse {
     message: string,
     data: {
         content: ICourse[],
+        totalElements: number,
     },
     errors: [
         {
@@ -31,7 +32,30 @@ export interface ICoursesRequest {
 }
 
 
+export interface ICourseInfoRequest {
+    id: number,
+    lang: string,
+}
 
+export interface ICourseInfoResponse {
+    status: number,
+    key: string,
+    message: string,
+    data: {
+        id: number,
+        name: string,
+        description: string,
+        languageId: number,
+        image: {
+            id: number,
+            filePath: string,
+        },
+        chapterCount: number,
+        lessonCount: number,
+        published: boolean,
+        languages: {}
+    }
+}
 
 
 export interface IMessageResponse {

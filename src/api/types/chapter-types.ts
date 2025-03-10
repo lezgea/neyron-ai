@@ -12,6 +12,7 @@ export interface IGetChaptersListResponse {
     message: string,
     data: {
         content: IChapter[],
+        totalElements: number,
     },
     errors: any,
 }

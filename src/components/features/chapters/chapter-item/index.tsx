@@ -6,8 +6,10 @@ import { RootState } from "@store/store";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams, usePathname, useSearchParams } from "next/navigation";
+import { useParams, usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useSelector } from "react-redux";
+import { setSelectedChapterId } from '@slices/chapters-slice';
+import { useDispatch } from 'react-redux';
 
 
 interface IChapterProps extends IChapter {
@@ -17,9 +19,12 @@ interface IChapterProps extends IChapter {
 
 const ChapterItem: React.FC<IChapterProps> = (props) => {
     let { id, name, description, image, onClick } = props;
+
     let lng = useLocale();
     let pathname = usePathname();
+    const router = useRouter();
 
+    const dispatch = useDispatch();
     const { isAuthenticated } = useSelector((state: RootState) => state.user);
 
     const imageUrl = React.useMemo(
@@ -31,8 +36,14 @@ const ChapterItem: React.FC<IChapterProps> = (props) => {
         [image]
     );
 
+    function onClickChapter() {
+        dispatch(setSelectedChapterId(Number(id)))
+        if (isAuthenticated) router.push(`${pathname}/${id}/lessons`)
+    }
+
+    
     return (
-        <Link href={isAuthenticated ? `${pathname}/${id}/lessons` : ''} onClick={onClick} className="h-md rounded-custom_md select-none cursor-pointer overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg group active:shadow-none bg-white">
+        <div onClick={onClickChapter} className="h-md rounded-custom_md select-none cursor-pointer overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg group active:shadow-none bg-white">
             <div className="relative overflow-hidden">
                 <Image
                     src={imageUrl}
@@ -49,7 +60,7 @@ const ChapterItem: React.FC<IChapterProps> = (props) => {
                     {description}
                 </p>
             </div>
-        </Link>
+        </div>
     );
 };
 

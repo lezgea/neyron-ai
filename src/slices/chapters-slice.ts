@@ -5,6 +5,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 
 interface IChapterState {
+    selectedChapterId: number,
     chapters: ICoursesResponse | {},
     loading: boolean,
     error?: string | boolean,
@@ -13,6 +14,7 @@ interface IChapterState {
 }
 
 const initialState: IChapterState = {
+    selectedChapterId: 0,
     chapters: {},
     loading: false,
     error: false,
@@ -23,7 +25,12 @@ const initialState: IChapterState = {
 const chaptersSlice = createSlice({
     name: 'chapters',
     initialState,
-    reducers: {},
+    reducers: {
+        setSelectedChapterId: (state, action: PayloadAction<number>) => {
+            console.log('------', action.payload)
+            state.selectedChapterId = action.payload;
+        },
+    },
     extraReducers: (builder) => {
 
         // GET CHAPTERS LIST QUERY
@@ -52,6 +59,6 @@ const chaptersSlice = createSlice({
     },
 });
 
-export const { } = chaptersSlice.actions;
+export const { setSelectedChapterId } = chaptersSlice.actions;
 
 export default chaptersSlice.reducer;

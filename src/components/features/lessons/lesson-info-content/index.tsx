@@ -38,7 +38,11 @@ const LessonInfoContent: React.FC<ILessonInfoProps> = () => {
             <LessonSidebar />
 
             <div className='w-full rounded-lg overflow-hidden'>
-                <div className="flex gap-2 w-full text-xl font-semibold items-center bg-primaryBlue px-10 py-3.5">
+                <div className="flex gap-2 w-full text-sm items-center bg-gradient-to-r from-primaryBlueDark to-primaryBlue px-10 py-1 opacity-[90%]">
+                    <span className='text-white font-medium'>Chapter 1.</span>
+                    <span className='text-white'>{lessonInfo?.data?.name}</span>
+                </div>
+                <div className="flex gap-2 w-full text-xl font-semibold items-center bg-primaryBlue px-10 pt-3.5 pb-3">
                     <span className='text-[#222223]'>Lesson 1.</span>
                     <span className='text-white'>{lessonInfo?.data?.name}</span>
                 </div>

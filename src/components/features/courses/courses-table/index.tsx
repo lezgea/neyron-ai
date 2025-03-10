@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import CourseItem from '../course-item';
 import { useLazyGetCoursesQuery } from '@api/courses-api';
-import { AuthModal, NoData } from '@components/shared';
+import { AuthModal, NoData, TablePagination } from '@components/shared';
 
 
 interface ICoursesTable {
@@ -25,10 +25,12 @@ export const CoursesTable: React.FC<ICoursesTable> = () => {
     const { loading: coursesLoading } = useSelector((state: RootState) => state.courses);
 
     const [showAuthModal, setShowAuthModal] = React.useState<boolean>(false);
-    const [currentPage, setCurrentPage] = useState(0);
-    const [totalPages, setTotalPages] = useState(1);
+    const [currentPage, setCurrentPage] = React.useState(0);
+    const [totalPages, setTotalPages] = React.useState(1);
+    const [totalElems, setTotalElems] = React.useState(1);
     const [triggerGetCourses, { data: courses, error, isLoading }] = useLazyGetCoursesQuery();
 
+    let itemsPerPage = 6
 
     const onClickCourse = (e: any) => {
         if (isAuthenticated) {
@@ -42,16 +44,16 @@ export const CoursesTable: React.FC<ICoursesTable> = () => {
     React.useEffect(() => {
         triggerGetCourses({
             lang: lng,
-            dto: {}
+            dto: { page: currentPage, size: itemsPerPage },
         }).then((response) => {
-            // if (response?.data?.totalCount) {
-            //     setTotalPages(Math.ceil(response.data.totalCount / itemsPerPage));
-            //     setTotalElems(response?.data?.totalCount);
-            // } else {
-            //     setTotalPages(1)
-            // }
+            if (response?.data?.data?.totalElements) {
+                setTotalPages(Math.ceil(response?.data?.data?.totalElements / itemsPerPage));
+                setTotalElems(response?.data?.data?.totalElements);
+            } else {
+                setTotalPages(1)
+            }
         });
-    }, [lng]);
+    }, [lng, currentPage, triggerGetCourses]);
 
 
     const onPageChange = (page: number) => {
@@ -85,6 +87,7 @@ export const CoursesTable: React.FC<ICoursesTable> = () => {
                     />
                 ))}
             </div>
+            <TablePagination currentPage={currentPage} totalPages={totalPages} onPageChange={onPageChange} />
 
             <AuthModal
                 visible={showAuthModal}

@@ -8,7 +8,8 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useLazyGetChaptersQuery } from '@api/chapters-api';
 import ChapterItem from '../chapter-item';
-import { NoData } from '@components/shared';
+import { NoData, TablePagination } from '@components/shared';
+import { setSelectedChapterId } from '@slices/chapters-slice';
 
 
 interface IChaptersTable {
@@ -26,8 +27,9 @@ export const ChaptersTable: React.FC<IChaptersTable> = () => {
     const { loading: coursesLoading } = useSelector((state: RootState) => state.courses);
 
     const [showAuthModal, setShowAuthModal] = React.useState<boolean>(false);
-    const [currentPage, setCurrentPage] = useState(0);
-    const [totalPages, setTotalPages] = useState(1);
+    const [currentPage, setCurrentPage] = React.useState(0);
+    const [totalPages, setTotalPages] = React.useState(1);
+    const [totalElems, setTotalElems] = React.useState(1);
     const [triggerGetChapters, { data: chapters, error, isLoading }] = useLazyGetChaptersQuery();
 
     const itemsPerPage = 6;
@@ -37,9 +39,14 @@ export const ChaptersTable: React.FC<IChaptersTable> = () => {
             triggerGetChapters({
                 lang: lng,
                 courseId: courseId as string,
-                dto: {}
+                dto: { page: currentPage, size: itemsPerPage },
             }).then((response) => {
-
+                if (response?.data?.data?.totalElements) {
+                    setTotalPages(Math.ceil(response?.data?.data?.totalElements / itemsPerPage));
+                    setTotalElems(response?.data?.data?.totalElements);
+                } else {
+                    setTotalPages(1)
+                }
             });
         } catch (err: any) {
             console.log('Error: ', err)
@@ -75,16 +82,11 @@ export const ChaptersTable: React.FC<IChaptersTable> = () => {
     return (
         <>
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
-
                 {chapters?.data?.content?.map((item, i) => (
-                    <ChapterItem
-                        key={i}
-                        {...item}
-                        onClick={() => { }}
-                    // onClick={onClickCompetition}
-                    />
+                    <ChapterItem key={i} {...item} />
                 ))}
             </div>
+            <TablePagination currentPage={currentPage} totalPages={totalPages} onPageChange={onPageChange} />
         </>
     );
 };
